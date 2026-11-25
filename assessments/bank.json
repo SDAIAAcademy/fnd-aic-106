@@ -3,139 +3,260 @@
   "version": 1,
   "questions": [
     {
-      "id": "q-example-1",
+      "id": "q-reader-01",
       "type": "single",
-      "prompt": "REPLACE: a practice question on LO1, as a short scenario",
-      "options": [
-        "REPLACE: a wrong option that a common misconception makes tempting",
-        "REPLACE: the right answer",
-        "REPLACE: a wrong option that a common misconception makes tempting",
-        "REPLACE: a wrong option that a common misconception makes tempting"
-      ],
-      "correct": [
-        1
-      ],
-      "explanation": "REPLACE: why the right answer is right, in one sentence",
-      "misconceptions": [
-        "REPLACE: the misconception behind this option",
-        "",
-        "REPLACE: the misconception behind this option",
-        "REPLACE: the misconception behind this option"
-      ],
       "lo": [
         "LO1"
       ],
       "day": "day1",
       "session": 1,
-      "level": "apply",
+      "slide": "five-documents",
+      "level": "understand",
+      "prompt": "The clinics' pharmacy team ran a second forecast test with new settings. Next quarter an analyst who was not there must repeat the run and compare it with the next one. Which document does that analyst need?",
+      "options": [
+        "A decision memo on the new settings",
+        "An experiment report of the run",
+        "A README for the forecast code",
+        "A system card for the forecast"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "The reader must repeat and compare a run, so they need its setup, data, results and uncertainty: an experiment report.",
+      "misconceptions": [
+        "Writes for a decision maker, but nobody is choosing between options here",
+        "",
+        "Tells a stranger how to install and run the code, not what this run used and found",
+        "Tells a user how far to rely on a system, not how to repeat one run"
+      ],
       "pool": "practice",
       "weight": 1
     },
     {
-      "id": "q-example-2",
-      "type": "tf",
-      "prompt": "REPLACE: a statement on LO2 that is true",
+      "id": "q-reader-02",
+      "type": "single",
+      "lo": [
+        "LO1"
+      ],
+      "day": "day1",
+      "session": 1,
+      "slide": "bluf-before-after",
+      "level": "apply",
+      "prompt": "A data team asks the finance manager for 20 hours of staff time to label new records before the end of the month. Which opening sentence puts the bottom line first?",
       "options": [
-        "True",
-        "False"
+        "Since the summer we have reviewed our labelled records several times.",
+        "Our labelled records have some problems that we would like to explain.",
+        "Please approve 20 hours of labelling time before the end of the month.",
+        "We think more labels would help, if time allows."
       ],
       "correct": [
-        0
+        2
       ],
-      "explanation": "REPLACE: why the right answer is right, in one sentence",
+      "explanation": "It states the request, its size and its deadline in the first sentence, so the reader can act on it alone.",
       "misconceptions": [
+        "Starts in the writer's order, with history the reader does not need first",
+        "Announces an explanation instead of giving the request",
         "",
-        "REPLACE: the misconception behind this option"
+        "Hedges the request and leaves out its size and date"
       ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-reader-03",
+      "type": "single",
+      "lo": [
+        "LO1"
+      ],
+      "day": "day1",
+      "session": 1,
+      "slide": "uncertainty-in-words",
+      "level": "apply",
+      "prompt": "A model found 18 of 20 flagged cases in a small test, 0.90, with a 95% interval from 0.70 to 0.97. Which sentence states the result honestly for a manager?",
+      "options": [
+        "The model is significantly better than our old method.",
+        "The model finds 90% of cases.",
+        "The model performs quite well on flagged cases.",
+        "It found 18 of 20; on so few cases the true rate could be as low as 0.70."
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "It gives the count and what the small sample allows, so the manager sees both the rate and how far to trust it.",
+      "misconceptions": [
+        "Uses a word that sounds measured but names no number or test",
+        "Reports the point estimate as a fact and hides that it rests on 20 cases",
+        "Replaces the measurement with a hedge",
+        ""
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-readme-01",
+      "type": "single",
       "lo": [
         "LO2"
       ],
       "day": "day1",
-      "session": 1,
-      "level": "understand",
-      "pool": "practice",
-      "weight": 1
-    },
-    {
-      "id": "q-example-3",
-      "type": "single",
-      "prompt": "REPLACE: a practice question on LO3, as a short scenario",
-      "options": [
-        "REPLACE: a wrong option that a common misconception makes tempting",
-        "REPLACE: the right answer",
-        "REPLACE: a wrong option that a common misconception makes tempting",
-        "REPLACE: a wrong option that a common misconception makes tempting"
-      ],
-      "correct": [
-        1
-      ],
-      "explanation": "REPLACE: why the right answer is right, in one sentence",
-      "misconceptions": [
-        "REPLACE: the misconception behind this option",
-        "",
-        "REPLACE: the misconception behind this option",
-        "REPLACE: the misconception behind this option"
-      ],
-      "lo": [
-        "LO3"
-      ],
-      "day": "day1",
-      "session": 1,
+      "session": 2,
+      "slide": "commands-exactly",
       "level": "apply",
-      "pool": "practice",
-      "weight": 1
-    },
-    {
-      "id": "q-example-4",
-      "type": "tf",
-      "prompt": "REPLACE: a statement on LO4 that is true",
+      "prompt": "A README's run step works on a fresh copy and prints several lines. What should the README add so a stranger knows the project works, not only that it ran?",
       "options": [
-        "True",
-        "False"
+        "The exact line a working check prints, to compare with the screen",
+        "A sentence saying the project has been tested",
+        "A screenshot of the writer's terminal",
+        "The names of the people who wrote the code"
       ],
       "correct": [
         0
       ],
-      "explanation": "REPLACE: why the right answer is right, in one sentence",
+      "explanation": "An expected output line is something the stranger, or a test, can compare with what they see.",
       "misconceptions": [
         "",
-        "REPLACE: the misconception behind this option"
+        "Asserts a result the reader cannot check",
+        "Shows one run on one laptop, which goes stale and cannot be compared line by line",
+        "Tells the reader whom to ask, not whether it works"
       ],
-      "lo": [
-        "LO4"
-      ],
-      "day": "day1",
-      "session": 1,
-      "level": "understand",
       "pool": "practice",
       "weight": 1
     },
     {
-      "id": "q-example-5",
+      "id": "q-readme-02",
       "type": "single",
-      "prompt": "REPLACE: a practice question on LO5, as a short scenario",
+      "lo": [
+        "LO2"
+      ],
+      "day": "day1",
+      "session": 2,
+      "slide": "clean-run",
+      "level": "analyze",
+      "prompt": "A partner following your README on a clean copy writes in the run log: \"Step 2 says configure the tool. I did not know what to do and copied a file I guessed.\" What is the best fix?",
       "options": [
-        "REPLACE: a wrong option that a common misconception makes tempting",
-        "REPLACE: the right answer",
-        "REPLACE: a wrong option that a common misconception makes tempting",
-        "REPLACE: a wrong option that a common misconception makes tempting"
+        "Ask the partner to read more carefully next time",
+        "Add a link to the configuration library's documentation",
+        "Replace the step with the exact command that creates the file, and the file's name",
+        "Move the configuration step to the end of the README"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "The README must say exactly what to type; the partner's hesitation shows where it did not.",
+      "misconceptions": [
+        "Blames the tester for a gap the document has",
+        "Sends the stranger to general documentation instead of the one step this project needs",
+        "",
+        "Changes the order but still leaves the step unstated"
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-readme-03",
+      "type": "single",
+      "lo": [
+        "LO2"
+      ],
+      "day": "day1",
+      "session": 2,
+      "slide": "decision-record",
+      "level": "understand",
+      "prompt": "Two years from now a developer asks why the project reads its settings from a file instead of environment variables. Where should the answer have been kept?",
+      "options": [
+        "In a comment on the line that reads the file",
+        "In a decision record in the repository",
+        "In the README's install section",
+        "In the minutes of the meeting that decided it"
       ],
       "correct": [
         1
       ],
-      "explanation": "REPLACE: why the right answer is right, in one sentence",
+      "explanation": "A decision record keeps one decision with its context and consequences beside the code, where a later reader finds it.",
       "misconceptions": [
-        "REPLACE: the misconception behind this option",
+        "Records what the code does, not the alternatives and reasons behind the choice",
         "",
-        "REPLACE: the misconception behind this option",
-        "REPLACE: the misconception behind this option"
+        "Tells a stranger how to install, not why the design is as it is",
+        "Keeps the reasons outside the repository, where the next developer will not look"
       ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-memo-01",
+      "type": "single",
       "lo": [
-        "LO5"
+        "LO3"
       ],
       "day": "day1",
-      "session": 1,
+      "session": 3,
+      "slide": "conditions",
       "level": "apply",
+      "prompt": "A memo recommends a forecast method that costs SAR 4.00 a run inside a SAR 30 monthly budget, with four runs a month. Which line belongs under \"What would change this\"?",
+      "options": [
+        "If the method stops being the best available, we will review it.",
+        "We are confident the method will keep working well.",
+        "If the team has concerns, we can discuss them at the next meeting.",
+        "If runs pass seven a month, the cost passes the SAR 30 budget."
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "It names a measurable line, from the budget and the price, that a later reader can check; 8 runs at SAR 4.00 is SAR 32.",
+      "misconceptions": [
+        "Names no measure: nobody can tell when it has happened",
+        "Is a reassurance, not a condition",
+        "Defers to a meeting instead of stating what would change the decision",
+        ""
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-memo-02",
+      "type": "single",
+      "lo": [
+        "LO3"
+      ],
+      "day": "day1",
+      "session": 3,
+      "slide": "requirement-first",
+      "level": "evaluate",
+      "prompt": "The reader needs at least 0.85 recall within SAR 200 a month. Option X: recall 0.91 (0.86 to 0.95), SAR 260 a month. Option Y: recall 0.87 (0.80 to 0.92), SAR 90 a month. Which recommendation argues from the requirements?",
+      "options": [
+        "Y: it is likely to meet 0.85 and fits the budget; X has the higher recall but breaks the budget.",
+        "X: it has the highest recall, so it is the best option.",
+        "Y: it is cheaper, so recall does not need to be discussed.",
+        "Neither: no interval lies wholly above 0.85."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "It tests both options against both requirements and states the trade-off, including the doubt on Y's recall.",
+      "misconceptions": [
+        "",
+        "Picks the best score and ignores the budget the reader set",
+        "Picks on cost alone and drops the requirement that matters",
+        "Treats an interval that crosses the line as a failure, although X's lies above 0.85 and Y's point estimate meets it"
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-memo-03",
+      "type": "numeric",
+      "lo": [
+        "LO3"
+      ],
+      "day": "day1",
+      "session": 3,
+      "slide": "trace-numbers",
+      "level": "apply",
+      "prompt": "A comparison gives a cost of SAR 12.40 per 1,000 messages. The clinic receives about 6,000 messages a month. What monthly cost, in SAR, goes in the memo, with its working on a Working line?",
+      "answer": 74.4,
+      "tolerance": 0.05,
+      "unit": "SAR",
+      "explanation": "6,000 / 1,000 x 12.40 = 74.40. The working line lets the reviewer check the number in seconds.",
       "pool": "practice",
       "weight": 1
     }

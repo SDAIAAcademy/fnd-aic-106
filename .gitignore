@@ -34,3 +34,9 @@ __pycache__/
 .DS_Store
 Thumbs.db
 /*.log
+
+# Lab working folders and the tagger's local files
+labs/work/
+labs/files/urgency-tagger/config.toml
+labs/files/urgency-tagger/out/
+labs/files/urgency-tagger/uv.lock

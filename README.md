@@ -36,7 +36,9 @@ Participants write the documents that data and AI work runs on: a README, a desi
 
 ## Case study
 
-**REPLACE: the name of the fictional organisation every lab works on.** REPLACE: two sentences on the case study and its synthetic data
+**Tarthuth Veterinary Clinics** is a fictional private chain of veterinary clinics. Its two-person data team built a small Python project, the request urgency tagger, which sorts owners' appointment messages in Arabic, English and mixed text into urgent, soon and routine, and never wrote its documents. Every lab writes one of them from the project's own files.
+
+Every file is synthetic and generated with a fixed seed (`labs/_tools/make_case.py`): the messages, a 400-message test set, the recorded outputs of a keyword-rules baseline and of two hosted models labelled Model S and Model L, their cost and latency, and the evaluation logs. No model was called to make them: the keyword rules are real code that runs, and the two models' outputs are simulated and recorded. The organisation, its roles and its data do not describe any real clinic. People appear by role only; owners, animals and messages by code.
 
 <!-- academy:labs -->
 ## Labs
@@ -99,5 +101,5 @@ Each line is a capability; the examples are interchangeable.
 
 ### National references
 
-- SDAIA AI Ethics Principles: REPLACE: the address of the official text
-- SDAIA generative AI guidelines: REPLACE: the address of the official text
+- SDAIA AI Ethics Principles: <https://sdaia.gov.sa/en/SDAIA/about/Documents/ai-principles.pdf> (Arabic: <https://sdaia.gov.sa/ar/SDAIA/about/Documents/ai-principles.pdf>)
+- SDAIA Generative Artificial Intelligence Guidelines for Government: <https://sdaia.gov.sa/en/SDAIA/about/Files/GenAIGuidelinesForGovernmentENCompressed.pdf> (Arabic: <https://sdaia.gov.sa/ar/SDAIA/about/Files/GenAIGuidelinesForGovernmentARCompressed.pdf>)

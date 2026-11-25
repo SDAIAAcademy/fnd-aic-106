@@ -1,0 +1,6 @@
+[project]
+name = "urgency-tagger"
+version = "0.3.0"
+description = "Tags owners' appointment messages as urgent, soon or routine"
+requires-python = ">=3.11"
+dependencies = []

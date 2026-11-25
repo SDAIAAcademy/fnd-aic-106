@@ -1,0 +1,9 @@
+term_en,term_ar,avoid,definition
+urgent,عاجل,critical;emergency;emergencies,The tag for a message that a veterinarian must see the same day
+soon,قريب,semi-urgent,The tag for a message that needs a visit within a few days
+routine,اعتيادي,normal;non-urgent,The tag for a planned visit such as a vaccination or a check-up
+urgent recall,استدعاء الحالات العاجلة,catch rate;sensitivity;hit rate,The share of truly urgent messages that the tagger tags as urgent
+test set,مجموعة الاختبار,eval set;benchmark,The labelled messages kept aside to measure the tagger and never used to build it
+interval,فترة الثقة,margin;error bar,The range of values the measured rate is likely to fall in; this course uses the 95% interval
+tagger,المصنّف,classifier;bot;AI system,The request urgency tagger of the data team
+message,رسالة,ticket;case;request text,What an owner writes through the web form or what the front desk types from a call

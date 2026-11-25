@@ -1,158 +1,482 @@
 <section class="slide title" id="title" data-auto="title">
-  <aside class="notes">REPLACE: welcome; introduce yourself; one question to the room that calibrates the pace; the rhythm of the day</aside>
+  <aside class="notes"><p>Welcome. Introduce yourself, then ask the room one calibrating question: "Who has followed a README that did not work, and how long did it cost you?" The rhythm of the day: three sessions, each with a long writing lab of an hour; breaks when the room needs them (B). The case all day is Tarthuth Veterinary Clinics, a fictional chain whose two-person data team built a small Python project and never wrote its documents.</p></aside>
 </section>
 
 <section class="slide" id="agenda" data-auto="agenda"></section>
+
+<section class="slide" id="setup-check">
+  <div class="kicker">Before the first lab</div>
+  <h2>Clone the course, open the labs folder and run the setup check</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>Clone the course repository, open a terminal in its <code>labs</code> folder.</li>
+      <li>Run <code>uv run kit/setup_check.py</code>: uv fetches Python 3.11 or later if it is missing.</li>
+      <li>You write every file of the day in <code>labs/work/</code>, which git ignores.</li>
+      <li>No account, no key, no model download: the tools read and check text on your laptop.</li>
+    </ul>
+    <div class="card c-teal"><h4>What proves it works</h4><p class="small mb0">The last line reads <code>setup: ok</code>. Any line that starts with <code>missing:</code> names a file to fetch again.</p></div>
+  </div>
+  <aside class="notes"><p>Give the room five minutes. Typical failures: uv not installed (point to the uv installation page; one command), a corporate proxy that blocks the Python download (pair the participant with a neighbour for the first lab), and a terminal opened in the repository root instead of <code>labs</code>. Every file in the labs is synthetic and Public, so nothing here needs a classification decision.</p></aside>
+</section>
 
 <!-- Session 1 -->
 
 <section class="slide section" id="s1" data-auto="section" data-session="1"></section>
 
-<section class="slide" id="s1-idea">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
-    </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
+<section class="slide" id="reader-first" data-lo="LO1">
+  <div class="kicker">Before you write</div>
+  <h2>Name the reader and their decision before you pick a document</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Who reads?</h4><p class="small mb0">One person, by role: the operations director, a new developer, the head of reception. "Everyone" is nobody.</p></div>
+    <div class="card c-cyan"><h4>What will they do?</h4><p class="small mb0">Install, approve, choose, repeat, rely. The verb decides the document and its first line.</p></div>
+    <div class="card c-coral"><h4>What do they know?</h4><p class="small mb0">You know the project too well to see its gaps: write for what the reader already knows, not for you.</p></div>
   </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+  <div class="callout warn mt"><b>What goes wrong.</b> A document written for "the stakeholders" answers nobody's question and buries the one decision someone has to make.</div>
+  <aside class="notes"><p>Ask the room to name the last document they wrote and its one reader. Most will name two or three. The third card is what Google's Technical Writing One course calls the curse of knowledge: the writer cannot unsee what they know. Sources: developers.google.com/tech-writing/one.</p></aside>
 </section>
 
-<section class="slide" id="s1-steps">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+<section class="slide" id="five-documents" data-lo="LO1">
+  <div class="kicker">Documents for data and AI work</div>
+  <h2>Five documents, five readers, five jobs</h2>
+  <table class="t small">
+    <tr><th>Document</th><th>Its reader</th><th>The reader then</th><th>It cannot do without</th></tr>
+    <tr><td>README</td><td>A stranger to the project</td><td>installs, runs and checks it</td><td>exact commands and what success prints</td></tr>
+    <tr><td>Design document</td><td>An approver, before code</td><td>approves, changes or refuses</td><td>alternatives and risks</td></tr>
+    <tr><td>Decision memo</td><td>A decision maker</td><td>signs one option</td><td>trade-offs and what would change it</td></tr>
+    <tr><td>Experiment report</td><td>The team, now and later</td><td>repeats and compares</td><td>the setup and the uncertainty</td></tr>
+    <tr><td>Model or system card</td><td>A user of the system</td><td>decides how far to rely on it</td><td>intended use, slices, limits</td></tr>
+  </table>
+  <aside class="notes"><p>This is the map for the whole course: each later session writes one of these. Lab 1.1 gives five requests without naming the document; participants decide which one each reader needs. A system card describes a whole system (the tagger with its queue and the people around it); a model card describes one model. Do not argue about the name in the lab: the sections matter.</p></aside>
+</section>
+
+<section class="slide" id="bluf-before-after" data-lo="LO1">
+  <div class="kicker">Bottom line first</div>
+  <h2>Put what the reader must do in the first two sentences</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>As sent</h4><p class="small mb0">"Since the spring the pharmacy team has looked at several ways of forecasting reorders. We first tried a seasonal average, which was generally fine, then a boosted-tree model, which seems better on most weeks. ... So we would like to buy a quarter of model runs."</p></div>
+    <div class="card c-teal"><h4>Bottom line first</h4><p class="small mb0">"Please approve SAR 46 for one quarter of weekly forecast runs with Method B. In 60 past weeks when a medicine ran out, it flagged 52 in advance; the current method flagged 41."</p></div>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <div class="callout tip mt"><b>Test.</b> If the reader stopped after the first paragraph, could they act?</div>
+  <aside class="notes"><p>This is a parallel example from the clinics' pharmacy team, not lab data; the figures come from <code>labs/_tools/slide_examples.py</code> (SAR 15.17 a month for weekly runs, so about SAR 46 a quarter). Read the left card aloud and ask when the room learnt what was being asked. Then the right one. The detail is not deleted: it moves below.</p></aside>
+</section>
+
+<section class="slide" id="bluf-shape" data-lo="LO1">
+  <div class="kicker">The shape</div>
+  <h2>Decision, then reasons, then detail, then next step</h2>
+  <div class="flow">
+    <div class="step c-navy"><b>1 · Bottom line</b>the request or the finding, with its size and date</div>
+    <div class="arrow frag" data-frag="b">→</div><div class="step c-teal frag" data-frag="b"><b>2 · Why</b>the two or three facts it rests on</div>
+    <div class="arrow frag" data-frag="c">→</div><div class="step c-cyan frag" data-frag="c"><b>3 · Detail</b>method, numbers, caveats, for whoever reads on</div>
+    <div class="arrow frag" data-frag="d">→</div><div class="step c-coral frag" data-frag="d"><b>4 · Next</b>what happens after the reader acts</div>
+  </div>
+  <div class="callout note mt frag" data-frag="d"><b>Headings help.</b> A reader who scans the headings alone should get the argument.</div>
+  <aside class="notes"><p>Press once per step. The chronological order (what we did first, then next) is the writer's order; this is the reader's order. In lab 1.1 the status update is written in the writer's order: the request is in its last paragraph.</p></aside>
+</section>
+
+<section class="slide" id="glossary" data-lo="LO1">
+  <div class="kicker">Arabic and English glossaries</div>
+  <h2>One term, one meaning, in both languages</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>A reader who meets <b>run-out</b>, <b>stock-out</b> and <b>shortage</b> wonders if they are three things.</li>
+      <li>Agree the term once, with its Arabic pair and the words to avoid.</li>
+      <li>Keep the glossary in the repository, beside the documents that use it.</li>
+      <li>A checker can then flag every word to avoid, in every document.</li>
+    </ul>
+    <table class="t small">
+      <tr><th>term_en</th><th>term_ar</th><th>avoid</th></tr>
+      <tr><td>run-out</td><td><span class="ar" lang="ar" dir="rtl">نفاد المخزون</span></td><td>stock-out; shortage</td></tr>
+      <tr><td>reorder</td><td><span class="ar" lang="ar" dir="rtl">إعادة الطلب</span></td><td>top-up; refill</td></tr>
+    </table>
+  </div>
+  <aside class="notes"><p>The pharmacy rows are a parallel example. The lab's glossary has eight rows for the tagger, with Arabic terms the course uses in its Arabic edition too. Ask an Arabic speaker in the room for a second Arabic rendering of "run-out" and show why the glossary has to pick one.</p></aside>
+</section>
+
+<section class="slide" id="uncertainty-in-words" data-lo="LO1">
+  <div class="kicker">Uncertainty in plain words</div>
+  <h2>Say how sure you are, and on how many cases</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Says nothing</h4><p class="small mb0">"Method B is significantly better at catching run-outs."</p></div>
+    <div class="card c-teal"><h4>Says how sure</h4><p class="small mb0">"Method B flagged 52 of 60 past run-outs (0.87). With 60 cases, the 95% interval runs from 0.76 to 0.93."</p></div>
+  </div>
+  <ul class="bullets mt">
+    <li>The count tells the reader how much evidence there is; the interval tells them how far to trust the rate.</li>
+    <li>On nine cases, 7 of 9 (0.78) has an interval from 0.45 to 0.94: say so, or do not report the rate.</li>
+  </ul>
+  <aside class="notes"><p>Figures from <code>labs/_tools/slide_examples.py</code>, using the Wilson interval that the tagger's own code computes. How to compute an interval belongs to FND-AIC-103; this course is about writing it so a non-specialist reads it right. "Significantly" means "statistically tested" to some readers and "a lot" to others: avoid it unless you mean the first and say which test.</p></aside>
+</section>
+
+<section class="slide" id="hedges" data-lo="LO1">
+  <div class="kicker">Hedges</div>
+  <h2>Replace a hedge with a number, a condition or "not measured"</h2>
+  <table class="t small">
+    <tr><th>Hedge</th><th>Replace with</th></tr>
+    <tr><td>"quite good", "generally fine"</td><td>the rate and its count: 41 of 60</td></tr>
+    <tr><td>"seems better"</td><td>the difference, and whether the intervals overlap</td></tr>
+    <tr><td>"should be enough"</td><td>the condition: enough if at least 20 new cases are urgent</td></tr>
+    <tr><td>"no issues"</td><td>what was checked: 60 weeks, no missing values</td></tr>
+    <tr><td>"probably fine for other branches"</td><td>"not measured on other branches"</td></tr>
+  </table>
+  <div class="callout tip mt"><b>"Not measured" is a finding.</b> It tells the reader where the evidence stops.</div>
+  <aside class="notes"><p>Ask the room for the hedge they use most. The lab's checker flags a list of hedges in any sentence that has no number, as a style linter would; Vale is a real tool that does this with rules written in YAML (docs.vale.sh). The checker is a prompt to look again, not a verdict: a hedge beside a number can be honest.</p></aside>
+</section>
+
+<section class="slide" id="peer-review" data-lo="LO1">
+  <div class="kicker">Rubric-based peer review</div>
+  <h2>Review against the rubric, the text and the reader, not the writer</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Score each line</h4><p class="small mb0">0, 1 or 2 against criteria written before anyone wrote: no overall impression.</p></div>
+    <div class="card c-cyan"><h4>Quote the words</h4><p class="small mb0">"Paragraph 2: 'quite well'": the writer can find it and fix it.</p></div>
+    <div class="card c-coral"><h4>One strength, one change</h4><p class="small mb0">At least one of each, so the writer knows what to keep.</p></div>
+  </div>
+  <div class="callout note mt"><b>Read as the reader.</b> Pretend you are the operations director with two minutes, not a fellow writer with a red pen.</div>
+  <aside class="notes"><p>Peer review is 10% of the course assessment: participants are scored on the reviews they give, in the labs and at the follow-up. A good review quotes the text and names the criterion. Show the four-line rubric of lab 1.1 on the lab page before the lab starts.</p></aside>
+</section>
+
+<section class="slide" id="check-reader" data-lo="LO1">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which document does this reader need?</h2>
+  <div class="quiz" data-type="single" data-lo="LO1">
+    <p class="lead">The pharmacy team wants to add a second supplier feed to its forecast. Before anyone writes code, the finance manager must approve, change or refuse the plan, and wants to know what else was considered and what could go wrong.</p>
+    <div class="opts">
+      <div class="opt" data-why="Treats the reader as someone who will run the code; the finance manager approves before any code exists">A README for the forecast repository</div>
+      <div class="opt" data-ok>A design document with alternatives and risks</div>
+      <div class="opt" data-why="Reports a run that has not happened yet: there are no results to repeat or compare">An experiment report on the new feed</div>
+      <div class="opt" data-why="Describes how far to rely on a running system; nothing is running yet">A system card for the forecast</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> The reader approves a plan before code, and asks for alternatives and risks: that is the design document's job.</div>
+  </div>
+  <aside class="notes"><p>Answer: B. If the room splits towards the decision memo idea, point out that the finance manager approves one plan rather than choosing among measured options; a memo needs measured options. If many pick A, return to the five-documents table.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-1-1" data-auto="lab" data-lab="1.1">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p><b>AI-tutor:</b> an approved assistant may comment on outline structure; the rewrite is written by hand. Walk the room during step 2: the common miss is scenario 2, outlined as a feature description without alternatives or risks. In step 4, watch for rewrites that delete the uncertainty instead of stating it with the counts the update gives. Nothing here builds on another lab.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-1" data-lo="LO1">
+  <div class="kicker">Lab 1.1 debrief</div>
+  <h2>The update as sent had its request in the last paragraph and 12 findings</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li><b>Request last:</b> six hours of reception time appeared only in the closing paragraph.</li>
+      <li><b>Four drifts:</b> critical, emergency, catch rate and sensitivity, where the glossary says urgent and urgent recall.</li>
+      <li><b>Hedges:</b> "quite well", "significantly better", with numbers available.</li>
+      <li><b>Length:</b> 339 words, sentences of 24 words on average.</li>
+    </ul>
+    <div class="card c-teal"><h4>The uncertainty, stated</h4><p class="small mb0">80 urgent messages left after the clean-up: on 80 cases a recall of 0.80 has a 95% interval from 0.70 to 0.87.</p></div>
+  </div>
+  <aside class="notes"><p>Show after the lab only. Counts from <code>uv run solutions/check_D1_1.py</code> on the supplied update. Ask two participants to read their first paragraph aloud; the room says whether the director could act on it. Then compare five outlines with the reference structures (README, design document, decision memo, experiment report, model or system card).</p></aside>
 </section>
 
 <!-- Session 2 -->
 
 <section class="slide section" id="s2" data-auto="section" data-session="2"></section>
 
-<section class="slide" id="s2-idea">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
-    </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
+<section class="slide" id="readme-job" data-lo="LO2">
+  <div class="kicker">A README's job</div>
+  <h2>A stranger installs, runs and checks the project without asking anyone</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Install</h4><p class="small mb0">Every command as typed, from which folder, with the versions it needs and any file to create.</p></div>
+    <div class="card c-cyan"><h4>Run</h4><p class="small mb0">The one command that does the project's job on supplied data, and where the output goes.</p></div>
+    <div class="card c-coral"><h4>Check</h4><p class="small mb0">The tests, and the exact line they print when all is well: "it ran" is not "it works".</p></div>
   </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+  <div class="callout note mt"><b>Then the rest.</b> What it is for and not for, where things are, its limits and its owner.</div>
+  <aside class="notes"><p>Ask: what is the first thing you look for in a repository you have never seen? Usually "how do I run it". A README that opens with the project's history fails the bottom-line test of session 1. The owner line matters: a stranger needs to know whom to tell when it breaks.</p></aside>
 </section>
 
-<section class="slide" id="s2-steps">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+<section class="slide" id="what-strangers-guess" data-lo="LO2">
+  <div class="kicker">What the writer forgets</div>
+  <h2>A stranger stops at the steps the writer does without thinking</h2>
+  <ul class="bullets">
+    <li><b>The language version</b> the code needs, and how to get it.</li>
+    <li><b>A file to create:</b> a settings file copied from an example, an empty folder.</li>
+    <li><b>The folder</b> a command runs from.</li>
+    <li><b>The real command,</b> when an old note names a script that no longer exists.</li>
+    <li><b>What success looks like:</b> the line a working run prints.</li>
+  </ul>
+  <div class="callout warn mt"><b>What goes wrong.</b> The writer tests the README on their own laptop, where every one of these is already true.</div>
+  <aside class="notes"><p>These are the usual gaps of any small project; the urgency tagger has several of them, and lab 1.2 finds which. Do not tell the room which ones the tagger has: the first step of the lab is to try it and list what you had to guess.</p></aside>
+</section>
+
+<section class="slide" id="commands-exactly" data-lo="LO2">
+  <div class="kicker">Commands as typed</div>
+  <h2>Show the command and the line it must print</h2>
+  <pre class="code" data-file="README.md"><code class="language-markdown">## Run
+
+Forecast next week's reorders from the 60 sample weeks:
+
+```sh
+uv run python -m reorder forecast data/sample_weeks.csv
+```
+
+```text
+forecast: 60 weeks read, 14 medicines flagged
+```</code></pre>
+  <div class="callout tip mt"><b>The text block is a promise.</b> A reader, or a test, compares it with what the screen shows.</div>
+  <aside class="notes"><p>The pharmacy forecast is a parallel example; it is not in the course files. Point at the two fenced blocks: <code>sh</code> for what you type, <code>text</code> for what you should see. The lab's clean-run tool reads exactly these two kinds of block: it runs the first and looks for the second's lines in the output.</p></aside>
+</section>
+
+<section class="slide" id="four-forms" data-lo="LO2">
+  <div class="kicker">Not everything in one file</div>
+  <h2>A README points to the other kinds of documentation</h2>
+  <div class="cols cols-4">
+    <div class="card c-teal"><h4>Tutorial</h4><p class="small mb0">Learning by doing, step by step.</p></div>
+    <div class="card c-cyan"><h4>How-to guide</h4><p class="small mb0">One task, for someone who knows the basics.</p></div>
+    <div class="card c-coral"><h4>Reference</h4><p class="small mb0">Every option and field, to look up.</p></div>
+    <div class="card c-purple"><h4>Explanation</h4><p class="small mb0">Why it works the way it does.</p></div>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <div class="callout note mt"><b>The README is a front door:</b> install, run, check, then links to the rest.</div>
+  <aside class="notes"><p>These four forms are the Diátaxis framework (diataxis.fr). A small project rarely needs all four; the point is not to cram a tutorial, a reference and an explanation into the README. For the tagger the design document is the explanation and the CLI help is the reference.</p></aside>
+</section>
+
+<section class="slide" id="design-document" data-lo="LO1 LO2">
+  <div class="kicker">Design document</div>
+  <h2>A design document is written before the code, for the person who approves it</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li><b>Summary:</b> the change and the decision asked for.</li>
+      <li><b>Problem and goals,</b> and what is out of scope.</li>
+      <li><b>The design,</b> with a diagram of what flows where.</li>
+      <li><b>Alternatives</b> and why not.</li>
+      <li><b>Risks</b> and failure cases, with what catches each.</li>
+      <li><b>Open questions,</b> reviewers and the approver.</li>
+    </ul>
+    <div class="card c-cyan"><h4>Its test</h4><p class="small mb0">Could the approver say no for a good reason after reading it? If every alternative is a straw man, they cannot.</p></div>
+  </div>
+  <aside class="notes"><p>The approver is not the author and not the reviewer: name three roles. A design document that has no alternatives is a decision already taken and dressed as a question. The participants outline one in lab 1.1 (scenario 2) and may write one in the capstone if their project needs it.</p></aside>
+</section>
+
+<section class="slide" id="decision-record" data-lo="LO2">
+  <div class="kicker">Decision record</div>
+  <h2>A decision record keeps one decision and its reasons beside the code</h2>
+  <div class="flow">
+    <div class="step c-navy"><b>Title</b>a short noun phrase</div>
+    <div class="arrow">→</div>
+    <div class="step c-teal"><b>Status</b>proposed, accepted, superseded</div>
+    <div class="arrow">→</div>
+    <div class="step c-cyan"><b>Context</b>the forces, stated neutrally</div>
+    <div class="arrow">→</div>
+    <div class="step c-coral"><b>Decision</b>in a full, active sentence</div>
+    <div class="arrow">→</div>
+    <div class="step c-purple"><b>Consequences</b>good, bad and neutral</div>
+  </div>
+  <p class="lead mt">Numbered files in <code>docs/decisions/</code> become the project's decision log.</p>
+  <aside class="notes"><p>The five headings are Michael Nygard's architecture decision record (cognitect.com blog, 2011); adr.github.io collects templates. A record is short and never rewritten: a changed decision gets a new record that supersedes the old one. The decision memo of session 3 is for a reader who decides; the record is for whoever later asks why.</p></aside>
+</section>
+
+<section class="slide" id="diagrams-as-text" data-lo="LO2">
+  <div class="kicker">Diagrams as text</div>
+  <h2>A diagram written as text is reviewed and versioned like code</h2>
+  <div class="cols cols-2">
+    <pre class="code" data-file="README.md"><code class="language-markdown">```mermaid
+flowchart LR
+  W[Weekly sales] --> F[Forecast]
+  S[Stock levels] --> F
+  F --> R[Reorder list]
+  R --> P[Pharmacist checks]
+```</code></pre>
+    <ul class="bullets">
+      <li>Mermaid and PlantUML turn short text into flowcharts and sequence diagrams.</li>
+      <li>GitHub renders Mermaid blocks in Markdown.</li>
+      <li>A change to the diagram shows in the diff, line by line.</li>
+    </ul>
+  </div>
+  <aside class="notes"><p>Parallel example, the pharmacy forecast. GitHub's documentation lists Mermaid among the diagram languages it renders (docs.github.com, "Creating diagrams"). PlantUML is the other example of the tool slot. Keep a diagram to what the reader needs: five boxes, not the whole system.</p></aside>
+</section>
+
+<section class="slide" id="clean-run" data-lo="LO2">
+  <div class="kicker">Test the README</div>
+  <h2>Follow your README on a fresh copy, exactly as written</h2>
+  <div class="flow">
+    <div class="step c-teal"><b>1 · Fresh copy</b>no settings file, no environment</div>
+    <div class="arrow">→</div>
+    <div class="step c-cyan"><b>2 · Literal</b>type only what is written</div>
+    <div class="arrow">→</div>
+    <div class="step c-coral"><b>3 · Log</b>each command, its result, each hesitation</div>
+    <div class="arrow">→</div>
+    <div class="step c-purple"><b>4 · Fix</b>the README, not the laptop</div>
+  </div>
+  <div class="callout tip mt"><b>Two testers.</b> The kit's clean-run tool types exactly what you wrote; a partner shows you where a person hesitates.</div>
+  <aside class="notes"><p>The clean-run tool in the kit runs only uv commands and file copies from the README's shell blocks, on a fresh copy, and writes a run log. A partner's log catches what a tool cannot: an ambiguous sentence, a command that works but surprises. Both logs are evidence for the outcome.</p></aside>
+</section>
+
+<section class="slide" id="check-readme" data-lo="LO2">
+  <div class="kicker">Checkpoint</div>
+  <h2>What did this README leave out?</h2>
+  <div class="quiz" data-type="single" data-lo="LO2">
+    <p class="lead">A stranger follows the forecast's README on a fresh copy. The install step works, then the run command stops with "error: settings.toml not found". The writer's laptop runs it fine.</p>
+    <div class="opts">
+      <div class="opt" data-ok>A step that creates the settings file from its example</div>
+      <div class="opt" data-why="Blames the stranger's machine: the same error would appear on any fresh copy">A note that the stranger's laptop is misconfigured</div>
+      <div class="opt" data-why="Moves the gap elsewhere: tests come after the run and cannot create the file">The command that runs the tests</div>
+      <div class="opt" data-why="Fixes the symptom on one laptop instead of the document every stranger reads">An offer to send the writer's own settings file</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> The writer's laptop has a file a fresh copy lacks; the README must create it.</div>
+  </div>
+  <aside class="notes"><p>Answer: A. The trap is that the writer cannot see the gap on their own laptop, which is why the clean run matters. If someone picks D, ask what happens with the next ten strangers.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-1-2" data-auto="lab" data-lab="1.2">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p><b>AI-tutor:</b> an assistant may comment on section order, not run the project for them. The first clean run may download Python 3.11 or later: allow a minute. Typical problems: commands written from the wrong folder, a README that says "configure the tool" without the command, and a <code>text</code> block that promises output the command does not print exactly. The repository copy goes in <code>work/</code>; the supplied folder stays untouched.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-2" data-lo="LO2">
+  <div class="kicker">Lab 1.2 debrief</div>
+  <h2>Four things a stranger had to guess in the tagger's repository</h2>
+  <table class="t small">
+    <tr><th>Gap</th><th>What the stranger saw</th><th>The README line that closes it</th></tr>
+    <tr><td>Settings file</td><td><code>error: config.toml not found</code></td><td>copy <code>config.example.toml</code> to <code>config.toml</code></td></tr>
+    <tr><td>Python version</td><td>a TOML import error on an old Python</td><td>Python 3.11 or later; uv installs it</td></tr>
+    <tr><td>Stale note</td><td><code>NOTES.txt</code> names <code>tagger.py</code>, which does not exist</td><td>say the note is out of date</td></tr>
+    <tr><td>Success</td><td>output with nothing to compare</td><td><code>check: ok, 30 sample rows, 400 test rows, 2 recorded systems</code></td></tr>
+  </table>
+  <aside class="notes"><p>Show after the lab only. The reference README passed the clean run with five commands; the same README without the copy step fails on its first run command (<code>uv run solutions/check_D1_2.py</code>). Ask a pair to read their partner's run log aloud: where did the person hesitate that the tool did not?</p></aside>
 </section>
 
 <!-- Session 3 -->
 
 <section class="slide section" id="s3" data-auto="section" data-session="3"></section>
 
-<section class="slide" id="s3-idea">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
-    </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
+<section class="slide" id="memo-one-page" data-lo="LO3">
+  <div class="kicker">The decision memo</div>
+  <h2>One decision, one page, one signature</h2>
+  <div class="cols cols-3">
+    <div class="stat center"><div class="big">1</div><div class="lbl">decision, asked as a question</div></div>
+    <div class="stat center"><div class="big">450</div><div class="lbl">words at most: one page</div></div>
+    <div class="stat center"><div class="big">3</div><div class="lbl">roles named: author, reviewer, decider</div></div>
   </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+  <div class="callout note mt"><b>The reader has ten minutes.</b> Everything that does not help them choose goes in an appendix or the experiment report.</div>
+  <aside class="notes"><p>The 450-word page is the course's own rule, checked by the lab's memo checker. Three roles: the person who writes it is not the person who reviews it, and neither signs it. That separation is what makes the signature mean something.</p></aside>
 </section>
 
-<section class="slide" id="s3-steps">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
+<section class="slide" id="memo-shape" data-lo="LO3">
+  <div class="kicker">Five parts</div>
+  <h2>Bottom line, options, trade-offs, recommendation, what would change it</h2>
   <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+    <div class="step c-navy"><b>Bottom line</b>the recommendation and the request</div>
+    <div class="arrow frag" data-frag="b">→</div><div class="step c-teal frag" data-frag="b"><b>Options</b>each one, named once</div>
+    <div class="arrow frag" data-frag="c">→</div><div class="step c-cyan frag" data-frag="c"><b>Trade-offs</b>measured, with intervals</div>
+    <div class="arrow frag" data-frag="d">→</div><div class="step c-coral frag" data-frag="d"><b>Recommendation</b>argued from the reader's needs</div>
+    <div class="arrow frag" data-frag="e">→</div><div class="step c-purple frag" data-frag="e"><b>What would change it</b>conditions with numbers</div>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <aside class="notes"><p>Press once per part. The last part is the one most memos lack. It turns a recommendation into something the reader can monitor: if the volume, the price or the measured quality moves past a line, the decision comes back. The lab's rubric scores these five parts, two points each.</p></aside>
+</section>
+
+<section class="slide" id="options-honest" data-lo="LO3">
+  <div class="kicker">Options</div>
+  <h2>Keep the current way as an option, and name every option the same way throughout</h2>
+  <ul class="bullets">
+    <li><b>The status quo</b> is a real option with real costs: say what staying costs.</li>
+    <li><b>Same names, same order</b> in the options, the table and the recommendation.</li>
+    <li><b>No straw men:</b> an option nobody would pick wastes the reader's ten minutes.</li>
+    <li><b>Unmeasured options</b> go in "what would change this", not in the table.</li>
+  </ul>
+  <div class="callout warn mt"><b>What goes wrong.</b> "Method B", then "the new model", then "the ML option": the reader wonders if they are three things.</div>
+  <aside class="notes"><p>Link back to the glossary slide: option names are terms too. An unmeasured idea ("what if we combined them?") is tempting to add; put it where it belongs, as a condition or a next step, so the table holds only measured options.</p></aside>
+</section>
+
+<section class="slide" id="tradeoff-table" data-lo="LO3">
+  <div class="kicker">Trade-offs</div>
+  <h2>Put the options side by side on the measures the reader cares about</h2>
+  <table class="t">
+    <tr><th>Pharmacy reorder forecast</th><th>Method A (current)</th><th>Method B</th></tr>
+    <tr><td>Run-outs flagged in advance, of 60</td><td>41 · 0.68 (0.56 to 0.79)</td><td>52 · 0.87 (0.76 to 0.93)</td></tr>
+    <tr><td>Cost a month, one run a week</td><td>SAR 0</td><td>SAR 15.17</td></tr>
+    <tr><td>Time a run</td><td>1 minute</td><td>14 minutes</td></tr>
+  </table>
+  <p class="caption">A parallel example, synthetic, from <code>labs/_tools/slide_examples.py</code>.</p>
+  <aside class="notes"><p>Not lab data: the lab compares three urgency taggers on quality, cost and latency. Point at the interval column first: the reader's question is not only "which is higher" but "how sure". Ask: if the pharmacy needs at least 0.80 of run-outs flagged, what can we say about Method B? Its point estimate meets it, its interval reaches down to 0.76.</p></aside>
+</section>
+
+<section class="slide" id="requirement-first" data-lo="LO3">
+  <div class="kicker">Recommendation</div>
+  <h2>Argue from the reader's requirement, not from "the best score"</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>From the score</h4><p class="small mb0">"Method B is better on every quality measure, so we recommend it."</p></div>
+    <div class="card c-teal"><h4>From the requirement</h4><p class="small mb0">"The pharmacy needs 0.80 of run-outs flagged within SAR 20 a month. Only Method B is likely to meet it, and it costs SAR 15.17."</p></div>
+  </div>
+  <div class="callout tip mt"><b>Requirements first.</b> State each one with its number, then show which options meet it and how surely.</div>
+  <aside class="notes"><p>A score without a requirement invites the reader to ask "is that good enough?". The requirement comes from the reader's side (here a pharmacy lead; in the lab, the head of reception) and the memo should quote it. "Likely" is earned by the interval: say what it rests on.</p></aside>
+</section>
+
+<section class="slide" id="conditions" data-lo="LO3">
+  <div class="kicker">What would change this</div>
+  <h2>Name the lines that, once crossed, bring the decision back</h2>
+  <ul class="bullets">
+    <li><b>A measured threshold:</b> if a larger test puts Method B below 0.80, bring a new option.</li>
+    <li><b>A volume:</b> at SAR 3.50 a run, about six runs a month fit the SAR 20 budget; daily runs do not.</li>
+    <li><b>A price:</b> at SAR 4.62 a run, weekly runs cost SAR 20.02 a month and break it.</li>
+  </ul>
+  <div class="callout note mt"><b>Show the working.</b> Each computed number gets one line: 20 / 3.50 = 5.71 runs.</div>
+  <aside class="notes"><p>Figures from <code>labs/_tools/slide_examples.py</code>. A condition with a number can be checked next quarter by someone who did not write the memo. The memo checker accepts a computed number only if it is in the evidence or shown on a line that starts with "Working:".</p></aside>
+</section>
+
+<section class="slide" id="trace-numbers" data-lo="LO3">
+  <div class="kicker">Every claim checked</div>
+  <h2>Every number in the memo traces to the evidence or to its working</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>Copy numbers from the evidence; never retype them from memory.</li>
+      <li>Round once, the same way everywhere.</li>
+      <li>A number you computed has its working beside it.</li>
+      <li>The reviewer checks numbers before style.</li>
+    </ul>
+    <div class="card c-cyan"><h4>The checker in the lab</h4><p class="small mb0"><code>kit/memocheck.py</code> lists every number that is in neither the comparison, the context nor a Working line.</p></div>
+  </div>
+  <aside class="notes"><p>Tomorrow morning's supervised memo is written with AI off, from a result handed out on paper, and scored on the same five-criterion rubric as lab 1.3. Say so now, so that the lab is practice for it. The supervised memo's result is different from the lab's.</p></aside>
+</section>
+
+<section class="slide" id="check-memo" data-lo="LO3">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which sentence belongs in the pharmacy memo?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3">
+    <p class="lead">The pharmacy needs at least 0.80 of run-outs flagged. Method B flagged 52 of 60, 0.87, with a 95% interval from 0.76 to 0.93.</p>
+    <div class="opts">
+      <div class="opt" data-why="Reads the point estimate as a guarantee: the interval reaches below the requirement">"Method B meets the 0.80 requirement."</div>
+      <div class="opt" data-why="Reads an interval that crosses the line as a failure, discarding the evidence that it is likely met">"Method B cannot be shown to meet 0.80, so we cannot recommend it."</div>
+      <div class="opt" data-why="Replaces the measurement with a hedge the reader cannot check">"Method B is significantly better than the current method."</div>
+      <div class="opt" data-ok>"Method B likely meets 0.80; on 60 cases its interval reaches down to 0.76."</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> It states the point, the doubt and what the doubt rests on, so the reader can decide with open eyes.</div>
+  </div>
+  <aside class="notes"><p>Answer: D. Many pick A because the point estimate clears the line. Ask what they would say if a larger test came back at 0.78. B is the opposite error and would make every small-sample decision impossible.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-1-3" data-auto="lab" data-lab="1.3">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p><b>AI-tutor:</b> structure feedback only; the numbers and the recommendation are the participant's own, as in tomorrow's AI-off memo. Typical problems: per-1,000 costs left unconverted to a month, intervals dropped from the table, and a "what would change this" with no numbers. The pairs swap at step 5 and score with the rubric on the lab page.</p></aside>
 </section>
 
-<!-- Session 4 -->
-
-<section class="slide section" id="s4" data-auto="section" data-session="4"></section>
-
-<section class="slide" id="s4-idea">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
-    </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
-  </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
-</section>
-
-<section class="slide" id="s4-steps">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
-  </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
-</section>
-
-<section class="slide lab" id="lab-1-4" data-auto="lab" data-lab="1.4">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+<section class="slide" id="debrief-1-3" data-lo="LO3">
+  <div class="kicker">Lab 1.3 debrief</div>
+  <h2>Only Model L likely meets reception's 0.90, and it fits the budget</h2>
+  <table class="t small">
+    <tr><th>400 test messages, 80 urgent</th><th>Keyword rules</th><th>Model S</th><th>Model L</th></tr>
+    <tr><td>Urgent recall (95% interval)</td><td>0.66 (0.55 to 0.76)</td><td>0.82 (0.73 to 0.89)</td><td>0.94 (0.86 to 0.97)</td></tr>
+    <tr><td>A month at 9,000 messages</td><td>SAR 0</td><td>SAR 72.18</td><td>SAR 337.68</td></tr>
+    <tr><td>95% of tags within</td><td>under 0.01 s</td><td>1.24 s</td><td>5.59 s</td></tr>
+  </table>
+  <div class="callout note mt"><b>And what would change it:</b> a larger test below 0.90; 10,661 messages a month or more; tags slower than 10 s.</div>
+  <aside class="notes"><p>Show after the lab only. Figures from <code>labs/files/D1_3/comparison.csv</code> (written by <code>labs/_tools/make_case.py</code>; the model outputs are synthetic and recorded, no model ran) and the working in <code>solutions/D1_3_memo.md</code>. A memo for Model S is defensible only if it says plainly that Model S's whole interval lies below 0.90. Ask two pairs to read their bottom line aloud.</p></aside>
 </section>
 
 <section class="slide" id="wrap-up">
   <div class="kicker">Day 1 · wrap-up</div>
   <h2>Three things to keep</h2>
   <div class="cols cols-3">
-    <div class="card c-teal"><h4>Remember</h4><p class="small mb0">REPLACE: one idea participants keep</p></div>
-    <div class="card c-coral"><h4>Remember</h4><p class="small mb0">REPLACE: one idea participants keep</p></div>
-    <div class="card c-purple"><h4>Remember</h4><p class="small mb0">REPLACE: one idea participants keep</p></div>
+    <div class="card c-teal"><h4>The reader decides</h4><p class="small mb0">One reader, one action: the document type and its first sentence follow from them.</p></div>
+    <div class="card c-coral"><h4>Test the README</h4><p class="small mb0">A fresh copy, followed literally, by a tool and by a person.</p></div>
+    <div class="card c-purple"><h4>Numbers with their doubt</h4><p class="small mb0">A count, an interval and the line that would change your mind.</p></div>
   </div>
+  <aside class="notes"><p>Ask each participant to write one sentence: the document they will rewrite first at work, and for which reader.</p></aside>
 </section>
 
-<section class="slide dark" id="next" data-label="Next">
+<section class="slide dark" id="next">
   <div class="kicker">Next</div>
-  <h2>Day 2: REPLACE: the theme of this unit, in a few words</h2>
-  <p class="lead">REPLACE: what participants prepare before then; unfinished labs can be finished at home</p>
-  <aside class="notes">REPLACE: accounts, installs or reading participants need before the next unit</aside>
+  <h2>Tomorrow: a supervised memo, then reports, cards and assistants</h2>
+  <ul class="bullets">
+    <li><b>First hour:</b> a one-page memo with AI off, from a result handed out on paper, scored on the lab 1.3 rubric.</li>
+    <li><b>Bring your project:</b> a small data or code project of your own, or keep the tagger.</li>
+    <li><b>Keep your files:</b> today's README and memo are the start of your capstone set.</li>
+  </ul>
+  <aside class="notes"><p>Remind the room that the memo is 30% of the course and needs at least 50% to pass. Devices are closed for it. Participants without their own project document the urgency tagger and use the second evaluation log in <code>labs/files/capstone/</code>.</p></aside>
 </section>

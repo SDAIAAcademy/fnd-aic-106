@@ -1,0 +1,5 @@
+notes from the first sprint
+
+- run it with: python tagger.py requests.csv
+- the model outputs are in recorded/
+- TODO write the readme
