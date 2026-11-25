@@ -167,7 +167,7 @@ Each line is a capability; the examples are interchangeable.
 - [Vale documentation](https://docs.vale.sh/)
 <!-- /academy:sources -->
 
-### National references
+### Addresses of the national references
 
 - SDAIA AI Ethics Principles: <https://sdaia.gov.sa/en/SDAIA/about/Documents/ai-principles.pdf> (Arabic: <https://sdaia.gov.sa/ar/SDAIA/about/Documents/ai-principles.pdf>)
 - SDAIA Generative Artificial Intelligence Guidelines for Government: <https://sdaia.gov.sa/en/SDAIA/about/Files/GenAIGuidelinesForGovernmentENCompressed.pdf> (Arabic: <https://sdaia.gov.sa/ar/SDAIA/about/Files/GenAIGuidelinesForGovernmentARCompressed.pdf>)
