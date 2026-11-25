@@ -9,7 +9,7 @@
     "en": "Technical Writing for Data and AI Work",
     "ar": "الكتابة التقنية لأعمال البيانات والذكاء الاصطناعي"
   },
-  "tagline": "REPLACE: one line under the title: what participants can do after the course",
+  "tagline": "Write the README, decision memo, experiment report and model card a data or AI project runs on, for a named reader, with every claim checked",
   "description": "Participants write the documents that data and AI work runs on: a README, a design document, a decision memo, an experiment report and a model or system card. Each starts from a repository, a model comparison or an evaluation log and ends with a peer test; one draft is unassisted, another is revised with an assistant, and every claim is checked.",
   "track": "foundations",
   "level": 100,
@@ -54,8 +54,8 @@
     }
   ],
   "case_study": {
-    "name": "REPLACE: the name of the fictional organisation every lab works on",
-    "summary": "REPLACE: two sentences on the case study and its synthetic data"
+    "name": "Tarthuth Veterinary Clinics",
+    "summary": "A fictional private chain of veterinary clinics whose two-person data team built a small Python project, the request urgency tagger, that sorts owners' appointment messages in Arabic, English and mixed text into urgent, soon and routine. Every file is synthetic and generated with a fixed seed: the messages, a 400-message test set, the recorded outputs of a keyword-rules baseline and of two hosted models labelled Model S and Model L, their measured cost and latency, and the evaluation log."
   },
   "format": "workshop",
   "format_note": "Workshop: one and a half days of writing labs and a tracked follow-up review",
@@ -71,102 +71,248 @@
     {
       "id": "day1",
       "kind": "day",
-      "title": "REPLACE: the theme of this unit, in a few words",
+      "title": "Writing for a reader",
       "deck": "slides/day1.html",
       "sessions": [
         {
-          "title": "REPLACE: the title of Session 1",
-          "outcomes": [
-            "REPLACE: what a participant can do after this session; list in lo the course outcomes it serves"
+          "title": "Write for one reader",
+          "minutes": 110,
+          "lo": [
+            "LO1"
           ],
-          "lo": [],
+          "summary": "Name the reader and the decision before choosing the document, then put the bottom line first",
+          "outcomes": [
+            "Name the reader, purpose and decision behind a request for a document",
+            "Choose the document type and its required sections for a scenario",
+            "Rewrite an update so the bottom line, the request and the uncertainty come first"
+          ],
           "lab": {
             "id": "1.1",
-            "title": "REPLACE: what participants build in lab 1.1",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
-            "minutes": 25,
-            "href": "D1_1.html"
+            "title": "Bottom-line-first rewrite",
+            "minutes": 60,
+            "href": "D1_1_bluf.html",
+            "summary": "Outline five documents for five readers, then rewrite the data team's status update bottom line first and check it",
+            "steps": [
+              {
+                "text": "Read the five scenarios and name each reader's decision",
+                "minutes": 8
+              },
+              {
+                "text": "Outline the five documents: reader, purpose, sections",
+                "minutes": 17
+              },
+              {
+                "text": "Mark where the status update hides its bottom line",
+                "minutes": 5
+              },
+              {
+                "text": "Rewrite it bottom line first, with glossary terms and uncertainty in words",
+                "minutes": 20
+              },
+              {
+                "text": "Run the checker, then score a partner's rewrite with the rubric",
+                "minutes": 10
+              }
+            ],
+            "stretch": "Write the first paragraph again in Arabic with the glossary's Arabic terms"
           }
         },
         {
-          "title": "REPLACE: the title of Session 2",
-          "outcomes": [
-            "REPLACE: what a participant can do after this session; list in lo the course outcomes it serves"
+          "title": "READMEs, design documents and decision records",
+          "minutes": 100,
+          "lo": [
+            "LO1",
+            "LO2"
           ],
-          "lo": [],
+          "summary": "Write what a stranger needs to install, run and check a project, and keep designs and decisions as text beside the code",
+          "outcomes": [
+            "Write install, run and check steps a stranger can follow on a clean machine",
+            "Separate a README from a design document and a decision record",
+            "Draw a pipeline as text that the repository renders"
+          ],
           "lab": {
             "id": "1.2",
-            "title": "REPLACE: what participants build in lab 1.2",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
-            "minutes": 25,
-            "href": "D1_2.html"
+            "title": "Peer-tested README",
+            "minutes": 60,
+            "href": "D1_2_readme.html",
+            "summary": "Write the README of the undocumented urgency tagger, test it with a clean run, then have a partner follow it and log the run",
+            "steps": [
+              {
+                "text": "Explore the repository and list what a stranger would have to guess",
+                "minutes": 10
+              },
+              {
+                "text": "Write the install, run and check sections",
+                "minutes": 20
+              },
+              {
+                "text": "Add the purpose, inputs and outputs, limits and a text diagram",
+                "minutes": 10
+              },
+              {
+                "text": "Run the clean-run test on your README and fix what fails",
+                "minutes": 10
+              },
+              {
+                "text": "Swap: a partner follows your README on a clean copy and writes the run log",
+                "minutes": 10
+              }
+            ],
+            "stretch": "Start the README of your own project, the first part of the capstone"
           }
         },
         {
-          "title": "REPLACE: the title of Session 3",
-          "outcomes": [
-            "REPLACE: what a participant can do after this session; list in lo the course outcomes it serves"
+          "title": "The decision memo",
+          "minutes": 100,
+          "lo": [
+            "LO3"
           ],
-          "lo": [],
+          "summary": "Turn a measured comparison into one page: options, trade-offs, a recommendation and what would change it",
+          "outcomes": [
+            "State the decision and the recommendation in the first two sentences",
+            "Compare options on quality, cost and latency with numbers traced to the source",
+            "Write the conditions under which the recommendation would change"
+          ],
           "lab": {
             "id": "1.3",
-            "title": "REPLACE: what participants build in lab 1.3",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
-            "minutes": 25,
-            "href": "D1_3.html"
-          }
-        },
-        {
-          "title": "REPLACE: the title of Session 4",
-          "outcomes": [
-            "REPLACE: what a participant can do after this session; list in lo the course outcomes it serves"
-          ],
-          "lo": [],
-          "lab": {
-            "id": "1.4",
-            "title": "REPLACE: what participants build in lab 1.4",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
-            "minutes": 25,
-            "href": "D1_4.html"
+            "title": "Decision memo",
+            "minutes": 60,
+            "href": "D1_3_memo.html",
+            "summary": "Write a one-page memo to the operations director on which tagger the reception desk should use, from the measured comparison",
+            "steps": [
+              {
+                "text": "Read the context and the comparison; write the decision in one line",
+                "minutes": 8
+              },
+              {
+                "text": "Write the bottom line and the three options",
+                "minutes": 12
+              },
+              {
+                "text": "Write the trade-offs with numbers from the comparison and their intervals",
+                "minutes": 15
+              },
+              {
+                "text": "Write the recommendation and the conditions that would change it",
+                "minutes": 10
+              },
+              {
+                "text": "Run the checker; a partner scores your memo on the five-criterion rubric",
+                "minutes": 15
+              }
+            ],
+            "stretch": "Write the same choice as a decision record under five headings"
           }
         }
-      ]
+      ],
+      "subtitle": "One reader, the bottom line first, and the documents a project needs before anyone else can use it"
     },
     {
       "id": "day2",
       "kind": "day",
-      "title": "REPLACE: the theme of this unit, in a few words",
+      "title": "Evidence documents and writing with assistance",
       "deck": "slides/day2.html",
       "sessions": [
         {
-          "title": "REPLACE: the title of Session 1",
-          "outcomes": [
-            "REPLACE: what a participant can do after this session; list in lo the course outcomes it serves"
+          "title": "Experiment reports and model cards",
+          "minutes": 100,
+          "lo": [
+            "LO4"
           ],
-          "lo": [],
+          "summary": "Report what an evaluation measured, by slice and with its uncertainty, and write the card a user of the model reads",
+          "outcomes": [
+            "Report results by data slice with the number of cases and an interval",
+            "Write known limits and out-of-scope uses a reader can act on",
+            "Check a report and a card with a peer checklist"
+          ],
           "lab": {
             "id": "2.1",
-            "title": "REPLACE: what participants build in lab 2.1",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
-            "minutes": 25,
-            "href": "D2_1.html"
+            "title": "Experiment report and model card",
+            "minutes": 60,
+            "href": "D2_1_report_card.html",
+            "summary": "From the evaluation log, write an experiment report for the data team lead and a model card for the head of reception, the report drafted with AI off",
+            "steps": [
+              {
+                "text": "Run the statistics tool on the evaluation log and read the slice table",
+                "minutes": 10
+              },
+              {
+                "text": "Draft the experiment report with AI off: question, setup, results, uncertainty",
+                "minutes": 20
+              },
+              {
+                "text": "Draft the model card for the head of reception",
+                "minutes": 15
+              },
+              {
+                "text": "Run the card checker and fix what it reports",
+                "minutes": 5
+              },
+              {
+                "text": "Swap with a partner and complete the peer checklist",
+                "minutes": 10
+              }
+            ],
+            "stretch": "Add a text diagram of the evaluation flow to the report"
           }
         },
         {
-          "title": "REPLACE: the title of Session 2",
-          "outcomes": [
-            "REPLACE: what a participant can do after this session; list in lo the course outcomes it serves"
+          "title": "Writing with an assistant",
+          "minutes": 100,
+          "lo": [
+            "LO5"
           ],
-          "lo": [],
+          "summary": "Draft without the assistant first, then check every claim an assisted revision changes, log it and disclose it",
+          "outcomes": [
+            "Spot the typical errors of an assisted revision: changed numbers, dropped limits, invented sources",
+            "Keep a revision log that says how each claim was checked",
+            "Write a disclosure line and a context file for a coding agent"
+          ],
           "lab": {
             "id": "2.2",
-            "title": "REPLACE: what participants build in lab 2.2",
-            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
-            "minutes": 25,
-            "href": "D2_2.html"
+            "title": "Unassisted draft against assisted revision",
+            "minutes": 60,
+            "href": "D2_2_revision.html",
+            "summary": "Compare your AI-off report with an assisted revision claim by claim, keep a revision log, disclose the assistance and write the repository's agent context file",
+            "steps": [
+              {
+                "text": "Produce the assisted revision of your draft",
+                "minutes": 5
+              },
+              {
+                "text": "Run the claim diff",
+                "minutes": 10
+              },
+              {
+                "text": "Check each changed claim and log it",
+                "minutes": 20
+              },
+              {
+                "text": "Write the final version and its disclosure line",
+                "minutes": 10
+              },
+              {
+                "text": "Write the agent context file for the tagger",
+                "minutes": 10
+              },
+              {
+                "text": "Run the log checker and fix it",
+                "minutes": 5
+              }
+            ],
+            "stretch": "Revise with an approved assistant on Public text only, and log it the same way"
           }
         }
-      ]
+      ],
+      "subtitle": "Reports and cards that state uncertainty, slices and limits, and an assistant whose every change is checked"
+    },
+    {
+      "id": "capstone",
+      "kind": "capstone",
+      "title": "Documentation set review",
+      "deck": "slides/capstone.html",
+      "subtitle": "Each participant shows the set in four minutes, then answers four minutes of questions on its claims and its history",
+      "sessions": []
     }
   ],
   "labs": {
@@ -200,6 +346,116 @@
   "checks": {
     "sessions_per_day": null,
     "session_lab": true,
-    "lab_minutes": 25
-  }
+    "lab_minutes": 60
+  },
+  "capstone": {
+    "summary": "A documentation set for one project (README, decision memo, model or system card, revision log), reviewed in a follow-up",
+    "submission": "An individual task, submitted as a public GitHub repository link before the follow-up review. The repository holds the project or a link to it, the README, the decision memo, the model or system card, the revision log with its disclosure line, and the commit history that shows the drafts. Only public or synthetic material is used, and only Public text goes to any assistant.",
+    "talk_minutes": 4,
+    "qa_minutes": 4,
+    "rubric": [
+      {
+        "criterion": "The README lets a stranger install, run and check the project on a clean machine",
+        "weight": 20
+      },
+      {
+        "criterion": "The decision memo states options, trade-offs, a recommendation and the conditions that would change it",
+        "weight": 20
+      },
+      {
+        "criterion": "The card states intended use, results by slice with uncertainty, and known limits",
+        "weight": 25
+      },
+      {
+        "criterion": "The revision log shows how each assisted change was checked, with a disclosure line",
+        "weight": 20
+      },
+      {
+        "criterion": "Each document is written for its named reader: bottom line first, consistent terms, plain uncertainty",
+        "weight": 15
+      }
+    ]
+  },
+  "sources": [
+    {
+      "group": "National references",
+      "items": [
+        {
+          "title": "SDAIA, AI Ethics Principles (English)",
+          "url": "https://sdaia.gov.sa/en/SDAIA/about/Documents/ai-principles.pdf"
+        },
+        {
+          "title": "سدايا، مبادئ أخلاقيات الذكاء الاصطناعي (Arabic)",
+          "url": "https://sdaia.gov.sa/ar/SDAIA/about/Documents/ai-principles.pdf"
+        },
+        {
+          "title": "SDAIA, Generative Artificial Intelligence Guidelines for Government (English)",
+          "url": "https://sdaia.gov.sa/en/SDAIA/about/Files/GenAIGuidelinesForGovernmentENCompressed.pdf"
+        },
+        {
+          "title": "سدايا، المبادئ التوجيهية للذكاء الاصطناعي التوليدي للجهات الحكومية (Arabic)",
+          "url": "https://sdaia.gov.sa/ar/SDAIA/about/Files/GenAIGuidelinesForGovernmentARCompressed.pdf"
+        }
+      ]
+    },
+    {
+      "group": "Documents for systems and evidence",
+      "items": [
+        {
+          "title": "Mitchell et al., Model Cards for Model Reporting (2019)",
+          "url": "https://arxiv.org/abs/1810.03993"
+        },
+        {
+          "title": "Hugging Face Hub documentation: Model Cards",
+          "url": "https://huggingface.co/docs/hub/model-cards"
+        },
+        {
+          "title": "Michael Nygard, Documenting Architecture Decisions (2011)",
+          "url": "https://www.cognitect.com/blog/2011/11/15/documenting-architecture-decisions"
+        },
+        {
+          "title": "Architectural Decision Records",
+          "url": "https://adr.github.io/"
+        },
+        {
+          "title": "Diátaxis, a systematic approach to technical documentation",
+          "url": "https://diataxis.fr/"
+        },
+        {
+          "title": "AGENTS.md, a format for guiding coding agents",
+          "url": "https://agents.md/"
+        }
+      ]
+    },
+    {
+      "group": "Writing for a reader",
+      "items": [
+        {
+          "title": "Google for Developers, Technical Writing One",
+          "url": "https://developers.google.com/tech-writing/one"
+        }
+      ]
+    },
+    {
+      "group": "Tools",
+      "items": [
+        {
+          "title": "Mermaid: diagrams from text",
+          "url": "https://mermaid.js.org/intro/"
+        },
+        {
+          "title": "GitHub Docs: Creating diagrams",
+          "url": "https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams"
+        },
+        {
+          "title": "PlantUML",
+          "url": "https://plantuml.com/"
+        },
+        {
+          "title": "Vale documentation",
+          "url": "https://docs.vale.sh/"
+        }
+      ]
+    }
+  ]
 }
