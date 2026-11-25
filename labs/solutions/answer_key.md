@@ -79,8 +79,9 @@ five-criterion rubric of lab 1.3, two points each.
 ## Rounding
 
 Every figure is rounded once, to two decimals, by Python's `round` and `:.2f`, and quoted the same
-way everywhere. Three exact values sit on a half, and binary floating point rounds them
-unevenly: Model S's urgent recall 66/80 = 0.825 shows as 0.82, Model L's median time 2.415 s as
-2.41, but Model L's accuracy 374/400 = 0.935 as 0.94. A participant who works 66/80 out by
-hand and writes 0.83 is not wrong: `memocheck.py` flags 0.83 as untraced until the memo shows it on
-a `Working:` line (66 / 80 = 0.825), which is the habit the lab teaches.
+way everywhere. Some exact values sit on a half, and binary floating point rounds them
+unevenly: Model S's urgent recall 66/80 = 0.825 shows as 0.82 and Model L's median time 2.415 s
+as 2.41, but Model L's accuracy 374/400 = 0.935 shows as 0.94. A participant who works 66/80 out
+by hand and writes 0.83 is not wrong: `memocheck.py` flags 0.83 as untraced until a `Working:`
+line contains it (`Working: 66 / 80 = 0.825, so 0.83` passes; `66 / 80 = 0.825` alone does not),
+which is the habit the lab teaches.
