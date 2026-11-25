@@ -1,0 +1,205 @@
+{
+  "$schema": "https://sdaiaacademy.github.io/engine/schemas/course.schema.json",
+  "engine": "1",
+  "id": "fnd-aic-106",
+  "code": "FND-AIC-106",
+  "version": "2027.1.0",
+  "lang": "en",
+  "title": {
+    "en": "Technical Writing for Data and AI Work",
+    "ar": "الكتابة التقنية لأعمال البيانات والذكاء الاصطناعي"
+  },
+  "tagline": "REPLACE: one line under the title: what participants can do after the course",
+  "description": "Participants write the documents that data and AI work runs on: a README, a design document, a decision memo, an experiment report and a model or system card. Each starts from a repository, a model comparison or an evaluation log and ends with a peer test; one draft is unassisted, another is revised with an assistant, and every claim is checked.",
+  "track": "foundations",
+  "level": 100,
+  "audience": "Beginners. Graduates, career changers and computing professionals preparing for Developer or Specialist courses, who can run a Python notebook but have not yet studied AI methods.",
+  "prerequisites": [
+    "Has a small data or code project, own or provided, to document"
+  ],
+  "site": {
+    "url": "https://sdaiaacademy.github.io/fnd-aic-106/",
+    "repo": "SDAIAAcademy/fnd-aic-106"
+  },
+  "outcomes": [
+    {
+      "id": "LO1",
+      "text": "Identify the reader, purpose and required sections of five common technical document types, given five scenarios with named readers",
+      "level": "Awareness",
+      "evidence": "an outline per scenario matching the reference structure"
+    },
+    {
+      "id": "LO2",
+      "text": "Draft a README that lets a stranger install, run and check a small project, given an undocumented repository",
+      "level": "Applied",
+      "evidence": "the README and a peer's run log on a clean environment"
+    },
+    {
+      "id": "LO3",
+      "text": "Draft a one-page decision memo with options, trade-offs, a recommendation and the conditions that would change it, given a measured comparison of two models on quality, cost and latency",
+      "level": "Applied",
+      "evidence": "a memo scored on a five-criterion rubric"
+    },
+    {
+      "id": "LO4",
+      "text": "Prepare an experiment report and a model card that state uncertainty, results by data slice and known limits, given an evaluation run log",
+      "level": "Applied",
+      "evidence": "a report and card that pass a peer checklist"
+    },
+    {
+      "id": "LO5",
+      "text": "Compare an unassisted draft with an assisted revision for accuracy, clarity and invented content, given the participant's two drafts",
+      "level": "Awareness",
+      "evidence": "a revision log of how each claim was checked"
+    }
+  ],
+  "case_study": {
+    "name": "REPLACE: the name of the fictional organisation every lab works on",
+    "summary": "REPLACE: two sentences on the case study and its synthetic data"
+  },
+  "format": "workshop",
+  "format_note": "Workshop: one and a half days of writing labs and a tracked follow-up review",
+  "hours": {
+    "instruction": 3.5,
+    "lab": 5,
+    "guided_self_study": 1.5,
+    "assessment": 1,
+    "capstone": 1
+  },
+  "unit": "day",
+  "days": [
+    {
+      "id": "day1",
+      "kind": "day",
+      "title": "REPLACE: the theme of this unit, in a few words",
+      "deck": "slides/day1.html",
+      "sessions": [
+        {
+          "title": "REPLACE: the title of Session 1",
+          "outcomes": [
+            "REPLACE: what a participant can do after this session; list in lo the course outcomes it serves"
+          ],
+          "lo": [],
+          "lab": {
+            "id": "1.1",
+            "title": "REPLACE: what participants build in lab 1.1",
+            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "minutes": 25,
+            "href": "D1_1.html"
+          }
+        },
+        {
+          "title": "REPLACE: the title of Session 2",
+          "outcomes": [
+            "REPLACE: what a participant can do after this session; list in lo the course outcomes it serves"
+          ],
+          "lo": [],
+          "lab": {
+            "id": "1.2",
+            "title": "REPLACE: what participants build in lab 1.2",
+            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "minutes": 25,
+            "href": "D1_2.html"
+          }
+        },
+        {
+          "title": "REPLACE: the title of Session 3",
+          "outcomes": [
+            "REPLACE: what a participant can do after this session; list in lo the course outcomes it serves"
+          ],
+          "lo": [],
+          "lab": {
+            "id": "1.3",
+            "title": "REPLACE: what participants build in lab 1.3",
+            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "minutes": 25,
+            "href": "D1_3.html"
+          }
+        },
+        {
+          "title": "REPLACE: the title of Session 4",
+          "outcomes": [
+            "REPLACE: what a participant can do after this session; list in lo the course outcomes it serves"
+          ],
+          "lo": [],
+          "lab": {
+            "id": "1.4",
+            "title": "REPLACE: what participants build in lab 1.4",
+            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "minutes": 25,
+            "href": "D1_4.html"
+          }
+        }
+      ]
+    },
+    {
+      "id": "day2",
+      "kind": "day",
+      "title": "REPLACE: the theme of this unit, in a few words",
+      "deck": "slides/day2.html",
+      "sessions": [
+        {
+          "title": "REPLACE: the title of Session 1",
+          "outcomes": [
+            "REPLACE: what a participant can do after this session; list in lo the course outcomes it serves"
+          ],
+          "lo": [],
+          "lab": {
+            "id": "2.1",
+            "title": "REPLACE: what participants build in lab 2.1",
+            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "minutes": 25,
+            "href": "D2_1.html"
+          }
+        },
+        {
+          "title": "REPLACE: the title of Session 2",
+          "outcomes": [
+            "REPLACE: what a participant can do after this session; list in lo the course outcomes it serves"
+          ],
+          "lo": [],
+          "lab": {
+            "id": "2.2",
+            "title": "REPLACE: what participants build in lab 2.2",
+            "summary": "REPLACE: one line on what participants build and take away; then list the steps of the lab in course.json, their minutes adding up to 25",
+            "minutes": 25,
+            "href": "D2_2.html"
+          }
+        }
+      ]
+    }
+  ],
+  "labs": {
+    "kind": "pages",
+    "base": "labs/"
+  },
+  "tools": [
+    {
+      "slot": "Documents and diagrams as text",
+      "examples": [
+        "Markdown in a Git repository",
+        "Mermaid",
+        "PlantUML"
+      ]
+    },
+    {
+      "slot": "Prose and style checks",
+      "examples": [
+        "Vale",
+        "a spelling and grammar checker"
+      ]
+    },
+    {
+      "slot": "Writing assistant",
+      "examples": [
+        "a locally served open-weight model",
+        "an approved general-purpose assistant"
+      ]
+    }
+  ],
+  "checks": {
+    "sessions_per_day": null,
+    "session_lab": true,
+    "lab_minutes": 25
+  }
+}
