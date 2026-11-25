@@ -72,5 +72,15 @@ urgent tags for reception to read, and keeps the livestock and mixed-language li
 
 ## The supervised memo
 
-Its result sheet is in the Academy's assessment pack, not in this repository, and differs from
-lab 1.3. Score it on the five-criterion rubric of lab 1.3, two points each.
+Its result sheet is not written yet. The Academy's assessment pack must supply it before the first
+cohort, outside this repository, as a comparison different from lab 1.3. Score the memo on the
+five-criterion rubric of lab 1.3, two points each.
+
+## Rounding
+
+Every figure is rounded once, to two decimals, by Python's `round` and `:.2f`, and quoted the same
+way everywhere. Three exact values sit on a half, and binary floating point rounds them
+unevenly: Model S's urgent recall 66/80 = 0.825 shows as 0.82, Model L's median time 2.415 s as
+2.41, but Model L's accuracy 374/400 = 0.935 as 0.94. A participant who works 66/80 out by
+hand and writes 0.83 is not wrong: `memocheck.py` flags 0.83 as untraced until the memo shows it on
+a `Working:` line (66 / 80 = 0.825), which is the habit the lab teaches.

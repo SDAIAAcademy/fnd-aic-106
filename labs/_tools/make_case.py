@@ -32,7 +32,7 @@ SEED = 106
 
 SPECIES = {
     "companion": {"en": ["My cat", "My dog", "Our kitten", "Our puppy"], "ar": ["قطتي", "كلبي", "قطنا الصغير", "جرونا"]},
-    "livestock": {"en": ["Our camel", "The sheep", "Our goat", "Our horse"], "ar": ["الناقة", "الخروف", "الماعز", "الحصان"]},
+    "livestock": {"en": ["Our camel", "The sheep", "Our goat", "Our horse"], "ar": ["الناقة", "النعجة", "الماعز", "الفرس"]},
     "other": {"en": ["My parrot", "My rabbit", "Our tortoise"], "ar": ["الببغاء", "الأرنب", "السلحفاة"]},
 }
 SYMPTOMS = {
@@ -66,6 +66,18 @@ SYMPTOMS = {
         "ar": ["عنده جرح صغير توقف الدم منه الأسبوع الماضي", "سوى تحليل دم الشهر الماضي ويحتاج المراجعة"],
     },
 }
+# Arabic subjects that are feminine take the feminine form of the same symptom: same position,
+# same word count, so the random choices, the token counts and every figure stay the same.
+FEMININE_AR = {"قطتي", "الناقة", "النعجة", "الفرس", "السلحفاة"}
+SYMPTOMS_AR_F = {
+    ("urgent", "explicit"): ["تنزف من فمها", "أكلت سم فئران", "لا تتنفس جيدا", "جاءتها تشنجات", "صدمتها سيارة", "بلعت إبرة", "سقطت ولا تتحرك"],
+    ("urgent", "implicit"): ["تحاول التبول ولا يخرج شيء", "بطنها قاس ويكبر", "لا تستطيع الوقوف", "لثتها بيضاء وباردة",
+                             "في الولادة منذ ساعات ولم يخرج المولود", "لم تتبول طوال اليوم"],
+    ("soon", "explicit"): ["تستفرغ من أمس", "تعرج على رجلها الخلفية", "لا تأكل منذ يومين", "عندها ورم في الرقبة", "عندها كحة", "عندها إسهال"],
+    ("soon", "implicit"): ["خاملة وهادئة على غير عادتها", "تشرب ماء أكثر من المعتاد", "ينقص وزنها", "تهز رأسها كثيرا"],
+    ("routine", "plain"): ["تحتاج تطعيم سنوي", "تحتاج قص أظافر", "تحتاج شهادة صحية للسفر", "تحتاج فحص دوري", "تحتاج دواء الديدان", "تحتاج شريحة تعريف"],
+    ("routine", "decoy"): ["عندها جرح صغير توقف الدم منه الأسبوع الماضي", "سوت تحليل دم الشهر الماضي وتحتاج المراجعة"],
+}
 OPENERS = {"en": ["", "Hello, ", "Please help, ", "Good day, "], "ar": ["", "السلام عليكم، ", "لو سمحتم، ", "مرحبا، "]}
 CLOSERS = {"en": ["", " Can we come in?", " When can you see us?"], "ar": ["", " متى نقدر نجي؟", " هل يوجد موعد؟"]}
 
@@ -76,7 +88,10 @@ def message(rng: random.Random, lang: str, group: str, gold: str, kind: str) -> 
         sym = rng.choice(SYMPTOMS[(gold, kind)]["en"])
         return f"{subj} {sym}"
     subj = rng.choice(SPECIES[group][lang])
-    sym = rng.choice(SYMPTOMS[(gold, kind)][lang])
+    if lang == "ar" and subj in FEMININE_AR:
+        sym = rng.choice(SYMPTOMS_AR_F[(gold, kind)])
+    else:
+        sym = rng.choice(SYMPTOMS[(gold, kind)][lang])
     return f"{rng.choice(OPENERS[lang])}{subj} {sym}.{rng.choice(CLOSERS[lang])}".strip()
 
 

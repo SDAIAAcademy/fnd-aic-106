@@ -44,8 +44,9 @@ ran instead. The checkers are a first pass; the follow-up review is the judgemen
 
 Groups of six. Each participant has four minutes to show the set and four minutes of questions.
 The reviewer opens your commit history and picks two rows of your revision log to check live.
-Before the review, review one partner's set with the lab checklists and send them your scores:
-that review is the "peer review given" part of the assessment.
+Before the review, review one partner's set with the lab checklists and send them your scores.
+That review, with the reviews you gave in the labs, is the "peer review given" part of the
+assessment.
 
 ## How it is scored
 

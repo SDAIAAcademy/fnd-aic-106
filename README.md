@@ -85,7 +85,9 @@ Authenticity: The supervised memo is written in session; revision logs and docum
 
 Certificate: completion with assessed work.
 
-The memo is scored on the five-criterion rubric of lab 1.3. The documentation set is scored on
+The supervised memo's result sheet is not written yet: the Academy's assessment pack must supply
+it before the first cohort, outside this repository, and it must differ from the comparison of
+lab 1.3. The memo is scored on the five-criterion rubric of lab 1.3. The documentation set is scored on
 the capstone rubric below. Peer review given is scored on the reviews a participant gives in the
 labs and on a partner's set before the follow-up.
 

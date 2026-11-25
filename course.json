@@ -55,7 +55,7 @@
   ],
   "case_study": {
     "name": "Tarthuth Veterinary Clinics",
-    "summary": "A fictional private chain of veterinary clinics whose two-person data team built a small Python project, the request urgency tagger, that sorts owners' appointment messages in Arabic, English and mixed text into urgent, soon and routine. Every file is synthetic and generated with a fixed seed: the messages, a 400-message test set, the recorded outputs of a keyword-rules baseline and of two hosted models labelled Model S and Model L, their measured cost and latency, and the evaluation log."
+    "summary": "A fictional private chain of veterinary clinics whose two-person data team built a small Python project, the request urgency tagger, that sorts owners' appointment messages in Arabic, English and mixed text into urgent, soon and routine. Every file is synthetic and generated with a fixed seed: the messages, a 400-message test set, the outputs of a keyword-rules baseline that really runs, the simulated and recorded outputs of two hosted models labelled Model S and Model L with their cost and latency, and the evaluation log. No model was called."
   },
   "format": "workshop",
   "format_note": "Workshop: one and a half days of writing labs and a tracked follow-up review",
