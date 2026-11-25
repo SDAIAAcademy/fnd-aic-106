@@ -32,3 +32,11 @@ print(f"Method B runs inside SAR {budget:.0f} a month: {runs_in_budget:.2f} runs
 print(f"A run at SAR 4.62 would break the budget at weekly runs: {4.62 * 52 / 12:.2f} a month")
 lo, hi = wilson(7, 9)
 print(f"A small slice: 7/9 = {7 / 9:.2f} (95% interval {lo:.2f} to {hi:.2f})")
+# Method B's 52 flagged run-outs by medicine group (Day 2 slides)
+groups = {"Antibiotics": (30, 32), "Vaccines": (15, 19), "Parasite treatments": (7, 9)}
+assert sum(k for k, _ in groups.values()) == 52 and sum(n for _, n in groups.values()) == 60
+for g, (k, n) in groups.items():
+    lo, hi = wilson(k, n)
+    print(f"Method B, {g}: {k}/{n} = {k / n:.2f} (95% interval {lo:.2f} to {hi:.2f})")
+lo, hi = wilson(50, 56)
+print(f"Method B without 4 weeks also used in tuning: 50/56 = {50 / 56:.2f} ({lo:.2f} to {hi:.2f})")

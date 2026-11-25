@@ -259,6 +259,302 @@
       "explanation": "6,000 / 1,000 x 12.40 = 74.40. The working line lets the reviewer check the number in seconds.",
       "pool": "practice",
       "weight": 1
+    },
+    {
+      "id": "q-report-01",
+      "type": "single",
+      "lo": [
+        "LO4"
+      ],
+      "day": "day2",
+      "session": 1,
+      "slide": "run-record",
+      "level": "apply",
+      "prompt": "A colleague must repeat your evaluation next quarter and compare the result. Your report gives the data file, the scorer and the results. Which addition matters most for repeating the run?",
+      "options": [
+        "A paragraph on why the project was started",
+        "A longer list of the people who labelled the data",
+        "The run identifier, the settings and the data version from the run record",
+        "A screenshot of the results table"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Without the settings, the data version and the run identifier the colleague cannot tell whether a different result comes from the system or from the setup.",
+      "misconceptions": [
+        "Adds history that does not help anyone repeat the run",
+        "Names people instead of recording what was run",
+        "",
+        "Shows the output again but not what produced it"
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-report-02",
+      "type": "single",
+      "lo": [
+        "LO4"
+      ],
+      "day": "day2",
+      "session": 1,
+      "slide": "small-slices",
+      "level": "apply",
+      "prompt": "An evaluation found 5 of 6 urgent messages about birds (0.83, 95% interval 0.44 to 0.97). How should the report state it?",
+      "options": [
+        "Leave the slice out, since six messages prove nothing",
+        "\"Birds: 5 of 6 found; too few to say how well it does on birds.\"",
+        "\"Birds: 0.83, close to the overall rate.\"",
+        "\"The tagger handles birds well.\""
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "It keeps the slice, gives the count and says plainly that the evidence is too thin to rely on.",
+      "misconceptions": [
+        "Hides a slice the reader may care about, instead of reporting it as small",
+        "",
+        "Reports the rate without its count and reads a wide interval as a match",
+        "Turns a thin result into a confident claim"
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-report-03",
+      "type": "single",
+      "lo": [
+        "LO4"
+      ],
+      "day": "day2",
+      "session": 1,
+      "slide": "overlap",
+      "level": "analyze",
+      "prompt": "An evaluation log has a field showing that 15 of 300 test messages were also used while the prompt was tuned. The tagger got all 15 right. What belongs in the report?",
+      "options": [
+        "The overlap, and the result on the 285 messages without it",
+        "Nothing: 15 messages are only 5% of the test set",
+        "A note that the tagger is especially good on familiar messages",
+        "The overall result, rounded down a little to be safe"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Messages seen in tuning are not a test of new messages: the report says how many overlap and what the result is without them.",
+      "misconceptions": [
+        "",
+        "Judges the threat by its share instead of reporting it and its effect",
+        "Reads the overlap as a strength instead of a threat to the result",
+        "Replaces a measurement with a guess"
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-card-01",
+      "type": "single",
+      "lo": [
+        "LO4"
+      ],
+      "day": "day2",
+      "session": 1,
+      "slide": "limits-actionable",
+      "level": "apply",
+      "prompt": "A card for reception staff must state that the tagger found 6 of 10 urgent messages written in mixed Arabic and English. Which line serves them best?",
+      "options": [
+        "\"Performance may vary across languages.\"",
+        "\"Mixed-language accuracy is under review.\"",
+        "\"Results for mixed messages are not shown, to avoid confusion.\"",
+        "\"Mixed Arabic and English: 6 of 10 urgent found. Read these messages at once.\""
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "It gives the count and tells the staff what to do differently.",
+      "misconceptions": [
+        "Names a limit with nothing to act on",
+        "Promises a future check instead of stating today's result",
+        "Hides the weakness from the people it affects",
+        ""
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-card-02",
+      "type": "single",
+      "lo": [
+        "LO4"
+      ],
+      "day": "day2",
+      "session": 1,
+      "slide": "system-card",
+      "level": "understand",
+      "prompt": "The head of reception asks: \"When an owner's message arrives, what happens to it, and who sees it when?\" Which document answers her?",
+      "options": [
+        "A model card for the model alone",
+        "A system card for the tagger with its queue and staff",
+        "The experiment report of the last run",
+        "The README of the repository"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Her question is about the whole path of a message, people included: that is a system card's job.",
+      "misconceptions": [
+        "Describes one model, not the queue and the people around it",
+        "",
+        "Records one run for the team, not how the system works day to day",
+        "Tells a developer how to install the code"
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-revision-01",
+      "type": "single",
+      "lo": [
+        "LO5"
+      ],
+      "day": "day2",
+      "session": 2,
+      "slide": "typical-errors",
+      "level": "analyze",
+      "prompt": "Your draft said \"urgent recall 0.86 (95% interval 0.77 to 0.92)\". The assisted revision says \"urgent recall of about 0.9\". What happened to the claim?",
+      "options": [
+        "Nothing: it is the same number, rounded",
+        "The revision made it clearer and should be kept",
+        "The number was raised and the interval dropped",
+        "The revision corrected a typing error"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "0.86 became about 0.9 and the uncertainty disappeared: two changes to the claim, both to be logged and undone.",
+      "misconceptions": [
+        "Treats a rounding that crosses a threshold as harmless",
+        "Mistakes fluency for accuracy",
+        "",
+        "Assumes the assistant knew better than the evidence, without checking it"
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-revision-02",
+      "type": "single",
+      "lo": [
+        "LO5"
+      ],
+      "day": "day2",
+      "session": 2,
+      "slide": "verification-log",
+      "level": "apply",
+      "prompt": "In your revision log, a changed sentence now says accuracy was 0.95. The statistics give accuracy 0.92 overall and 0.95 for English messages only. What do you record?",
+      "options": [
+        "Verdict corrected; checked against the statistics; 0.95 is English only, overall is 0.92",
+        "Verdict kept, because 0.95 appears in the statistics",
+        "Verdict removed, because numbers should not appear in reports",
+        "No row, because the sentence still has a number"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The number exists in the statistics but for a different slice: the claim is wrong and is corrected, with what it was checked against.",
+      "misconceptions": [
+        "",
+        "Checks that a number exists somewhere instead of what it measures",
+        "Removes evidence the reader needs",
+        "Skips the log for a change that altered a claim"
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-revision-03",
+      "type": "single",
+      "lo": [
+        "LO5"
+      ],
+      "day": "day2",
+      "session": 2,
+      "slide": "what-may-go-in",
+      "level": "apply",
+      "prompt": "A colleague wants an assistant to polish a draft report that quotes ten real owners' messages with their phone numbers. The clinics allow only Public data in any assistant. What should happen first?",
+      "options": [
+        "Paste it, then delete the chat afterwards",
+        "Paste only the half that has fewer phone numbers",
+        "Ask the assistant to ignore the personal details",
+        "Replace the quoted messages with synthetic ones before any assistant sees it"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "Personal data is not Public; the draft must hold only Public or synthetic text before it goes to any assistant.",
+      "misconceptions": [
+        "Assumes deleting the chat undoes sending the data",
+        "Sends less personal data, but still sends it",
+        "Relies on the tool to protect data it has already received",
+        ""
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-revision-04",
+      "type": "tf",
+      "lo": [
+        "LO5"
+      ],
+      "day": "day2",
+      "session": 2,
+      "slide": "disclosure",
+      "level": "understand",
+      "prompt": "A disclosure line that says \"AI was used\" tells the reader which parts of the document a person checked.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "It says nothing about what the assistant did or what was checked; a disclosure names both.",
+      "misconceptions": [
+        "Treats any mention of AI as enough disclosure",
+        ""
+      ],
+      "pool": "practice",
+      "weight": 1
+    },
+    {
+      "id": "q-agents-01",
+      "type": "single",
+      "lo": [
+        "LO5"
+      ],
+      "day": "day2",
+      "session": 2,
+      "slide": "context-files",
+      "level": "apply",
+      "prompt": "A coding agent working on your repository keeps running a test command that no longer exists. What should you change in its context file?",
+      "options": [
+        "Add a sentence asking it to be more careful",
+        "Give the current test command exactly as typed and the line it prints when all is well",
+        "Remove the testing section so it stops running tests",
+        "Describe the project's history in more detail"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "An agent follows the file literally, like a stranger with a README: give the exact command and what success looks like.",
+      "misconceptions": [
+        "Asks for care instead of fixing the instruction it follows",
+        "",
+        "Removes the check the agent needs before proposing a change",
+        "Adds context that does not tell it what to run"
+      ],
+      "pool": "practice",
+      "weight": 1
     }
   ]
 }

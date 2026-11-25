@@ -1,37 +1,73 @@
 <article class="lab" data-lab="2.1">
   <div class="box goal">
-    <h3>Goal</h3>
-    <p>REPLACE: by the end, participants can …</p>
+    <h3>You leave with</h3>
+    <ul>
+      <li>An experiment report of run EV-L3 for the data team lead, drafted with AI off: question, setup, results by slice, uncertainty, limits, next steps.</li>
+      <li>A model card for the head of reception: what the tagger is for and not for, results by kind of message, known limits and what staff do about each.</li>
+    </ul>
   </div>
 
   <h2>What you need</h2>
-  <ul>
-    <li>REPLACE: the files, the tool and the account the lab uses</li>
-  </ul>
+  <div class="files">
+    <a href="files/D2_1/eval_log.jsonl"><b>D2_1/eval_log.jsonl</b><span>The evaluation log of Model L on the 400 test messages: a run record, then one line per message.</span></a>
+    <a href="files/D1_1/glossary.csv"><b>D1_1/glossary.csv</b><span>The agreed terms, as in lab 1.1.</span></a>
+  </div>
+  <p>Write <code>work/report.md</code> and <code>work/card.md</code>. Model L's outputs in the log are synthetic and recorded; no model runs in this lab.</p>
+  <div class="callout warn small"><b>AI in this lab: off for the report.</b> The report draft is the course's one unassisted first draft; lab 2.2 compares it with an assisted revision. For the card, an assistant may comment on structure only.</div>
+
+  <h2>Steps</h2>
 
   <div class="step">
-    <h3>REPLACE: the first step <span class="min">15 min</span></h3>
-    <p>REPLACE: what to do and why, in two sentences</p>
-    <div class="prompt" data-tool="Documents and diagrams as text">REPLACE: the prompt participants copy, with the parts they change in <span class="ph">colour</span></div>
+    <h3>1 · Run the statistics tool on the evaluation log and read the slice table <span class="min">10 min</span></h3>
+    <pre class="code"><code>uv run kit/evalstats.py files/D2_1/eval_log.jsonl</code></pre>
+    <p>It prints the run record and a table by language, species group, length and overlap with the development set, and writes <code>work/stats.md</code> and <code>work/stats.json</code>. Read each row marked "small" twice.</p>
   </div>
 
   <div class="step">
-    <h3>REPLACE: the second step <span class="min">10 min</span></h3>
-    <p>REPLACE: what to do and why, in two sentences</p>
+    <h3>2 · Draft the experiment report with AI off: question, setup, results, uncertainty <span class="min">20 min</span></h3>
+    <p>Sections: result in brief, setup, results, uncertainty, limits, next steps. Every rate with its count and its interval. Say which results rest on few urgent messages, and what the run record tells you about how to repeat it.</p>
+  </div>
+
+  <div class="step">
+    <h3>3 · Draft the model card for the head of reception <span class="min">15 min</span></h3>
+    <p>Sections: what it is for, what it is not for, evaluation data, results by kind of message, known limits with what staff do about each, ethical considerations. Then three lines, three different roles: <code>Owner:</code>, <code>Reviewed by:</code>, <code>Approved by:</code>.</p>
+  </div>
+
+  <div class="step">
+    <h3>4 · Run the card checker and fix what it reports <span class="min">5 min</span></h3>
+    <pre class="code"><code>uv run kit/cardcheck.py report work/report.md
+uv run kit/cardcheck.py card work/card.md</code></pre>
+  </div>
+
+  <div class="step">
+    <h3>5 · Swap with a partner and complete the peer checklist <span class="min">10 min</span></h3>
+    <table class="t small">
+      <tr><th>Peer checklist</th><th>Yes or no</th></tr>
+      <tr><td>The first paragraph of the report gives the result with its count and interval</td><td class="fill"></td></tr>
+      <tr><td>Every rate has its count beside it</td><td class="fill"></td></tr>
+      <tr><td>Each small slice is named as small, and the weakest slice is a stated limit</td><td class="fill"></td></tr>
+      <tr><td>The overlap with development data is reported</td><td class="fill"></td></tr>
+      <tr><td>The card tells staff what to do about each limit</td><td class="fill"></td></tr>
+      <tr><td>The card says what the tagger is not for</td><td class="fill"></td></tr>
+      <tr><td>Owner, reviewer and approver are three different roles</td><td class="fill"></td></tr>
+    </table>
   </div>
 
   <div class="step stretch">
     <h3>✱ Stretch</h3>
-    <p>REPLACE: an extension for those who finish early</p>
+    <p>Add a Mermaid diagram of the evaluation flow to the report: test set, model, recorded outputs, statistics, report.</p>
   </div>
 
   <h2>Check yourself</h2>
   <ol class="checks">
-    <li>REPLACE: a question that shows the lab worked</li>
+    <li>Which slice would you tell the head of reception about first, and what should her staff do?</li>
+    <li>Which result in your report would change most if the test set had twice as many urgent messages?</li>
+    <li>What does the report need that the card leaves out, and why?</li>
   </ol>
 
   <details class="instructor">
     <summary>For the trainer</summary>
-    <p>REPLACE: the answer key, the traps and the common errors</p>
+    <p>Planted: urgent livestock messages, 8/12 (0.67, interval 0.39 to 0.86), the weakest slice; mixed Arabic and English messages, 24, accuracy 0.79, the lowest by language; 12 test messages with <code>in_dev_set</code> true, all tagged right (without them accuracy 0.93, urgent 73/78). Overall 75/80 (0.94, 0.86 to 0.97); 9 false urgent tags.</p>
+    <p>References: <code>solutions/D2_1_report.md</code> and <code>solutions/D2_1_card.md</code>; <code>uv run solutions/check_D2_1.py</code>. The usual miss is the overlap field, which only a reader of the log finds. A card that lists limits without saying what staff do about them fails the fifth checklist line.</p>
   </details>
 </article>

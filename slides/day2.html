@@ -1,89 +1,346 @@
 <section class="slide title" id="title" data-auto="title">
-  <aside class="notes">REPLACE: welcome; introduce yourself; one question to the room that calibrates the pace; the rhythm of the day</aside>
+  <aside class="notes"><p>Welcome back. Today opens with the supervised memo, then two sessions: the documents that report evidence, and writing with an assistant. Keep yesterday's files in <code>labs/work/</code>: today's lab 2.2 compares a draft you write in lab 2.1 with an assisted revision.</p></aside>
 </section>
 
 <section class="slide" id="agenda" data-auto="agenda"></section>
+
+<section class="slide" id="review-day1" data-lo="LO3">
+  <div class="kicker">Review of Day 1</div>
+  <h2>Which part of this memo is missing?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3">
+    <p class="lead">A memo recommends Method B for the pharmacy, compares its quality, cost and time with Method A in a table with intervals, and argues from the 0.80 requirement. It ends there.</p>
+    <div class="opts">
+      <div class="opt" data-why="The memo already has a table of measured trade-offs; more numbers would not fill the gap">A second table of results</div>
+      <div class="opt" data-ok>The conditions, with numbers, that would change the recommendation</div>
+      <div class="opt" data-why="History is the writer's order; the memo's reader needs the decision, not the timeline">A section on how the methods were developed</div>
+      <div class="opt" data-why="A memo names its options once; a third unmeasured option does not belong in the trade-offs">A third option that was not measured</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Without "what would change this", nobody can tell later when the decision should come back.</div>
+  </div>
+  <aside class="notes"><p>Answer: B. Then hand over to the supervised memo: same five parts, AI off.</p></aside>
+</section>
+
+<section class="slide dark" id="supervised-memo" data-label="Supervised memo">
+  <div class="kicker">Assessment · AI off</div>
+  <h1>Supervised memo · 50 minutes of writing</h1>
+  <div class="timer" data-minutes="50"></div>
+  <p class="lead">One page, from the result on your sheet, scored on the five-criterion rubric of lab 1.3. Devices closed; paper or a locked editor.</p>
+  <aside class="notes"><p>Sixty minutes in all: five for the rules and handing out, fifty of writing (press T), five for collection. The result sheet comes from the Academy's assessment pack and is not in this repository; it is a different comparison from lab 1.3. The memo is 30% of the course and a participant needs at least 50% on it to pass. Score it on the same five criteria, two points each, and keep the paper: authenticity rests on its being written here.</p></aside>
+</section>
 
 <!-- Session 1 -->
 
 <section class="slide section" id="s1" data-auto="section" data-session="1"></section>
 
-<section class="slide" id="s1-idea">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
-    </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
+<section class="slide" id="report-job" data-lo="LO4">
+  <div class="kicker">The experiment report</div>
+  <h2>A report lets someone repeat the run and compare the next one</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>What was asked</h4><p class="small mb0">The question, and the result in one paragraph with its count and interval.</p></div>
+    <div class="card c-cyan"><h4>What was run</h4><p class="small mb0">Data and its version, settings, scorer, run identifier and date.</p></div>
+    <div class="card c-coral"><h4>What it shows</h4><p class="small mb0">Results overall and by slice, the uncertainty, the limits, the next run.</p></div>
   </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+  <div class="callout warn mt"><b>What goes wrong.</b> A report that gives only the best number cannot be compared with the next run, because nobody knows what produced it.</div>
+  <aside class="notes"><p>The reader is the team, now and in three months. Ask: if you left tomorrow, could a colleague rerun your last experiment from what you wrote? The report is the long form; the memo and the card quote it.</p></aside>
 </section>
 
-<section class="slide" id="s1-steps">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+<section class="slide" id="run-record" data-lo="LO4">
+  <div class="kicker">Setup</div>
+  <h2>Copy the setup from the run record, not from memory</h2>
+  <pre class="code" data-file="forecast_run.jsonl"><code class="language-json">{"type": "run", "system": "Method B", "run_id": "FC-B2",
+ "data": "runouts_v3.csv, 60 weeks", "settings": "depth 4, 200 trees",
+ "scorer": "flagged one week ahead", "run_date": "2026-09-02"}</code></pre>
+  <ul class="bullets mt">
+    <li>Every field the next run needs to match goes into the setup section.</li>
+    <li>The run identifier ties the report to its log: cite it.</li>
+  </ul>
+  <aside class="notes"><p>The pharmacy run record is a parallel example. The lab's evaluation log starts with the same kind of record for the tagger, and its item lines carry fields a careful reader uses: one of them matters more than it looks.</p></aside>
+</section>
+
+<section class="slide" id="slices" data-lo="LO4">
+  <div class="kicker">Results by slice</div>
+  <h2>An overall rate can hide the slice where the system fails</h2>
+  <div class="bars">
+    <div class="row"><span>All run-outs · 52/60</span><div class="bar c-teal" style="--w:87%"></div><span class="val">0.87</span></div>
+    <div class="row"><span>Antibiotics · 30/32</span><div class="bar c-cyan" style="--w:94%"></div><span class="val">0.94</span></div>
+    <div class="row"><span>Vaccines · 15/19</span><div class="bar c-amber" style="--w:79%"></div><span class="val">0.79</span></div>
+    <div class="row"><span>Parasite treatments · 7/9</span><div class="bar c-coral" style="--w:78%"></div><span class="val">0.78</span></div>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <p class="caption">Method B, run-outs flagged in advance, by medicine group. Parallel example from <code>labs/_tools/slide_examples.py</code>.</p>
+  <aside class="notes"><p>Ask which group the pharmacist should worry about. Most say parasite treatments, the lowest bar. Then show the next slide: with nine cases, the bar is nearly as uncertain as it is low. Slices are chosen before the run from what the reader cares about (here, medicine groups), never after looking for a flattering cut.</p></aside>
+</section>
+
+<section class="slide" id="small-slices" data-lo="LO4">
+  <div class="kicker">Small slices</div>
+  <h2>Give every slice its count and interval, and say which are too small to read</h2>
+  <table class="t">
+    <tr><th>Slice</th><th>Flagged</th><th>Rate</th><th>95% interval</th></tr>
+    <tr><td>Antibiotics</td><td>30/32</td><td>0.94</td><td>0.80 to 0.98</td></tr>
+    <tr><td>Vaccines</td><td>15/19</td><td>0.79</td><td>0.57 to 0.91</td></tr>
+    <tr class="hl"><td>Parasite treatments</td><td>7/9</td><td>0.78</td><td>0.45 to 0.94</td></tr>
+  </table>
+  <div class="callout tip mt"><b>Neither drop it nor over-read it.</b> "On 9 cases the rate could be anywhere from 0.45 to 0.94: we need more before we rely on it."</div>
+  <aside class="notes"><p>The tool in lab 2.1 marks a slice "small" when it has fewer than 20 of the cases that matter; that threshold is the course's own convention, chosen so the interval is not wider than about 0.4. FND-AIC-103 teaches how the interval is computed; here the point is how to write it.</p></aside>
+</section>
+
+<section class="slide" id="overlap" data-lo="LO4">
+  <div class="kicker">Threats to the result</div>
+  <h2>Test cases that were also used in tuning make a result look better</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>A case seen while the system was tuned is not a test of new cases.</li>
+      <li>Report how many test cases overlap, and the result without them.</li>
+      <li>In the pharmacy run, 4 of the 60 weeks were also used to tune Method B.</li>
+    </ul>
+    <div class="stat center"><div class="big">0.89</div><div class="lbl">Method B on the 56 weeks not used in tuning: 50/56, interval 0.79 to 0.95</div></div>
+  </div>
+  <aside class="notes"><p>Parallel example; figures from <code>labs/_tools/slide_examples.py</code>. Leakage of this kind is taught in depth in FND-AIC-101. Here the habit is simply to look for it and report it: a field in the log, a note in the run record, a question to whoever built the test set.</p></aside>
+</section>
+
+<section class="slide" id="model-card" data-lo="LO4">
+  <div class="kicker">Model cards</div>
+  <h2>A model card tells a user how far to rely on the model</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li><b>What it is for,</b> and who uses it.</li>
+      <li><b>What it is not for:</b> out-of-scope uses, said plainly.</li>
+      <li><b>Evaluation data,</b> in words the user reads.</li>
+      <li><b>Results by slice,</b> with counts and intervals.</li>
+      <li><b>Known limits,</b> and what the user does about each.</li>
+      <li><b>Ethical considerations;</b> owner, reviewer, approver.</li>
+    </ul>
+    <div class="card c-teal"><h4>Where cards come from</h4><p class="small mb0">Mitchell and colleagues proposed model cards in 2019: results across groups, the intended context, how it was evaluated. Hub model cards are Markdown files with metadata.</p></div>
+  </div>
+  <aside class="notes"><p>Sources: Mitchell et al., "Model Cards for Model Reporting" (arxiv.org/abs/1810.03993); Hugging Face Hub documentation on model cards. Templates in current use change; the durable part is the list on the left. FND-AIC-101 drafts a card from a model the participant trained; here the card is written for a named reader who does not read code.</p></aside>
+</section>
+
+<section class="slide" id="system-card" data-lo="LO4">
+  <div class="kicker">Model or system card</div>
+  <h2>A system card describes the whole system the reader meets</h2>
+  <div class="cols cols-2">
+    <div class="card c-cyan"><h4>Model card</h4><p class="small mb0">One model: what it was evaluated on, how it did, where it fails.</p></div>
+    <div class="card c-purple"><h4>System card</h4><p class="small mb0">The model with its rules, its queue, its people and its fallbacks: what happens to a message from arrival to a person.</p></div>
+  </div>
+  <div class="callout note mt"><b>Pick by the reader's question.</b> "Can I trust the model?" calls for a model card. "What happens to an owner's message?" calls for a system card.</div>
+  <aside class="notes"><p>In the capstone participants may write either. A system card is the better choice when the risk comes from how the parts fit, for example a person who reads only messages tagged urgent.</p></aside>
+</section>
+
+<section class="slide" id="limits-actionable" data-lo="LO4">
+  <div class="kicker">Known limits</div>
+  <h2>Write each limit with what the reader should do about it</h2>
+  <table class="t small">
+    <tr><th>Says nothing to act on</th><th>Tells the reader what to do</th></tr>
+    <tr><td>"May underperform on some medicine groups."</td><td>"Flagged 7 of 9 parasite-treatment run-outs: check their stock by hand every week."</td></tr>
+    <tr><td>"Not suitable for all uses."</td><td>"Not for ordering controlled medicines: those stay with the pharmacist."</td></tr>
+    <tr><td>"Results may vary."</td><td>"Tested on 60 past weeks of one store; not tested on the new branch."</td></tr>
+  </table>
+  <aside class="notes"><p>Ask the room to rewrite one vague limit from their own work. The test of a limit is whether the reader would do something different after reading it. The card checker in lab 2.1 looks for the slices the statistics show as weaker; the peer checklist asks whether each limit says what staff should do.</p></aside>
+</section>
+
+<section class="slide" id="ethics-principles" data-lo="LO4">
+  <div class="kicker">National reference</div>
+  <h2>SDAIA's AI Ethics Principles ask for exactly what a card records</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Fairness</h4><p class="small mb0"><span class="ar" lang="ar" dir="rtl">النزاهة والإنصاف</span>: results by slice show who the system serves less well.</p></div>
+    <div class="card c-cyan"><h4>Transparency and Explainability</h4><p class="small mb0"><span class="ar" lang="ar" dir="rtl">الشفافية والقابلية للتفسير</span>: what it is for, how it was tested, where it fails.</p></div>
+    <div class="card c-coral"><h4>Accountability and Responsibility</h4><p class="small mb0"><span class="ar" lang="ar" dir="rtl">المساءلة والمسؤولية</span>: an owner, a reviewer and an approver, by role.</p></div>
+  </div>
+  <aside class="notes"><p>Three of the seven principles, with their names as the English and Arabic texts give them (Principle 1, Principle 6 and Principle 7). The text is SDAIA's AI Ethics Principles, version 1 of 2025 on sdaia.gov.sa, read 25 November 2026. The mapping of card sections to principles is this course's own reading, not a requirement the principles state.</p></aside>
+</section>
+
+<section class="slide" id="check-card" data-lo="LO4">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which line should the pharmacy's card carry?</h2>
+  <div class="quiz" data-type="single" data-lo="LO4">
+    <p class="lead">The card for the head pharmacist says: "Method B flags run-outs with a recall of 0.87." The run flagged 7 of 9 parasite-treatment run-outs, and 4 test weeks were also used in tuning.</p>
+    <div class="opts">
+      <div class="opt" data-why="Keeps one overall number and hides the slice and the overlap the reader needs">"Method B is reliable for all medicines."</div>
+      <div class="opt" data-why="Reports the weak slice without its count or a reason to trust the rate">"Parasite treatments: 0.78."</div>
+      <div class="opt" data-ok>"Parasite treatments: 7 of 9 flagged; check their stock by hand."</div>
+      <div class="opt" data-why="Drops the small slice to keep the card tidy, which hides the weakness">"Results for small groups are left out."</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> It gives the count, and tells the reader what to do about the limit.</div>
+  </div>
+  <aside class="notes"><p>Answer: C. A full card also reports the tuning overlap and the result without it (0.89 on 50/56). If many choose B, ask what the head pharmacist should do with "0.78".</p></aside>
 </section>
 
 <section class="slide lab" id="lab-2-1" data-auto="lab" data-lab="2.1">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p><b>AI-off for the report draft:</b> it is the one unassisted first draft of the course, compared in lab 2.2. AI-tutor for the card's structure only. Walk the room during step 1 and ask what each column of the log holds. Typical problems: rates without counts, a card that lists limits without actions, owner and approver given as the same role.</p></aside>
+</section>
+
+<section class="slide" id="debrief-2-1" data-lo="LO4">
+  <div class="kicker">Lab 2.1 debrief</div>
+  <h2>Model L found 75 of 80 urgent messages, but 8 of 12 on livestock</h2>
+  <table class="t small">
+    <tr><th>Slice of run EV-L3</th><th>Urgent found</th><th>Urgent recall (95% interval)</th><th>Accuracy</th></tr>
+    <tr><td>All, 400 messages</td><td>75/80</td><td>0.94 (0.86 to 0.97)</td><td>0.94</td></tr>
+    <tr class="hl"><td>Livestock, 70</td><td>8/12</td><td>0.67 (0.39 to 0.86)</td><td>0.90</td></tr>
+    <tr><td>Mixed Arabic and English, 24</td><td>4/4</td><td>1.00 (0.51 to 1.00)</td><td>0.79</td></tr>
+    <tr><td>Also in the development set, 12</td><td>2/2</td><td>1.00 (0.34 to 1.00)</td><td>1.00</td></tr>
+  </table>
+  <aside class="notes"><p>Show after the lab only. Figures from <code>uv run kit/evalstats.py files/D2_1/eval_log.jsonl</code>; Model L's outputs are synthetic and recorded. Ask who found the overlap field. Without the 12 overlapping messages accuracy is 0.93 and urgent recall stays 0.94 (73/78). Ask two participants to read their livestock limit aloud: does it tell reception what to do?</p></aside>
 </section>
 
 <!-- Session 2 -->
 
 <section class="slide section" id="s2" data-auto="section" data-session="2"></section>
 
-<section class="slide" id="s2-idea">
-  <div class="kicker">REPLACE: the question this slide answers</div>
-  <h2>REPLACE: one idea, stated as a sentence</h2>
-  <div class="cols cols-2">
-    <ul class="bullets">
-      <li>REPLACE: at most six bullets, each a complete thought</li>
-      <li>REPLACE: bold the key phrase; numbers come from the lab run, not from memory</li>
-    </ul>
-    <div class="card c-teal"><h4>In the case study</h4><p class="small mb0">REPLACE: tie the idea to the case study and its data</p></div>
+<section class="slide" id="ai-off-first" data-lo="LO5">
+  <div class="kicker">AI-off first drafts</div>
+  <h2>Write the first draft yourself, so you know what the assistant changed</h2>
+  <div class="flow">
+    <div class="step c-navy"><b>1 · AI-off draft</b>your claims, your evidence</div>
+    <div class="arrow">→</div>
+    <div class="step c-teal"><b>2 · Assisted revision</b>clearer, shorter, maybe wrong</div>
+    <div class="arrow">→</div>
+    <div class="step c-cyan"><b>3 · Claim diff</b>every changed sentence</div>
+    <div class="arrow">→</div>
+    <div class="step c-coral"><b>4 · Log and disclose</b>checked, then said</div>
   </div>
-  <div class="callout warn mt"><b>What goes wrong.</b> REPLACE: the failure participants will hit, and how to recognise it</div>
-  <aside class="notes">REPLACE: what to say, the demo to run, the question to ask the room, the common failure and its fix</aside>
+  <div class="callout note mt"><b>The course's AI levels.</b> Off for the supervised memo and the lab 2.1 report draft; tutor for structure in the labs; full, and logged, for this revision and the capstone's polish.</div>
+  <aside class="notes"><p>Without your own draft you cannot tell an improvement from an invention: you would be checking the assistant against itself. The AI levels come from the course's catalog entry.</p></aside>
 </section>
 
-<section class="slide" id="s2-steps">
-  <div class="kicker">Step by step</div>
-  <h2>REPLACE: a process, shown one step per key press</h2>
-  <div class="flow">
-    <div class="step c-teal"><b>1 · REPLACE: name</b>REPLACE: what happens first</div>
-    <div class="arrow frag" data-frag="b">→</div><div class="step c-cyan frag" data-frag="b"><b>2 · REPLACE: name</b>REPLACE: the next piece</div>
-    <div class="arrow frag" data-frag="c">→</div><div class="step c-coral frag" data-frag="c"><b>3 · REPLACE: name</b>REPLACE: the result</div>
+<section class="slide" id="typical-errors" data-lo="LO5">
+  <div class="kicker">Typical errors of assisted revision</div>
+  <h2>A fluent revision can change what the document claims</h2>
+  <div class="cols cols-3">
+    <div class="card c-coral"><h4>Numbers</h4><p class="small mb0">A rate nudged, rounded or swapped for a nearby one.</p></div>
+    <div class="card c-coral"><h4>Uncertainty</h4><p class="small mb0">An interval dropped "for readability"; "likely" turned into "will".</p></div>
+    <div class="card c-coral"><h4>Limits</h4><p class="small mb0">The sentence about the weak slice or the overlap, cut as detail.</p></div>
+    <div class="card c-amber"><h4>Sources</h4><p class="small mb0">A citation to a document that does not exist.</p></div>
+    <div class="card c-amber"><h4>Stronger claims</h4><p class="small mb0">A sentence of praise or scope the evidence never made.</p></div>
+    <div class="card c-amber"><h4>Terms</h4><p class="small mb0">The glossary's word replaced by a livelier one.</p></div>
   </div>
-  <div class="callout tip mt frag"><b>Takeaway.</b> REPLACE: the one sentence to remember</div>
-  <aside class="notes">Press once per step and say what each step adds before the next one appears. REPLACE: the example to walk through</aside>
+  <aside class="notes"><p>These are the kinds of change the course's scripted stand-in makes in lab 2.2; FND-AIC-102 shows why language models fabricate. Do not list which of them the stand-in plants in the lab: finding them is the exercise. The improvements are real too: shorter phrases, the bottom line earlier.</p></aside>
+</section>
+
+<section class="slide" id="fluent-wrong" data-lo="LO5">
+  <div class="kicker">Read it twice</div>
+  <h2>The better-sounding sentence lost its evidence</h2>
+  <div class="cols cols-2">
+    <div class="card c-teal"><h4>Draft</h4><p class="small mb0">"Method B flagged 52 of 60 past run-outs (0.87, 95% interval 0.76 to 0.93). Parasite treatments were weaker: 7 of 9."</p></div>
+    <div class="card c-coral"><h4>Assisted revision</h4><p class="small mb0">"Method B reliably flags about nine in ten run-outs across all medicine groups, in line with the pharmacy's forecasting review."</p></div>
+  </div>
+  <ul class="bullets mt">
+    <li>0.87 became "about nine in ten"; the interval and the weak group are gone.</li>
+    <li>"Reliably" and "across all groups" are new claims; the review it cites may not exist.</li>
+  </ul>
+  <aside class="notes"><p>Parallel example, written for the slide. Ask the room to count the changes before you show the bullets. Most find two; there are five: the rounding, the dropped interval, the dropped slice, "reliably", and the citation.</p></aside>
+</section>
+
+<section class="slide" id="verification-log" data-lo="LO5">
+  <div class="kicker">Verification log</div>
+  <h2>Log every change with a verdict and how you checked it</h2>
+  <table class="t small">
+    <tr><th>claim_id</th><th>change</th><th>flags</th><th>verdict</th><th>checked_against</th><th>how_checked</th></tr>
+    <tr><td>C04</td><td>changed</td><td>number</td><td>corrected</td><td>forecast_run.jsonl</td><td>recomputed: 52/60 = 0.87</td></tr>
+    <tr><td>C05</td><td>added</td><td>source</td><td>removed</td><td>the team's document list</td><td>no forecasting review exists</td></tr>
+    <tr><td>C06</td><td>removed</td><td>limit</td><td>restored</td><td>slice table</td><td>7/9 parasite treatments</td></tr>
+  </table>
+  <div class="callout tip mt"><b>Four verdicts.</b> Kept, corrected, removed, restored: each says what happened to the claim, not what you thought of it.</div>
+  <aside class="notes"><p>Parallel example rows. The claim diff in the kit writes this file with the first columns filled and the last three empty. The log is evidence for LO5 and part of the capstone: the reviewer at the follow-up opens it and picks two rows to check live.</p></aside>
+</section>
+
+<section class="slide" id="what-may-go-in" data-lo="LO5">
+  <div class="kicker">National reference</div>
+  <h2>Only Public data goes into a generative AI tool</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>SDAIA's Generative AI Guidelines for Government tell government employees not to enter data classified restricted or higher: <span class="ar" lang="ar" dir="rtl">مقيد فأعلى</span>.</li>
+      <li>Use is limited to data classified Public: <span class="ar" lang="ar" dir="rtl">عامة</span>.</li>
+      <li>Users verify outputs, particularly for official reports.</li>
+    </ul>
+    <div class="card c-teal"><h4>At the clinics</h4><p class="small mb0">A private company, so the guideline does not bind it. Its own rule follows it: only Public, synthetic text goes to any assistant.</p></div>
+  </div>
+  <aside class="notes"><p>Source: SDAIA, Generative Artificial Intelligence Guidelines for Government, document SDAIA-P116E, version 1 dated May 2025, English and Arabic editions on sdaia.gov.sa, read 25 November 2026. The Arabic text uses «مقيد فأعلى (مقيد، وسري، وسري للغاية)» and «عامة». The clinics' rule is the case's own, not a national requirement on private companies. In the capstone, a participant's own project follows their organisation's policy, and nothing personal or classified goes into an example.</p></aside>
+</section>
+
+<section class="slide" id="disclosure" data-lo="LO5">
+  <div class="kicker">Disclosure</div>
+  <h2>Say what the assistant did and what you checked</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Too little</h4><p class="small mb0">"AI was used."</p></div>
+    <div class="card c-teal"><h4>Enough</h4><p class="small mb0">"Disclosure: wording revised with an approved assistant. Every changed number was checked against forecast_run.jsonl; one added citation was removed; the revision log is revision_log.csv."</p></div>
+  </div>
+  <div class="callout note mt"><b>Why it matters.</b> The reader learns which parts a person vouches for, and where to look if one is wrong.</div>
+  <aside class="notes"><p>The Generative AI Guidelines for Government ask government entities to disclose content created with generative AI; the course asks the same of every document participants submit, and the capstone's revision log ends with this line. Parallel example text.</p></aside>
+</section>
+
+<section class="slide" id="context-files" data-lo="LO5">
+  <div class="kicker">Context files for coding agents</div>
+  <h2>A context file is a README written for an agent</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li><b>Overview:</b> what the project is and where to start.</li>
+      <li><b>Commands:</b> setup, run and test, exactly as typed.</li>
+      <li><b>Conventions:</b> style, what never to edit.</li>
+      <li><b>Data rules:</b> what the agent may read and send, and what never enters the repository.</li>
+    </ul>
+    <pre class="code" data-file="AGENTS.md"><code class="language-markdown">## Testing
+Run before proposing a change:
+uv run python -m unittest
+## Data rules
+Synthetic data only.
+Send only Public text to any model.</code></pre>
+  </div>
+  <aside class="notes"><p>AGENTS.md is an open format, plain Markdown with no required fields; its site suggests sections such as project overview, build and test commands, code style and security considerations (agents.md). The same writing rules hold: exact commands and the line that proves success. The file is read by an agent that will take every word literally, like the clean-run tool of lab 1.2.</p></aside>
+</section>
+
+<section class="slide" id="check-revision" data-lo="LO5">
+  <div class="kicker">Checkpoint</div>
+  <h2>What should the revision log say about this change?</h2>
+  <div class="quiz" data-type="single" data-lo="LO5">
+    <p class="lead">An assisted revision of the pharmacy report adds: "This agrees with the store's annual stock audit." You search the pharmacy team's files and find no annual stock audit.</p>
+    <div class="opts">
+      <div class="opt" data-ok>Removed: no such audit exists in the team's files</div>
+      <div class="opt" data-why="Trusts fluent text because it sounds plausible, without the source that would support it">Kept: an audit like that is likely to exist</div>
+      <div class="opt" data-why="Softens the claim but still cites a document nobody has seen">Corrected: say "may agree with" the audit</div>
+      <div class="opt" data-why="Skips the log for the one change that most needs a record">Not logged: citations are not claims</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> A source you cannot find is an invented source until shown otherwise; the log records the search.</div>
+  </div>
+  <aside class="notes"><p>Answer: A. If someone picks C, ask what the reader would do with "may agree with" a document that cannot be found.</p></aside>
 </section>
 
 <section class="slide lab" id="lab-2-2" data-auto="lab" data-lab="2.2">
-  <aside class="notes">REPLACE: what to watch for while participants work, the typical problems, and the fallback for anyone who did not finish an earlier lab</aside>
+  <aside class="notes"><p><b>AI-full, logged:</b> the assisted revision comes from the scripted stand-in in the kit (no model runs); participants with an approved assistant may also revise with it in the stretch, Public text only. Participants without a lab 2.1 draft use <code>files/D2_2/draft_unassisted.md</code>. Typical problems: rows marked "kept" without a check, a search for a cited document that stops at the lab folder, a disclosure line that says only "AI was used".</p></aside>
+</section>
+
+<section class="slide" id="debrief-2-2" data-lo="LO5">
+  <div class="kicker">Lab 2.2 debrief</div>
+  <h2>On the supplied draft the revision made 9 changes, and 6 changed a claim</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>An added claim: use "without a person reading the message".</li>
+      <li>The first interval dropped.</li>
+      <li>Accuracy 0.94 became 0.97, a number that is in the stats table, as English recall.</li>
+      <li>A citation to "evaluation note EV-N7", which exists nowhere.</li>
+      <li>The livestock limit and the development-set overlap cut.</li>
+    </ul>
+    <div class="card c-teal"><h4>And three it improved</h4><p class="small mb0">Shorter phrases with no claim changed. Keep them, and log them as kept.</p></div>
+  </div>
+  <aside class="notes"><p>Show after the lab only. Counts from <code>uv run solutions/check_D2_2.py</code> on the supplied draft; a participant's own draft gets the same kinds of edit where its sentences allow. The scripted stand-in is not a model: say so plainly if asked, and that the stretch is where a real assistant's revision can be compared.</p></aside>
 </section>
 
 <section class="slide" id="wrap-up">
   <div class="kicker">Day 2 · wrap-up</div>
   <h2>Three things to keep</h2>
   <div class="cols cols-3">
-    <div class="card c-teal"><h4>Remember</h4><p class="small mb0">REPLACE: one idea participants keep</p></div>
-    <div class="card c-coral"><h4>Remember</h4><p class="small mb0">REPLACE: one idea participants keep</p></div>
-    <div class="card c-purple"><h4>Remember</h4><p class="small mb0">REPLACE: one idea participants keep</p></div>
+    <div class="card c-teal"><h4>Slices with counts</h4><p class="small mb0">Every rate with its count and interval; small slices named as small.</p></div>
+    <div class="card c-coral"><h4>Limits with actions</h4><p class="small mb0">Each limit tells the reader what to do differently.</p></div>
+    <div class="card c-purple"><h4>Draft, then check</h4><p class="small mb0">Your own draft first; every assisted change logged, checked and disclosed.</p></div>
   </div>
+  <aside class="notes"><p>Ask each participant to name the project they will document for the capstone, and its README's first reader.</p></aside>
 </section>
 
-<section class="slide dark" id="thanks" data-label="Thank you">
-  <div class="kicker">SDAIA Academy</div>
-  <h1>Thank you</h1>
-  <p class="lead">Technical Writing for Data and AI Work</p>
+<section class="slide dark" id="next">
+  <div class="kicker">Next</div>
+  <h2>The capstone: one project's documentation set, reviewed in a follow-up</h2>
+  <ul class="bullets">
+    <li><b>The set:</b> README, decision memo, model or system card, revision log with its disclosure.</li>
+    <li><b>The project:</b> your own, or the tagger with its second evaluation log in <code>labs/files/capstone/</code>.</li>
+    <li><b>Before the review:</b> a public repository link, and one partner's set reviewed with the checklists.</li>
+  </ul>
+  <aside class="notes"><p>The brief is <code>labs/files/capstone/brief.md</code>. Guided self-study: about 45 minutes to finish the set and 15 to review a partner's. At the follow-up each participant has four minutes to show the set and four for questions on its claims and its history.</p></aside>
 </section>
