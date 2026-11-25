@@ -54,6 +54,74 @@ Every lab is a page in `labs/`, opened from the course page and from the lab sli
 | 2.2 | Day 2 · Session 2 | Unassisted draft against assisted revision | [`D2_2_revision.html`](labs/D2_2_revision.html) |
 <!-- /academy:labs -->
 
+Each lab page runs small checkers from `labs/kit/` with `uv` on a laptop; `labs/README.md` says
+what a participant needs and where each lab starts. No lab calls a model, needs a key or downloads
+one.
+
+## How the course is organised
+
+One full day, a half day, and a follow-up review. Twelve hours in all (720 minutes):
+
+| Part | Minutes | What happens |
+|---|---|---|
+| Instruction | 210 | Concepts, demonstrations and a checkpoint in each of the five sessions: 50 for session 1.1, then 40 each for 1.2, 1.3, 2.1 and 2.2 |
+| Labs | 300 | Five writing labs of 60 minutes: 1.1, 1.2 and 1.3 on Day 1; 2.1 and 2.2 on Day 2 |
+| Assessment | 60 | The supervised AI-off memo, opening Day 2: rules and handing out 5, writing 50, collection 5 |
+| Guided self-study | 90 | Before Day 1: set up uv, open the case project, choose your own project (30). After Day 2: finish the documentation set (45) and review a partner's set with the lab checklists (15) |
+| Capstone | 60 | The follow-up review in groups of six: opening 3; six participants each with 4 minutes to show the set, 4 minutes of questions and the history check, and 1 minute of changeover (54); close 3 |
+
+Day 1 is 310 minutes of teaching (sessions of 110, 100 and 100); Day 2 is the 60-minute memo and
+200 minutes of teaching (two sessions of 100).
+
+## Assessment
+
+- Supervised AI-off memo from a provided result (30%)
+- Documentation set with revision log (60%)
+- Peer review given (10%)
+
+Passing: 60% overall and at least 50% on the supervised memo.
+
+Authenticity: The supervised memo is written in session; revision logs and document history are inspected.
+
+Certificate: completion with assessed work.
+
+The memo is scored on the five-criterion rubric of lab 1.3. The documentation set is scored on
+the capstone rubric below. Peer review given is scored on the reviews a participant gives in the
+labs and on a partner's set before the follow-up.
+
+## AI policy
+
+AI-off for the supervised memo and one first draft. AI-tutor for feedback on structure in the
+labs. AI-full for the logged assisted revision and for polishing the capstone.
+
+The one first draft is the experiment report of lab 2.1, which lab 2.2 compares with an assisted
+revision.
+
+## Responsible use
+
+Participants state limits honestly, disclose AI assistance, check every generated claim and citation, and keep personal or classified details out of examples
+
+In the case, only Public, synthetic text goes to any assistant: the clinics' own rule, modelled on
+SDAIA's Generative Artificial Intelligence Guidelines for Government, which limit government use
+of these tools to data classified Public.
+
+## Capstone
+
+A documentation set for one project (README, decision memo, model or system card, revision log),
+reviewed in a follow-up. The project is the participant's own, with public or synthetic data, or
+the urgency tagger at version 0.4 with its second evaluation log (`labs/files/capstone/`). It is
+individual and submitted as a public GitHub repository link before the review. At the review each
+participant has four minutes to show the set and four for questions; the reviewer opens the
+commit history and checks two rows of the revision log live.
+
+| Criterion | Weight |
+|---|---|
+| The README lets a stranger install, run and check the project on a clean machine | 20 |
+| The decision memo states options, trade-offs, a recommendation and the conditions that would change it | 20 |
+| The card states intended use, results by slice with uncertainty, and known limits | 25 |
+| The revision log shows how each assisted change was checked, with a disclosure line | 20 |
+| Each document is written for its named reader: bottom line first, consistent terms, plain uncertainty | 15 |
+
 ## Prerequisites
 
 - Has a small data or code project, own or provided, to document

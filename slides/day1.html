@@ -139,7 +139,7 @@
   <div class="quiz" data-type="single" data-lo="LO1">
     <p class="lead">The pharmacy team wants to add a second supplier feed to its forecast. Before anyone writes code, the finance manager must approve, change or refuse the plan, and wants to know what else was considered and what could go wrong.</p>
     <div class="opts">
-      <div class="opt" data-why="Treats the reader as someone who will run the code; the finance manager approves before any code exists">A README for the forecast repository</div>
+      <div class="opt" data-why="Treats the reader as someone who will run the code; the finance manager approves before any code exists">A README for the forecast repository and its feed</div>
       <div class="opt" data-ok>A design document with alternatives and risks</div>
       <div class="opt" data-why="Reports a run that has not happened yet: there are no results to repeat or compare">An experiment report on the new feed</div>
       <div class="opt" data-why="Describes how far to rely on a running system; nothing is running yet">A system card for the forecast</div>
@@ -306,7 +306,7 @@ flowchart LR
   <div class="quiz" data-type="single" data-lo="LO2">
     <p class="lead">A stranger follows the forecast's README on a fresh copy. The install step works, then the run command stops with "error: settings.toml not found". The writer's laptop runs it fine.</p>
     <div class="opts">
-      <div class="opt" data-ok>A step that creates the settings file from its example</div>
+      <div class="opt" data-ok>A step that copies the example settings file</div>
       <div class="opt" data-why="Blames the stranger's machine: the same error would appear on any fresh copy">A note that the stranger's laptop is misconfigured</div>
       <div class="opt" data-why="Moves the gap elsewhere: tests come after the run and cannot create the file">The command that runs the tests</div>
       <div class="opt" data-why="Fixes the symptom on one laptop instead of the document every stranger reads">An offer to send the writer's own settings file</div>
@@ -435,7 +435,7 @@ flowchart LR
       <div class="opt" data-why="Reads the point estimate as a guarantee: the interval reaches below the requirement">"Method B meets the 0.80 requirement."</div>
       <div class="opt" data-why="Reads an interval that crosses the line as a failure, discarding the evidence that it is likely met">"Method B cannot be shown to meet 0.80, so we cannot recommend it."</div>
       <div class="opt" data-why="Replaces the measurement with a hedge the reader cannot check">"Method B is significantly better than the current method."</div>
-      <div class="opt" data-ok>"Method B likely meets 0.80; on 60 cases its interval reaches down to 0.76."</div>
+      <div class="opt" data-ok>"Likely meets 0.80; its interval reaches down to 0.76."</div>
     </div>
     <div class="callout tip why"><b>Why.</b> It states the point, the doubt and what the doubt rests on, so the reader can decide with open eyes.</div>
   </div>

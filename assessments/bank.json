@@ -76,8 +76,8 @@
       "options": [
         "The model is significantly better than our old method.",
         "The model finds 90% of cases.",
-        "The model performs quite well on flagged cases.",
-        "It found 18 of 20; on so few cases the true rate could be as low as 0.70."
+        "The model performs quite well on flagged cases, as the small test shows.",
+        "18 of 20 found: anywhere from 0.70 to 0.97 on so few."
       ],
       "correct": [
         3
@@ -104,10 +104,10 @@
       "level": "apply",
       "prompt": "A README's run step works on a fresh copy and prints several lines. What should the README add so a stranger knows the project works, not only that it ran?",
       "options": [
-        "The exact line a working check prints, to compare with the screen",
+        "The line a working check prints",
         "A sentence saying the project has been tested",
         "A screenshot of the writer's terminal",
-        "The names of the people who wrote the code"
+        "The names of the people who wrote and reviewed the code"
       ],
       "correct": [
         0
@@ -135,8 +135,8 @@
       "prompt": "A partner following your README on a clean copy writes in the run log: \"Step 2 says configure the tool. I did not know what to do and copied a file I guessed.\" What is the best fix?",
       "options": [
         "Ask the partner to read more carefully next time",
-        "Add a link to the configuration library's documentation",
-        "Replace the step with the exact command that creates the file, and the file's name",
+        "Add a link to the configuration library's documentation for details",
+        "Write the exact command that creates the file",
         "Move the configuration step to the end of the README"
       ],
       "correct": [
@@ -224,7 +224,7 @@
       "level": "evaluate",
       "prompt": "The reader needs at least 0.85 recall within SAR 200 a month. Option X: recall 0.91 (0.86 to 0.95), SAR 260 a month. Option Y: recall 0.87 (0.80 to 0.92), SAR 90 a month. Which recommendation argues from the requirements?",
       "options": [
-        "Y: it is likely to meet 0.85 and fits the budget; X has the higher recall but breaks the budget.",
+        "Y: likely meets 0.85 within budget; X breaks the budget.",
         "X: it has the highest recall, so it is the best option.",
         "Y: it is cheaper, so recall does not need to be discussed.",
         "Neither: no interval lies wholly above 0.85."
@@ -273,8 +273,8 @@
       "prompt": "A colleague must repeat your evaluation next quarter and compare the result. Your report gives the data file, the scorer and the results. Which addition matters most for repeating the run?",
       "options": [
         "A paragraph on why the project was started",
-        "A longer list of the people who labelled the data",
-        "The run identifier, the settings and the data version from the run record",
+        "A longer list of the people who labelled the data, with their teams",
+        "The run's identifier, settings and data version",
         "A screenshot of the results table"
       ],
       "correct": [
@@ -363,8 +363,8 @@
       "prompt": "A card for reception staff must state that the tagger found 6 of 10 urgent messages written in mixed Arabic and English. Which line serves them best?",
       "options": [
         "\"Performance may vary across languages.\"",
-        "\"Mixed-language accuracy is under review.\"",
-        "\"Results for mixed messages are not shown, to avoid confusion.\"",
+        "\"Mixed-language accuracy is under review by the data team this quarter.\"",
+        "\"Results for mixed messages are left out of this card, to avoid confusing staff.\"",
         "\"Mixed Arabic and English: 6 of 10 urgent found. Read these messages at once.\""
       ],
       "correct": [
@@ -482,10 +482,10 @@
       "level": "apply",
       "prompt": "A colleague wants an assistant to polish a draft report that quotes ten real owners' messages with their phone numbers. The clinics allow only Public data in any assistant. What should happen first?",
       "options": [
-        "Paste it, then delete the chat afterwards",
+        "Paste it, then delete the chat history afterwards",
         "Paste only the half that has fewer phone numbers",
         "Ask the assistant to ignore the personal details",
-        "Replace the quoted messages with synthetic ones before any assistant sees it"
+        "Swap in synthetic messages first"
       ],
       "correct": [
         3
