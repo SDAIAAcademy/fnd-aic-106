@@ -29,7 +29,7 @@ Participants write the documents that data and AI work runs on: a README, a desi
 
 | Unit | Title | Sessions | Slides |
 |---|---|---|---|
-| Day 1 | Writing for a reader | Write for one reader; READMEs, design documents and decision records; The decision memo | [`slides/day1.html`](slides/day1.html) |
+| Day 1 | Writing for a reader | Write for one reader; READMEs, designs and decisions; The decision memo | [`slides/day1.html`](slides/day1.html) |
 | Day 2 | Evidence documents and writing with assistance | Experiment reports and model cards; Writing with an assistant | [`slides/day2.html`](slides/day2.html) |
 | Capstone | Documentation set review |  | [`slides/capstone.html`](slides/capstone.html) |
 <!-- /academy:units -->
