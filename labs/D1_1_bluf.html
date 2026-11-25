@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-ax="lab" data-track="foundations">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 1.1 · Bottom-line-first rewrite · Technical Writing for Data and AI Work</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="D1_1_bluf.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<div class="top"><div class="logo"></div><nav><a href="../index.html">Course page</a><a href="../slides/day1.html#lab-1-1">Back to the slides</a></nav></div>
+<span class="tag">Lab 1.1</span>
+<h1>Bottom-line-first rewrite</h1>
+<p>Outline five documents for five readers, then rewrite the data team's status update bottom line first and check it</p>
+<div class="meta"><span>60 minutes</span><span>Day 1</span><span>Session 1: Write for one reader</span></div>
+</div>
+</header>
+<main class="wrap">
+<article class="lab" data-lab="1.1">
+  <div class="box goal">
+    <h3>You leave with</h3>
+    <ul>
+      <li>Five outlines, one per scenario: the reader, the purpose, the document type and its sections.</li>
+      <li>The data team's status update rewritten bottom line first, in the glossary's terms, with its uncertainty stated as a number.</li>
+    </ul>
+  </div>
+
+  <h2>What you need</h2>
+  <div class="files">
+    <a href="files/D1_1/scenarios.md"><b>D1_1/scenarios.md</b><span>Five requests for a document, each from one reader named by role.</span></a>
+    <a href="files/D1_1/status_update.md"><b>D1_1/status_update.md</b><span>The data team's update to the operations director, as it was sent.</span></a>
+    <a href="files/D1_1/glossary.csv"><b>D1_1/glossary.csv</b><span>The agreed English and Arabic terms, and the words to avoid.</span></a>
+  </div>
+  <p>A text editor that saves Markdown, and <code>uv</code> to run the checker from the <code>labs</code> folder. Write your files in <code>labs/work/</code>, which git ignores.</p>
+  <div class="callout note small"><b>AI in this lab: tutor.</b> You may ask an approved assistant for feedback on the structure of your outline. Write the rewrite yourself. The files are synthetic and Public, so nothing here is restricted.</div>
+
+  <h2>Steps</h2>
+
+  <div class="step">
+    <h3>1 · Read the five scenarios and name each reader's decision <span class="min">8 min</span></h3>
+    <p>For each scenario write one line: who reads, and what they will do after reading (approve, install, choose, repeat, rely). The decision decides the document, not the other way round.</p>
+  </div>
+
+  <div class="step">
+    <h3>2 · Outline the five documents: reader, purpose, sections <span class="min">17 min</span></h3>
+    <p>In <code>work/outlines.md</code> write one <code>## Scenario n</code> block per scenario with the lines <code>Reader:</code>, <code>Purpose:</code>, <code>Document:</code> and <code>Sections:</code>, then at least four sections in reading order. Then check the form:</p>
+    <pre class="code"><code>uv run kit/doccheck.py outlines work/outlines.md</code></pre>
+  </div>
+
+  <div class="step">
+    <h3>3 · Mark where the status update hides its bottom line <span class="min">5 min</span></h3>
+    <p>Find the sentence that asks the director for something. Note where it sits, which words drift from the glossary, and which claims are vague where a number exists.</p>
+  </div>
+
+  <div class="step">
+    <h3>4 · Rewrite it bottom line first, with glossary terms and uncertainty in words <span class="min">20 min</span></h3>
+    <p>In <code>work/rewrite.md</code>: the request, its size and its deadline in the first paragraph; then why, in the glossary's terms; then what happens next. State how sure the team is with the counts the update gives, not with "quite" or "significantly".</p>
+  </div>
+
+  <div class="step">
+    <h3>5 · Run the checker, then score a partner's rewrite with the rubric <span class="min">10 min</span></h3>
+    <pre class="code"><code>uv run kit/doccheck.py bluf work/rewrite.md</code></pre>
+    <p>Fix what it reports, then swap with a partner and score each other's rewrite, one point per line:</p>
+    <table class="t small">
+      <tr><th>Criterion</th><th>Score (0 or 1)</th></tr>
+      <tr><td>The reader can act on the first paragraph alone</td><td class="fill"></td></tr>
+      <tr><td>The request names who, how much and by when</td><td class="fill"></td></tr>
+      <tr><td>Every term is the glossary's term</td><td class="fill"></td></tr>
+      <tr><td>The uncertainty is a number with what it rests on</td><td class="fill"></td></tr>
+    </table>
+  </div>
+
+  <div class="step stretch">
+    <h3>✱ Stretch</h3>
+    <p>Write the first paragraph again in Arabic, with the glossary's Arabic terms.</p>
+  </div>
+
+  <h2>Check yourself</h2>
+  <ol class="checks">
+    <li>Which two scenarios ask for the same kind of reader action, and why do they still need different documents?</li>
+    <li>Could the director approve the request after reading only your first paragraph?</li>
+    <li>Where did the checker disagree with you, and who was right?</li>
+  </ol>
+
+  <details class="instructor">
+    <summary>For the trainer</summary>
+    <p>Reference outlines: <code>solutions/D1_1_outlines.md</code> (README, design document, decision memo, experiment report, model card). Accept a system card for scenario 5. A scenario 2 outline without alternatives or risks is a feature description, not a design document.</p>
+    <p>Reference rewrite: <code>solutions/D1_1_rewrite.md</code>. The original fails the checker with 12 findings: the request sits in the last paragraph; four glossary drifts (critical, emergency, catch rate, sensitivity); hedges without numbers; 339 words. The usual miss is uncertainty: participants delete "less certain than we would like" instead of stating it with the 80 urgent messages.</p>
+    <p>Run <code>uv run solutions/check_D1_1.py</code> to confirm the kit before the session.</p>
+  </details>
+</article>
+<nav class="pager"><span></span><a href="D1_2_readme.html" rel="next">Next lab →</a></nav>
+</main>
+<footer><div class="wrap">SDAIA Academy · Data &amp; AI Foundations Track · Technical Writing for Data and AI Work<br><span class="muted">Course version 2027.1.0 · engine 1.0.0 · built 2026-11-25 · commit 9351b4a</span></div></footer>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-25T04:20:13Z","version":"2027.1.0","commit":"9351b4a"},"course":{"id":"fnd-aic-106","code":"FND-AIC-106","title":"Technical Writing for Data and AI Work","track":"foundations","lang":"en","dir":"ltr","url":"https://sdaiaacademy.github.io/fnd-aic-106/","repo":"SDAIAAcademy/fnd-aic-106","home":"../index.html"},"lab":{"id":"1.1","title":"Bottom-line-first rewrite","summary":"Outline five documents for five readers, then rewrite the data team's status update bottom line first and check it","minutes":60,"day":1,"unit":"Day 1","session":1,"deck":"../slides/day1.html#lab-1-1","prev":null,"next":"D1_2_readme.html","alt":{}},"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":null,"llms":"../llms.txt"},"tasks":[],"tools":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

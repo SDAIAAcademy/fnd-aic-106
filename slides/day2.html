@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-ax="deck" data-track="foundations">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 2 · Evidence documents and writing with assistance · Technical Writing for Data and AI Work</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="day2.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<div class="deck" data-course="Technical Writing for Data and AI Work" data-track="foundations" data-day="Day 2">
+<section class="slide title" id="title" data-auto="title" data-label="Welcome" data-n="1">
+  <div class="kicker">SDAIA Academy · Technical Writing for Data and AI Work</div>
+  <h1>Evidence documents and writing with assistance</h1>
+  <p class="lead mt">Day 2: Reports and cards that state uncertainty, slices and limits, and an assistant whose every change is checked</p>
+  <div class="meta"><span class="track">Data &amp; AI Foundations Track</span><span>2 teaching days + capstone day</span><span>2 sessions · 2 labs</span><span>FND-AIC-106</span></div>
+  <aside class="notes"><p>Welcome back. Today opens with the supervised memo, then two sessions: the documents that report evidence, and writing with an assistant. Keep yesterday's files in <code>labs/work/</code>: today's lab 2.2 compares a draft you write in lab 2.1 with an assisted revision.</p></aside>
+</section>
+
+<section class="slide" id="agenda" data-auto="agenda" data-label="Agenda" data-n="2">
+  <div class="kicker">Today</div>
+  <h2>Evidence documents and writing with assistance</h2>
+  <div class="agenda"><div class="item"><div><b>Session 1 · Experiment reports and model cards</b><small>Report what an evaluation measured, by slice and with its uncertainty, and write the card a user of the model reads</small></div></div><div class="item"><div><b>Session 2 · Writing with an assistant</b><small>Draft without the assistant first, then check every claim an assisted revision changes, log it and disclose it</small></div></div></div>
+</section>
+
+<section class="slide" id="review-day1" data-lo="LO3" data-n="3">
+  <div class="kicker">Review of Day 1</div>
+  <h2>Which part of this memo is missing?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3" data-id="review-day1-q1">
+    <p class="lead">A memo recommends Method B for the pharmacy, compares its quality, cost and time with Method A in a table with intervals, and argues from the 0.80 requirement. It ends there.</p>
+    <div class="opts">
+      <div class="opt" data-why="The memo already has a table of measured trade-offs; more numbers would not fill the gap" data-k="A">A second table of results</div>
+      <div class="opt" data-ok data-k="B">What would change the recommendation</div>
+      <div class="opt" data-why="History is the writer's order; the memo's reader needs the decision, not the timeline" data-k="C">A section on how the methods were developed</div>
+      <div class="opt" data-why="A memo names its options once; a third unmeasured option does not belong in the trade-offs" data-k="D">A third option that was not measured</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> Without "what would change this", nobody can tell later when the decision should come back.</div>
+  </div>
+  <aside class="notes"><p>Answer: B. Then hand over to the supervised memo: same five parts, AI off.</p></aside>
+</section>
+
+<section class="slide dark" id="supervised-memo" data-label="Supervised memo" data-n="4">
+  <div class="kicker">Assessment · AI off</div>
+  <h1>Supervised memo · 50 minutes of writing</h1>
+  <div class="timer" data-minutes="50"></div>
+  <p class="lead">One page, from the result on your sheet, scored on the five-criterion rubric of lab 1.3. Devices closed; paper or a locked editor.</p>
+  <aside class="notes"><p>Sixty minutes in all: five for the rules and handing out, fifty of writing (press T), five for collection. The result sheet is not written yet: the Academy's assessment pack must supply it before the first cohort, outside this repository, as a different comparison from lab 1.3. Do not run the memo without it. The memo is 30% of the course and a participant needs at least 50% on it to pass. Score it on the same five criteria, two points each, and keep the paper: authenticity rests on its being written here.</p></aside>
+</section>
+
+<!-- Session 1 -->
+
+<section class="slide section" id="s1" data-auto="section" data-session="1" data-n="5">
+  <div class="kicker">Session 1</div>
+  <h1>Experiment reports and model cards</h1>
+  <ul class="bullets outcomes"><li>Report results by data slice with the number of cases and an interval</li><li>Write known limits and out-of-scope uses a reader can act on</li><li>Check a report and a card with a peer checklist</li></ul>
+  <div class="sess-no">01</div>
+</section>
+
+<section class="slide" id="report-job" data-lo="LO4" data-n="6" data-session="1">
+  <div class="kicker">The experiment report</div>
+  <h2>A report lets someone repeat the run and compare the next one</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>What was asked</h4><p class="small mb0">The question, and the result in one paragraph with its count and interval.</p></div>
+    <div class="card c-cyan"><h4>What was run</h4><p class="small mb0">Data and its version, settings, scorer, run identifier and date.</p></div>
+    <div class="card c-coral"><h4>What it shows</h4><p class="small mb0">Results overall and by slice, the uncertainty, the limits, the next run.</p></div>
+  </div>
+  <div class="callout warn mt"><b>What goes wrong.</b> A report that gives only the best number cannot be compared with the next run, because nobody knows what produced it.</div>
+  <aside class="notes"><p>The reader is the team, now and in three months. Ask: if you left tomorrow, could a colleague rerun your last experiment from what you wrote? The report is the long form; the memo and the card quote it.</p></aside>
+</section>
+
+<section class="slide" id="run-record" data-lo="LO4" data-n="7" data-session="1">
+  <div class="kicker">Setup</div>
+  <h2>Copy the setup from the run record, not from memory</h2>
+  <pre class="code" data-file="forecast_run.jsonl"><code class="language-json"><span class="hljs-punctuation">{</span><span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;run&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;system&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Method B&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;run_id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;FC-B2&quot;</span><span class="hljs-punctuation">,</span>
+ <span class="hljs-attr">&quot;data&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;runouts_v3.csv, 60 weeks&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;settings&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;depth 4, 200 trees&quot;</span><span class="hljs-punctuation">,</span>
+ <span class="hljs-attr">&quot;scorer&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;flagged one week ahead&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;run_date&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2026-09-02&quot;</span><span class="hljs-punctuation">}</span></code></pre>
+  <ul class="bullets mt">
+    <li>Every field the next run needs to match goes into the setup section.</li>
+    <li>The run identifier ties the report to its log: cite it.</li>
+  </ul>
+  <aside class="notes"><p>The pharmacy run record is a parallel example. The lab's evaluation log starts with the same kind of record for the tagger, and its item lines carry fields a careful reader uses: one of them matters more than it looks.</p></aside>
+</section>
+
+<section class="slide" id="slices" data-lo="LO4" data-n="8" data-session="1">
+  <div class="kicker">Results by slice</div>
+  <h2>An overall rate can hide the slice where the system fails</h2>
+  <div class="bars">
+    <div class="row"><span>All run-outs · 52/60</span><div class="bar c-teal" style="--w:87%"></div><span class="val">0.87</span></div>
+    <div class="row"><span>Antibiotics · 30/32</span><div class="bar c-cyan" style="--w:94%"></div><span class="val">0.94</span></div>
+    <div class="row"><span>Vaccines · 15/19</span><div class="bar c-amber" style="--w:79%"></div><span class="val">0.79</span></div>
+    <div class="row"><span>Parasite treatments · 7/9</span><div class="bar c-coral" style="--w:78%"></div><span class="val">0.78</span></div>
+  </div>
+  <p class="caption">Method B, run-outs flagged in advance, by medicine group. Parallel example from <code>labs/_tools/slide_examples.py</code>.</p>
+  <aside class="notes"><p>Ask which group the pharmacist should worry about. Most say parasite treatments, the lowest bar. Then show the next slide: with nine cases, the bar is nearly as uncertain as it is low. Slices are chosen before the run from what the reader cares about (here, medicine groups), never after looking for a flattering cut.</p></aside>
+</section>
+
+<section class="slide" id="small-slices" data-lo="LO4" data-n="9" data-session="1">
+  <div class="kicker">Small slices</div>
+  <h2>Give every slice its count and interval, and say which are too small to read</h2>
+  <table class="t">
+    <tr><th>Slice</th><th>Flagged</th><th>Rate</th><th>95% interval</th></tr>
+    <tr><td>Antibiotics</td><td>30/32</td><td>0.94</td><td>0.80 to 0.98</td></tr>
+    <tr><td>Vaccines</td><td>15/19</td><td>0.79</td><td>0.57 to 0.91</td></tr>
+    <tr class="hl"><td>Parasite treatments</td><td>7/9</td><td>0.78</td><td>0.45 to 0.94</td></tr>
+  </table>
+  <div class="callout tip mt"><b>Neither drop it nor over-read it.</b> "On 9 cases the rate could be anywhere from 0.45 to 0.94: we need more before we rely on it."</div>
+  <aside class="notes"><p>The tool in lab 2.1 marks a slice "small" when it has fewer than 20 of the cases that matter; that threshold is the course's own convention, chosen so the interval is not wider than about 0.4. FND-AIC-103 teaches how the interval is computed; here the point is how to write it.</p></aside>
+</section>
+
+<section class="slide" id="overlap" data-lo="LO4" data-n="10" data-session="1">
+  <div class="kicker">Threats to the result</div>
+  <h2>Test cases that were also used in tuning make a result look better</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>A case seen while the system was tuned is not a test of new cases.</li>
+      <li>Report how many test cases overlap, and the result without them.</li>
+      <li>In the pharmacy run, 4 of the 60 weeks were also used to tune Method B.</li>
+    </ul>
+    <div class="stat center"><div class="big">0.89</div><div class="lbl">Method B on the 56 weeks not used in tuning: 50/56, interval 0.79 to 0.95</div></div>
+  </div>
+  <aside class="notes"><p>Parallel example; figures from <code>labs/_tools/slide_examples.py</code>. Leakage of this kind is taught in depth in FND-AIC-101. Here the habit is simply to look for it and report it: a field in the log, a note in the run record, a question to whoever built the test set.</p></aside>
+</section>
+
+<section class="slide" id="model-card" data-lo="LO4" data-n="11" data-session="1">
+  <div class="kicker">Model cards</div>
+  <h2>A model card tells a user how far to rely on the model</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li><b>What it is for,</b> and who uses it.</li>
+      <li><b>What it is not for:</b> out-of-scope uses, said plainly.</li>
+      <li><b>Evaluation data,</b> in words the user reads.</li>
+      <li><b>Results by slice,</b> with counts and intervals.</li>
+      <li><b>Known limits,</b> and what the user does about each.</li>
+      <li><b>Ethical considerations;</b> owner, reviewer, approver.</li>
+    </ul>
+    <div class="card c-teal"><h4>Where cards come from</h4><p class="small mb0">Mitchell and colleagues proposed model cards in 2019: results across groups, the intended context, how it was evaluated. Hub model cards are Markdown files with metadata.</p></div>
+  </div>
+  <aside class="notes"><p>Sources: Mitchell et al., "Model Cards for Model Reporting" (arxiv.org/abs/1810.03993); Hugging Face Hub documentation on model cards. Templates in current use change; the durable part is the list on the left. FND-AIC-101 drafts a card from a model the participant trained; here the card is written for a named reader who does not read code.</p></aside>
+</section>
+
+<section class="slide" id="system-card" data-lo="LO4" data-n="12" data-session="1">
+  <div class="kicker">Model or system card</div>
+  <h2>A system card describes the whole system the reader meets</h2>
+  <div class="cols cols-2">
+    <div class="card c-cyan"><h4>Model card</h4><p class="small mb0">One model: what it was evaluated on, how it did, where it fails.</p></div>
+    <div class="card c-purple"><h4>System card</h4><p class="small mb0">The model with its rules, its queue, its people and its fallbacks: what happens to a message from arrival to a person.</p></div>
+  </div>
+  <div class="callout note mt"><b>Pick by the reader's question.</b> "Can I trust the model?" calls for a model card. "What happens to an owner's message?" calls for a system card.</div>
+  <aside class="notes"><p>In the capstone participants may write either. A system card is the better choice when the risk comes from how the parts fit, for example a person who reads only messages tagged urgent.</p></aside>
+</section>
+
+<section class="slide" id="limits-actionable" data-lo="LO4" data-n="13" data-session="1">
+  <div class="kicker">Known limits</div>
+  <h2>Write each limit with what the reader should do about it</h2>
+  <table class="t small">
+    <tr><th>Says nothing to act on</th><th>Tells the reader what to do</th></tr>
+    <tr><td>"May underperform on some medicine groups."</td><td>"Flagged 7 of 9 parasite-treatment run-outs: check their stock by hand every week."</td></tr>
+    <tr><td>"Not suitable for all uses."</td><td>"Not for ordering controlled medicines: those stay with the pharmacist."</td></tr>
+    <tr><td>"Results may vary."</td><td>"Tested on 60 past weeks of one store; not tested on the new branch."</td></tr>
+  </table>
+  <aside class="notes"><p>Ask the room to rewrite one vague limit from their own work. The test of a limit is whether the reader would do something different after reading it. The card checker in lab 2.1 looks for the slices the statistics show as weaker; the peer checklist asks whether each limit says what staff should do.</p></aside>
+</section>
+
+<section class="slide" id="ethics-principles" data-lo="LO4" data-n="14" data-session="1">
+  <div class="kicker">National reference</div>
+  <h2>SDAIA's AI Ethics Principles ask for what a card records</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Fairness</h4><p class="small mb0"><span class="ar" lang="ar" dir="rtl">النزاهة والإنصاف</span>: results by slice show who the system serves less well.</p></div>
+    <div class="card c-cyan"><h4>Transparency and Explainability</h4><p class="small mb0"><span class="ar" lang="ar" dir="rtl">الشفافية والقابلية للتفسير</span>: what it is for, how it was tested, where it fails.</p></div>
+    <div class="card c-coral"><h4>Accountability and Responsibility</h4><p class="small mb0"><span class="ar" lang="ar" dir="rtl">المساءلة والمسؤولية</span>: an owner, a reviewer and an approver, by role.</p></div>
+  </div>
+  <aside class="notes"><p>Three of the seven principles, with their names as the English and Arabic texts give them (Principle 1, Principle 6 and Principle 7). The text is SDAIA's AI Ethics Principles, version 1 of 2025 on sdaia.gov.sa, read 25 November 2026. The mapping of card sections to principles is this course's own reading, not a requirement the principles state.</p></aside>
+</section>
+
+<section class="slide" id="check-card" data-lo="LO4" data-n="15" data-session="1">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which line should the pharmacy's card carry?</h2>
+  <div class="quiz" data-type="single" data-lo="LO4" data-id="check-card-q1">
+    <p class="lead">The card for the head pharmacist says: "Method B flags run-outs with a recall of 0.87." The run flagged 7 of 9 parasite-treatment run-outs, and 4 test weeks were also used in tuning.</p>
+    <div class="opts">
+      <div class="opt" data-why="Keeps one overall number and hides the slice and the overlap the reader needs" data-k="A">"Method B is reliable for all medicines."</div>
+      <div class="opt" data-why="Reports the weak slice without its count or a reason to trust the rate" data-k="B">"Parasite treatments: 0.78."</div>
+      <div class="opt" data-ok data-k="C">"Parasite treatments: 7 of 9 flagged; check their stock by hand."</div>
+      <div class="opt" data-why="Drops the small slice to keep the card tidy, which hides the weakness" data-k="D">"Results for small groups are left out."</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> It gives the count, and tells the reader what to do about the limit.</div>
+  </div>
+  <aside class="notes"><p>Answer: C. A full card also reports the tuning overlap and the result without it (0.89 on 50/56). If many choose B, ask what the head pharmacist should do with "0.78".</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-2-1" data-auto="lab" data-lab="2.1" data-label="Lab 2.1" data-n="16" data-session="1">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 2.1 · 60 min</div><h2>Experiment report and model card</h2><p class="lead small">From the evaluation log, write an experiment report for the data team lead and a model card for the head of reception, the report drafted with AI off</p><a class="nb" href="../labs/D2_1_report_card.html">D2_1_report_card.html</a></div><ul class="checklist"><li>Run the statistics tool on the evaluation log and read the slice table <span class="min">10 min</span></li><li>Draft the experiment report with AI off: question, setup, results, uncertainty <span class="min">20 min</span></li><li>Draft the model card for the head of reception <span class="min">15 min</span></li><li>Run the card checker and fix what it reports <span class="min">5 min</span></li><li>Swap with a partner and complete the peer checklist <span class="min">10 min</span></li><li class="stretch">✱ Stretch: Add a text diagram of the evaluation flow to the report</li></ul></div>
+  <aside class="notes"><p><b>AI-off for the report draft:</b> it is the one unassisted first draft of the course, compared in lab 2.2. AI-tutor for the card's structure only. Walk the room during step 1 and ask what each column of the log holds. Typical problems: rates without counts, a card that lists limits without actions, owner and approver given as the same role.</p></aside>
+</section>
+
+<section class="slide" id="debrief-2-1" data-lo="LO4" data-n="17" data-session="1">
+  <div class="kicker">Lab 2.1 debrief</div>
+  <h2>Model L found 75 of 80 urgent messages, but 8 of 12 on livestock</h2>
+  <table class="t small">
+    <tr><th>Slice of run EV-L3</th><th>Urgent found</th><th>Urgent recall (95% interval)</th><th>Accuracy</th></tr>
+    <tr><td>All, 400 messages</td><td>75/80</td><td>0.94 (0.86 to 0.97)</td><td>0.94</td></tr>
+    <tr class="hl"><td>Livestock, 70</td><td>8/12</td><td>0.67 (0.39 to 0.86)</td><td>0.90</td></tr>
+    <tr><td>Mixed Arabic and English, 24</td><td>4/4</td><td>1.00 (0.51 to 1.00)</td><td>0.79</td></tr>
+    <tr><td>Also in the development set, 12</td><td>2/2</td><td>1.00 (0.34 to 1.00)</td><td>1.00</td></tr>
+  </table>
+  <p class="caption">Synthetic case: Model L's outputs are simulated and recorded; no model ran.</p>
+  <aside class="notes"><p>Show after the lab only. Figures from <code>uv run kit/evalstats.py files/D2_1/eval_log.jsonl</code>; Model L's outputs are synthetic and recorded. Ask who found the overlap field. Without the 12 overlapping messages accuracy is 0.93 and urgent recall stays 0.94 (73/78). Ask two participants to read their livestock limit aloud: does it tell reception what to do?</p></aside>
+</section>
+
+<!-- Session 2 -->
+
+<section class="slide section" id="s2" data-auto="section" data-session="2" data-n="18">
+  <div class="kicker">Session 2</div>
+  <h1>Writing with an assistant</h1>
+  <ul class="bullets outcomes"><li>Spot the typical errors of an assisted revision: changed numbers, dropped limits, invented sources</li><li>Keep a revision log that says how each claim was checked</li><li>Write a disclosure line and a context file for a coding agent</li></ul>
+  <div class="sess-no">02</div>
+</section>
+
+<section class="slide" id="ai-off-first" data-lo="LO5" data-n="19" data-session="2">
+  <div class="kicker">AI-off first drafts</div>
+  <h2>Write the first draft yourself, so you know what the assistant changed</h2>
+  <div class="flow">
+    <div class="step c-navy"><b>1 · AI-off draft</b>your claims, your evidence</div>
+    <div class="arrow">→</div>
+    <div class="step c-teal"><b>2 · Assisted revision</b>clearer, shorter, maybe wrong</div>
+    <div class="arrow">→</div>
+    <div class="step c-cyan"><b>3 · Claim diff</b>every changed sentence</div>
+    <div class="arrow">→</div>
+    <div class="step c-coral"><b>4 · Log and disclose</b>checked, then said</div>
+  </div>
+  <div class="callout note mt"><b>The course's AI levels.</b> Off for the supervised memo and the lab 2.1 report draft; tutor for structure in the labs; full, and logged, for this revision and the capstone's polish.</div>
+  <aside class="notes"><p>Without your own draft you cannot tell an improvement from an invention: you would be checking the assistant against itself. The AI levels come from the course's catalog entry.</p></aside>
+</section>
+
+<section class="slide" id="typical-errors" data-lo="LO5" data-n="20" data-session="2">
+  <div class="kicker">Typical errors of assisted revision</div>
+  <h2>A fluent revision can change what the document claims</h2>
+  <div class="cols cols-3">
+    <div class="card c-coral"><h4>Numbers</h4><p class="small mb0">A rate nudged, rounded or swapped for a nearby one.</p></div>
+    <div class="card c-coral"><h4>Uncertainty</h4><p class="small mb0">An interval dropped "for readability"; "likely" turned into "will".</p></div>
+    <div class="card c-coral"><h4>Limits</h4><p class="small mb0">The sentence about the weak slice or the overlap, cut as detail.</p></div>
+    <div class="card c-amber"><h4>Sources</h4><p class="small mb0">A citation to a document that does not exist.</p></div>
+    <div class="card c-amber"><h4>Stronger claims</h4><p class="small mb0">A sentence of praise or scope the evidence never made.</p></div>
+    <div class="card c-amber"><h4>Terms</h4><p class="small mb0">The glossary's word replaced by a livelier one.</p></div>
+  </div>
+  <aside class="notes"><p>These are the kinds of change the course's scripted stand-in makes in lab 2.2; FND-AIC-102 shows why language models fabricate. Do not list which of them the stand-in plants in the lab: finding them is the exercise. The improvements are real too: shorter phrases, the bottom line earlier.</p></aside>
+</section>
+
+<section class="slide" id="fluent-wrong" data-lo="LO5" data-n="21" data-session="2">
+  <div class="kicker">Read it twice</div>
+  <h2>The better-sounding sentence lost its evidence</h2>
+  <div class="cols cols-2">
+    <div class="card c-teal"><h4>Draft</h4><p class="small mb0">"Method B flagged 52 of 60 past run-outs (0.87, 95% interval 0.76 to 0.93). Parasite treatments were weaker: 7 of 9."</p></div>
+    <div class="card c-coral"><h4>Assisted revision</h4><p class="small mb0">"Method B reliably flags about nine in ten run-outs across all medicine groups, in line with the pharmacy's forecasting review."</p></div>
+  </div>
+  <ul class="bullets mt">
+    <li>0.87 became "about nine in ten"; the interval and the weak group are gone.</li>
+    <li>"Reliably" and "across all groups" are new claims; the review it cites may not exist.</li>
+  </ul>
+  <aside class="notes"><p>Parallel example, written for the slide. Ask the room to count the changes before you show the bullets. Most find two; there are five: the rounding, the dropped interval, the dropped slice, "reliably", and the citation.</p></aside>
+</section>
+
+<section class="slide" id="verification-log" data-lo="LO5" data-n="22" data-session="2">
+  <div class="kicker">Verification log</div>
+  <h2>Log every change with a verdict and how you checked it</h2>
+  <table class="t small">
+    <tr><th>claim_id</th><th>change</th><th>flags</th><th>verdict</th><th>checked_against</th><th>how_checked</th></tr>
+    <tr><td>C04</td><td>changed</td><td>number</td><td>corrected</td><td>forecast_run.jsonl</td><td>recomputed: 52/60 = 0.87</td></tr>
+    <tr><td>C05</td><td>added</td><td>source</td><td>removed</td><td>the team's document list</td><td>no forecasting review exists</td></tr>
+    <tr><td>C06</td><td>removed</td><td>limit</td><td>restored</td><td>slice table</td><td>7/9 parasite treatments</td></tr>
+  </table>
+  <div class="callout tip mt"><b>Four verdicts.</b> Kept, corrected, removed, restored: each says what happened to the claim, not what you thought of it.</div>
+  <aside class="notes"><p>Parallel example rows. The claim diff in the kit writes this file with the first columns filled and the last three empty. The log is evidence for LO5 and part of the capstone: the reviewer at the follow-up opens it and picks two rows to check live.</p></aside>
+</section>
+
+<section class="slide" id="what-may-go-in" data-lo="LO5" data-n="23" data-session="2">
+  <div class="kicker">National reference</div>
+  <h2>Only Public data goes into a generative AI tool</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>SDAIA's Generative AI Guidelines for Government tell government employees not to enter data classified restricted or higher: <span class="ar" lang="ar" dir="rtl">مقيد فأعلى</span>.</li>
+      <li>Use is limited to data classified Public: <span class="ar" lang="ar" dir="rtl">عامة</span>.</li>
+      <li>Users verify outputs, particularly for official reports.</li>
+    </ul>
+    <div class="card c-teal"><h4>At the clinics</h4><p class="small mb0">A private company, so the guideline does not bind it. Its own rule follows it: only Public, synthetic text goes to any assistant.</p></div>
+  </div>
+  <aside class="notes"><p>Source: SDAIA, Generative Artificial Intelligence Guidelines for Government, document SDAIA-P116E, version 1 dated May 2025, English and Arabic editions on sdaia.gov.sa, read 25 November 2026. The Arabic text uses «مقيد فأعلى (مقيد، وسري، وسري للغاية)» and «عامة». The clinics' rule is the case's own, not a national requirement on private companies. In the capstone, a participant's own project follows their organisation's policy, and nothing personal or classified goes into an example.</p></aside>
+</section>
+
+<section class="slide" id="disclosure" data-lo="LO5" data-n="24" data-session="2">
+  <div class="kicker">Disclosure</div>
+  <h2>Say what the assistant did and what you checked</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Too little</h4><p class="small mb0">"AI was used."</p></div>
+    <div class="card c-teal"><h4>Enough</h4><p class="small mb0">"Disclosure: wording revised with an approved assistant. Every changed number was checked against forecast_run.jsonl; one added citation was removed; the revision log is revision_log.csv."</p></div>
+  </div>
+  <div class="callout note mt"><b>Why it matters.</b> The reader learns which parts a person vouches for, and where to look if one is wrong.</div>
+  <aside class="notes"><p>The Generative AI Guidelines for Government ask government entities to disclose content created with generative AI; the course asks the same of every document participants submit, and the capstone's revision log ends with this line. Parallel example text.</p></aside>
+</section>
+
+<section class="slide" id="context-files" data-lo="LO5" data-n="25" data-session="2">
+  <div class="kicker">Context files for coding agents</div>
+  <h2>A context file is a README written for an agent</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li><b>Overview:</b> what the project is and where to start.</li>
+      <li><b>Commands:</b> setup, run and test, exactly as typed.</li>
+      <li><b>Conventions:</b> style, what never to edit.</li>
+      <li><b>Data rules:</b> what the agent may read and send, and what never enters the repository.</li>
+    </ul>
+    <pre class="code" data-file="AGENTS.md"><code class="language-markdown"><span class="hljs-section">## Testing</span>
+Run before proposing a change:
+uv run python -m unittest
+<span class="hljs-section">## Data rules</span>
+Synthetic data only.
+Send only Public text to any model.</code></pre>
+  </div>
+  <aside class="notes"><p>AGENTS.md is an open format, plain Markdown with no required fields; its site suggests sections such as project overview, build and test commands, code style and security considerations (agents.md). The same writing rules hold: exact commands and the line that proves success. The file is read by an agent that will take every word literally, like the clean-run tool of lab 1.2.</p></aside>
+</section>
+
+<section class="slide" id="check-revision" data-lo="LO5" data-n="26" data-session="2">
+  <div class="kicker">Checkpoint</div>
+  <h2>What should the revision log say about this change?</h2>
+  <div class="quiz" data-type="single" data-lo="LO5" data-id="check-revision-q1">
+    <p class="lead">An assisted revision of the pharmacy report adds: "This agrees with the store's annual stock audit." You search the pharmacy team's files and find no annual stock audit.</p>
+    <div class="opts">
+      <div class="opt" data-ok data-k="A">Removed: no such audit exists</div>
+      <div class="opt" data-why="Trusts fluent text because it sounds plausible, without the source that would support it" data-k="B">Kept: an audit like that is likely to exist</div>
+      <div class="opt" data-why="Softens the claim but still cites a document nobody has seen" data-k="C">Corrected: say "may agree with" the audit</div>
+      <div class="opt" data-why="Skips the log for the one change that most needs a record" data-k="D">Not logged: citations are not claims</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> A source you cannot find is an invented source until shown otherwise; the log records the search.</div>
+  </div>
+  <aside class="notes"><p>Answer: A. If someone picks C, ask what the reader would do with "may agree with" a document that cannot be found.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-2-2" data-auto="lab" data-lab="2.2" data-label="Lab 2.2" data-n="27" data-session="2">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 2.2 · 60 min</div><h2>Unassisted draft against assisted revision</h2><p class="lead small">Compare your AI-off report with an assisted revision claim by claim, keep a revision log, disclose the assistance and write the repository's agent context file</p><a class="nb" href="../labs/D2_2_revision.html">D2_2_revision.html</a></div><ul class="checklist"><li>Produce the assisted revision of your draft <span class="min">5 min</span></li><li>Run the claim diff <span class="min">10 min</span></li><li>Check each changed claim and log it <span class="min">20 min</span></li><li>Write the final version and its disclosure line <span class="min">10 min</span></li><li>Write the agent context file for the tagger <span class="min">10 min</span></li><li>Run the log checker and fix it <span class="min">5 min</span></li><li class="stretch">✱ Stretch: Revise with an approved assistant on Public text only, and log it the same way</li></ul></div>
+  <aside class="notes"><p><b>AI-full, logged:</b> the assisted revision comes from the scripted stand-in in the kit (no model runs); participants with an approved assistant may also revise with it in the stretch, Public text only. Participants without a lab 2.1 draft use <code>files/D2_2/draft_unassisted.md</code>. Typical problems: rows marked "kept" without a check, a search for a cited document that stops at the lab folder, a disclosure line that says only "AI was used".</p></aside>
+</section>
+
+<section class="slide" id="debrief-2-2" data-lo="LO5" data-n="28" data-session="2">
+  <div class="kicker">Lab 2.2 debrief</div>
+  <h2>On the supplied draft the scripted stand-in made 9 changes, and 6 changed a claim</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>An added claim: use "without a person reading the message".</li>
+      <li>The first interval dropped.</li>
+      <li>Accuracy 0.94 became 0.97, a number that is in the stats table, as English recall.</li>
+      <li>A citation to "evaluation note EV-N7", which exists nowhere.</li>
+      <li>The livestock limit and the development-set overlap cut.</li>
+    </ul>
+    <div class="card c-teal"><h4>And three it improved</h4><p class="small mb0">Shorter phrases with no claim changed. Keep them, and log them as kept.</p></div>
+  </div>
+  <aside class="notes"><p>Show after the lab only. Counts from <code>uv run solutions/check_D2_2.py</code> on the supplied draft; a participant's own draft gets the same kinds of edit where its sentences allow. The scripted stand-in is not a model: say so plainly if asked, and that the stretch is where a real assistant's revision can be compared.</p></aside>
+</section>
+
+<section class="slide" id="wrap-up" data-n="29" data-session="2">
+  <div class="kicker">Day 2 · wrap-up</div>
+  <h2>Three things to keep</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Slices with counts</h4><p class="small mb0">Every rate with its count and interval; small slices named as small.</p></div>
+    <div class="card c-coral"><h4>Limits with actions</h4><p class="small mb0">Each limit tells the reader what to do differently.</p></div>
+    <div class="card c-purple"><h4>Draft, then check</h4><p class="small mb0">Your own draft first; every assisted change logged, checked and disclosed.</p></div>
+  </div>
+  <aside class="notes"><p>Ask each participant to name the project they will document for the capstone, and its README's first reader.</p></aside>
+</section>
+
+<section class="slide dark" id="next" data-n="30" data-session="2">
+  <div class="kicker">Next</div>
+  <h2>The capstone: one project's documentation set, reviewed in a follow-up</h2>
+  <ul class="bullets">
+    <li><b>The set:</b> README, decision memo, model or system card, revision log with its disclosure.</li>
+    <li><b>The project:</b> your own, or the tagger with its second evaluation log in <code>labs/files/capstone/</code>.</li>
+    <li><b>Before the review:</b> a public repository link, and one partner's set reviewed with the checklists.</li>
+  </ul>
+  <aside class="notes"><p>The brief is <code>labs/files/capstone/brief.md</code>. Guided self-study: about 45 minutes to finish the set and 15 to review a partner's. At the follow-up each participant has four minutes to show the set and four for questions on its claims and its history.</p></aside>
+</section>
+</div>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-25T04:20:13Z","version":"2027.1.0","commit":"9351b4a"},"course":{"id":"fnd-aic-106","code":"FND-AIC-106","title":"Technical Writing for Data and AI Work","track":"foundations","lang":"en","dir":"ltr","url":"https://sdaiaacademy.github.io/fnd-aic-106/","repo":"SDAIAAcademy/fnd-aic-106","home":"../index.html"},"deck":{"id":"day2","kind":"day","day":2,"label":"Day 2","title":"Evidence documents and writing with assistance","prev":"day1.html","next":"capstone.html","md":"day2.md","alt":{}},"sessions":[{"n":1,"label":"Session 1","title":"Experiment reports and model cards","slide":"s1","outcomes":["Report results by data slice with the number of cases and an interval","Write known limits and out-of-scope uses a reader can act on","Check a report and a card with a peer checklist"],"minutes":100,"lab":{"id":"2.1","title":"Experiment report and model card","minutes":60,"href":"../labs/D2_1_report_card.html"}},{"n":2,"label":"Session 2","title":"Writing with an assistant","slide":"s2","outcomes":["Spot the typical errors of an assisted revision: changed numbers, dropped limits, invented sources","Keep a revision log that says how each claim was checked","Write a disclosure line and a context file for a coding agent"],"minutes":100,"lab":{"id":"2.2","title":"Unassisted draft against assisted revision","minutes":60,"href":"../labs/D2_2_revision.html"}}],"slides":[{"id":"title","n":1,"title":"Evidence documents and writing with assistance","kind":"title","session":0,"hash":"535f6e04","md":"#### [day2#title] Evidence documents and writing with assistance\n\n*SDAIA Academy · Technical Writing for Data and AI Work*\n\nDay 2: Reports and cards that state uncertainty, slices and limits, and an assistant whose every change is checked\n\nData & AI Foundations Track · 2 teaching days + capstone day · 2 sessions · 2 labs · FND-AIC-106","notes":"Welcome back. Today opens with the supervised memo, then two sessions: the documents that report evidence, and writing with an assistant. Keep yesterday's files in `labs/work/`: today's lab 2.2 compares a draft you write in lab 2.1 with an assisted revision.","minutes":null,"lo":[]},{"id":"agenda","n":2,"title":"Evidence documents and writing with assistance","kind":"content","session":0,"hash":"46048db1","md":"#### [day2#agenda] Evidence documents and writing with assistance\n\n*Today*\n\n- **Session 1 · Experiment reports and model cards**: Report what an evaluation measured, by slice and with its uncertainty, and write the card a user of the model reads\n- **Session 2 · Writing with an assistant**: Draft without the assistant first, then check every claim an assisted revision changes, log it and disclose it","notes":"","minutes":null,"lo":[]},{"id":"review-day1","n":3,"title":"Which part of this memo is missing?","kind":"quiz","session":0,"hash":"1b5bb3a4","md":"#### [day2#review-day1] Which part of this memo is missing?\n\n*Review of Day 1*\n\n**Question:** A memo recommends Method B for the pharmacy, compares its quality, cost and time with Method A in a table with intervals, and argues from the 0.80 requirement. It ends there.\n\n- A. A second table of results\n- B. What would change the recommendation\n- C. A section on how the methods were developed\n- D. A third option that was not measured","notes":"Answer: B. Then hand over to the supervised memo: same five parts, AI off.","minutes":null,"lo":["LO3"]},{"id":"supervised-memo","n":4,"title":"Supervised memo · 50 minutes of writing","kind":"content","session":0,"hash":"5b583c7b","md":"#### [day2#supervised-memo] Supervised memo · 50 minutes of writing\n\n*Assessment · AI off*\n\nOne page, from the result on your sheet, scored on the five-criterion rubric of lab 1.3. Devices closed; paper or a locked editor.","notes":"Sixty minutes in all: five for the rules and handing out, fifty of writing (press T), five for collection. The result sheet is not written yet: the Academy's assessment pack must supply it before the first cohort, outside this repository, as a different comparison from lab 1.3. Do not run the memo without it. The memo is 30% of the course and a participant needs at least 50% on it to pass. Score it on the same five criteria, two points each, and keep the paper: authenticity rests on its being written here.","minutes":null,"lo":[]},{"id":"s1","n":5,"title":"Experiment reports and model cards","kind":"section","session":1,"hash":"e6e9cadd","md":"#### [day2#s1] Experiment reports and model cards\n\n*Session 1*\n\n- Report results by data slice with the number of cases and an interval\n- Write known limits and out-of-scope uses a reader can act on\n- Check a report and a card with a peer checklist","notes":"","minutes":null,"lo":["LO4"]},{"id":"report-job","n":6,"title":"A report lets someone repeat the run and compare the next one","kind":"content","session":1,"hash":"149b7ee1","md":"#### [day2#report-job] A report lets someone repeat the run and compare the next one\n\n*The experiment report*\n\n- **What was asked.** The question, and the result in one paragraph with its count and interval.\n- **What was run.** Data and its version, settings, scorer, run identifier and date.\n- **What it shows.** Results overall and by slice, the uncertainty, the limits, the next run.\n\n> **What goes wrong.** A report that gives only the best number cannot be compared with the next run, because nobody knows what produced it.","notes":"The reader is the team, now and in three months. Ask: if you left tomorrow, could a colleague rerun your last experiment from what you wrote? The report is the long form; the memo and the card quote it.","minutes":null,"lo":["LO4"]},{"id":"run-record","n":7,"title":"Copy the setup from the run record, not from memory","kind":"content","session":1,"hash":"a2ce1d7c","md":"#### [day2#run-record] Copy the setup from the run record, not from memory\n\n*Setup*\n\n```json\n// file: forecast_run.jsonl\n{\"type\": \"run\", \"system\": \"Method B\", \"run_id\": \"FC-B2\",\n \"data\": \"runouts_v3.csv, 60 weeks\", \"settings\": \"depth 4, 200 trees\",\n \"scorer\": \"flagged one week ahead\", \"run_date\": \"2026-09-02\"}\n```\n\n- Every field the next run needs to match goes into the setup section.\n- The run identifier ties the report to its log: cite it.","notes":"The pharmacy run record is a parallel example. The lab's evaluation log starts with the same kind of record for the tagger, and its item lines carry fields a careful reader uses: one of them matters more than it looks.","minutes":null,"lo":["LO4"]},{"id":"slices","n":8,"title":"An overall rate can hide the slice where the system fails","kind":"content","session":1,"hash":"adaa6afe","md":"#### [day2#slices] An overall rate can hide the slice where the system fails\n\n*Results by slice*\n\n| Item | Value |\n| --- | --- |\n| All run-outs · 52/60 | 0.87 |\n| Antibiotics · 30/32 | 0.94 |\n| Vaccines · 15/19 | 0.79 |\n| Parasite treatments · 7/9 | 0.78 |\n\nMethod B, run-outs flagged in advance, by medicine group. Parallel example from `labs/_tools/slide_examples.py`.","notes":"Ask which group the pharmacist should worry about. Most say parasite treatments, the lowest bar. Then show the next slide: with nine cases, the bar is nearly as uncertain as it is low. Slices are chosen before the run from what the reader cares about (here, medicine groups), never after looking for a flattering cut.","minutes":null,"lo":["LO4"]},{"id":"small-slices","n":9,"title":"Give every slice its count and interval, and say which are too small to read","kind":"content","session":1,"hash":"43b0c5b5","md":"#### [day2#small-slices] Give every slice its count and interval, and say which are too small to read\n\n*Small slices*\n\n| Slice | Flagged | Rate | 95% interval |\n| --- | --- | --- | --- |\n| Antibiotics | 30/32 | 0.94 | 0.80 to 0.98 |\n| Vaccines | 15/19 | 0.79 | 0.57 to 0.91 |\n| Parasite treatments | 7/9 | 0.78 | 0.45 to 0.94 |\n\n> **Neither drop it nor over-read it.** \"On 9 cases the rate could be anywhere from 0.45 to 0.94: we need more before we rely on it.\"","notes":"The tool in lab 2.1 marks a slice \"small\" when it has fewer than 20 of the cases that matter; that threshold is the course's own convention, chosen so the interval is not wider than about 0.4. FND-AIC-103 teaches how the interval is computed; here the point is how to write it.","minutes":null,"lo":["LO4"]},{"id":"overlap","n":10,"title":"Test cases that were also used in tuning make a result look better","kind":"content","session":1,"hash":"c75b5c64","md":"#### [day2#overlap] Test cases that were also used in tuning make a result look better\n\n*Threats to the result*\n\n- A case seen while the system was tuned is not a test of new cases.\n- Report how many test cases overlap, and the result without them.\n- In the pharmacy run, 4 of the 60 weeks were also used to tune Method B.\n\n**0.89** Method B on the 56 weeks not used in tuning: 50/56, interval 0.79 to 0.95","notes":"Parallel example; figures from `labs/_tools/slide_examples.py`. Leakage of this kind is taught in depth in FND-AIC-101. Here the habit is simply to look for it and report it: a field in the log, a note in the run record, a question to whoever built the test set.","minutes":null,"lo":["LO4"]},{"id":"model-card","n":11,"title":"A model card tells a user how far to rely on the model","kind":"content","session":1,"hash":"91022702","md":"#### [day2#model-card] A model card tells a user how far to rely on the model\n\n*Model cards*\n\n- **What it is for,** and who uses it.\n- **What it is not for:** out-of-scope uses, said plainly.\n- **Evaluation data,** in words the user reads.\n- **Results by slice,** with counts and intervals.\n- **Known limits,** and what the user does about each.\n- **Ethical considerations;** owner, reviewer, approver.\n\n- **Where cards come from.** Mitchell and colleagues proposed model cards in 2019: results across groups, the intended context, how it was evaluated. Hub model cards are Markdown files with metadata.","notes":"Sources: Mitchell et al., \"Model Cards for Model Reporting\" (arxiv.org/abs/1810.03993); Hugging Face Hub documentation on model cards. Templates in current use change; the durable part is the list on the left. FND-AIC-101 drafts a card from a model the participant trained; here the card is written for a named reader who does not read code.","minutes":null,"lo":["LO4"]},{"id":"system-card","n":12,"title":"A system card describes the whole system the reader meets","kind":"content","session":1,"hash":"d1ead6d2","md":"#### [day2#system-card] A system card describes the whole system the reader meets\n\n*Model or system card*\n\n- **Model card.** One model: what it was evaluated on, how it did, where it fails.\n- **System card.** The model with its rules, its queue, its people and its fallbacks: what happens to a message from arrival to a person.\n\n> **Pick by the reader's question.** \"Can I trust the model?\" calls for a model card. \"What happens to an owner's message?\" calls for a system card.","notes":"In the capstone participants may write either. A system card is the better choice when the risk comes from how the parts fit, for example a person who reads only messages tagged urgent.","minutes":null,"lo":["LO4"]},{"id":"limits-actionable","n":13,"title":"Write each limit with what the reader should do about it","kind":"content","session":1,"hash":"ae544777","md":"#### [day2#limits-actionable] Write each limit with what the reader should do about it\n\n*Known limits*\n\n| Says nothing to act on | Tells the reader what to do |\n| --- | --- |\n| \"May underperform on some medicine groups.\" | \"Flagged 7 of 9 parasite-treatment run-outs: check their stock by hand every week.\" |\n| \"Not suitable for all uses.\" | \"Not for ordering controlled medicines: those stay with the pharmacist.\" |\n| \"Results may vary.\" | \"Tested on 60 past weeks of one store; not tested on the new branch.\" |","notes":"Ask the room to rewrite one vague limit from their own work. The test of a limit is whether the reader would do something different after reading it. The card checker in lab 2.1 looks for the slices the statistics show as weaker; the peer checklist asks whether each limit says what staff should do.","minutes":null,"lo":["LO4"]},{"id":"ethics-principles","n":14,"title":"SDAIA's AI Ethics Principles ask for what a card records","kind":"content","session":1,"hash":"e9e39820","md":"#### [day2#ethics-principles] SDAIA's AI Ethics Principles ask for what a card records\n\n*National reference*\n\n- **Fairness.** النزاهة والإنصاف: results by slice show who the system serves less well.\n- **Transparency and Explainability.** الشفافية والقابلية للتفسير: what it is for, how it was tested, where it fails.\n- **Accountability and Responsibility.** المساءلة والمسؤولية: an owner, a reviewer and an approver, by role.","notes":"Three of the seven principles, with their names as the English and Arabic texts give them (Principle 1, Principle 6 and Principle 7). The text is SDAIA's AI Ethics Principles, version 1 of 2025 on sdaia.gov.sa, read 25 November 2026. The mapping of card sections to principles is this course's own reading, not a requirement the principles state.","minutes":null,"lo":["LO4"]},{"id":"check-card","n":15,"title":"Which line should the pharmacy's card carry?","kind":"quiz","session":1,"hash":"6ccfeb3d","md":"#### [day2#check-card] Which line should the pharmacy's card carry?\n\n*Checkpoint*\n\n**Question:** The card for the head pharmacist says: \"Method B flags run-outs with a recall of 0.87.\" The run flagged 7 of 9 parasite-treatment run-outs, and 4 test weeks were also used in tuning.\n\n- A. \"Method B is reliable for all medicines.\"\n- B. \"Parasite treatments: 0.78.\"\n- C. \"Parasite treatments: 7 of 9 flagged; check their stock by hand.\"\n- D. \"Results for small groups are left out.\"","notes":"Answer: C. A full card also reports the tuning overlap and the result without it (0.89 on 50/56). If many choose B, ask what the head pharmacist should do with \"0.78\".","minutes":null,"lo":["LO4"]},{"id":"lab-2-1","n":16,"title":"Experiment report and model card","kind":"lab","session":1,"hash":"646e8584","md":"#### [day2#lab-2-1] Experiment report and model card\n\nLab 2.1 · 60 min\n\nFrom the evaluation log, write an experiment report for the data team lead and a model card for the head of reception, the report drafted with AI off\n\n[D2_1_report_card.html](https://sdaiaacademy.github.io/fnd-aic-106/labs/D2_1_report_card.html)\n\n- [ ] Run the statistics tool on the evaluation log and read the slice table (10 min)\n- [ ] Draft the experiment report with AI off: question, setup, results, uncertainty (20 min)\n- [ ] Draft the model card for the head of reception (15 min)\n- [ ] Run the card checker and fix what it reports (5 min)\n- [ ] Swap with a partner and complete the peer checklist (10 min)\n- [ ] ✱ Stretch: Add a text diagram of the evaluation flow to the report","notes":"**AI-off for the report draft:** it is the one unassisted first draft of the course, compared in lab 2.2. AI-tutor for the card's structure only. Walk the room during step 1 and ask what each column of the log holds. Typical problems: rates without counts, a card that lists limits without actions, owner and approver given as the same role.","minutes":null,"lo":[]},{"id":"debrief-2-1","n":17,"title":"Model L found 75 of 80 urgent messages, but 8 of 12 on livestock","kind":"content","session":1,"hash":"acdaf21a","md":"#### [day2#debrief-2-1] Model L found 75 of 80 urgent messages, but 8 of 12 on livestock\n\n*Lab 2.1 debrief*\n\n| Slice of run EV-L3 | Urgent found | Urgent recall (95% interval) | Accuracy |\n| --- | --- | --- | --- |\n| All, 400 messages | 75/80 | 0.94 (0.86 to 0.97) | 0.94 |\n| Livestock, 70 | 8/12 | 0.67 (0.39 to 0.86) | 0.90 |\n| Mixed Arabic and English, 24 | 4/4 | 1.00 (0.51 to 1.00) | 0.79 |\n| Also in the development set, 12 | 2/2 | 1.00 (0.34 to 1.00) | 1.00 |\n\nSynthetic case: Model L's outputs are simulated and recorded; no model ran.","notes":"Show after the lab only. Figures from `uv run kit/evalstats.py files/D2_1/eval_log.jsonl`; Model L's outputs are synthetic and recorded. Ask who found the overlap field. Without the 12 overlapping messages accuracy is 0.93 and urgent recall stays 0.94 (73/78). Ask two participants to read their livestock limit aloud: does it tell reception what to do?","minutes":null,"lo":["LO4"]},{"id":"s2","n":18,"title":"Writing with an assistant","kind":"section","session":2,"hash":"5d90d9da","md":"#### [day2#s2] Writing with an assistant\n\n*Session 2*\n\n- Spot the typical errors of an assisted revision: changed numbers, dropped limits, invented sources\n- Keep a revision log that says how each claim was checked\n- Write a disclosure line and a context file for a coding agent","notes":"","minutes":null,"lo":["LO5"]},{"id":"ai-off-first","n":19,"title":"Write the first draft yourself, so you know what the assistant changed","kind":"content","session":2,"hash":"c5f80070","md":"#### [day2#ai-off-first] Write the first draft yourself, so you know what the assistant changed\n\n*AI-off first drafts*\n\n1. **1 · AI-off draft** your claims, your evidence\n2. **2 · Assisted revision** clearer, shorter, maybe wrong\n3. **3 · Claim diff** every changed sentence\n4. **4 · Log and disclose** checked, then said\n\n> **The course's AI levels.** Off for the supervised memo and the lab 2.1 report draft; tutor for structure in the labs; full, and logged, for this revision and the capstone's polish.","notes":"Without your own draft you cannot tell an improvement from an invention: you would be checking the assistant against itself. The AI levels come from the course's catalog entry.","minutes":null,"lo":["LO5"]},{"id":"typical-errors","n":20,"title":"A fluent revision can change what the document claims","kind":"content","session":2,"hash":"f1ef1435","md":"#### [day2#typical-errors] A fluent revision can change what the document claims\n\n*Typical errors of assisted revision*\n\n- **Numbers.** A rate nudged, rounded or swapped for a nearby one.\n- **Uncertainty.** An interval dropped \"for readability\"; \"likely\" turned into \"will\".\n- **Limits.** The sentence about the weak slice or the overlap, cut as detail.\n- **Sources.** A citation to a document that does not exist.\n- **Stronger claims.** A sentence of praise or scope the evidence never made.\n- **Terms.** The glossary's word replaced by a livelier one.","notes":"These are the kinds of change the course's scripted stand-in makes in lab 2.2; FND-AIC-102 shows why language models fabricate. Do not list which of them the stand-in plants in the lab: finding them is the exercise. The improvements are real too: shorter phrases, the bottom line earlier.","minutes":null,"lo":["LO5"]},{"id":"fluent-wrong","n":21,"title":"The better-sounding sentence lost its evidence","kind":"content","session":2,"hash":"a8eaef20","md":"#### [day2#fluent-wrong] The better-sounding sentence lost its evidence\n\n*Read it twice*\n\n- **Draft.** \"Method B flagged 52 of 60 past run-outs (0.87, 95% interval 0.76 to 0.93). Parasite treatments were weaker: 7 of 9.\"\n- **Assisted revision.** \"Method B reliably flags about nine in ten run-outs across all medicine groups, in line with the pharmacy's forecasting review.\"\n\n- 0.87 became \"about nine in ten\"; the interval and the weak group are gone.\n- \"Reliably\" and \"across all groups\" are new claims; the review it cites may not exist.","notes":"Parallel example, written for the slide. Ask the room to count the changes before you show the bullets. Most find two; there are five: the rounding, the dropped interval, the dropped slice, \"reliably\", and the citation.","minutes":null,"lo":["LO5"]},{"id":"verification-log","n":22,"title":"Log every change with a verdict and how you checked it","kind":"content","session":2,"hash":"bf0a52ab","md":"#### [day2#verification-log] Log every change with a verdict and how you checked it\n\n*Verification log*\n\n| claim_id | change | flags | verdict | checked_against | how_checked |\n| --- | --- | --- | --- | --- | --- |\n| C04 | changed | number | corrected | forecast_run.jsonl | recomputed: 52/60 = 0.87 |\n| C05 | added | source | removed | the team's document list | no forecasting review exists |\n| C06 | removed | limit | restored | slice table | 7/9 parasite treatments |\n\n> **Four verdicts.** Kept, corrected, removed, restored: each says what happened to the claim, not what you thought of it.","notes":"Parallel example rows. The claim diff in the kit writes this file with the first columns filled and the last three empty. The log is evidence for LO5 and part of the capstone: the reviewer at the follow-up opens it and picks two rows to check live.","minutes":null,"lo":["LO5"]},{"id":"what-may-go-in","n":23,"title":"Only Public data goes into a generative AI tool","kind":"content","session":2,"hash":"d2a208d0","md":"#### [day2#what-may-go-in] Only Public data goes into a generative AI tool\n\n*National reference*\n\n- SDAIA's Generative AI Guidelines for Government tell government employees not to enter data classified restricted or higher: مقيد فأعلى.\n- Use is limited to data classified Public: عامة.\n- Users verify outputs, particularly for official reports.\n\n- **At the clinics.** A private company, so the guideline does not bind it. Its own rule follows it: only Public, synthetic text goes to any assistant.","notes":"Source: SDAIA, Generative Artificial Intelligence Guidelines for Government, document SDAIA-P116E, version 1 dated May 2025, English and Arabic editions on sdaia.gov.sa, read 25 November 2026. The Arabic text uses «مقيد فأعلى (مقيد، وسري، وسري للغاية)» and «عامة». The clinics' rule is the case's own, not a national requirement on private companies. In the capstone, a participant's own project follows their organisation's policy, and nothing personal or classified goes into an example.","minutes":null,"lo":["LO5"]},{"id":"disclosure","n":24,"title":"Say what the assistant did and what you checked","kind":"content","session":2,"hash":"b0cfcbca","md":"#### [day2#disclosure] Say what the assistant did and what you checked\n\n*Disclosure*\n\n- **Too little.** \"AI was used.\"\n- **Enough.** \"Disclosure: wording revised with an approved assistant. Every changed number was checked against forecast_run.jsonl; one added citation was removed; the revision log is revision_log.csv.\"\n\n> **Why it matters.** The reader learns which parts a person vouches for, and where to look if one is wrong.","notes":"The Generative AI Guidelines for Government ask government entities to disclose content created with generative AI; the course asks the same of every document participants submit, and the capstone's revision log ends with this line. Parallel example text.","minutes":null,"lo":["LO5"]},{"id":"context-files","n":25,"title":"A context file is a README written for an agent","kind":"content","session":2,"hash":"13c1ea10","md":"#### [day2#context-files] A context file is a README written for an agent\n\n*Context files for coding agents*\n\n- **Overview:** what the project is and where to start.\n- **Commands:** setup, run and test, exactly as typed.\n- **Conventions:** style, what never to edit.\n- **Data rules:** what the agent may read and send, and what never enters the repository.\n\n```markdown\n\u003c!-- file: AGENTS.md -->\n## Testing\nRun before proposing a change:\nuv run python -m unittest\n## Data rules\nSynthetic data only.\nSend only Public text to any model.\n```","notes":"AGENTS.md is an open format, plain Markdown with no required fields; its site suggests sections such as project overview, build and test commands, code style and security considerations (agents.md). The same writing rules hold: exact commands and the line that proves success. The file is read by an agent that will take every word literally, like the clean-run tool of lab 1.2.","minutes":null,"lo":["LO5"]},{"id":"check-revision","n":26,"title":"What should the revision log say about this change?","kind":"quiz","session":2,"hash":"4a8f8d56","md":"#### [day2#check-revision] What should the revision log say about this change?\n\n*Checkpoint*\n\n**Question:** An assisted revision of the pharmacy report adds: \"This agrees with the store's annual stock audit.\" You search the pharmacy team's files and find no annual stock audit.\n\n- A. Removed: no such audit exists\n- B. Kept: an audit like that is likely to exist\n- C. Corrected: say \"may agree with\" the audit\n- D. Not logged: citations are not claims","notes":"Answer: A. If someone picks C, ask what the reader would do with \"may agree with\" a document that cannot be found.","minutes":null,"lo":["LO5"]},{"id":"lab-2-2","n":27,"title":"Unassisted draft against assisted revision","kind":"lab","session":2,"hash":"34ced71e","md":"#### [day2#lab-2-2] Unassisted draft against assisted revision\n\nLab 2.2 · 60 min\n\nCompare your AI-off report with an assisted revision claim by claim, keep a revision log, disclose the assistance and write the repository's agent context file\n\n[D2_2_revision.html](https://sdaiaacademy.github.io/fnd-aic-106/labs/D2_2_revision.html)\n\n- [ ] Produce the assisted revision of your draft (5 min)\n- [ ] Run the claim diff (10 min)\n- [ ] Check each changed claim and log it (20 min)\n- [ ] Write the final version and its disclosure line (10 min)\n- [ ] Write the agent context file for the tagger (10 min)\n- [ ] Run the log checker and fix it (5 min)\n- [ ] ✱ Stretch: Revise with an approved assistant on Public text only, and log it the same way","notes":"**AI-full, logged:** the assisted revision comes from the scripted stand-in in the kit (no model runs); participants with an approved assistant may also revise with it in the stretch, Public text only. Participants without a lab 2.1 draft use `files/D2_2/draft_unassisted.md`. Typical problems: rows marked \"kept\" without a check, a search for a cited document that stops at the lab folder, a disclosure line that says only \"AI was used\".","minutes":null,"lo":[]},{"id":"debrief-2-2","n":28,"title":"On the supplied draft the scripted stand-in made 9 changes, and 6 changed a claim","kind":"content","session":2,"hash":"10f9237e","md":"#### [day2#debrief-2-2] On the supplied draft the scripted stand-in made 9 changes, and 6 changed a claim\n\n*Lab 2.2 debrief*\n\n- An added claim: use \"without a person reading the message\".\n- The first interval dropped.\n- Accuracy 0.94 became 0.97, a number that is in the stats table, as English recall.\n- A citation to \"evaluation note EV-N7\", which exists nowhere.\n- The livestock limit and the development-set overlap cut.\n\n- **And three it improved.** Shorter phrases with no claim changed. Keep them, and log them as kept.","notes":"Show after the lab only. Counts from `uv run solutions/check_D2_2.py` on the supplied draft; a participant's own draft gets the same kinds of edit where its sentences allow. The scripted stand-in is not a model: say so plainly if asked, and that the stretch is where a real assistant's revision can be compared.","minutes":null,"lo":["LO5"]},{"id":"wrap-up","n":29,"title":"Three things to keep","kind":"content","session":2,"hash":"58206f22","md":"#### [day2#wrap-up] Three things to keep\n\n*Day 2 · wrap-up*\n\n- **Slices with counts.** Every rate with its count and interval; small slices named as small.\n- **Limits with actions.** Each limit tells the reader what to do differently.\n- **Draft, then check.** Your own draft first; every assisted change logged, checked and disclosed.","notes":"Ask each participant to name the project they will document for the capstone, and its README's first reader.","minutes":null,"lo":[]},{"id":"next","n":30,"title":"The capstone: one project's documentation set, reviewed in a follow-up","kind":"content","session":2,"hash":"ca97a02e","md":"#### [day2#next] The capstone: one project's documentation set, reviewed in a follow-up\n\n*Next*\n\n- **The set:** README, decision memo, model or system card, revision log with its disclosure.\n- **The project:** your own, or the tagger with its second evaluation log in `labs/files/capstone/`.\n- **Before the review:** a public repository link, and one partner's set reviewed with the checklists.","notes":"The brief is `labs/files/capstone/brief.md`. Guided self-study: about 45 minutes to finish the set and 15 to review a partner's. At the follow-up each participant has four minutes to show the set and four for questions on its claims and its history.","minutes":null,"lo":[]}],"activities":[{"id":"review-day1-q1","slide":"review-day1","type":"single","prompt":"A memo recommends Method B for the pharmacy, compares its quality, cost and time with Method A in a table with intervals, and argues from the 0.80 requirement. It ends there.","options":[{"key":"A","text":"A second table of results"},{"key":"B","text":"What would change the recommendation"},{"key":"C","text":"A section on how the methods were developed"},{"key":"D","text":"A third option that was not measured"}],"correct":[1],"explanation":"Without \"what would change this\", nobody can tell later when the decision should come back.","misconceptions":["The memo already has a table of measured trade-offs; more numbers would not fill the gap","","History is the writer's order; the memo's reader needs the decision, not the timeline","A memo names its options once; a third unmeasured option does not belong in the trade-offs"],"lo":["LO3"]},{"id":"check-card-q1","slide":"check-card","type":"single","prompt":"The card for the head pharmacist says: \"Method B flags run-outs with a recall of 0.87.\" The run flagged 7 of 9 parasite-treatment run-outs, and 4 test weeks were also used in tuning.","options":[{"key":"A","text":"\"Method B is reliable for all medicines.\""},{"key":"B","text":"\"Parasite treatments: 0.78.\""},{"key":"C","text":"\"Parasite treatments: 7 of 9 flagged; check their stock by hand.\""},{"key":"D","text":"\"Results for small groups are left out.\""}],"correct":[2],"explanation":"It gives the count, and tells the reader what to do about the limit.","misconceptions":["Keeps one overall number and hides the slice and the overlap the reader needs","Reports the weak slice without its count or a reason to trust the rate","","Drops the small slice to keep the card tidy, which hides the weakness"],"lo":["LO4"]},{"id":"check-revision-q1","slide":"check-revision","type":"single","prompt":"An assisted revision of the pharmacy report adds: \"This agrees with the store's annual stock audit.\" You search the pharmacy team's files and find no annual stock audit.","options":[{"key":"A","text":"Removed: no such audit exists"},{"key":"B","text":"Kept: an audit like that is likely to exist"},{"key":"C","text":"Corrected: say \"may agree with\" the audit"},{"key":"D","text":"Not logged: citations are not claims"}],"correct":[0],"explanation":"A source you cannot find is an invented source until shown otherwise; the log records the search.","misconceptions":["","Trusts fluent text because it sounds plausible, without the source that would support it","Softens the claim but still cites a document nobody has seen","Skips the log for the one change that most needs a record"],"lo":["LO5"]}],"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":"day2.md","llms":"../llms.txt"},"tasks":[],"tools":[]},"bridge":{"allowedOrigins":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

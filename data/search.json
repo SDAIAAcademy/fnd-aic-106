@@ -1,0 +1,760 @@
+{
+  "v": 1,
+  "engine": "1.0.0",
+  "build": {
+    "at": "2026-11-25T04:20:13Z",
+    "version": "2027.1.0",
+    "commit": "9351b4a"
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "slides": [
+    {
+      "deck": "day1",
+      "id": "title",
+      "n": 1,
+      "session": 0,
+      "title": "Writing for a reader",
+      "text": "SDAIA Academy · Technical Writing for Data and AI Work Writing for a reader Day 1: One reader, the bottom line first, and the documents a project needs before anyone else can use it Data & AI Foundations Track2 teaching days + capstone day3 sessions · 3 labsFND-AIC-106",
+      "href": "../slides/day1.html#title"
+    },
+    {
+      "deck": "day1",
+      "id": "agenda",
+      "n": 2,
+      "session": 0,
+      "title": "Writing for a reader",
+      "text": "Today Writing for a reader Session 1 · Write for one reader Name the reader and the decision before choosing the document, then put the bottom line first Session 2 · READMEs, designs and decisions Write what a stranger needs to install, run and check a project, and keep designs and decisions as text beside the code Session 3 · The decision memo Turn a measured comparison into one page: options, trade-offs, a recommendation and what would change it",
+      "href": "../slides/day1.html#agenda"
+    },
+    {
+      "deck": "day1",
+      "id": "setup-check",
+      "n": 3,
+      "session": 0,
+      "title": "Clone the course, open the labs folder and run the setup check",
+      "text": "Before the first lab Clone the course, open the labs folder and run the setup check Clone the course repository, open a terminal in its labs folder. Run uv run kit/setup_check.py: uv fetches Python 3.11 or later if it is missing. You write every file of the day in labs/work/, which git ignores. No account, no key, no model download: the tools read and check text on your laptop. What proves it works The last line reads setup: ok. Any line that starts with missing: names a file to fetch again.",
+      "href": "../slides/day1.html#setup-check"
+    },
+    {
+      "deck": "day1",
+      "id": "s1",
+      "n": 4,
+      "session": 1,
+      "title": "Write for one reader",
+      "text": "Session 1 Write for one reader Name the reader, purpose and decision behind a request for a document Choose the document type and its required sections for a scenario Rewrite an update so the bottom line, the request and the uncertainty come first 01",
+      "href": "../slides/day1.html#s1"
+    },
+    {
+      "deck": "day1",
+      "id": "reader-first",
+      "n": 5,
+      "session": 1,
+      "title": "Name the reader and their decision before you pick a document",
+      "text": "Before you write Name the reader and their decision before you pick a document Who reads? One person, by role: the operations director, a new developer, the head of reception. \"Everyone\" is nobody. What will they do? Install, approve, choose, repeat, rely. The verb decides the document and its first line. What do they know? You know the project too well to see its gaps: write for what the reader already knows, not for you. What goes wrong. A document written for \"the stakeholders\" answers nobody's question and buries the one decision someone has to make.",
+      "href": "../slides/day1.html#reader-first"
+    },
+    {
+      "deck": "day1",
+      "id": "five-documents",
+      "n": 6,
+      "session": 1,
+      "title": "Five documents, five readers, five jobs",
+      "text": "Documents for data and AI work Five documents, five readers, five jobs Document Its reader The reader then It cannot do without README A stranger to the project installs, runs and checks it exact commands and what success prints Design document An approver, before code approves, changes or refuses alternatives and risks Decision memo A decision maker signs one option trade-offs and what would change it Experiment report The team, now and later repeats and compares the setup and the uncertainty Model or system card A user of the system decides how far to rely on it intended use, slices, limits",
+      "href": "../slides/day1.html#five-documents"
+    },
+    {
+      "deck": "day1",
+      "id": "bluf-before-after",
+      "n": 7,
+      "session": 1,
+      "title": "Put what the reader must do in the first two sentences",
+      "text": "Bottom line first Put what the reader must do in the first two sentences As sent \"Since the spring the pharmacy team has looked at several ways of forecasting reorders. We first tried a seasonal average, which was generally fine, then a boosted-tree model, which seems better on most weeks. ... So we would like to buy a quarter of model runs.\" Bottom line first \"Please approve SAR 46 for one quarter of weekly forecast runs with Method B. In 60 past weeks when a medicine ran out, it flagged 52 in advance; the current method flagged 41.\" Test. If the reader stopped after the first paragraph, could they act?",
+      "href": "../slides/day1.html#bluf-before-after"
+    },
+    {
+      "deck": "day1",
+      "id": "bluf-shape",
+      "n": 8,
+      "session": 1,
+      "title": "Decision, then reasons, then detail, then next step",
+      "text": "The shape Decision, then reasons, then detail, then next step 1 · Bottom line the request or the finding, with its size and date → 2 · Why the two or three facts it rests on → 3 · Detail method, numbers, caveats, for whoever reads on → 4 · Next what happens after the reader acts Headings help. A reader who scans the headings alone should get the argument.",
+      "href": "../slides/day1.html#bluf-shape"
+    },
+    {
+      "deck": "day1",
+      "id": "glossary",
+      "n": 9,
+      "session": 1,
+      "title": "One term, one meaning, in both languages",
+      "text": "Arabic and English glossaries One term, one meaning, in both languages A reader who meets run-out, stock-out and shortage wonders if they are three things. Agree the term once, with its Arabic pair and the words to avoid. Keep the glossary in the repository, beside the documents that use it. A checker can then flag every word to avoid, in every document. term_en term_ar avoid run-out نفاد المخزون stock-out; shortage reorder إعادة الطلب top-up; refill",
+      "href": "../slides/day1.html#glossary"
+    },
+    {
+      "deck": "day1",
+      "id": "uncertainty-in-words",
+      "n": 10,
+      "session": 1,
+      "title": "Say how sure you are, and on how many cases",
+      "text": "Uncertainty in plain words Say how sure you are, and on how many cases Says nothing \"Method B is significantly better at catching run-outs.\" Says how sure \"Method B flagged 52 of 60 past run-outs (0.87). With 60 cases, the 95% interval runs from 0.76 to 0.93.\" The count tells the reader how much evidence there is; the interval tells them how far to trust the rate. On nine cases, 7 of 9 (0.78) has an interval from 0.45 to 0.94: say so, or do not report the rate.",
+      "href": "../slides/day1.html#uncertainty-in-words"
+    },
+    {
+      "deck": "day1",
+      "id": "hedges",
+      "n": 11,
+      "session": 1,
+      "title": "Replace a hedge with a number, a condition or \"not measured\"",
+      "text": "Hedges Replace a hedge with a number, a condition or \"not measured\" Hedge Replace with \"quite good\", \"generally fine\" the rate and its count: 41 of 60 \"seems better\" the difference, and whether the intervals overlap \"should be enough\" the condition: enough if at least 20 new cases are urgent \"no issues\" what was checked: 60 weeks, no missing values \"probably fine for other branches\" \"not measured on other branches\" \"Not measured\" is a finding. It tells the reader where the evidence stops.",
+      "href": "../slides/day1.html#hedges"
+    },
+    {
+      "deck": "day1",
+      "id": "peer-review",
+      "n": 12,
+      "session": 1,
+      "title": "Review against the rubric, the text and the reader, not the writer",
+      "text": "Rubric-based peer review Review against the rubric, the text and the reader, not the writer Score each line 0, 1 or 2 against criteria written before anyone wrote: no overall impression. Quote the words \"Paragraph 2: 'quite well'\": the writer can find it and fix it. One strength, one change At least one of each, so the writer knows what to keep. Read as the reader. Pretend you are the operations director with two minutes, not a fellow writer with a red pen.",
+      "href": "../slides/day1.html#peer-review"
+    },
+    {
+      "deck": "day1",
+      "id": "check-reader",
+      "n": 13,
+      "session": 1,
+      "title": "Which document does this reader need?",
+      "text": "Checkpoint Which document does this reader need? The pharmacy team wants to add a second supplier feed to its forecast. Before anyone writes code, the finance manager must approve, change or refuse the plan, and wants to know what else was considered and what could go wrong. A README for the forecast repository and its feed A design document with alternatives and risks An experiment report on the new feed A system card for the forecast",
+      "href": "../slides/day1.html#check-reader"
+    },
+    {
+      "deck": "day1",
+      "id": "lab-1-1",
+      "n": 14,
+      "session": 1,
+      "title": "Bottom-line-first rewrite",
+      "text": "Lab 1.1 · 60 min Bottom-line-first rewrite Outline five documents for five readers, then rewrite the data team's status update bottom line first and check it D1_1_bluf.html Read the five scenarios and name each reader's decision 8 min Outline the five documents: reader, purpose, sections 17 min Mark where the status update hides its bottom line 5 min Rewrite it bottom line first, with glossary terms and uncertainty in words 20 min Run the checker, then score a partner's rewrite with the rubric 10 min ✱ Stretch: Write the first paragraph again in Arabic with the glossary's Arabic terms",
+      "href": "../slides/day1.html#lab-1-1"
+    },
+    {
+      "deck": "day1",
+      "id": "debrief-1-1",
+      "n": 15,
+      "session": 1,
+      "title": "The update as sent had its request in the last paragraph and 12 findings",
+      "text": "Lab 1.1 debrief The update as sent had its request in the last paragraph and 12 findings Request last: six hours of reception time appeared only in the closing paragraph. Four drifts: critical, emergency, catch rate and sensitivity, where the glossary says urgent and urgent recall. Hedges: \"quite well\", \"significantly better\", with numbers available. Length: 339 words, sentences of 24 words on average. The uncertainty, stated 80 urgent messages left after the clean-up: on 80 cases a recall of 0.80 has a 95% interval from 0.70 to 0.87.",
+      "href": "../slides/day1.html#debrief-1-1"
+    },
+    {
+      "deck": "day1",
+      "id": "s2",
+      "n": 16,
+      "session": 2,
+      "title": "READMEs, designs and decisions",
+      "text": "Session 2 READMEs, designs and decisions Write install, run and check steps a stranger can follow on a clean machine Separate a README from a design document and a decision record Draw a pipeline as text that the repository renders 02",
+      "href": "../slides/day1.html#s2"
+    },
+    {
+      "deck": "day1",
+      "id": "readme-job",
+      "n": 17,
+      "session": 2,
+      "title": "A stranger installs, runs and checks the project without asking anyone",
+      "text": "A README's job A stranger installs, runs and checks the project without asking anyone Install Every command as typed, from which folder, with the versions it needs and any file to create. Run The one command that does the project's job on supplied data, and where the output goes. Check The tests, and the exact line they print when all is well: \"it ran\" is not \"it works\". Then the rest. What it is for and not for, where things are, its limits and its owner.",
+      "href": "../slides/day1.html#readme-job"
+    },
+    {
+      "deck": "day1",
+      "id": "what-strangers-guess",
+      "n": 18,
+      "session": 2,
+      "title": "A stranger stops at the steps the writer does without thinking",
+      "text": "What the writer forgets A stranger stops at the steps the writer does without thinking The language version the code needs, and how to get it. A file to create: a settings file copied from an example, an empty folder. The folder a command runs from. The real command, when an old note names a script that no longer exists. What success looks like: the line a working run prints. What goes wrong. The writer tests the README on their own laptop, where every one of these is already true.",
+      "href": "../slides/day1.html#what-strangers-guess"
+    },
+    {
+      "deck": "day1",
+      "id": "commands-exactly",
+      "n": 19,
+      "session": 2,
+      "title": "Show the command and the line it must print",
+      "text": "Commands as typed Show the command and the line it must print ## Run Forecast next week's reorders from the 60 sample weeks: ```sh uv run python -m reorder forecast data/sample_weeks.csv ``` ```text forecast: 60 weeks read, 14 medicines flagged ``` The text block is a promise. A reader, or a test, compares it with what the screen shows.",
+      "href": "../slides/day1.html#commands-exactly"
+    },
+    {
+      "deck": "day1",
+      "id": "four-forms",
+      "n": 20,
+      "session": 2,
+      "title": "A README points to the other kinds of documentation",
+      "text": "Not everything in one file A README points to the other kinds of documentation Tutorial Learning by doing, step by step. How-to guide One task, for someone who knows the basics. Reference Every option and field, to look up. Explanation Why it works the way it does. The README is a front door: install, run, check, then links to the rest.",
+      "href": "../slides/day1.html#four-forms"
+    },
+    {
+      "deck": "day1",
+      "id": "design-document",
+      "n": 21,
+      "session": 2,
+      "title": "A design document is written before the code, for the person who approves it",
+      "text": "Design document A design document is written before the code, for the person who approves it Summary: the change and the decision asked for. Problem and goals, and what is out of scope. The design, with a diagram of what flows where. Alternatives and why not. Risks and failure cases, with what catches each. Open questions, reviewers and the approver. Its test Could the approver say no for a good reason after reading it? If every alternative is a straw man, they cannot.",
+      "href": "../slides/day1.html#design-document"
+    },
+    {
+      "deck": "day1",
+      "id": "decision-record",
+      "n": 22,
+      "session": 2,
+      "title": "A decision record keeps one decision and its reasons beside the code",
+      "text": "Decision record A decision record keeps one decision and its reasons beside the code Title a short noun phrase → Status proposed, accepted, superseded → Context the forces, stated neutrally → Decision in a full, active sentence → Consequences good, bad and neutral Numbered files in docs/decisions/ become the project's decision log.",
+      "href": "../slides/day1.html#decision-record"
+    },
+    {
+      "deck": "day1",
+      "id": "diagrams-as-text",
+      "n": 23,
+      "session": 2,
+      "title": "A diagram written as text is reviewed and versioned like code",
+      "text": "Diagrams as text A diagram written as text is reviewed and versioned like code ```mermaid flowchart LR W[Weekly sales] --> F[Forecast] S[Stock levels] --> F F --> R[Reorder list] R --> P[Pharmacist checks] ``` Mermaid and PlantUML turn short text into flowcharts and sequence diagrams. GitHub renders Mermaid blocks in Markdown. A change to the diagram shows in the diff, line by line.",
+      "href": "../slides/day1.html#diagrams-as-text"
+    },
+    {
+      "deck": "day1",
+      "id": "clean-run",
+      "n": 24,
+      "session": 2,
+      "title": "Follow your README on a fresh copy, exactly as written",
+      "text": "Test the README Follow your README on a fresh copy, exactly as written 1 · Fresh copy no settings file, no environment → 2 · Literal type only what is written → 3 · Log each command, its result, each hesitation → 4 · Fix the README, not the laptop Two testers. The kit's clean-run tool types exactly what you wrote; a partner shows you where a person hesitates.",
+      "href": "../slides/day1.html#clean-run"
+    },
+    {
+      "deck": "day1",
+      "id": "check-readme",
+      "n": 25,
+      "session": 2,
+      "title": "What did this README leave out?",
+      "text": "Checkpoint What did this README leave out? A stranger follows the forecast's README on a fresh copy. The install step works, then the run command stops with \"error: settings.toml not found\". The writer's laptop runs it fine. A step that copies the example settings file A note that the stranger's laptop is misconfigured The command that runs the tests An offer to send the writer's own settings file",
+      "href": "../slides/day1.html#check-readme"
+    },
+    {
+      "deck": "day1",
+      "id": "lab-1-2",
+      "n": 26,
+      "session": 2,
+      "title": "Peer-tested README",
+      "text": "Lab 1.2 · 60 min Peer-tested README Write the README of the undocumented urgency tagger, test it with a clean run, then have a partner follow it and log the run D1_2_readme.html Explore the repository and list what a stranger would have to guess 10 min Write the install, run and check sections 20 min Add the purpose, inputs and outputs, limits and a text diagram 10 min Run the clean-run test on your README and fix what fails 10 min Swap: a partner follows your README on a clean copy and writes the run log 10 min ✱ Stretch: Start the README of your own project, the first part of the capstone",
+      "href": "../slides/day1.html#lab-1-2"
+    },
+    {
+      "deck": "day1",
+      "id": "debrief-1-2",
+      "n": 27,
+      "session": 2,
+      "title": "Four things a stranger had to guess in the tagger's repository",
+      "text": "Lab 1.2 debrief Four things a stranger had to guess in the tagger's repository Gap What the stranger saw The README line that closes it Settings file error: config.toml not found copy config.example.toml to config.toml Python version a TOML import error on an old Python Python 3.11 or later; uv installs it Stale note NOTES.txt names tagger.py, which does not exist say the note is out of date Success output with nothing to compare check: ok, 30 sample rows, 400 test rows, 2 recorded systems",
+      "href": "../slides/day1.html#debrief-1-2"
+    },
+    {
+      "deck": "day1",
+      "id": "s3",
+      "n": 28,
+      "session": 3,
+      "title": "The decision memo",
+      "text": "Session 3 The decision memo State the decision and the recommendation in the first two sentences Compare options on quality, cost and latency with numbers traced to the source Write the conditions under which the recommendation would change 03",
+      "href": "../slides/day1.html#s3"
+    },
+    {
+      "deck": "day1",
+      "id": "memo-one-page",
+      "n": 29,
+      "session": 3,
+      "title": "One decision, one page, one signature",
+      "text": "The decision memo One decision, one page, one signature 1 decision, asked as a question 450 words at most: one page 3 roles named: author, reviewer, decider The reader has ten minutes. Everything that does not help them choose goes in an appendix or the experiment report.",
+      "href": "../slides/day1.html#memo-one-page"
+    },
+    {
+      "deck": "day1",
+      "id": "memo-shape",
+      "n": 30,
+      "session": 3,
+      "title": "Bottom line, options, trade-offs, recommendation, what would change it",
+      "text": "Five parts Bottom line, options, trade-offs, recommendation, what would change it Bottom line the recommendation and the request → Options each one, named once → Trade-offs measured, with intervals → Recommendation argued from the reader's needs → What would change it conditions with numbers",
+      "href": "../slides/day1.html#memo-shape"
+    },
+    {
+      "deck": "day1",
+      "id": "options-honest",
+      "n": 31,
+      "session": 3,
+      "title": "Keep the current way as an option, and name every option the same way throughout",
+      "text": "Options Keep the current way as an option, and name every option the same way throughout The status quo is a real option with real costs: say what staying costs. Same names, same order in the options, the table and the recommendation. No straw men: an option nobody would pick wastes the reader's ten minutes. Unmeasured options go in \"what would change this\", not in the table. What goes wrong. \"Method B\", then \"the new model\", then \"the ML option\": the reader wonders if they are three things.",
+      "href": "../slides/day1.html#options-honest"
+    },
+    {
+      "deck": "day1",
+      "id": "tradeoff-table",
+      "n": 32,
+      "session": 3,
+      "title": "Put the options side by side on the measures the reader cares about",
+      "text": "Trade-offs Put the options side by side on the measures the reader cares about Pharmacy reorder forecast Method A (current) Method B Run-outs flagged in advance, of 60 41 · 0.68 (0.56 to 0.79) 52 · 0.87 (0.76 to 0.93) Cost a month, one run a week SAR 0 SAR 15.17 Time a run 1 minute 14 minutes A parallel example, synthetic, from labs/_tools/slide_examples.py.",
+      "href": "../slides/day1.html#tradeoff-table"
+    },
+    {
+      "deck": "day1",
+      "id": "requirement-first",
+      "n": 33,
+      "session": 3,
+      "title": "Argue from the reader's requirement, not from \"the best score\"",
+      "text": "Recommendation Argue from the reader's requirement, not from \"the best score\" From the score \"Method B is better on every quality measure, so we recommend it.\" From the requirement \"The pharmacy needs 0.80 of run-outs flagged within SAR 20 a month. Only Method B is likely to meet it, and it costs SAR 15.17.\" Requirements first. State each one with its number, then show which options meet it and how surely.",
+      "href": "../slides/day1.html#requirement-first"
+    },
+    {
+      "deck": "day1",
+      "id": "conditions",
+      "n": 34,
+      "session": 3,
+      "title": "Name the lines that, once crossed, bring the decision back",
+      "text": "What would change this Name the lines that, once crossed, bring the decision back A measured threshold: if a larger test puts Method B below 0.80, bring a new option. A volume: at SAR 3.50 a run, five runs a month fit the SAR 20 budget and a sixth breaks it; daily runs do not fit. A price: at SAR 4.62 a run, weekly runs cost SAR 20.02 a month and break it. Show the working. Each computed number gets one line: 20 / 3.50 = 5.71 runs.",
+      "href": "../slides/day1.html#conditions"
+    },
+    {
+      "deck": "day1",
+      "id": "trace-numbers",
+      "n": 35,
+      "session": 3,
+      "title": "Every number in the memo traces to the evidence or to its working",
+      "text": "Every claim checked Every number in the memo traces to the evidence or to its working Copy numbers from the evidence; never retype them from memory. Round once, the same way everywhere. A number you computed has its working beside it. The reviewer checks numbers before style. The checker in the lab kit/memocheck.py lists every number that is in neither the comparison, the context nor a Working line.",
+      "href": "../slides/day1.html#trace-numbers"
+    },
+    {
+      "deck": "day1",
+      "id": "check-memo",
+      "n": 36,
+      "session": 3,
+      "title": "Which sentence belongs in the pharmacy memo?",
+      "text": "Checkpoint Which sentence belongs in the pharmacy memo? The pharmacy needs at least 0.80 of run-outs flagged. Method B flagged 52 of 60, 0.87, with a 95% interval from 0.76 to 0.93. \"Method B meets the 0.80 requirement.\" \"Method B cannot be shown to meet 0.80, so we cannot recommend it.\" \"Method B is significantly better than the current method.\" \"Likely meets 0.80; its interval reaches down to 0.76.\"",
+      "href": "../slides/day1.html#check-memo"
+    },
+    {
+      "deck": "day1",
+      "id": "lab-1-3",
+      "n": 37,
+      "session": 3,
+      "title": "Decision memo",
+      "text": "Lab 1.3 · 60 min Decision memo Write a one-page memo to the operations director on which tagger the reception desk should use, from the measured comparison D1_3_memo.html Read the context and the comparison; write the decision in one line 8 min Write the bottom line and the three options 12 min Write the trade-offs with numbers from the comparison and their intervals 15 min Write the recommendation and the conditions that would change it 10 min Run the checker; a partner scores your memo on the five-criterion rubric 15 min ✱ Stretch: Write the same choice as a decision record under five headings",
+      "href": "../slides/day1.html#lab-1-3"
+    },
+    {
+      "deck": "day1",
+      "id": "debrief-1-3",
+      "n": 38,
+      "session": 3,
+      "title": "Only Model L likely meets reception's 0.90, and it fits the budget",
+      "text": "Lab 1.3 debrief Only Model L likely meets reception's 0.90, and it fits the budget 400 test messages, 80 urgent Keyword rules Model S Model L Urgent recall (95% interval) 0.66 (0.55 to 0.76) 0.82 (0.73 to 0.89) 0.94 (0.86 to 0.97) A month at 9,000 messages SAR 0 SAR 72.18 SAR 337.68 95% of tags within under 0.01 s 1.24 s 5.59 s Synthetic case: Model S and Model L outputs are simulated and recorded; no model ran. And what would change it: a larger test below 0.90; 10,661 messages a month or more; tags slower than 10 s.",
+      "href": "../slides/day1.html#debrief-1-3"
+    },
+    {
+      "deck": "day1",
+      "id": "wrap-up",
+      "n": 39,
+      "session": 3,
+      "title": "Three things to keep",
+      "text": "Day 1 · wrap-up Three things to keep The reader decides One reader, one action: the document type and its first sentence follow from them. Test the README A fresh copy, followed literally, by a tool and by a person. Numbers with their doubt A count, an interval and the line that would change your mind.",
+      "href": "../slides/day1.html#wrap-up"
+    },
+    {
+      "deck": "day1",
+      "id": "next",
+      "n": 40,
+      "session": 3,
+      "title": "Tomorrow: a supervised memo, then reports, cards and assistants",
+      "text": "Next Tomorrow: a supervised memo, then reports, cards and assistants First hour: a one-page memo with AI off, from a result handed out on paper, scored on the lab 1.3 rubric. Bring your project: a small data or code project of your own, or keep the tagger. Keep your files: today's README and memo are the start of your capstone set.",
+      "href": "../slides/day1.html#next"
+    },
+    {
+      "deck": "day2",
+      "id": "title",
+      "n": 1,
+      "session": 0,
+      "title": "Evidence documents and writing with assistance",
+      "text": "SDAIA Academy · Technical Writing for Data and AI Work Evidence documents and writing with assistance Day 2: Reports and cards that state uncertainty, slices and limits, and an assistant whose every change is checked Data & AI Foundations Track2 teaching days + capstone day2 sessions · 2 labsFND-AIC-106",
+      "href": "../slides/day2.html#title"
+    },
+    {
+      "deck": "day2",
+      "id": "agenda",
+      "n": 2,
+      "session": 0,
+      "title": "Evidence documents and writing with assistance",
+      "text": "Today Evidence documents and writing with assistance Session 1 · Experiment reports and model cards Report what an evaluation measured, by slice and with its uncertainty, and write the card a user of the model reads Session 2 · Writing with an assistant Draft without the assistant first, then check every claim an assisted revision changes, log it and disclose it",
+      "href": "../slides/day2.html#agenda"
+    },
+    {
+      "deck": "day2",
+      "id": "review-day1",
+      "n": 3,
+      "session": 0,
+      "title": "Which part of this memo is missing?",
+      "text": "Review of Day 1 Which part of this memo is missing? A memo recommends Method B for the pharmacy, compares its quality, cost and time with Method A in a table with intervals, and argues from the 0.80 requirement. It ends there. A second table of results What would change the recommendation A section on how the methods were developed A third option that was not measured",
+      "href": "../slides/day2.html#review-day1"
+    },
+    {
+      "deck": "day2",
+      "id": "supervised-memo",
+      "n": 4,
+      "session": 0,
+      "title": "Supervised memo · 50 minutes of writing",
+      "text": "Assessment · AI off Supervised memo · 50 minutes of writing One page, from the result on your sheet, scored on the five-criterion rubric of lab 1.3. Devices closed; paper or a locked editor.",
+      "href": "../slides/day2.html#supervised-memo"
+    },
+    {
+      "deck": "day2",
+      "id": "s1",
+      "n": 5,
+      "session": 1,
+      "title": "Experiment reports and model cards",
+      "text": "Session 1 Experiment reports and model cards Report results by data slice with the number of cases and an interval Write known limits and out-of-scope uses a reader can act on Check a report and a card with a peer checklist 01",
+      "href": "../slides/day2.html#s1"
+    },
+    {
+      "deck": "day2",
+      "id": "report-job",
+      "n": 6,
+      "session": 1,
+      "title": "A report lets someone repeat the run and compare the next one",
+      "text": "The experiment report A report lets someone repeat the run and compare the next one What was asked The question, and the result in one paragraph with its count and interval. What was run Data and its version, settings, scorer, run identifier and date. What it shows Results overall and by slice, the uncertainty, the limits, the next run. What goes wrong. A report that gives only the best number cannot be compared with the next run, because nobody knows what produced it.",
+      "href": "../slides/day2.html#report-job"
+    },
+    {
+      "deck": "day2",
+      "id": "run-record",
+      "n": 7,
+      "session": 1,
+      "title": "Copy the setup from the run record, not from memory",
+      "text": "Setup Copy the setup from the run record, not from memory {\"type\": \"run\", \"system\": \"Method B\", \"run_id\": \"FC-B2\", \"data\": \"runouts_v3.csv, 60 weeks\", \"settings\": \"depth 4, 200 trees\", \"scorer\": \"flagged one week ahead\", \"run_date\": \"2026-09-02\"} Every field the next run needs to match goes into the setup section. The run identifier ties the report to its log: cite it.",
+      "href": "../slides/day2.html#run-record"
+    },
+    {
+      "deck": "day2",
+      "id": "slices",
+      "n": 8,
+      "session": 1,
+      "title": "An overall rate can hide the slice where the system fails",
+      "text": "Results by slice An overall rate can hide the slice where the system fails All run-outs · 52/60 0.87 Antibiotics · 30/32 0.94 Vaccines · 15/19 0.79 Parasite treatments · 7/9 0.78 Method B, run-outs flagged in advance, by medicine group. Parallel example from labs/_tools/slide_examples.py.",
+      "href": "../slides/day2.html#slices"
+    },
+    {
+      "deck": "day2",
+      "id": "small-slices",
+      "n": 9,
+      "session": 1,
+      "title": "Give every slice its count and interval, and say which are too small to read",
+      "text": "Small slices Give every slice its count and interval, and say which are too small to read Slice Flagged Rate 95% interval Antibiotics 30/32 0.94 0.80 to 0.98 Vaccines 15/19 0.79 0.57 to 0.91 Parasite treatments 7/9 0.78 0.45 to 0.94 Neither drop it nor over-read it. \"On 9 cases the rate could be anywhere from 0.45 to 0.94: we need more before we rely on it.\"",
+      "href": "../slides/day2.html#small-slices"
+    },
+    {
+      "deck": "day2",
+      "id": "overlap",
+      "n": 10,
+      "session": 1,
+      "title": "Test cases that were also used in tuning make a result look better",
+      "text": "Threats to the result Test cases that were also used in tuning make a result look better A case seen while the system was tuned is not a test of new cases. Report how many test cases overlap, and the result without them. In the pharmacy run, 4 of the 60 weeks were also used to tune Method B. 0.89 Method B on the 56 weeks not used in tuning: 50/56, interval 0.79 to 0.95",
+      "href": "../slides/day2.html#overlap"
+    },
+    {
+      "deck": "day2",
+      "id": "model-card",
+      "n": 11,
+      "session": 1,
+      "title": "A model card tells a user how far to rely on the model",
+      "text": "Model cards A model card tells a user how far to rely on the model What it is for, and who uses it. What it is not for: out-of-scope uses, said plainly. Evaluation data, in words the user reads. Results by slice, with counts and intervals. Known limits, and what the user does about each. Ethical considerations; owner, reviewer, approver. Where cards come from Mitchell and colleagues proposed model cards in 2019: results across groups, the intended context, how it was evaluated. Hub model cards are Markdown files with metadata.",
+      "href": "../slides/day2.html#model-card"
+    },
+    {
+      "deck": "day2",
+      "id": "system-card",
+      "n": 12,
+      "session": 1,
+      "title": "A system card describes the whole system the reader meets",
+      "text": "Model or system card A system card describes the whole system the reader meets Model card One model: what it was evaluated on, how it did, where it fails. System card The model with its rules, its queue, its people and its fallbacks: what happens to a message from arrival to a person. Pick by the reader's question. \"Can I trust the model?\" calls for a model card. \"What happens to an owner's message?\" calls for a system card.",
+      "href": "../slides/day2.html#system-card"
+    },
+    {
+      "deck": "day2",
+      "id": "limits-actionable",
+      "n": 13,
+      "session": 1,
+      "title": "Write each limit with what the reader should do about it",
+      "text": "Known limits Write each limit with what the reader should do about it Says nothing to act on Tells the reader what to do \"May underperform on some medicine groups.\" \"Flagged 7 of 9 parasite-treatment run-outs: check their stock by hand every week.\" \"Not suitable for all uses.\" \"Not for ordering controlled medicines: those stay with the pharmacist.\" \"Results may vary.\" \"Tested on 60 past weeks of one store; not tested on the new branch.\"",
+      "href": "../slides/day2.html#limits-actionable"
+    },
+    {
+      "deck": "day2",
+      "id": "ethics-principles",
+      "n": 14,
+      "session": 1,
+      "title": "SDAIA's AI Ethics Principles ask for what a card records",
+      "text": "National reference SDAIA's AI Ethics Principles ask for what a card records Fairness النزاهة والإنصاف: results by slice show who the system serves less well. Transparency and Explainability الشفافية والقابلية للتفسير: what it is for, how it was tested, where it fails. Accountability and Responsibility المساءلة والمسؤولية: an owner, a reviewer and an approver, by role.",
+      "href": "../slides/day2.html#ethics-principles"
+    },
+    {
+      "deck": "day2",
+      "id": "check-card",
+      "n": 15,
+      "session": 1,
+      "title": "Which line should the pharmacy's card carry?",
+      "text": "Checkpoint Which line should the pharmacy's card carry? The card for the head pharmacist says: \"Method B flags run-outs with a recall of 0.87.\" The run flagged 7 of 9 parasite-treatment run-outs, and 4 test weeks were also used in tuning. \"Method B is reliable for all medicines.\" \"Parasite treatments: 0.78.\" \"Parasite treatments: 7 of 9 flagged; check their stock by hand.\" \"Results for small groups are left out.\"",
+      "href": "../slides/day2.html#check-card"
+    },
+    {
+      "deck": "day2",
+      "id": "lab-2-1",
+      "n": 16,
+      "session": 1,
+      "title": "Experiment report and model card",
+      "text": "Lab 2.1 · 60 min Experiment report and model card From the evaluation log, write an experiment report for the data team lead and a model card for the head of reception, the report drafted with AI off D2_1_report_card.html Run the statistics tool on the evaluation log and read the slice table 10 min Draft the experiment report with AI off: question, setup, results, uncertainty 20 min Draft the model card for the head of reception 15 min Run the card checker and fix what it reports 5 min Swap with a partner and complete the peer checklist 10 min ✱ Stretch: Add a text diagram of the evaluation flow to the report",
+      "href": "../slides/day2.html#lab-2-1"
+    },
+    {
+      "deck": "day2",
+      "id": "debrief-2-1",
+      "n": 17,
+      "session": 1,
+      "title": "Model L found 75 of 80 urgent messages, but 8 of 12 on livestock",
+      "text": "Lab 2.1 debrief Model L found 75 of 80 urgent messages, but 8 of 12 on livestock Slice of run EV-L3 Urgent found Urgent recall (95% interval) Accuracy All, 400 messages 75/80 0.94 (0.86 to 0.97) 0.94 Livestock, 70 8/12 0.67 (0.39 to 0.86) 0.90 Mixed Arabic and English, 24 4/4 1.00 (0.51 to 1.00) 0.79 Also in the development set, 12 2/2 1.00 (0.34 to 1.00) 1.00 Synthetic case: Model L's outputs are simulated and recorded; no model ran.",
+      "href": "../slides/day2.html#debrief-2-1"
+    },
+    {
+      "deck": "day2",
+      "id": "s2",
+      "n": 18,
+      "session": 2,
+      "title": "Writing with an assistant",
+      "text": "Session 2 Writing with an assistant Spot the typical errors of an assisted revision: changed numbers, dropped limits, invented sources Keep a revision log that says how each claim was checked Write a disclosure line and a context file for a coding agent 02",
+      "href": "../slides/day2.html#s2"
+    },
+    {
+      "deck": "day2",
+      "id": "ai-off-first",
+      "n": 19,
+      "session": 2,
+      "title": "Write the first draft yourself, so you know what the assistant changed",
+      "text": "AI-off first drafts Write the first draft yourself, so you know what the assistant changed 1 · AI-off draft your claims, your evidence → 2 · Assisted revision clearer, shorter, maybe wrong → 3 · Claim diff every changed sentence → 4 · Log and disclose checked, then said The course's AI levels. Off for the supervised memo and the lab 2.1 report draft; tutor for structure in the labs; full, and logged, for this revision and the capstone's polish.",
+      "href": "../slides/day2.html#ai-off-first"
+    },
+    {
+      "deck": "day2",
+      "id": "typical-errors",
+      "n": 20,
+      "session": 2,
+      "title": "A fluent revision can change what the document claims",
+      "text": "Typical errors of assisted revision A fluent revision can change what the document claims Numbers A rate nudged, rounded or swapped for a nearby one. Uncertainty An interval dropped \"for readability\"; \"likely\" turned into \"will\". Limits The sentence about the weak slice or the overlap, cut as detail. Sources A citation to a document that does not exist. Stronger claims A sentence of praise or scope the evidence never made. Terms The glossary's word replaced by a livelier one.",
+      "href": "../slides/day2.html#typical-errors"
+    },
+    {
+      "deck": "day2",
+      "id": "fluent-wrong",
+      "n": 21,
+      "session": 2,
+      "title": "The better-sounding sentence lost its evidence",
+      "text": "Read it twice The better-sounding sentence lost its evidence Draft \"Method B flagged 52 of 60 past run-outs (0.87, 95% interval 0.76 to 0.93). Parasite treatments were weaker: 7 of 9.\" Assisted revision \"Method B reliably flags about nine in ten run-outs across all medicine groups, in line with the pharmacy's forecasting review.\" 0.87 became \"about nine in ten\"; the interval and the weak group are gone. \"Reliably\" and \"across all groups\" are new claims; the review it cites may not exist.",
+      "href": "../slides/day2.html#fluent-wrong"
+    },
+    {
+      "deck": "day2",
+      "id": "verification-log",
+      "n": 22,
+      "session": 2,
+      "title": "Log every change with a verdict and how you checked it",
+      "text": "Verification log Log every change with a verdict and how you checked it claim_id change flags verdict checked_against how_checked C04 changed number corrected forecast_run.jsonl recomputed: 52/60 = 0.87 C05 added source removed the team's document list no forecasting review exists C06 removed limit restored slice table 7/9 parasite treatments Four verdicts. Kept, corrected, removed, restored: each says what happened to the claim, not what you thought of it.",
+      "href": "../slides/day2.html#verification-log"
+    },
+    {
+      "deck": "day2",
+      "id": "what-may-go-in",
+      "n": 23,
+      "session": 2,
+      "title": "Only Public data goes into a generative AI tool",
+      "text": "National reference Only Public data goes into a generative AI tool SDAIA's Generative AI Guidelines for Government tell government employees not to enter data classified restricted or higher: مقيد فأعلى. Use is limited to data classified Public: عامة. Users verify outputs, particularly for official reports. At the clinics A private company, so the guideline does not bind it. Its own rule follows it: only Public, synthetic text goes to any assistant.",
+      "href": "../slides/day2.html#what-may-go-in"
+    },
+    {
+      "deck": "day2",
+      "id": "disclosure",
+      "n": 24,
+      "session": 2,
+      "title": "Say what the assistant did and what you checked",
+      "text": "Disclosure Say what the assistant did and what you checked Too little \"AI was used.\" Enough \"Disclosure: wording revised with an approved assistant. Every changed number was checked against forecast_run.jsonl; one added citation was removed; the revision log is revision_log.csv.\" Why it matters. The reader learns which parts a person vouches for, and where to look if one is wrong.",
+      "href": "../slides/day2.html#disclosure"
+    },
+    {
+      "deck": "day2",
+      "id": "context-files",
+      "n": 25,
+      "session": 2,
+      "title": "A context file is a README written for an agent",
+      "text": "Context files for coding agents A context file is a README written for an agent Overview: what the project is and where to start. Commands: setup, run and test, exactly as typed. Conventions: style, what never to edit. Data rules: what the agent may read and send, and what never enters the repository. ## Testing Run before proposing a change: uv run python -m unittest ## Data rules Synthetic data only. Send only Public text to any model.",
+      "href": "../slides/day2.html#context-files"
+    },
+    {
+      "deck": "day2",
+      "id": "check-revision",
+      "n": 26,
+      "session": 2,
+      "title": "What should the revision log say about this change?",
+      "text": "Checkpoint What should the revision log say about this change? An assisted revision of the pharmacy report adds: \"This agrees with the store's annual stock audit.\" You search the pharmacy team's files and find no annual stock audit. Removed: no such audit exists Kept: an audit like that is likely to exist Corrected: say \"may agree with\" the audit Not logged: citations are not claims",
+      "href": "../slides/day2.html#check-revision"
+    },
+    {
+      "deck": "day2",
+      "id": "lab-2-2",
+      "n": 27,
+      "session": 2,
+      "title": "Unassisted draft against assisted revision",
+      "text": "Lab 2.2 · 60 min Unassisted draft against assisted revision Compare your AI-off report with an assisted revision claim by claim, keep a revision log, disclose the assistance and write the repository's agent context file D2_2_revision.html Produce the assisted revision of your draft 5 min Run the claim diff 10 min Check each changed claim and log it 20 min Write the final version and its disclosure line 10 min Write the agent context file for the tagger 10 min Run the log checker and fix it 5 min ✱ Stretch: Revise with an approved assistant on Public text only, and log it the same way",
+      "href": "../slides/day2.html#lab-2-2"
+    },
+    {
+      "deck": "day2",
+      "id": "debrief-2-2",
+      "n": 28,
+      "session": 2,
+      "title": "On the supplied draft the scripted stand-in made 9 changes, and 6 changed a claim",
+      "text": "Lab 2.2 debrief On the supplied draft the scripted stand-in made 9 changes, and 6 changed a claim An added claim: use \"without a person reading the message\". The first interval dropped. Accuracy 0.94 became 0.97, a number that is in the stats table, as English recall. A citation to \"evaluation note EV-N7\", which exists nowhere. The livestock limit and the development-set overlap cut. And three it improved Shorter phrases with no claim changed. Keep them, and log them as kept.",
+      "href": "../slides/day2.html#debrief-2-2"
+    },
+    {
+      "deck": "day2",
+      "id": "wrap-up",
+      "n": 29,
+      "session": 2,
+      "title": "Three things to keep",
+      "text": "Day 2 · wrap-up Three things to keep Slices with counts Every rate with its count and interval; small slices named as small. Limits with actions Each limit tells the reader what to do differently. Draft, then check Your own draft first; every assisted change logged, checked and disclosed.",
+      "href": "../slides/day2.html#wrap-up"
+    },
+    {
+      "deck": "day2",
+      "id": "next",
+      "n": 30,
+      "session": 2,
+      "title": "The capstone: one project's documentation set, reviewed in a follow-up",
+      "text": "Next The capstone: one project's documentation set, reviewed in a follow-up The set: README, decision memo, model or system card, revision log with its disclosure. The project: your own, or the tagger with its second evaluation log in labs/files/capstone/. Before the review: a public repository link, and one partner's set reviewed with the checklists.",
+      "href": "../slides/day2.html#next"
+    },
+    {
+      "deck": "capstone",
+      "id": "title",
+      "n": 1,
+      "session": 0,
+      "title": "Documentation set review",
+      "text": "SDAIA Academy · Technical Writing for Data and AI Work Documentation set review Capstone: Each participant shows the set in four minutes, then answers four minutes of questions on its claims and its history Data & AI Foundations Track2 teaching days + capstone day4 min talk and demo · 4 min Q&AFND-AIC-106",
+      "href": "../slides/capstone.html#title"
+    },
+    {
+      "deck": "capstone",
+      "id": "review-plan",
+      "n": 2,
+      "session": 0,
+      "title": "How the review runs",
+      "text": "Capstone How the review runs Opening the rubric, the running order, the history check Six reviews four minutes to show the set, four of questions, then the next Close what the sets showed, what comes next",
+      "href": "../slides/capstone.html#review-plan"
+    },
+    {
+      "deck": "capstone",
+      "id": "the-set",
+      "n": 3,
+      "session": 0,
+      "title": "One project, four documents, each for its own reader",
+      "text": "The task One project, four documents, each for its own reader README A stranger installs, runs and checks it on a clean machine. Decision memo One decision: options, trade-offs, recommendation, what would change it. Model or system card Intended use, slices with intervals, limits with actions, three roles. Revision log Every assisted change checked, and a disclosure line. No project of your own? Document the urgency tagger at version 0.4, from the second evaluation log in labs/files/capstone/.",
+      "href": "../slides/capstone.html#the-set"
+    },
+    {
+      "deck": "capstone",
+      "id": "rubric",
+      "n": 4,
+      "session": 0,
+      "title": "The rubric",
+      "text": "How a set is scored The rubric Card: intended use, slices with uncertainty, known limits 25% README: a stranger installs, runs and checks it 20% Memo: options, trade-offs, recommendation, conditions 20% Revision log: each change checked, a disclosure line 20% Written for the named reader, every document 15%",
+      "href": "../slides/capstone.html#rubric"
+    },
+    {
+      "deck": "capstone",
+      "id": "assessment",
+      "n": 5,
+      "session": 0,
+      "title": "The set is 60% of the course",
+      "text": "The course's assessment The set is 60% of the course Part Weight Supervised AI-off memo from a provided result 30% Documentation set with revision log 60% Peer review given 10% Passing: 60% overall and at least 50% on the supervised memo.",
+      "href": "../slides/capstone.html#assessment"
+    },
+    {
+      "deck": "capstone",
+      "id": "history-check",
+      "n": 6,
+      "session": 0,
+      "title": "The reviewer opens your history and checks two rows of your log live",
+      "text": "The questions The reviewer opens your history and checks two rows of your log live History the commits show the drafts, not one final upload → Two rows the reviewer picks them from the revision log → Live check you show the evidence the row names → One number from the card, traced to its source",
+      "href": "../slides/capstone.html#history-check"
+    },
+    {
+      "deck": "capstone",
+      "id": "submission",
+      "n": 7,
+      "session": 0,
+      "title": "One public GitHub repository link per participant",
+      "text": "Submission One public GitHub repository link per participant The project, or a link to it, and its README at the top. The memo, the card and the revision log with its disclosure line. The commit history of the drafts. Individual Only public or synthetic material; only Public text into any assistant.",
+      "href": "../slides/capstone.html#submission"
+    },
+    {
+      "deck": "capstone",
+      "id": "running-order",
+      "n": 8,
+      "session": 0,
+      "title": "Who presents when",
+      "text": "Running order Who presents when # Participant Project Reviewed by 1 2 3 4 5 6",
+      "href": "../slides/capstone.html#running-order"
+    },
+    {
+      "deck": "capstone",
+      "id": "now-presenting",
+      "n": 9,
+      "session": 0,
+      "title": "Showing the set",
+      "text": "Now presenting Showing the set Questions and history",
+      "href": "../slides/capstone.html#now-presenting"
+    },
+    {
+      "deck": "capstone",
+      "id": "review",
+      "n": 10,
+      "session": 0,
+      "title": "What the sets showed",
+      "text": "Trainer review What the sets showed Strongest habits What several sets did well for their readers. Common gaps What most would change before the set goes to a real reader. One surprise Something an assistant changed that nobody expected.",
+      "href": "../slides/capstone.html#review"
+    },
+    {
+      "deck": "capstone",
+      "id": "confidence",
+      "n": 11,
+      "session": 0,
+      "title": "How ready are you to write these documents at work?",
+      "text": "Show of hands How ready are you to write these documents at work? How ready are you to write the next README, memo or card for a real reader? Not yet With a template For one document For a project And to review others'",
+      "href": "../slides/capstone.html#confidence"
+    },
+    {
+      "deck": "capstone",
+      "id": "what-next",
+      "n": 12,
+      "session": 0,
+      "title": "Keep going",
+      "text": "After the course Keep going At work: test the next README with a clean run before anyone else reads it. Practice: the practice page of this course, by day and by outcome. Further: FND-AIC-103 reads AI evidence and claims; FND-AIC-104 makes a build responsible before it is written.",
+      "href": "../slides/capstone.html#what-next"
+    },
+    {
+      "deck": "capstone",
+      "id": "thanks",
+      "n": 13,
+      "session": 0,
+      "title": "Thank you",
+      "text": "SDAIA Academy Thank you Technical Writing for Data and AI Work · الكتابة التقنية لأعمال البيانات والذكاء الاصطناعي",
+      "href": "../slides/capstone.html#thanks"
+    }
+  ]
+}

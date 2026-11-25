@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-ax="lab" data-track="foundations">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 1.3 · Decision memo · Technical Writing for Data and AI Work</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="D1_3_memo.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<div class="top"><div class="logo"></div><nav><a href="../index.html">Course page</a><a href="../slides/day1.html#lab-1-3">Back to the slides</a></nav></div>
+<span class="tag">Lab 1.3</span>
+<h1>Decision memo</h1>
+<p>Write a one-page memo to the operations director on which tagger the reception desk should use, from the measured comparison</p>
+<div class="meta"><span>60 minutes</span><span>Day 1</span><span>Session 3: The decision memo</span></div>
+</div>
+</header>
+<main class="wrap">
+<article class="lab" data-lab="1.3">
+  <div class="box goal">
+    <h3>You leave with</h3>
+    <ul>
+      <li>A one-page memo to the operations director: the bottom line, three options, the trade-offs with traced numbers, a recommendation and the conditions that would change it.</li>
+      <li>A partner's score of your memo on the five-criterion rubric.</li>
+    </ul>
+  </div>
+
+  <h2>What you need</h2>
+  <div class="files">
+    <a href="files/D1_3/context.md"><b>D1_3/context.md</b><span>The reader, the choice, what reception needs and what the clinics can spend.</span></a>
+    <a href="files/D1_3/comparison.csv"><b>D1_3/comparison.csv</b><span>The keyword rules, Model S and Model L scored on the same 400 synthetic test messages. The two models' outputs are simulated and recorded: no model ran.</span></a>
+    <a href="files/D1_3/memo_template.md"><b>D1_3/memo_template.md</b><span>The five sections and the Working line.</span></a>
+  </div>
+  <p>Copy the template to <code>work/memo.md</code>.</p>
+  <div class="callout note small"><b>AI in this lab: tutor.</b> You may ask an assistant whether your sections are in a sensible order. The numbers and the recommendation are yours: tomorrow's supervised memo is written with AI off.</div>
+
+  <h2>Steps</h2>
+
+  <div class="step">
+    <h3>1 · Read the context and the comparison; write the decision in one line <span class="min">8 min</span></h3>
+    <p>Write the question the director signs, as a question. Mark the three requirements of the context against each column of the comparison.</p>
+  </div>
+
+  <div class="step">
+    <h3>2 · Write the bottom line and the three options <span class="min">12 min</span></h3>
+    <p>Two sentences at most: what you recommend and what you ask him to sign. Then the options, one line each, in the order you will keep everywhere.</p>
+  </div>
+
+  <div class="step">
+    <h3>3 · Write the trade-offs with numbers from the comparison and their intervals <span class="min">15 min</span></h3>
+    <p>Quality, cost and latency for each option, with the interval beside every recall. Turn per-1,000 costs into a month at the clinics' volume, and show each computed number on the <code>Working:</code> line.</p>
+  </div>
+
+  <div class="step">
+    <h3>4 · Write the recommendation and the conditions that would change it <span class="min">10 min</span></h3>
+    <p>Say why, against what reception needs. Then two or three conditions with numbers: a threshold, a volume, a price or a time at which you would recommend something else.</p>
+  </div>
+
+  <div class="step">
+    <h3>5 · Run the checker; a partner scores your memo on the five-criterion rubric <span class="min">15 min</span></h3>
+    <pre class="code"><code>uv run kit/memocheck.py work/memo.md</code></pre>
+    <p>The checker traces every number to the comparison, the context or a Working line. Your partner then scores each criterion from 0 to 2:</p>
+    <table class="t small">
+      <tr><th>Criterion</th><th>Score (0 to 2)</th></tr>
+      <tr><td>Bottom line: the recommendation and the request in the first two sentences</td><td class="fill"></td></tr>
+      <tr><td>Options: all three, named the same way throughout</td><td class="fill"></td></tr>
+      <tr><td>Trade-offs: quality, cost and latency with traced numbers and intervals</td><td class="fill"></td></tr>
+      <tr><td>Recommendation: argued from the reader's requirements</td><td class="fill"></td></tr>
+      <tr><td>Conditions: what would change it, with numbers</td><td class="fill"></td></tr>
+    </table>
+  </div>
+
+  <div class="step stretch">
+    <h3>✱ Stretch</h3>
+    <p>Write the same choice as a decision record under five headings: title, status, context, decision, consequences.</p>
+  </div>
+
+  <h2>Check yourself</h2>
+  <ol class="checks">
+    <li>Does any interval in the comparison weaken the option you recommend, and does your memo say so?</li>
+    <li>Which number in your memo is not in the comparison, and where did you show how you got it?</li>
+    <li>Who reviewed your memo, and are they a different person from its author?</li>
+  </ol>
+
+  <details class="instructor">
+    <summary>For the trainer</summary>
+    <p>Reference: <code>solutions/D1_3_memo.md</code>. Only Model L's point estimate (0.94) meets the 0.90 urgent recall, and its interval (0.86 to 0.97) reaches below it; Model S's interval (0.73 to 0.89) lies wholly below. Model L costs SAR 337.68 a month at 9,000 messages, inside SAR 400; its 95th-percentile time, 5.59 s, is inside 10 s. The budget breaks at 10,661 messages a month. A memo that recommends Model S on cost alone ignores the requirement that protects animals; one that calls Model L "certain to meet 0.90" ignores the interval. Either is defensible only if it states the trade-off honestly.</p>
+    <p>The memo names author and reviewer as different people; the director decides. <code>uv run solutions/check_D1_3.py</code> confirms the figures and the checker.</p>
+  </details>
+</article>
+<nav class="pager"><a href="D1_2_readme.html" rel="prev">← Previous lab</a><a href="D2_1_report_card.html" rel="next">Next lab →</a></nav>
+</main>
+<footer><div class="wrap">SDAIA Academy · Data &amp; AI Foundations Track · Technical Writing for Data and AI Work<br><span class="muted">Course version 2027.1.0 · engine 1.0.0 · built 2026-11-25 · commit 9351b4a</span></div></footer>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-25T04:20:13Z","version":"2027.1.0","commit":"9351b4a"},"course":{"id":"fnd-aic-106","code":"FND-AIC-106","title":"Technical Writing for Data and AI Work","track":"foundations","lang":"en","dir":"ltr","url":"https://sdaiaacademy.github.io/fnd-aic-106/","repo":"SDAIAAcademy/fnd-aic-106","home":"../index.html"},"lab":{"id":"1.3","title":"Decision memo","summary":"Write a one-page memo to the operations director on which tagger the reception desk should use, from the measured comparison","minutes":60,"day":1,"unit":"Day 1","session":3,"deck":"../slides/day1.html#lab-1-3","prev":"D1_2_readme.html","next":"D2_1_report_card.html","alt":{}},"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":null,"llms":"../llms.txt"},"tasks":[],"tools":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

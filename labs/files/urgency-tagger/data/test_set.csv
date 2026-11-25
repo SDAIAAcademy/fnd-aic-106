@@ -1,0 +1,401 @@
+id,lang,species_group,message,gold,in_dev_set
+TS-K1001,ar,companion,مرحبا، قطتي صدمتها سيارة.,urgent,false
+TS-K1002,en,livestock,"Good day, The sheep cannot stand up. When can you see us?",urgent,false
+TS-K1003,en,livestock,"Good day, The sheep is due for a nail trim. When can you see us?",routine,false
+TS-K1004,ar,companion,مرحبا، قطتي تحتاج فحص دوري. متى نقدر نجي؟,routine,false
+TS-K1005,en,companion,"Please help, Our puppy needs a check-up.",routine,false
+TS-K1006,ar,companion,قطتي تحتاج فحص دوري. متى نقدر نجي؟,routine,true
+TS-K1007,en,companion,"Please help, Our kitten is due for a nail trim. When can you see us?",routine,false
+TS-K1008,ar,companion,كلبي يحتاج دواء الديدان.,routine,false
+TS-K1009,en,companion,"Hello, My cat needs the yearly vaccination.",routine,true
+TS-K1010,ar,companion,مرحبا، قطتي بلعت إبرة.,urgent,false
+TS-K1011,ar,companion,قطنا الصغير يحتاج شريحة تعريف. متى نقدر نجي؟,routine,false
+TS-K1012,ar,companion,مرحبا، قطتي تشرب ماء أكثر من المعتاد. متى نقدر نجي؟,soon,false
+TS-K1013,ar,companion,مرحبا، قطتي تحتاج تطعيم سنوي. هل يوجد موعد؟,routine,false
+TS-K1014,mixed,companion,كلبي is not eating for two days,soon,false
+TS-K1015,ar,companion,مرحبا، قطتي عندها ورم في الرقبة. هل يوجد موعد؟,soon,false
+TS-K1016,en,companion,"Please help, My cat is not breathing well.",urgent,false
+TS-K1017,en,companion,"Please help, My cat ate chocolate this morning. Can we come in?",urgent,false
+TS-K1018,ar,companion,مرحبا، كلبي ينزف من فمه. متى نقدر نجي؟,urgent,false
+TS-K1019,ar,companion,مرحبا، جرونا يحتاج شريحة تعريف. هل يوجد موعد؟,routine,false
+TS-K1020,mixed,companion,قطنا الصغير is losing weight,soon,false
+TS-K1021,mixed,other,الأرنب has a cough,soon,false
+TS-K1022,mixed,companion,كلبي is due for a nail trim,routine,false
+TS-K1023,ar,companion,مرحبا، كلبي عنده ورم في الرقبة. متى نقدر نجي؟,soon,false
+TS-K1024,ar,livestock,السلام عليكم، الناقة تحتاج شريحة تعريف.,routine,false
+TS-K1025,ar,companion,قطتي تحتاج تطعيم سنوي. هل يوجد موعد؟,routine,false
+TS-K1026,ar,livestock,مرحبا، الناقة تحتاج شهادة صحية للسفر. متى نقدر نجي؟,routine,false
+TS-K1027,en,companion,"Please help, Our kitten needs a microchip.",routine,false
+TS-K1028,ar,livestock,مرحبا، الماعز ينقص وزنه. متى نقدر نجي؟,soon,false
+TS-K1029,ar,livestock,السلام عليكم، الناقة تحتاج شريحة تعريف. هل يوجد موعد؟,routine,false
+TS-K1030,ar,companion,السلام عليكم، قطتي سوت تحليل دم الشهر الماضي وتحتاج المراجعة.,routine,false
+TS-K1031,en,companion,Our kitten has pale cold gums. When can you see us?,urgent,false
+TS-K1032,ar,companion,السلام عليكم، جرونا لا يستطيع الوقوف. متى نقدر نجي؟,urgent,false
+TS-K1033,ar,companion,قطنا الصغير يحتاج دواء الديدان. متى نقدر نجي؟,routine,false
+TS-K1034,ar,livestock,مرحبا، النعجة تحتاج دواء الديدان.,routine,false
+TS-K1035,ar,companion,مرحبا، قطنا الصغير يشرب ماء أكثر من المعتاد. متى نقدر نجي؟,soon,false
+TS-K1036,mixed,companion,قطنا الصغير needs a health certificate for travel,routine,false
+TS-K1037,en,companion,"Hello, Our kitten needs the yearly vaccination. Can we come in?",routine,false
+TS-K1038,en,companion,"Hello, My cat has not passed urine all day. Can we come in?",urgent,false
+TS-K1039,ar,companion,السلام عليكم، قطتي تعرج على رجلها الخلفية. متى نقدر نجي؟,soon,false
+TS-K1040,ar,companion,قطنا الصغير يحتاج تطعيم سنوي.,routine,false
+TS-K1041,en,other,My parrot keeps straining and nothing comes out. When can you see us?,urgent,false
+TS-K1042,en,other,My rabbit is due for a nail trim. Can we come in?,routine,false
+TS-K1043,ar,companion,مرحبا، قطتي تحتاج دواء الديدان. هل يوجد موعد؟,routine,false
+TS-K1044,en,companion,"Please help, Our puppy needs the yearly vaccination. Can we come in?",routine,false
+TS-K1045,en,companion,Our puppy is not eating for two days. When can you see us?,soon,false
+TS-K1046,en,livestock,"Please help, Our horse seems tired and quiet. When can you see us?",soon,false
+TS-K1047,ar,companion,لو سمحتم، قطتي تحتاج تطعيم سنوي. متى نقدر نجي؟,routine,false
+TS-K1048,mixed,companion,قطنا الصغير needs the yearly vaccination,routine,false
+TS-K1049,ar,livestock,مرحبا، الماعز عنده جرح صغير توقف الدم منه الأسبوع الماضي. هل يوجد موعد؟,routine,false
+TS-K1050,en,companion,"Good day, My dog has a hard belly that is getting bigger. When can you see us?",urgent,false
+TS-K1051,ar,companion,لو سمحتم، كلبي يحتاج قص أظافر. هل يوجد موعد؟,routine,false
+TS-K1052,ar,companion,لو سمحتم، قطتي تحتاج قص أظافر. متى نقدر نجي؟,routine,false
+TS-K1053,ar,companion,السلام عليكم، قطنا الصغير يحتاج قص أظافر. متى نقدر نجي؟,routine,false
+TS-K1054,en,companion,"Hello, My dog drinks far more water than usual. When can you see us?",soon,false
+TS-K1055,ar,companion,لو سمحتم، قطتي لثتها بيضاء وباردة. متى نقدر نجي؟,urgent,false
+TS-K1056,ar,companion,السلام عليكم، قطتي عندها جرح صغير توقف الدم منه الأسبوع الماضي.,routine,false
+TS-K1057,ar,companion,كلبي عنده جرح صغير توقف الدم منه الأسبوع الماضي.,routine,false
+TS-K1058,ar,companion,كلبي سقط ولا يتحرك. هل يوجد موعد؟,urgent,false
+TS-K1059,ar,companion,السلام عليكم، قطتي تهز رأسها كثيرا.,soon,false
+TS-K1060,ar,companion,لو سمحتم، قطنا الصغير يحتاج شهادة صحية للسفر. متى نقدر نجي؟,routine,false
+TS-K1061,en,companion,"Hello, My cat is not eating for two days.",soon,false
+TS-K1062,ar,other,السلحفاة تحتاج شريحة تعريف. متى نقدر نجي؟,routine,false
+TS-K1063,ar,other,مرحبا، السلحفاة تحتاج شريحة تعريف. متى نقدر نجي؟,routine,false
+TS-K1064,ar,companion,لو سمحتم، كلبي عنده كحة.,soon,false
+TS-K1065,en,other,"Hello, My rabbit is losing weight. When can you see us?",soon,false
+TS-K1066,en,companion,"Hello, My cat needs the yearly vaccination.",routine,false
+TS-K1067,ar,livestock,الفرس تحتاج تطعيم سنوي. متى نقدر نجي؟,routine,false
+TS-K1068,ar,companion,مرحبا، كلبي سوى تحليل دم الشهر الماضي ويحتاج المراجعة.,routine,false
+TS-K1069,en,companion,"Hello, Our puppy has a lump on the neck.",soon,false
+TS-K1070,ar,companion,السلام عليكم، جرونا لا يتنفس جيدا.,urgent,false
+TS-K1071,ar,companion,لو سمحتم، قطنا الصغير عنده إسهال.,soon,false
+TS-K1072,ar,livestock,السلام عليكم، النعجة تهز رأسها كثيرا. هل يوجد موعد؟,soon,false
+TS-K1073,en,companion,"Please help, Our puppy needs the yearly vaccination. When can you see us?",routine,false
+TS-K1074,ar,companion,لو سمحتم، قطنا الصغير يحتاج قص أظافر. متى نقدر نجي؟,routine,false
+TS-K1075,mixed,livestock,الناقة needs the yearly vaccination,routine,false
+TS-K1076,ar,companion,لو سمحتم، جرونا لا يأكل منذ يومين. متى نقدر نجي؟,soon,false
+TS-K1077,ar,companion,لو سمحتم، كلبي ينقص وزنه.,soon,false
+TS-K1078,en,companion,My cat had a blood test last month and needs the follow-up. Can we come in?,routine,false
+TS-K1079,ar,companion,جرونا بطنه قاس ويكبر.,urgent,true
+TS-K1080,ar,companion,قطنا الصغير يحتاج شهادة صحية للسفر.,routine,false
+TS-K1081,ar,companion,السلام عليكم، جرونا يحتاج شهادة صحية للسفر.,routine,false
+TS-K1082,ar,livestock,السلام عليكم، النعجة تشرب ماء أكثر من المعتاد. هل يوجد موعد؟,soon,false
+TS-K1083,en,companion,My dog needs a check-up. Can we come in?,routine,false
+TS-K1084,ar,companion,لو سمحتم، جرونا لم يتبول طوال اليوم. متى نقدر نجي؟,urgent,false
+TS-K1085,en,companion,"Hello, My dog needs deworming. When can you see us?",routine,false
+TS-K1086,ar,other,الببغاء لم يتبول طوال اليوم. متى نقدر نجي؟,urgent,false
+TS-K1087,ar,companion,لو سمحتم، قطنا الصغير عنده جرح صغير توقف الدم منه الأسبوع الماضي. متى نقدر نجي؟,routine,false
+TS-K1088,ar,livestock,مرحبا، الماعز يحتاج شريحة تعريف. متى نقدر نجي؟,routine,false
+TS-K1089,ar,livestock,مرحبا، الفرس تحتاج فحص دوري. هل يوجد موعد؟,routine,false
+TS-K1090,en,companion,"Good day, Our puppy needs a check-up. Can we come in?",routine,false
+TS-K1091,en,companion,"Good day, My dog has a hard belly that is getting bigger. Can we come in?",urgent,false
+TS-K1092,en,companion,"Hello, My dog is limping on the back leg.",soon,false
+TS-K1093,ar,companion,مرحبا، جرونا يحتاج فحص دوري. هل يوجد موعد؟,routine,false
+TS-K1094,en,companion,My cat drinks far more water than usual. Can we come in?,soon,false
+TS-K1095,en,companion,Our kitten drinks far more water than usual. When can you see us?,soon,false
+TS-K1096,ar,companion,مرحبا، كلبي يحتاج قص أظافر. هل يوجد موعد؟,routine,false
+TS-K1097,en,companion,"Please help, My cat collapsed and is shaking. When can you see us?",urgent,false
+TS-K1098,en,companion,"Please help, Our puppy needs a health certificate for travel. Can we come in?",routine,false
+TS-K1099,ar,companion,جرونا يحتاج شريحة تعريف. هل يوجد موعد؟,routine,false
+TS-K1100,ar,companion,لو سمحتم، قطتي تنزف من فمها.,urgent,false
+TS-K1101,ar,companion,السلام عليكم، قطنا الصغير يعرج على رجله الخلفية.,soon,false
+TS-K1102,en,other,My parrot needs deworming.,routine,false
+TS-K1103,en,livestock,"Good day, Our camel has a cough.",soon,false
+TS-K1104,ar,companion,السلام عليكم، جرونا يحتاج فحص دوري. متى نقدر نجي؟,routine,false
+TS-K1105,en,companion,"Good day, My cat had a blood test last month and needs the follow-up. When can you see us?",routine,false
+TS-K1106,ar,other,السلام عليكم، السلحفاة تستفرغ من أمس. متى نقدر نجي؟,soon,false
+TS-K1107,en,other,"Hello, Our tortoise has diarrhoea. Can we come in?",soon,false
+TS-K1108,ar,companion,السلام عليكم، قطنا الصغير يحتاج قص أظافر. متى نقدر نجي؟,routine,false
+TS-K1109,ar,companion,مرحبا، كلبي سقط ولا يتحرك.,urgent,false
+TS-K1110,ar,livestock,مرحبا، الناقة تحتاج شهادة صحية للسفر. متى نقدر نجي؟,routine,false
+TS-K1111,ar,companion,قطتي تحتاج فحص دوري. متى نقدر نجي؟,routine,true
+TS-K1112,ar,companion,مرحبا، جرونا يحتاج تطعيم سنوي.,routine,false
+TS-K1113,ar,companion,مرحبا، قطتي عندها إسهال. متى نقدر نجي؟,soon,false
+TS-K1114,ar,companion,السلام عليكم، كلبي بطنه قاس ويكبر. هل يوجد موعد؟,urgent,false
+TS-K1115,en,companion,"Please help, Our puppy needs a microchip. When can you see us?",routine,false
+TS-K1116,ar,companion,السلام عليكم، كلبي ينقص وزنه. متى نقدر نجي؟,soon,false
+TS-K1117,mixed,companion,كلبي needs the yearly vaccination,routine,false
+TS-K1118,en,companion,"Good day, Our kitten is not eating for two days. Can we come in?",soon,false
+TS-K1119,en,companion,My cat needs the yearly vaccination.,routine,false
+TS-K1120,ar,companion,السلام عليكم، جرونا ينزف من فمه. هل يوجد موعد؟,urgent,false
+TS-K1121,en,other,"Good day, My parrot is losing weight. Can we come in?",soon,false
+TS-K1122,en,companion,"Good day, My cat is bleeding from the mouth. When can you see us?",urgent,false
+TS-K1123,mixed,companion,قطنا الصغير is losing weight,soon,false
+TS-K1124,ar,other,السلحفاة لا تأكل منذ يومين. متى نقدر نجي؟,soon,false
+TS-K1125,ar,companion,السلام عليكم، قطنا الصغير ينقص وزنه. هل يوجد موعد؟,soon,false
+TS-K1126,ar,companion,السلام عليكم، جرونا يحتاج قص أظافر.,routine,false
+TS-K1127,ar,companion,السلام عليكم، قطتي سقطت ولا تتحرك. هل يوجد موعد؟,urgent,false
+TS-K1128,en,companion,"Good day, Our puppy was hit by a car. When can you see us?",urgent,false
+TS-K1129,en,companion,"Good day, Our puppy needs a check-up. When can you see us?",routine,false
+TS-K1130,ar,companion,لو سمحتم، كلبي عنده كحة. هل يوجد موعد؟,soon,false
+TS-K1131,en,companion,Our kitten needs a check-up. When can you see us?,routine,false
+TS-K1132,ar,companion,لو سمحتم، قطنا الصغير صدمته سيارة.,urgent,false
+TS-K1133,en,companion,"Hello, Our puppy is limping on the back leg.",soon,false
+TS-K1134,mixed,companion,جرونا needs a microchip,routine,false
+TS-K1135,ar,companion,قطنا الصغير يحتاج تطعيم سنوي. هل يوجد موعد؟,routine,true
+TS-K1136,en,companion,Our puppy is not eating for two days. Can we come in?,soon,false
+TS-K1137,ar,other,لو سمحتم، الببغاء عنده ورم في الرقبة. متى نقدر نجي؟,soon,false
+TS-K1138,ar,companion,لو سمحتم، جرونا يحتاج تطعيم سنوي. هل يوجد موعد؟,routine,false
+TS-K1139,mixed,companion,قطتي had a blood test last month and needs the follow-up,routine,false
+TS-K1140,en,companion,"Hello, My dog has a small cut that stopped bleeding last week.",routine,false
+TS-K1141,en,companion,"Good day, Our kitten is not eating for two days. When can you see us?",soon,false
+TS-K1142,ar,companion,قطتي عندها جرح صغير توقف الدم منه الأسبوع الماضي. هل يوجد موعد؟,routine,false
+TS-K1143,ar,companion,السلام عليكم، كلبي يحتاج قص أظافر. متى نقدر نجي؟,routine,false
+TS-K1144,ar,companion,لو سمحتم، قطنا الصغير ينقص وزنه.,soon,false
+TS-K1145,en,companion,"Hello, My dog needs deworming.",routine,false
+TS-K1146,ar,companion,قطتي سقطت ولا تتحرك. هل يوجد موعد؟,urgent,false
+TS-K1147,en,companion,"Good day, Our kitten has diarrhoea. When can you see us?",soon,false
+TS-K1148,ar,companion,جرونا يستفرغ من أمس.,soon,false
+TS-K1149,ar,companion,السلام عليكم، قطنا الصغير خامل وهادئ على غير عادته.,soon,true
+TS-K1150,en,companion,"Hello, Our puppy is limping on the back leg. When can you see us?",soon,false
+TS-K1151,en,companion,"Good day, My cat needs a microchip. Can we come in?",routine,false
+TS-K1152,mixed,companion,قطنا الصغير is due for a nail trim,routine,false
+TS-K1153,ar,companion,لو سمحتم، قطتي تحتاج قص أظافر.,routine,false
+TS-K1154,ar,other,السلام عليكم، الببغاء ينقص وزنه. هل يوجد موعد؟,soon,false
+TS-K1155,ar,companion,السلام عليكم، قطتي لا تأكل منذ يومين.,soon,false
+TS-K1156,en,companion,Our kitten needs deworming. When can you see us?,routine,false
+TS-K1157,en,companion,"Hello, My cat is due for a nail trim.",routine,false
+TS-K1158,ar,companion,مرحبا، جرونا يحتاج شهادة صحية للسفر. متى نقدر نجي؟,routine,false
+TS-K1159,ar,companion,مرحبا، قطتي تحتاج شهادة صحية للسفر.,routine,false
+TS-K1160,ar,companion,السلام عليكم، قطتي تحتاج فحص دوري. هل يوجد موعد؟,routine,false
+TS-K1161,en,companion,"Good day, My dog needs a microchip. Can we come in?",routine,false
+TS-K1162,en,companion,"Please help, My dog needs a health certificate for travel. When can you see us?",routine,false
+TS-K1163,en,other,"Please help, Our tortoise needs a microchip.",routine,false
+TS-K1164,mixed,companion,قطتي has diarrhoea,soon,false
+TS-K1165,ar,livestock,لو سمحتم، الناقة في الولادة منذ ساعات ولم يخرج المولود. متى نقدر نجي؟,urgent,false
+TS-K1166,ar,companion,لو سمحتم، كلبي يحتاج دواء الديدان. متى نقدر نجي؟,routine,false
+TS-K1167,en,companion,"Hello, Our puppy ate chocolate this morning.",urgent,false
+TS-K1168,ar,companion,لو سمحتم، قطنا الصغير لم يتبول طوال اليوم. متى نقدر نجي؟,urgent,false
+TS-K1169,ar,companion,لو سمحتم، كلبي يحتاج دواء الديدان. متى نقدر نجي؟,routine,false
+TS-K1170,ar,companion,جرونا يعرج على رجله الخلفية. هل يوجد موعد؟,soon,false
+TS-K1171,en,companion,Our kitten needs a health certificate for travel. When can you see us?,routine,false
+TS-K1172,ar,companion,السلام عليكم، كلبي خامل وهادئ على غير عادته. متى نقدر نجي؟,soon,false
+TS-K1173,ar,livestock,السلام عليكم، النعجة لثتها بيضاء وباردة. هل يوجد موعد؟,urgent,false
+TS-K1174,ar,companion,مرحبا، قطنا الصغير يحتاج دواء الديدان. هل يوجد موعد؟,routine,false
+TS-K1175,en,companion,"Please help, Our kitten was hit by a car. When can you see us?",urgent,false
+TS-K1176,en,companion,"Please help, My cat is losing weight. When can you see us?",soon,false
+TS-K1177,ar,companion,مرحبا، قطتي سوت تحليل دم الشهر الماضي وتحتاج المراجعة.,routine,false
+TS-K1178,mixed,other,السلحفاة swallowed a needle,urgent,false
+TS-K1179,en,livestock,Our horse is due for a nail trim. Can we come in?,routine,false
+TS-K1180,ar,companion,جرونا يحتاج شهادة صحية للسفر.,routine,false
+TS-K1181,ar,companion,جرونا أكل سم فئران. متى نقدر نجي؟,urgent,false
+TS-K1182,ar,companion,مرحبا، قطنا الصغير يحتاج قص أظافر.,routine,false
+TS-K1183,ar,other,مرحبا، السلحفاة تحتاج تطعيم سنوي. متى نقدر نجي؟,routine,false
+TS-K1184,ar,livestock,مرحبا، الفرس عندها جرح صغير توقف الدم منه الأسبوع الماضي. متى نقدر نجي؟,routine,false
+TS-K1185,ar,companion,قطنا الصغير يحتاج قص أظافر. متى نقدر نجي؟,routine,false
+TS-K1186,ar,companion,لو سمحتم، كلبي لا يأكل منذ يومين. متى نقدر نجي؟,soon,false
+TS-K1187,ar,companion,مرحبا، قطتي عندها جرح صغير توقف الدم منه الأسبوع الماضي.,routine,false
+TS-K1188,en,companion,"Hello, My cat needs the yearly vaccination. Can we come in?",routine,false
+TS-K1189,ar,companion,السلام عليكم، كلبي يعرج على رجله الخلفية. متى نقدر نجي؟,soon,false
+TS-K1190,ar,livestock,الماعز يحتاج شريحة تعريف.,routine,false
+TS-K1191,en,companion,Our kitten needs a microchip.,routine,false
+TS-K1192,ar,livestock,السلام عليكم، الماعز يحتاج دواء الديدان.,routine,false
+TS-K1193,en,companion,"Good day, Our kitten needs the yearly vaccination. Can we come in?",routine,false
+TS-K1194,en,companion,"Please help, My cat keeps shaking the head.",soon,false
+TS-K1195,ar,livestock,مرحبا، النعجة صدمتها سيارة. متى نقدر نجي؟,urgent,false
+TS-K1196,en,companion,"Hello, Our kitten cannot stand up.",urgent,false
+TS-K1197,en,companion,"Hello, Our kitten needs the yearly vaccination. Can we come in?",routine,true
+TS-K1198,ar,companion,قطنا الصغير لا يأكل منذ يومين. هل يوجد موعد؟,soon,false
+TS-K1199,ar,companion,السلام عليكم، قطنا الصغير يعرج على رجله الخلفية. هل يوجد موعد؟,soon,false
+TS-K1200,en,companion,"Please help, My cat is due for a nail trim. When can you see us?",routine,false
+TS-K1201,ar,livestock,الفرس عندها كحة. هل يوجد موعد؟,soon,false
+TS-K1202,ar,companion,السلام عليكم، جرونا يستفرغ من أمس. هل يوجد موعد؟,soon,false
+TS-K1203,en,other,"Hello, My rabbit needs the yearly vaccination. Can we come in?",routine,false
+TS-K1204,en,companion,"Hello, Our kitten needs the yearly vaccination. Can we come in?",routine,false
+TS-K1205,en,companion,My cat keeps shaking the head. When can you see us?,soon,false
+TS-K1206,ar,livestock,الماعز عنده ورم في الرقبة. متى نقدر نجي؟,soon,false
+TS-K1207,ar,companion,لو سمحتم، كلبي يحتاج قص أظافر. هل يوجد موعد؟,routine,false
+TS-K1208,ar,other,الأرنب يحتاج قص أظافر. هل يوجد موعد؟,routine,false
+TS-K1209,ar,livestock,مرحبا، النعجة بلعت إبرة.,urgent,false
+TS-K1210,ar,companion,مرحبا، قطتي عندها جرح صغير توقف الدم منه الأسبوع الماضي. متى نقدر نجي؟,routine,false
+TS-K1211,en,livestock,"Good day, Our camel needs deworming.",routine,false
+TS-K1212,en,companion,"Please help, My dog has pale cold gums. When can you see us?",urgent,false
+TS-K1213,ar,companion,لو سمحتم، قطتي تحتاج فحص دوري. هل يوجد موعد؟,routine,false
+TS-K1214,en,companion,"Good day, My dog keeps shaking the head. When can you see us?",soon,false
+TS-K1215,ar,companion,لو سمحتم، قطنا الصغير لثته بيضاء وباردة. هل يوجد موعد؟,urgent,true
+TS-K1216,en,livestock,"Please help, Our goat has diarrhoea. When can you see us?",soon,false
+TS-K1217,en,companion,My dog needs a microchip.,routine,false
+TS-K1218,ar,companion,جرونا يستفرغ من أمس. هل يوجد موعد؟,soon,false
+TS-K1219,ar,companion,السلام عليكم، كلبي عنده ورم في الرقبة. متى نقدر نجي؟,soon,false
+TS-K1220,ar,companion,لو سمحتم، جرونا بطنه قاس ويكبر. متى نقدر نجي؟,urgent,false
+TS-K1221,ar,companion,مرحبا، قطتي تحتاج قص أظافر. هل يوجد موعد؟,routine,false
+TS-K1222,ar,companion,لو سمحتم، جرونا عنده كحة. متى نقدر نجي؟,soon,false
+TS-K1223,ar,livestock,مرحبا، الماعز يحتاج تطعيم سنوي.,routine,false
+TS-K1224,en,companion,Our kitten needs deworming. When can you see us?,routine,false
+TS-K1225,en,companion,"Good day, Our kitten drinks far more water than usual. When can you see us?",soon,false
+TS-K1226,ar,companion,السلام عليكم، جرونا خامل وهادئ على غير عادته.,soon,false
+TS-K1227,en,companion,"Good day, My dog is due for a nail trim. Can we come in?",routine,false
+TS-K1228,mixed,companion,كلبي drinks far more water than usual,soon,false
+TS-K1229,en,companion,Our kitten collapsed and is shaking. Can we come in?,urgent,false
+TS-K1230,ar,companion,مرحبا، قطنا الصغير يشرب ماء أكثر من المعتاد. هل يوجد موعد؟,soon,false
+TS-K1231,mixed,companion,كلبي needs the yearly vaccination,routine,false
+TS-K1232,en,other,"Hello, My rabbit has a lump on the neck.",soon,false
+TS-K1233,ar,companion,مرحبا، قطتي عندها جرح صغير توقف الدم منه الأسبوع الماضي. متى نقدر نجي؟,routine,false
+TS-K1234,en,companion,"Please help, Our kitten has a cough. Can we come in?",soon,false
+TS-K1235,mixed,companion,جرونا needs a microchip,routine,false
+TS-K1236,en,companion,"Good day, My dog has a cough. When can you see us?",soon,false
+TS-K1237,ar,companion,كلبي يعرج على رجله الخلفية.,soon,false
+TS-K1238,ar,companion,كلبي عنده جرح صغير توقف الدم منه الأسبوع الماضي. هل يوجد موعد؟,routine,false
+TS-K1239,ar,companion,مرحبا، قطنا الصغير يحتاج فحص دوري. متى نقدر نجي؟,routine,false
+TS-K1240,ar,companion,كلبي عنده ورم في الرقبة.,soon,false
+TS-K1241,ar,companion,كلبي لا يتنفس جيدا. متى نقدر نجي؟,urgent,false
+TS-K1242,en,companion,"Hello, My dog is limping on the back leg. When can you see us?",soon,false
+TS-K1243,ar,companion,لو سمحتم، كلبي يحتاج قص أظافر.,routine,false
+TS-K1244,ar,companion,السلام عليكم، كلبي عنده ورم في الرقبة.,soon,false
+TS-K1245,en,companion,"Hello, My cat is not breathing well. When can you see us?",urgent,false
+TS-K1246,ar,companion,مرحبا، قطنا الصغير لا يتنفس جيدا. هل يوجد موعد؟,urgent,false
+TS-K1247,en,companion,"Please help, Our kitten swallowed a needle. Can we come in?",urgent,false
+TS-K1248,ar,companion,قطنا الصغير صدمته سيارة. متى نقدر نجي؟,urgent,false
+TS-K1249,ar,companion,السلام عليكم، جرونا يحتاج دواء الديدان. هل يوجد موعد؟,routine,false
+TS-K1250,en,companion,"Good day, My cat has a lump on the neck. Can we come in?",soon,false
+TS-K1251,ar,livestock,مرحبا، الناقة تحتاج دواء الديدان. هل يوجد موعد؟,routine,false
+TS-K1252,ar,other,لو سمحتم، السلحفاة تحتاج تطعيم سنوي.,routine,false
+TS-K1253,ar,companion,السلام عليكم، كلبي يحتاج تطعيم سنوي. متى نقدر نجي؟,routine,false
+TS-K1254,mixed,companion,كلبي has a cough,soon,false
+TS-K1255,ar,livestock,السلام عليكم، الفرس عندها جرح صغير توقف الدم منه الأسبوع الماضي. متى نقدر نجي؟,routine,false
+TS-K1256,en,companion,My dog has been vomiting since yesterday. When can you see us?,soon,false
+TS-K1257,ar,companion,السلام عليكم، قطتي جاءتها تشنجات.,urgent,false
+TS-K1258,ar,companion,مرحبا، قطنا الصغير أكل سم فئران. هل يوجد موعد؟,urgent,false
+TS-K1259,en,companion,Our kitten needs a health certificate for travel.,routine,false
+TS-K1260,ar,companion,لو سمحتم، قطنا الصغير يحتاج شريحة تعريف. هل يوجد موعد؟,routine,false
+TS-K1261,ar,companion,لو سمحتم، كلبي يعرج على رجله الخلفية.,soon,false
+TS-K1262,en,companion,"Please help, My cat needs the yearly vaccination.",routine,false
+TS-K1263,ar,companion,لو سمحتم، كلبي يحتاج شهادة صحية للسفر. هل يوجد موعد؟,routine,false
+TS-K1264,en,companion,"Hello, My dog keeps shaking the head.",soon,false
+TS-K1265,ar,companion,مرحبا، قطنا الصغير يحتاج شريحة تعريف. متى نقدر نجي؟,routine,false
+TS-K1266,ar,companion,مرحبا، كلبي يحتاج شهادة صحية للسفر. متى نقدر نجي؟,routine,false
+TS-K1267,ar,companion,مرحبا، كلبي لا يأكل منذ يومين. هل يوجد موعد؟,soon,false
+TS-K1268,en,livestock,"Good day, Our horse keeps shaking the head. When can you see us?",soon,false
+TS-K1269,ar,companion,لو سمحتم، كلبي يستفرغ من أمس. متى نقدر نجي؟,soon,false
+TS-K1270,en,other,"Good day, Our tortoise needs the yearly vaccination.",routine,false
+TS-K1271,ar,livestock,لو سمحتم، النعجة تحتاج قص أظافر. متى نقدر نجي؟,routine,false
+TS-K1272,en,livestock,"Please help, Our camel collapsed and is shaking. When can you see us?",urgent,false
+TS-K1273,en,companion,"Hello, My cat needs a check-up. Can we come in?",routine,false
+TS-K1274,en,companion,Our puppy needs a health certificate for travel.,routine,true
+TS-K1275,ar,livestock,السلام عليكم، الناقة تحتاج شريحة تعريف. متى نقدر نجي؟,routine,false
+TS-K1276,ar,companion,لو سمحتم، كلبي لا يتنفس جيدا. متى نقدر نجي؟,urgent,false
+TS-K1277,ar,companion,السلام عليكم، جرونا عنده جرح صغير توقف الدم منه الأسبوع الماضي. متى نقدر نجي؟,routine,false
+TS-K1278,en,companion,"Hello, Our kitten is losing weight. When can you see us?",soon,false
+TS-K1279,en,companion,"Good day, Our puppy needs deworming. When can you see us?",routine,false
+TS-K1280,ar,companion,قطنا الصغير عنده إسهال. هل يوجد موعد؟,soon,false
+TS-K1281,ar,companion,قطتي تحتاج دواء الديدان.,routine,false
+TS-K1282,ar,companion,مرحبا، جرونا أكل سم فئران.,urgent,false
+TS-K1283,ar,companion,جرونا يستفرغ من أمس. هل يوجد موعد؟,soon,false
+TS-K1284,ar,companion,لو سمحتم، قطنا الصغير يعرج على رجله الخلفية.,soon,false
+TS-K1285,en,companion,"Hello, My dog needs the yearly vaccination.",routine,false
+TS-K1286,ar,livestock,مرحبا، النعجة تستفرغ من أمس. هل يوجد موعد؟,soon,false
+TS-K1287,en,livestock,"Good day, The sheep is due for a nail trim.",routine,false
+TS-K1288,ar,companion,جرونا صدمته سيارة. هل يوجد موعد؟,urgent,false
+TS-K1289,mixed,other,الأرنب needs the yearly vaccination,routine,false
+TS-K1290,en,companion,"Good day, My cat had a blood test last month and needs the follow-up. When can you see us?",routine,false
+TS-K1291,ar,companion,السلام عليكم، قطنا الصغير عنده جرح صغير توقف الدم منه الأسبوع الماضي.,routine,false
+TS-K1292,ar,companion,كلبي يهز رأسه كثيرا.,soon,true
+TS-K1293,ar,livestock,لو سمحتم، النعجة تحتاج شريحة تعريف. متى نقدر نجي؟,routine,false
+TS-K1294,mixed,companion,كلبي was hit by a car,urgent,false
+TS-K1295,mixed,livestock,النعجة has been in labour for many hours with no baby,urgent,false
+TS-K1296,en,companion,"Hello, Our kitten needs a health certificate for travel.",routine,false
+TS-K1297,ar,companion,السلام عليكم، كلبي يحتاج قص أظافر.,routine,false
+TS-K1298,ar,livestock,الفرس خاملة وهادئة على غير عادتها.,soon,false
+TS-K1299,en,companion,Our puppy needs deworming. When can you see us?,routine,false
+TS-K1300,ar,companion,جرونا يحتاج قص أظافر.,routine,false
+TS-K1301,ar,companion,مرحبا، قطتي سوت تحليل دم الشهر الماضي وتحتاج المراجعة. هل يوجد موعد؟,routine,false
+TS-K1302,en,companion,"Good day, My dog was hit by a car. Can we come in?",urgent,false
+TS-K1303,ar,companion,جرونا يحتاج دواء الديدان. متى نقدر نجي؟,routine,false
+TS-K1304,ar,livestock,مرحبا، النعجة تحتاج فحص دوري. متى نقدر نجي؟,routine,false
+TS-K1305,en,companion,"Please help, Our puppy needs deworming. When can you see us?",routine,false
+TS-K1306,ar,livestock,مرحبا، الناقة تحتاج فحص دوري.,routine,false
+TS-K1307,en,companion,"Please help, My cat needs a microchip. When can you see us?",routine,false
+TS-K1308,ar,companion,مرحبا، جرونا أكل سم فئران. هل يوجد موعد؟,urgent,false
+TS-K1309,ar,livestock,الناقة عندها جرح صغير توقف الدم منه الأسبوع الماضي. متى نقدر نجي؟,routine,false
+TS-K1310,ar,companion,مرحبا، قطتي تحتاج شريحة تعريف. متى نقدر نجي؟,routine,false
+TS-K1311,mixed,companion,قطتي has a cough,soon,false
+TS-K1312,ar,companion,السلام عليكم، قطنا الصغير يحتاج تطعيم سنوي.,routine,false
+TS-K1313,en,companion,"Hello, My cat needs a check-up. Can we come in?",routine,false
+TS-K1314,en,livestock,"Good day, Our horse keeps shaking the head. When can you see us?",soon,false
+TS-K1315,en,companion,Our kitten had a blood test last month and needs the follow-up.,routine,false
+TS-K1316,en,companion,"Hello, My cat ate chocolate this morning. When can you see us?",urgent,false
+TS-K1317,ar,companion,مرحبا، قطنا الصغير ينقص وزنه.,soon,false
+TS-K1318,en,livestock,"Hello, Our goat has a lump on the neck. When can you see us?",soon,false
+TS-K1319,en,companion,"Hello, Our puppy is due for a nail trim. Can we come in?",routine,false
+TS-K1320,en,livestock,Our camel is not breathing well. Can we come in?,urgent,false
+TS-K1321,ar,companion,السلام عليكم، جرونا يستفرغ من أمس. هل يوجد موعد؟,soon,false
+TS-K1322,ar,companion,لو سمحتم، كلبي عنده ورم في الرقبة.,soon,false
+TS-K1323,en,companion,"Please help, Our puppy needs a microchip. Can we come in?",routine,false
+TS-K1324,ar,livestock,لو سمحتم، الناقة تحتاج دواء الديدان. هل يوجد موعد؟,routine,false
+TS-K1325,ar,companion,مرحبا، جرونا بطنه قاس ويكبر. هل يوجد موعد؟,urgent,false
+TS-K1326,en,livestock,"Hello, Our horse seems tired and quiet. When can you see us?",soon,false
+TS-K1327,ar,companion,مرحبا، جرونا عنده جرح صغير توقف الدم منه الأسبوع الماضي.,routine,false
+TS-K1328,ar,companion,قطنا الصغير يحتاج قص أظافر. هل يوجد موعد؟,routine,false
+TS-K1329,en,other,"Please help, Our tortoise has a cough. Can we come in?",soon,false
+TS-K1330,ar,companion,مرحبا، قطتي بطنها قاس ويكبر. هل يوجد موعد؟,urgent,false
+TS-K1331,en,livestock,"Please help, Our horse needs a check-up. Can we come in?",routine,false
+TS-K1332,en,livestock,Our goat seems tired and quiet. Can we come in?,soon,false
+TS-K1333,en,companion,"Please help, My cat had a blood test last month and needs the follow-up.",routine,false
+TS-K1334,ar,companion,قطنا الصغير سقط ولا يتحرك.,urgent,false
+TS-K1335,ar,companion,لو سمحتم، قطتي تنزف من فمها. هل يوجد موعد؟,urgent,false
+TS-K1336,ar,livestock,الماعز يستفرغ من أمس. متى نقدر نجي؟,soon,false
+TS-K1337,ar,companion,لو سمحتم، قطتي تحتاج دواء الديدان. هل يوجد موعد؟,routine,false
+TS-K1338,en,companion,"Hello, Our puppy needs the yearly vaccination. Can we come in?",routine,false
+TS-K1339,ar,companion,السلام عليكم، جرونا يحتاج فحص دوري. هل يوجد موعد؟,routine,false
+TS-K1340,ar,livestock,لو سمحتم، الفرس تحتاج شريحة تعريف. متى نقدر نجي؟,routine,true
+TS-K1341,ar,companion,لو سمحتم، جرونا خامل وهادئ على غير عادته. هل يوجد موعد؟,soon,false
+TS-K1342,ar,other,السلام عليكم، السلحفاة أكلت سم فئران. هل يوجد موعد؟,urgent,false
+TS-K1343,en,companion,"Good day, Our kitten has diarrhoea.",soon,false
+TS-K1344,mixed,livestock,الماعز swallowed a needle,urgent,false
+TS-K1345,ar,companion,مرحبا، قطنا الصغير يحتاج دواء الديدان. متى نقدر نجي؟,routine,false
+TS-K1346,en,other,"Good day, My parrot is not eating for two days. Can we come in?",soon,false
+TS-K1347,ar,companion,مرحبا، كلبي يهز رأسه كثيرا. هل يوجد موعد؟,soon,false
+TS-K1348,ar,livestock,السلام عليكم، النعجة سقطت ولا تتحرك. متى نقدر نجي؟,urgent,false
+TS-K1349,ar,other,السلام عليكم، الببغاء يستفرغ من أمس.,soon,false
+TS-K1350,en,companion,"Good day, My dog has not passed urine all day.",urgent,false
+TS-K1351,en,companion,"Please help, My cat swallowed a needle. When can you see us?",urgent,false
+TS-K1352,ar,companion,قطنا الصغير خامل وهادئ على غير عادته. هل يوجد موعد؟,soon,false
+TS-K1353,en,companion,"Please help, My dog has a small cut that stopped bleeding last week. When can you see us?",routine,false
+TS-K1354,en,companion,"Good day, My cat drinks far more water than usual. When can you see us?",soon,false
+TS-K1355,ar,companion,لو سمحتم، قطتي تحتاج شريحة تعريف. هل يوجد موعد؟,routine,false
+TS-K1356,ar,livestock,مرحبا، الفرس تشرب ماء أكثر من المعتاد. متى نقدر نجي؟,soon,false
+TS-K1357,ar,livestock,الناقة تحتاج دواء الديدان. متى نقدر نجي؟,routine,false
+TS-K1358,en,livestock,"Please help, Our horse had a blood test last month and needs the follow-up. Can we come in?",routine,false
+TS-K1359,ar,companion,السلام عليكم، كلبي جاءته تشنجات. هل يوجد موعد؟,urgent,false
+TS-K1360,en,livestock,"Hello, Our camel collapsed and is shaking.",urgent,false
+TS-K1361,en,companion,"Good day, Our puppy has diarrhoea. When can you see us?",soon,false
+TS-K1362,ar,companion,السلام عليكم، جرونا لم يتبول طوال اليوم.,urgent,false
+TS-K1363,ar,other,لو سمحتم، السلحفاة تنزف من فمها.,urgent,false
+TS-K1364,ar,other,لو سمحتم، السلحفاة سوت تحليل دم الشهر الماضي وتحتاج المراجعة. متى نقدر نجي؟,routine,false
+TS-K1365,ar,companion,مرحبا، قطتي تحتاج فحص دوري. هل يوجد موعد؟,routine,false
+TS-K1366,ar,livestock,مرحبا، الفرس أكلت سم فئران.,urgent,false
+TS-K1367,ar,companion,جرونا لثته بيضاء وباردة. هل يوجد موعد؟,urgent,false
+TS-K1368,ar,companion,السلام عليكم، قطنا الصغير يحتاج قص أظافر.,routine,false
+TS-K1369,en,companion,"Please help, My cat seems tired and quiet. Can we come in?",soon,false
+TS-K1370,ar,companion,مرحبا، قطتي تحتاج دواء الديدان.,routine,false
+TS-K1371,ar,companion,مرحبا، قطتي سقطت ولا تتحرك. هل يوجد موعد؟,urgent,false
+TS-K1372,ar,livestock,مرحبا، الفرس تحتاج شريحة تعريف. متى نقدر نجي؟,routine,false
+TS-K1373,en,companion,"Hello, My cat needs a check-up.",routine,false
+TS-K1374,en,livestock,"Hello, Our horse needs a microchip. Can we come in?",routine,false
+TS-K1375,en,companion,"Please help, Our kitten has pale cold gums. Can we come in?",urgent,false
+TS-K1376,ar,companion,مرحبا، كلبي يحتاج دواء الديدان. هل يوجد موعد؟,routine,false
+TS-K1377,en,companion,"Good day, My cat keeps shaking the head.",soon,false
+TS-K1378,en,companion,"Good day, My dog needs a health certificate for travel. Can we come in?",routine,false
+TS-K1379,ar,companion,مرحبا، قطتي تحتاج قص أظافر. هل يوجد موعد؟,routine,false
+TS-K1380,en,companion,"Good day, Our kitten seems tired and quiet. Can we come in?",soon,true
+TS-K1381,en,companion,"Hello, My cat needs a check-up.",routine,false
+TS-K1382,ar,livestock,السلام عليكم، الفرس تحتاج فحص دوري. متى نقدر نجي؟,routine,false
+TS-K1383,ar,companion,جرونا يحتاج فحص دوري. هل يوجد موعد؟,routine,false
+TS-K1384,ar,companion,قطنا الصغير عنده إسهال. متى نقدر نجي؟,soon,false
+TS-K1385,en,companion,Our puppy swallowed a needle. When can you see us?,urgent,false
+TS-K1386,en,livestock,Our horse needs a health certificate for travel. Can we come in?,routine,false
+TS-K1387,en,livestock,The sheep needs a health certificate for travel. Can we come in?,routine,false
+TS-K1388,mixed,livestock,النعجة drinks far more water than usual,soon,false
+TS-K1389,en,other,My rabbit has been in labour for many hours with no baby.,urgent,false
+TS-K1390,ar,livestock,مرحبا، الفرس تحتاج تطعيم سنوي. متى نقدر نجي؟,routine,false
+TS-K1391,ar,companion,لو سمحتم، قطنا الصغير يحتاج قص أظافر. هل يوجد موعد؟,routine,false
+TS-K1392,ar,livestock,السلام عليكم، الفرس تعرج على رجلها الخلفية. هل يوجد موعد؟,soon,false
+TS-K1393,ar,companion,السلام عليكم، قطتي تحتاج دواء الديدان. متى نقدر نجي؟,routine,false
+TS-K1394,en,companion,Our puppy ate chocolate this morning. When can you see us?,urgent,false
+TS-K1395,en,livestock,"Please help, The sheep has diarrhoea. When can you see us?",soon,false
+TS-K1396,ar,companion,مرحبا، قطتي تحتاج قص أظافر. هل يوجد موعد؟,routine,false
+TS-K1397,ar,livestock,مرحبا، الماعز عنده إسهال. متى نقدر نجي؟,soon,false
+TS-K1398,ar,companion,جرونا عنده كحة. هل يوجد موعد؟,soon,false
+TS-K1399,ar,companion,لو سمحتم، كلبي يحتاج شريحة تعريف. متى نقدر نجي؟,routine,false
+TS-K1400,en,companion,"Hello, My cat is bleeding from the mouth. When can you see us?",urgent,false

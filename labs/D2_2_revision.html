@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-ax="lab" data-track="foundations">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 2.2 · Unassisted draft against assisted revision · Technical Writing for Data and AI Work</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="D2_2_revision.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<div class="top"><div class="logo"></div><nav><a href="../index.html">Course page</a><a href="../slides/day2.html#lab-2-2">Back to the slides</a></nav></div>
+<span class="tag">Lab 2.2</span>
+<h1>Unassisted draft against assisted revision</h1>
+<p>Compare your AI-off report with an assisted revision claim by claim, keep a revision log, disclose the assistance and write the repository's agent context file</p>
+<div class="meta"><span>60 minutes</span><span>Day 2</span><span>Session 2: Writing with an assistant</span></div>
+</div>
+</header>
+<main class="wrap">
+<article class="lab" data-lab="2.2">
+  <div class="box goal">
+    <h3>You leave with</h3>
+    <ul>
+      <li>A revision log of every sentence an assisted revision changed in your AI-off report: the verdict, what you checked it against and how.</li>
+      <li>A final version with a disclosure line, and an <code>AGENTS.md</code> context file for the tagger repository.</li>
+    </ul>
+  </div>
+
+  <h2>What you need</h2>
+  <div class="files">
+    <a href="files/D2_2/draft_unassisted.md"><b>D2_2/draft_unassisted.md</b><span>An AI-off report draft, for anyone without their own from lab 2.1.</span></a>
+    <a href="files/D2_1/eval_log.jsonl"><b>D2_1/eval_log.jsonl</b><span>The evidence every claim is checked against.</span></a>
+  </div>
+  <p>Your own draft is <code>work/report.md</code> from lab 2.1; if you have none, use the supplied draft. The assisted revision comes from <code>kit/stand_in_revise.py</code>, a scripted stand-in: no model runs in this course's files, and the stand-in makes the kinds of change assisted revisions of reports often make.</p>
+  <div class="callout note small"><b>AI in this lab: full, and logged.</b> The clinics' rule, modelled on SDAIA's Generative AI Guidelines for Government, is that only Public data goes into a generative AI tool. The case files are synthetic and Public. If you revise with an approved assistant in the stretch, paste nothing else, and log that revision the same way.</div>
+
+  <h2>Steps</h2>
+
+  <div class="step">
+    <h3>1 · Produce the assisted revision of your draft <span class="min">5 min</span></h3>
+    <pre class="code"><code>uv run kit/stand_in_revise.py work/report.md</code></pre>
+    <p>With the supplied draft, copy <code>files/D2_2/draft_unassisted.md</code> to <code>work/report.md</code> first, so every command on this page works as written. It writes <code>work/revision_assisted.md</code>. Read it once as its reader would: is it better?</p>
+  </div>
+
+  <div class="step">
+    <h3>2 · Run the claim diff <span class="min">10 min</span></h3>
+    <pre class="code"><code>uv run kit/claimdiff.py work/report.md work/revision_assisted.md</code></pre>
+    <p>It lists every sentence removed, added or changed, flags numbers, sources, stronger claims and dropped limits, and writes <code>work/revision_log.csv</code> with a row per change.</p>
+  </div>
+
+  <div class="step">
+    <h3>3 · Check each changed claim and log it <span class="min">20 min</span></h3>
+    <p>For each row fill <code>verdict</code> (kept, corrected, removed or restored), <code>checked_against</code> (the file or source) and <code>how_checked</code>. Check numbers against <code>kit/evalstats.py</code>; look for every cited document in the course files. An unflagged change is still a claim: read it.</p>
+  </div>
+
+  <div class="step">
+    <h3>4 · Write the final version and its disclosure line <span class="min">10 min</span></h3>
+    <p>Keep what the revision improved, undo what it broke, and end with one line that starts <code>Disclosure:</code>, saying what the assistance did and how you checked it.</p>
+  </div>
+
+  <div class="step">
+    <h3>5 · Write the agent context file for the tagger <span class="min">10 min</span></h3>
+    <p>In <code>work/AGENTS.md</code>: what the project is, the setup and run commands as typed, how to test, the code conventions, and the data rules an agent must follow. Then check it:</p>
+    <pre class="code"><code>uv run kit/doccheck.py agents work/AGENTS.md</code></pre>
+  </div>
+
+  <div class="step">
+    <h3>6 · Run the log checker and fix it <span class="min">5 min</span></h3>
+    <pre class="code"><code>uv run kit/logcheck.py work/revision_log.csv work/final.md</code></pre>
+  </div>
+
+  <div class="step stretch">
+    <h3>✱ Stretch</h3>
+    <p>Revise your draft with an approved assistant, Public text only, save it as <code>work/revision_real.md</code>, and run the claim diff and the log on it too. Which kinds of change did it make?</p>
+  </div>
+
+  <h2>Check yourself</h2>
+  <ol class="checks">
+    <li>Which change would a reader in a hurry never notice, and what would it have cost?</li>
+    <li>How did you prove a cited document does not exist?</li>
+    <li>Which improvements of the revision did you keep, and how did you know they changed no claim?</li>
+  </ol>
+
+  <details class="instructor">
+    <summary>For the trainer</summary>
+    <p>The stand-in tightens wording and plants six changes: an added claim that the tagger can triage without a person (and the glossary's avoided word "emergencies"); the interval dropped from the first result; the first later rate raised by 0.03 (on the supplied draft, accuracy 0.94 becomes 0.97, which is also English recall, so a careless check passes it); a cited document, evaluation note EV-N7, which exists nowhere; the livestock limit removed; the development-set overlap removed. A participant's own draft gets the same kinds of edit where its sentences allow.</p>
+    <p>On the supplied draft the claim diff shows 9 changes, 6 flagged. References: <code>solutions/D2_2_revision_log.csv</code>, <code>solutions/D2_2_final.md</code>, <code>solutions/D2_2_AGENTS.md</code>; <code>uv run solutions/check_D2_2.py</code>. The common error is "kept" on the changed accuracy because 0.97 appears in the stats table: it is the English recall, not the accuracy.</p>
+  </details>
+</article>
+<nav class="pager"><a href="D2_1_report_card.html" rel="prev">← Previous lab</a></nav>
+</main>
+<footer><div class="wrap">SDAIA Academy · Data &amp; AI Foundations Track · Technical Writing for Data and AI Work<br><span class="muted">Course version 2027.1.0 · engine 1.0.0 · built 2026-11-25 · commit 9351b4a</span></div></footer>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-25T04:20:13Z","version":"2027.1.0","commit":"9351b4a"},"course":{"id":"fnd-aic-106","code":"FND-AIC-106","title":"Technical Writing for Data and AI Work","track":"foundations","lang":"en","dir":"ltr","url":"https://sdaiaacademy.github.io/fnd-aic-106/","repo":"SDAIAAcademy/fnd-aic-106","home":"../index.html"},"lab":{"id":"2.2","title":"Unassisted draft against assisted revision","summary":"Compare your AI-off report with an assisted revision claim by claim, keep a revision log, disclose the assistance and write the repository's agent context file","minutes":60,"day":2,"unit":"Day 2","session":2,"deck":"../slides/day2.html#lab-2-2","prev":"D2_1_report_card.html","next":null,"alt":{}},"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":null,"llms":"../llms.txt"},"tasks":[],"tools":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

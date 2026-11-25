@@ -1,0 +1,791 @@
+{
+  "format": "academy-bank",
+  "version": 1,
+  "course": {
+    "id": "fnd-aic-106",
+    "code": "FND-AIC-106",
+    "title": "Technical Writing for Data and AI Work",
+    "lang": "en",
+    "version": "2027.1.0"
+  },
+  "questions": [
+    {
+      "id": "check-reader-q1",
+      "type": "single",
+      "prompt": "The pharmacy team wants to add a second supplier feed to its forecast. Before anyone writes code, the finance manager must approve, change or refuse the plan, and wants to know what else was considered and what could go wrong.",
+      "options": [
+        "A README for the forecast repository and its feed",
+        "A design document with alternatives and risks",
+        "An experiment report on the new feed",
+        "A system card for the forecast"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "The reader approves a plan before code, and asks for alternatives and risks: that is the design document's job.",
+      "misconceptions": [
+        "Treats the reader as someone who will run the code; the finance manager approves before any code exists",
+        "",
+        "Reports a run that has not happened yet: there are no results to repeat or compare",
+        "Describes how far to rely on a running system; nothing is running yet"
+      ],
+      "lo": [
+        "LO1"
+      ],
+      "day": 1,
+      "session": 1,
+      "slide": "check-reader",
+      "pool": "checkpoint",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "check-readme-q1",
+      "type": "single",
+      "prompt": "A stranger follows the forecast's README on a fresh copy. The install step works, then the run command stops with \"error: settings.toml not found\". The writer's laptop runs it fine.",
+      "options": [
+        "A step that copies the example settings file",
+        "A note that the stranger's laptop is misconfigured",
+        "The command that runs the tests",
+        "An offer to send the writer's own settings file"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The writer's laptop has a file a fresh copy lacks; the README must create it.",
+      "misconceptions": [
+        "",
+        "Blames the stranger's machine: the same error would appear on any fresh copy",
+        "Moves the gap elsewhere: tests come after the run and cannot create the file",
+        "Fixes the symptom on one laptop instead of the document every stranger reads"
+      ],
+      "lo": [
+        "LO2"
+      ],
+      "day": 1,
+      "session": 2,
+      "slide": "check-readme",
+      "pool": "checkpoint",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "check-memo-q1",
+      "type": "single",
+      "prompt": "The pharmacy needs at least 0.80 of run-outs flagged. Method B flagged 52 of 60, 0.87, with a 95% interval from 0.76 to 0.93.",
+      "options": [
+        "\"Method B meets the 0.80 requirement.\"",
+        "\"Method B cannot be shown to meet 0.80, so we cannot recommend it.\"",
+        "\"Method B is significantly better than the current method.\"",
+        "\"Likely meets 0.80; its interval reaches down to 0.76.\""
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "It states the point, the doubt and what the doubt rests on, so the reader can decide with open eyes.",
+      "misconceptions": [
+        "Reads the point estimate as a guarantee: the interval reaches below the requirement",
+        "Reads an interval that crosses the line as a failure, discarding the evidence that it is likely met",
+        "Replaces the measurement with a hedge the reader cannot check",
+        ""
+      ],
+      "lo": [
+        "LO3"
+      ],
+      "day": 1,
+      "session": 3,
+      "slide": "check-memo",
+      "pool": "checkpoint",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "review-day1-q1",
+      "type": "single",
+      "prompt": "A memo recommends Method B for the pharmacy, compares its quality, cost and time with Method A in a table with intervals, and argues from the 0.80 requirement. It ends there.",
+      "options": [
+        "A second table of results",
+        "What would change the recommendation",
+        "A section on how the methods were developed",
+        "A third option that was not measured"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Without \"what would change this\", nobody can tell later when the decision should come back.",
+      "misconceptions": [
+        "The memo already has a table of measured trade-offs; more numbers would not fill the gap",
+        "",
+        "History is the writer's order; the memo's reader needs the decision, not the timeline",
+        "A memo names its options once; a third unmeasured option does not belong in the trade-offs"
+      ],
+      "lo": [
+        "LO3"
+      ],
+      "day": 2,
+      "slide": "review-day1",
+      "pool": "checkpoint",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "check-card-q1",
+      "type": "single",
+      "prompt": "The card for the head pharmacist says: \"Method B flags run-outs with a recall of 0.87.\" The run flagged 7 of 9 parasite-treatment run-outs, and 4 test weeks were also used in tuning.",
+      "options": [
+        "\"Method B is reliable for all medicines.\"",
+        "\"Parasite treatments: 0.78.\"",
+        "\"Parasite treatments: 7 of 9 flagged; check their stock by hand.\"",
+        "\"Results for small groups are left out.\""
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "It gives the count, and tells the reader what to do about the limit.",
+      "misconceptions": [
+        "Keeps one overall number and hides the slice and the overlap the reader needs",
+        "Reports the weak slice without its count or a reason to trust the rate",
+        "",
+        "Drops the small slice to keep the card tidy, which hides the weakness"
+      ],
+      "lo": [
+        "LO4"
+      ],
+      "day": 2,
+      "session": 1,
+      "slide": "check-card",
+      "pool": "checkpoint",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "check-revision-q1",
+      "type": "single",
+      "prompt": "An assisted revision of the pharmacy report adds: \"This agrees with the store's annual stock audit.\" You search the pharmacy team's files and find no annual stock audit.",
+      "options": [
+        "Removed: no such audit exists",
+        "Kept: an audit like that is likely to exist",
+        "Corrected: say \"may agree with\" the audit",
+        "Not logged: citations are not claims"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "A source you cannot find is an invented source until shown otherwise; the log records the search.",
+      "misconceptions": [
+        "",
+        "Trusts fluent text because it sounds plausible, without the source that would support it",
+        "Softens the claim but still cites a document nobody has seen",
+        "Skips the log for the one change that most needs a record"
+      ],
+      "lo": [
+        "LO5"
+      ],
+      "day": 2,
+      "session": 2,
+      "slide": "check-revision",
+      "pool": "checkpoint",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "confidence-q1",
+      "type": "scale",
+      "prompt": "How ready are you to write the next README, memo or card for a real reader?",
+      "explanation": "",
+      "misconceptions": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "lo": [
+        "LO1",
+        "LO2",
+        "LO3",
+        "LO4",
+        "LO5"
+      ],
+      "day": 3,
+      "slide": "confidence",
+      "pool": "checkpoint",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-reader-01",
+      "type": "single",
+      "prompt": "The clinics' pharmacy team ran a second forecast test with new settings. Next quarter an analyst who was not there must repeat the run and compare it with the next one. Which document does that analyst need?",
+      "options": [
+        "A decision memo on the new settings",
+        "An experiment report of the run",
+        "A README for the forecast code",
+        "A system card for the forecast"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "The reader must repeat and compare a run, so they need its setup, data, results and uncertainty: an experiment report.",
+      "misconceptions": [
+        "Writes for a decision maker, but nobody is choosing between options here",
+        "",
+        "Tells a stranger how to install and run the code, not what this run used and found",
+        "Tells a user how far to rely on a system, not how to repeat one run"
+      ],
+      "lo": [
+        "LO1"
+      ],
+      "day": 1,
+      "session": 1,
+      "slide": "five-documents",
+      "level": "understand",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-reader-02",
+      "type": "single",
+      "prompt": "A data team asks the finance manager for 20 hours of staff time to label new records before the end of the month. Which opening sentence puts the bottom line first?",
+      "options": [
+        "Since the summer we have reviewed our labelled records several times.",
+        "Our labelled records have some problems that we would like to explain.",
+        "Please approve 20 hours of labelling time before the end of the month.",
+        "We think more labels would help, if time allows."
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "It states the request, its size and its deadline in the first sentence, so the reader can act on it alone.",
+      "misconceptions": [
+        "Starts in the writer's order, with history the reader does not need first",
+        "Announces an explanation instead of giving the request",
+        "",
+        "Hedges the request and leaves out its size and date"
+      ],
+      "lo": [
+        "LO1"
+      ],
+      "day": 1,
+      "session": 1,
+      "slide": "bluf-before-after",
+      "level": "apply",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-reader-03",
+      "type": "single",
+      "prompt": "A model found 18 of 20 flagged cases in a small test, 0.90, with a 95% interval from 0.70 to 0.97. Which sentence states the result honestly for a manager?",
+      "options": [
+        "The model is significantly better than our old method.",
+        "The model finds 90% of cases.",
+        "The model performs quite well on flagged cases, as the small test shows.",
+        "18 of 20 found: anywhere from 0.70 to 0.97 on so few."
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "It gives the count and what the small sample allows, so the manager sees both the rate and how far to trust it.",
+      "misconceptions": [
+        "Uses a word that sounds measured but names no number or test",
+        "Reports the point estimate as a fact and hides that it rests on 20 cases",
+        "Replaces the measurement with a hedge",
+        ""
+      ],
+      "lo": [
+        "LO1"
+      ],
+      "day": 1,
+      "session": 1,
+      "slide": "uncertainty-in-words",
+      "level": "apply",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-readme-01",
+      "type": "single",
+      "prompt": "A README's run step works on a fresh copy and prints several lines. What should the README add so a stranger knows the project works, not only that it ran?",
+      "options": [
+        "The line a working check prints",
+        "A sentence saying the project has been tested",
+        "A screenshot of the writer's terminal",
+        "The names of the people who wrote and reviewed the code"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "An expected output line is something the stranger, or a test, can compare with what they see.",
+      "misconceptions": [
+        "",
+        "Asserts a result the reader cannot check",
+        "Shows one run on one laptop, which goes stale and cannot be compared line by line",
+        "Tells the reader whom to ask, not whether it works"
+      ],
+      "lo": [
+        "LO2"
+      ],
+      "day": 1,
+      "session": 2,
+      "slide": "commands-exactly",
+      "level": "apply",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-readme-02",
+      "type": "single",
+      "prompt": "A partner following your README on a clean copy writes in the run log: \"Step 2 says configure the tool. I did not know what to do and copied a file I guessed.\" What is the best fix?",
+      "options": [
+        "Ask the partner to read more carefully next time",
+        "Add a link to the configuration library's documentation for details",
+        "Write the exact command that creates the file",
+        "Move the configuration step to the end of the README"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "The README must say exactly what to type; the partner's hesitation shows where it did not.",
+      "misconceptions": [
+        "Blames the tester for a gap the document has",
+        "Sends the stranger to general documentation instead of the one step this project needs",
+        "",
+        "Changes the order but still leaves the step unstated"
+      ],
+      "lo": [
+        "LO2"
+      ],
+      "day": 1,
+      "session": 2,
+      "slide": "clean-run",
+      "level": "analyze",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-readme-03",
+      "type": "single",
+      "prompt": "Two years from now a developer asks why the project reads its settings from a file instead of environment variables. Where should the answer have been kept?",
+      "options": [
+        "In a comment on the line that reads the file",
+        "In a decision record in the repository",
+        "In the README's install section",
+        "In the minutes of the meeting that decided it"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "A decision record keeps one decision with its context and consequences beside the code, where a later reader finds it.",
+      "misconceptions": [
+        "Records what the code does, not the alternatives and reasons behind the choice",
+        "",
+        "Tells a stranger how to install, not why the design is as it is",
+        "Keeps the reasons outside the repository, where the next developer will not look"
+      ],
+      "lo": [
+        "LO2"
+      ],
+      "day": 1,
+      "session": 2,
+      "slide": "decision-record",
+      "level": "understand",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-memo-01",
+      "type": "single",
+      "prompt": "A memo recommends a forecast method that costs SAR 4.00 a run inside a SAR 30 monthly budget, with four runs a month. Which line belongs under \"What would change this\"?",
+      "options": [
+        "If the method stops being the best available, we will review it.",
+        "We are confident the method will keep working well.",
+        "If the team has concerns, we can discuss them at the next meeting.",
+        "If runs pass seven a month, the cost passes the SAR 30 budget."
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "It names a measurable line, from the budget and the price, that a later reader can check; 8 runs at SAR 4.00 is SAR 32.",
+      "misconceptions": [
+        "Names no measure: nobody can tell when it has happened",
+        "Is a reassurance, not a condition",
+        "Defers to a meeting instead of stating what would change the decision",
+        ""
+      ],
+      "lo": [
+        "LO3"
+      ],
+      "day": 1,
+      "session": 3,
+      "slide": "conditions",
+      "level": "apply",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-memo-02",
+      "type": "single",
+      "prompt": "The reader needs at least 0.85 recall within SAR 200 a month. Option X: recall 0.91 (0.86 to 0.95), SAR 260 a month. Option Y: recall 0.87 (0.80 to 0.92), SAR 90 a month. Which recommendation argues from the requirements?",
+      "options": [
+        "Y: likely meets 0.85 within budget; X breaks the budget.",
+        "X: it has the highest recall, so it is the best option.",
+        "Y: it is cheaper, so recall does not need to be discussed.",
+        "Neither: no interval lies wholly above 0.85."
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "It tests both options against both requirements and states the trade-off, including the doubt on Y's recall.",
+      "misconceptions": [
+        "",
+        "Picks the best score and ignores the budget the reader set",
+        "Picks on cost alone and drops the requirement that matters",
+        "Treats an interval that crosses the line as a failure, although X's lies above 0.85 and Y's point estimate meets it"
+      ],
+      "lo": [
+        "LO3"
+      ],
+      "day": 1,
+      "session": 3,
+      "slide": "requirement-first",
+      "level": "evaluate",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-memo-03",
+      "type": "numeric",
+      "prompt": "A comparison gives a cost of SAR 12.40 per 1,000 messages. The clinic receives about 6,000 messages a month. What monthly cost, in SAR, goes in the memo, with its working on a Working line?",
+      "answer": 74.4,
+      "tolerance": 0.05,
+      "unit": "SAR",
+      "explanation": "6,000 / 1,000 x 12.40 = 74.40. The working line lets the reviewer check the number in seconds.",
+      "misconceptions": [],
+      "lo": [
+        "LO3"
+      ],
+      "day": 1,
+      "session": 3,
+      "slide": "trace-numbers",
+      "level": "apply",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-report-01",
+      "type": "single",
+      "prompt": "A colleague must repeat your evaluation next quarter and compare the result. Your report gives the data file, the scorer and the results. Which addition matters most for repeating the run?",
+      "options": [
+        "A paragraph on why the project was started",
+        "A longer list of the people who labelled the data, with their teams",
+        "The run's identifier, settings and data version",
+        "A screenshot of the results table"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "Without the settings, the data version and the run identifier the colleague cannot tell whether a different result comes from the system or from the setup.",
+      "misconceptions": [
+        "Adds history that does not help anyone repeat the run",
+        "Names people instead of recording what was run",
+        "",
+        "Shows the output again but not what produced it"
+      ],
+      "lo": [
+        "LO4"
+      ],
+      "day": 2,
+      "session": 1,
+      "slide": "run-record",
+      "level": "apply",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-report-02",
+      "type": "single",
+      "prompt": "An evaluation found 5 of 6 urgent messages about birds (0.83, 95% interval 0.44 to 0.97). How should the report state it?",
+      "options": [
+        "Leave the slice out, since six messages prove nothing",
+        "\"Birds: 5 of 6 found; too few to say how well it does on birds.\"",
+        "\"Birds: 0.83, close to the overall rate.\"",
+        "\"The tagger handles birds well.\""
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "It keeps the slice, gives the count and says plainly that the evidence is too thin to rely on.",
+      "misconceptions": [
+        "Hides a slice the reader may care about, instead of reporting it as small",
+        "",
+        "Reports the rate without its count and reads a wide interval as a match",
+        "Turns a thin result into a confident claim"
+      ],
+      "lo": [
+        "LO4"
+      ],
+      "day": 2,
+      "session": 1,
+      "slide": "small-slices",
+      "level": "apply",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-report-03",
+      "type": "single",
+      "prompt": "An evaluation log has a field showing that 15 of 300 test messages were also used while the prompt was tuned. The tagger got all 15 right. What belongs in the report?",
+      "options": [
+        "The overlap, and the result on the 285 messages without it",
+        "Nothing: 15 messages are only 5% of the test set",
+        "A note that the tagger is especially good on familiar messages",
+        "The overall result, rounded down a little to be safe"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "Messages seen in tuning are not a test of new messages: the report says how many overlap and what the result is without them.",
+      "misconceptions": [
+        "",
+        "Judges the threat by its share instead of reporting it and its effect",
+        "Reads the overlap as a strength instead of a threat to the result",
+        "Replaces a measurement with a guess"
+      ],
+      "lo": [
+        "LO4"
+      ],
+      "day": 2,
+      "session": 1,
+      "slide": "overlap",
+      "level": "analyze",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-card-01",
+      "type": "single",
+      "prompt": "A card for reception staff must state that the tagger found 6 of 10 urgent messages written in mixed Arabic and English. Which line serves them best?",
+      "options": [
+        "\"Performance may vary across languages.\"",
+        "\"Mixed-language accuracy is under review by the data team this quarter.\"",
+        "\"Results for mixed messages are left out of this card, to avoid confusing staff.\"",
+        "\"Mixed Arabic and English: 6 of 10 urgent found. Read these messages at once.\""
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "It gives the count and tells the staff what to do differently.",
+      "misconceptions": [
+        "Names a limit with nothing to act on",
+        "Promises a future check instead of stating today's result",
+        "Hides the weakness from the people it affects",
+        ""
+      ],
+      "lo": [
+        "LO4"
+      ],
+      "day": 2,
+      "session": 1,
+      "slide": "limits-actionable",
+      "level": "apply",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-card-02",
+      "type": "single",
+      "prompt": "The head of reception asks: \"When an owner's message arrives, what happens to it, and who sees it when?\" Which document answers her?",
+      "options": [
+        "A model card for the model alone",
+        "A system card for the tagger with its queue and staff",
+        "The experiment report of the last run",
+        "The README of the repository"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "Her question is about the whole path of a message, people included: that is a system card's job.",
+      "misconceptions": [
+        "Describes one model, not the queue and the people around it",
+        "",
+        "Records one run for the team, not how the system works day to day",
+        "Tells a developer how to install the code"
+      ],
+      "lo": [
+        "LO4"
+      ],
+      "day": 2,
+      "session": 1,
+      "slide": "system-card",
+      "level": "understand",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-revision-01",
+      "type": "single",
+      "prompt": "Your draft said \"urgent recall 0.86 (95% interval 0.77 to 0.92)\". The assisted revision says \"urgent recall of about 0.9\". What happened to the claim?",
+      "options": [
+        "Nothing: it is the same number, rounded",
+        "The revision made it clearer and should be kept",
+        "The number was raised and the interval dropped",
+        "The revision corrected a typing error"
+      ],
+      "correct": [
+        2
+      ],
+      "explanation": "0.86 became about 0.9 and the uncertainty disappeared: two changes to the claim, both to be logged and undone.",
+      "misconceptions": [
+        "Treats a rounding that crosses a threshold as harmless",
+        "Mistakes fluency for accuracy",
+        "",
+        "Assumes the assistant knew better than the evidence, without checking it"
+      ],
+      "lo": [
+        "LO5"
+      ],
+      "day": 2,
+      "session": 2,
+      "slide": "typical-errors",
+      "level": "analyze",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-revision-02",
+      "type": "single",
+      "prompt": "In your revision log, a changed sentence now says accuracy was 0.95. The statistics give accuracy 0.92 overall and 0.95 for English messages only. What do you record?",
+      "options": [
+        "Verdict corrected; checked against the statistics; 0.95 is English only, overall is 0.92",
+        "Verdict kept, because 0.95 appears in the statistics",
+        "Verdict removed, because numbers should not appear in reports",
+        "No row, because the sentence still has a number"
+      ],
+      "correct": [
+        0
+      ],
+      "explanation": "The number exists in the statistics but for a different slice: the claim is wrong and is corrected, with what it was checked against.",
+      "misconceptions": [
+        "",
+        "Checks that a number exists somewhere instead of what it measures",
+        "Removes evidence the reader needs",
+        "Skips the log for a change that altered a claim"
+      ],
+      "lo": [
+        "LO5"
+      ],
+      "day": 2,
+      "session": 2,
+      "slide": "verification-log",
+      "level": "apply",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-revision-03",
+      "type": "single",
+      "prompt": "A colleague wants an assistant to polish a draft report that quotes ten real owners' messages with their phone numbers. The clinics allow only Public data in any assistant. What should happen first?",
+      "options": [
+        "Paste it, then delete the chat history afterwards",
+        "Paste only the half that has fewer phone numbers",
+        "Ask the assistant to ignore the personal details",
+        "Swap in synthetic messages first"
+      ],
+      "correct": [
+        3
+      ],
+      "explanation": "Personal data is not Public; the draft must hold only Public or synthetic text before it goes to any assistant.",
+      "misconceptions": [
+        "Assumes deleting the chat undoes sending the data",
+        "Sends less personal data, but still sends it",
+        "Relies on the tool to protect data it has already received",
+        ""
+      ],
+      "lo": [
+        "LO5"
+      ],
+      "day": 2,
+      "session": 2,
+      "slide": "what-may-go-in",
+      "level": "apply",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-revision-04",
+      "type": "tf",
+      "prompt": "A disclosure line that says \"AI was used\" tells the reader which parts of the document a person checked.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "It says nothing about what the assistant did or what was checked; a disclosure names both.",
+      "misconceptions": [
+        "Treats any mention of AI as enough disclosure",
+        ""
+      ],
+      "lo": [
+        "LO5"
+      ],
+      "day": 2,
+      "session": 2,
+      "slide": "disclosure",
+      "level": "understand",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    },
+    {
+      "id": "q-agents-01",
+      "type": "single",
+      "prompt": "A coding agent working on your repository keeps running a test command that no longer exists. What should you change in its context file?",
+      "options": [
+        "Add a sentence asking it to be more careful",
+        "Give the current test command exactly as typed and the line it prints when all is well",
+        "Remove the testing section so it stops running tests",
+        "Describe the project's history in more detail"
+      ],
+      "correct": [
+        1
+      ],
+      "explanation": "An agent follows the file literally, like a stranger with a README: give the exact command and what success looks like.",
+      "misconceptions": [
+        "Asks for care instead of fixing the instruction it follows",
+        "",
+        "Removes the check the agent needs before proposing a change",
+        "Adds context that does not tell it what to run"
+      ],
+      "lo": [
+        "LO5"
+      ],
+      "day": 2,
+      "session": 2,
+      "slide": "context-files",
+      "level": "apply",
+      "pool": "practice",
+      "weight": 1,
+      "timer": 30
+    }
+  ]
+}

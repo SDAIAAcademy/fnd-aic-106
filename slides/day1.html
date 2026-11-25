@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-ax="deck" data-track="foundations">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 1 · Writing for a reader · Technical Writing for Data and AI Work</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="day1.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<div class="deck" data-course="Technical Writing for Data and AI Work" data-track="foundations" data-day="Day 1">
+<section class="slide title" id="title" data-auto="title" data-label="Welcome" data-n="1">
+  <div class="kicker">SDAIA Academy · Technical Writing for Data and AI Work</div>
+  <h1>Writing for a reader</h1>
+  <p class="lead mt">Day 1: One reader, the bottom line first, and the documents a project needs before anyone else can use it</p>
+  <div class="meta"><span class="track">Data &amp; AI Foundations Track</span><span>2 teaching days + capstone day</span><span>3 sessions · 3 labs</span><span>FND-AIC-106</span></div>
+  <aside class="notes"><p>Welcome. Introduce yourself, then ask the room one calibrating question: "Who has followed a README that did not work, and how long did it cost you?" The rhythm of the day: three sessions, each with a long writing lab of an hour; breaks when the room needs them (B). The case all day is Tarthuth Veterinary Clinics, a fictional chain whose two-person data team built a small Python project and never wrote its documents.</p></aside>
+</section>
+
+<section class="slide" id="agenda" data-auto="agenda" data-label="Agenda" data-n="2">
+  <div class="kicker">Today</div>
+  <h2>Writing for a reader</h2>
+  <div class="agenda"><div class="item"><div><b>Session 1 · Write for one reader</b><small>Name the reader and the decision before choosing the document, then put the bottom line first</small></div></div><div class="item"><div><b>Session 2 · READMEs, designs and decisions</b><small>Write what a stranger needs to install, run and check a project, and keep designs and decisions as text beside the code</small></div></div><div class="item"><div><b>Session 3 · The decision memo</b><small>Turn a measured comparison into one page: options, trade-offs, a recommendation and what would change it</small></div></div></div>
+</section>
+
+<section class="slide" id="setup-check" data-n="3">
+  <div class="kicker">Before the first lab</div>
+  <h2>Clone the course, open the labs folder and run the setup check</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>Clone the course repository, open a terminal in its <code>labs</code> folder.</li>
+      <li>Run <code>uv run kit/setup_check.py</code>: uv fetches Python 3.11 or later if it is missing.</li>
+      <li>You write every file of the day in <code>labs/work/</code>, which git ignores.</li>
+      <li>No account, no key, no model download: the tools read and check text on your laptop.</li>
+    </ul>
+    <div class="card c-teal"><h4>What proves it works</h4><p class="small mb0">The last line reads <code>setup: ok</code>. Any line that starts with <code>missing:</code> names a file to fetch again.</p></div>
+  </div>
+  <aside class="notes"><p>Give the room five minutes. Typical failures: uv not installed (point to the uv installation page; one command), a corporate proxy that blocks the Python download (pair the participant with a neighbour for the first lab), and a terminal opened in the repository root instead of <code>labs</code>. Every file in the labs is synthetic and Public, so nothing here needs a classification decision.</p></aside>
+</section>
+
+<!-- Session 1 -->
+
+<section class="slide section" id="s1" data-auto="section" data-session="1" data-n="4">
+  <div class="kicker">Session 1</div>
+  <h1>Write for one reader</h1>
+  <ul class="bullets outcomes"><li>Name the reader, purpose and decision behind a request for a document</li><li>Choose the document type and its required sections for a scenario</li><li>Rewrite an update so the bottom line, the request and the uncertainty come first</li></ul>
+  <div class="sess-no">01</div>
+</section>
+
+<section class="slide" id="reader-first" data-lo="LO1" data-n="5" data-session="1">
+  <div class="kicker">Before you write</div>
+  <h2>Name the reader and their decision before you pick a document</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Who reads?</h4><p class="small mb0">One person, by role: the operations director, a new developer, the head of reception. "Everyone" is nobody.</p></div>
+    <div class="card c-cyan"><h4>What will they do?</h4><p class="small mb0">Install, approve, choose, repeat, rely. The verb decides the document and its first line.</p></div>
+    <div class="card c-coral"><h4>What do they know?</h4><p class="small mb0">You know the project too well to see its gaps: write for what the reader already knows, not for you.</p></div>
+  </div>
+  <div class="callout warn mt"><b>What goes wrong.</b> A document written for "the stakeholders" answers nobody's question and buries the one decision someone has to make.</div>
+  <aside class="notes"><p>Ask the room to name the last document they wrote and its one reader. Most will name two or three. The third card is what Google's Technical Writing One course calls the curse of knowledge: the writer cannot unsee what they know. Sources: developers.google.com/tech-writing/one.</p></aside>
+</section>
+
+<section class="slide" id="five-documents" data-lo="LO1" data-n="6" data-session="1">
+  <div class="kicker">Documents for data and AI work</div>
+  <h2>Five documents, five readers, five jobs</h2>
+  <table class="t small">
+    <tr><th>Document</th><th>Its reader</th><th>The reader then</th><th>It cannot do without</th></tr>
+    <tr><td>README</td><td>A stranger to the project</td><td>installs, runs and checks it</td><td>exact commands and what success prints</td></tr>
+    <tr><td>Design document</td><td>An approver, before code</td><td>approves, changes or refuses</td><td>alternatives and risks</td></tr>
+    <tr><td>Decision memo</td><td>A decision maker</td><td>signs one option</td><td>trade-offs and what would change it</td></tr>
+    <tr><td>Experiment report</td><td>The team, now and later</td><td>repeats and compares</td><td>the setup and the uncertainty</td></tr>
+    <tr><td>Model or system card</td><td>A user of the system</td><td>decides how far to rely on it</td><td>intended use, slices, limits</td></tr>
+  </table>
+  <aside class="notes"><p>This is the map for the whole course: each later session writes one of these. Lab 1.1 gives five requests without naming the document; participants decide which one each reader needs. A system card describes a whole system (the tagger with its queue and the people around it); a model card describes one model. Do not argue about the name in the lab: the sections matter.</p></aside>
+</section>
+
+<section class="slide" id="bluf-before-after" data-lo="LO1" data-n="7" data-session="1">
+  <div class="kicker">Bottom line first</div>
+  <h2>Put what the reader must do in the first two sentences</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>As sent</h4><p class="small mb0">"Since the spring the pharmacy team has looked at several ways of forecasting reorders. We first tried a seasonal average, which was generally fine, then a boosted-tree model, which seems better on most weeks. ... So we would like to buy a quarter of model runs."</p></div>
+    <div class="card c-teal"><h4>Bottom line first</h4><p class="small mb0">"Please approve SAR 46 for one quarter of weekly forecast runs with Method B. In 60 past weeks when a medicine ran out, it flagged 52 in advance; the current method flagged 41."</p></div>
+  </div>
+  <div class="callout tip mt"><b>Test.</b> If the reader stopped after the first paragraph, could they act?</div>
+  <aside class="notes"><p>This is a parallel example from the clinics' pharmacy team, not lab data; the figures come from <code>labs/_tools/slide_examples.py</code> (SAR 15.17 a month for weekly runs, so about SAR 46 a quarter). Read the left card aloud and ask when the room learnt what was being asked. Then the right one. The detail is not deleted: it moves below.</p></aside>
+</section>
+
+<section class="slide" id="bluf-shape" data-lo="LO1" data-n="8" data-session="1">
+  <div class="kicker">The shape</div>
+  <h2>Decision, then reasons, then detail, then next step</h2>
+  <div class="flow">
+    <div class="step c-navy"><b>1 · Bottom line</b>the request or the finding, with its size and date</div>
+    <div class="arrow frag" data-frag="b">→</div><div class="step c-teal frag" data-frag="b"><b>2 · Why</b>the two or three facts it rests on</div>
+    <div class="arrow frag" data-frag="c">→</div><div class="step c-cyan frag" data-frag="c"><b>3 · Detail</b>method, numbers, caveats, for whoever reads on</div>
+    <div class="arrow frag" data-frag="d">→</div><div class="step c-coral frag" data-frag="d"><b>4 · Next</b>what happens after the reader acts</div>
+  </div>
+  <div class="callout note mt frag" data-frag="d"><b>Headings help.</b> A reader who scans the headings alone should get the argument.</div>
+  <aside class="notes"><p>Press once per step. The chronological order (what we did first, then next) is the writer's order; this is the reader's order. In lab 1.1 the status update is written in the writer's order: the request is in its last paragraph.</p></aside>
+</section>
+
+<section class="slide" id="glossary" data-lo="LO1" data-n="9" data-session="1">
+  <div class="kicker">Arabic and English glossaries</div>
+  <h2>One term, one meaning, in both languages</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>A reader who meets <b>run-out</b>, <b>stock-out</b> and <b>shortage</b> wonders if they are three things.</li>
+      <li>Agree the term once, with its Arabic pair and the words to avoid.</li>
+      <li>Keep the glossary in the repository, beside the documents that use it.</li>
+      <li>A checker can then flag every word to avoid, in every document.</li>
+    </ul>
+    <table class="t small">
+      <tr><th>term_en</th><th>term_ar</th><th>avoid</th></tr>
+      <tr><td>run-out</td><td><span class="ar" lang="ar" dir="rtl">نفاد المخزون</span></td><td>stock-out; shortage</td></tr>
+      <tr><td>reorder</td><td><span class="ar" lang="ar" dir="rtl">إعادة الطلب</span></td><td>top-up; refill</td></tr>
+    </table>
+  </div>
+  <aside class="notes"><p>The pharmacy rows are a parallel example. The lab's glossary has eight rows for the tagger, with Arabic terms the course uses in its Arabic edition too. Ask an Arabic speaker in the room for a second Arabic rendering of "run-out" and show why the glossary has to pick one.</p></aside>
+</section>
+
+<section class="slide" id="uncertainty-in-words" data-lo="LO1" data-n="10" data-session="1">
+  <div class="kicker">Uncertainty in plain words</div>
+  <h2>Say how sure you are, and on how many cases</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>Says nothing</h4><p class="small mb0">"Method B is significantly better at catching run-outs."</p></div>
+    <div class="card c-teal"><h4>Says how sure</h4><p class="small mb0">"Method B flagged 52 of 60 past run-outs (0.87). With 60 cases, the 95% interval runs from 0.76 to 0.93."</p></div>
+  </div>
+  <ul class="bullets mt">
+    <li>The count tells the reader how much evidence there is; the interval tells them how far to trust the rate.</li>
+    <li>On nine cases, 7 of 9 (0.78) has an interval from 0.45 to 0.94: say so, or do not report the rate.</li>
+  </ul>
+  <aside class="notes"><p>Figures from <code>labs/_tools/slide_examples.py</code>, using the Wilson interval that the tagger's own code computes. How to compute an interval belongs to FND-AIC-103; this course is about writing it so a non-specialist reads it right. "Significantly" means "statistically tested" to some readers and "a lot" to others: avoid it unless you mean the first and say which test.</p></aside>
+</section>
+
+<section class="slide" id="hedges" data-lo="LO1" data-n="11" data-session="1">
+  <div class="kicker">Hedges</div>
+  <h2>Replace a hedge with a number, a condition or "not measured"</h2>
+  <table class="t small">
+    <tr><th>Hedge</th><th>Replace with</th></tr>
+    <tr><td>"quite good", "generally fine"</td><td>the rate and its count: 41 of 60</td></tr>
+    <tr><td>"seems better"</td><td>the difference, and whether the intervals overlap</td></tr>
+    <tr><td>"should be enough"</td><td>the condition: enough if at least 20 new cases are urgent</td></tr>
+    <tr><td>"no issues"</td><td>what was checked: 60 weeks, no missing values</td></tr>
+    <tr><td>"probably fine for other branches"</td><td>"not measured on other branches"</td></tr>
+  </table>
+  <div class="callout tip mt"><b>"Not measured" is a finding.</b> It tells the reader where the evidence stops.</div>
+  <aside class="notes"><p>Ask the room for the hedge they use most. The lab's checker flags a list of hedges in any sentence that has no number, as a style linter would; Vale is a real tool that does this with rules written in YAML (docs.vale.sh). The checker is a prompt to look again, not a verdict: a hedge beside a number can be honest.</p></aside>
+</section>
+
+<section class="slide" id="peer-review" data-lo="LO1" data-n="12" data-session="1">
+  <div class="kicker">Rubric-based peer review</div>
+  <h2>Review against the rubric, the text and the reader, not the writer</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Score each line</h4><p class="small mb0">0, 1 or 2 against criteria written before anyone wrote: no overall impression.</p></div>
+    <div class="card c-cyan"><h4>Quote the words</h4><p class="small mb0">"Paragraph 2: 'quite well'": the writer can find it and fix it.</p></div>
+    <div class="card c-coral"><h4>One strength, one change</h4><p class="small mb0">At least one of each, so the writer knows what to keep.</p></div>
+  </div>
+  <div class="callout note mt"><b>Read as the reader.</b> Pretend you are the operations director with two minutes, not a fellow writer with a red pen.</div>
+  <aside class="notes"><p>Peer review is 10% of the course assessment: participants are scored on the reviews they give in the labs and on the review of a partner's set they send before the follow-up. A good review quotes the text and names the criterion. Show the four-line rubric of lab 1.1 on the lab page before the lab starts.</p></aside>
+</section>
+
+<section class="slide" id="check-reader" data-lo="LO1" data-n="13" data-session="1">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which document does this reader need?</h2>
+  <div class="quiz" data-type="single" data-lo="LO1" data-id="check-reader-q1">
+    <p class="lead">The pharmacy team wants to add a second supplier feed to its forecast. Before anyone writes code, the finance manager must approve, change or refuse the plan, and wants to know what else was considered and what could go wrong.</p>
+    <div class="opts">
+      <div class="opt" data-why="Treats the reader as someone who will run the code; the finance manager approves before any code exists" data-k="A">A README for the forecast repository and its feed</div>
+      <div class="opt" data-ok data-k="B">A design document with alternatives and risks</div>
+      <div class="opt" data-why="Reports a run that has not happened yet: there are no results to repeat or compare" data-k="C">An experiment report on the new feed</div>
+      <div class="opt" data-why="Describes how far to rely on a running system; nothing is running yet" data-k="D">A system card for the forecast</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> The reader approves a plan before code, and asks for alternatives and risks: that is the design document's job.</div>
+  </div>
+  <aside class="notes"><p>Answer: B. If the room splits towards the decision memo idea, point out that the finance manager approves one plan rather than choosing among measured options; a memo needs measured options. If many pick A, return to the five-documents table.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-1-1" data-auto="lab" data-lab="1.1" data-label="Lab 1.1" data-n="14" data-session="1">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 1.1 · 60 min</div><h2>Bottom-line-first rewrite</h2><p class="lead small">Outline five documents for five readers, then rewrite the data team's status update bottom line first and check it</p><a class="nb" href="../labs/D1_1_bluf.html">D1_1_bluf.html</a></div><ul class="checklist"><li>Read the five scenarios and name each reader's decision <span class="min">8 min</span></li><li>Outline the five documents: reader, purpose, sections <span class="min">17 min</span></li><li>Mark where the status update hides its bottom line <span class="min">5 min</span></li><li>Rewrite it bottom line first, with glossary terms and uncertainty in words <span class="min">20 min</span></li><li>Run the checker, then score a partner's rewrite with the rubric <span class="min">10 min</span></li><li class="stretch">✱ Stretch: Write the first paragraph again in Arabic with the glossary's Arabic terms</li></ul></div>
+  <aside class="notes"><p><b>AI-tutor:</b> an approved assistant may comment on outline structure; the rewrite is written by hand. Walk the room during step 2: the common miss is scenario 2, outlined as a feature description without alternatives or risks. In step 4, watch for rewrites that delete the uncertainty instead of stating it with the counts the update gives. Nothing here builds on another lab.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-1" data-lo="LO1" data-n="15" data-session="1">
+  <div class="kicker">Lab 1.1 debrief</div>
+  <h2>The update as sent had its request in the last paragraph and 12 findings</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li><b>Request last:</b> six hours of reception time appeared only in the closing paragraph.</li>
+      <li><b>Four drifts:</b> critical, emergency, catch rate and sensitivity, where the glossary says urgent and urgent recall.</li>
+      <li><b>Hedges:</b> "quite well", "significantly better", with numbers available.</li>
+      <li><b>Length:</b> 339 words, sentences of 24 words on average.</li>
+    </ul>
+    <div class="card c-teal"><h4>The uncertainty, stated</h4><p class="small mb0">80 urgent messages left after the clean-up: on 80 cases a recall of 0.80 has a 95% interval from 0.70 to 0.87.</p></div>
+  </div>
+  <aside class="notes"><p>Show after the lab only. Counts from <code>uv run solutions/check_D1_1.py</code> on the supplied update. Ask two participants to read their first paragraph aloud; the room says whether the director could act on it. Then compare five outlines with the reference structures (README, design document, decision memo, experiment report, model or system card).</p></aside>
+</section>
+
+<!-- Session 2 -->
+
+<section class="slide section" id="s2" data-auto="section" data-session="2" data-n="16">
+  <div class="kicker">Session 2</div>
+  <h1>READMEs, designs and decisions</h1>
+  <ul class="bullets outcomes"><li>Write install, run and check steps a stranger can follow on a clean machine</li><li>Separate a README from a design document and a decision record</li><li>Draw a pipeline as text that the repository renders</li></ul>
+  <div class="sess-no">02</div>
+</section>
+
+<section class="slide" id="readme-job" data-lo="LO2" data-n="17" data-session="2">
+  <div class="kicker">A README's job</div>
+  <h2>A stranger installs, runs and checks the project without asking anyone</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>Install</h4><p class="small mb0">Every command as typed, from which folder, with the versions it needs and any file to create.</p></div>
+    <div class="card c-cyan"><h4>Run</h4><p class="small mb0">The one command that does the project's job on supplied data, and where the output goes.</p></div>
+    <div class="card c-coral"><h4>Check</h4><p class="small mb0">The tests, and the exact line they print when all is well: "it ran" is not "it works".</p></div>
+  </div>
+  <div class="callout note mt"><b>Then the rest.</b> What it is for and not for, where things are, its limits and its owner.</div>
+  <aside class="notes"><p>Ask: what is the first thing you look for in a repository you have never seen? Usually "how do I run it". A README that opens with the project's history fails the bottom-line test of session 1. The owner line matters: a stranger needs to know whom to tell when it breaks.</p></aside>
+</section>
+
+<section class="slide" id="what-strangers-guess" data-lo="LO2" data-n="18" data-session="2">
+  <div class="kicker">What the writer forgets</div>
+  <h2>A stranger stops at the steps the writer does without thinking</h2>
+  <ul class="bullets">
+    <li><b>The language version</b> the code needs, and how to get it.</li>
+    <li><b>A file to create:</b> a settings file copied from an example, an empty folder.</li>
+    <li><b>The folder</b> a command runs from.</li>
+    <li><b>The real command,</b> when an old note names a script that no longer exists.</li>
+    <li><b>What success looks like:</b> the line a working run prints.</li>
+  </ul>
+  <div class="callout warn mt"><b>What goes wrong.</b> The writer tests the README on their own laptop, where every one of these is already true.</div>
+  <aside class="notes"><p>These are the usual gaps of any small project; the urgency tagger has several of them, and lab 1.2 finds which. Do not tell the room which ones the tagger has: the first step of the lab is to try it and list what you had to guess.</p></aside>
+</section>
+
+<section class="slide" id="commands-exactly" data-lo="LO2" data-n="19" data-session="2">
+  <div class="kicker">Commands as typed</div>
+  <h2>Show the command and the line it must print</h2>
+  <pre class="code" data-file="README.md"><code class="language-markdown"><span class="hljs-section">## Run</span>
+
+Forecast next week&#x27;s reorders from the 60 sample weeks:
+
+<span class="hljs-code">```sh
+uv run python -m reorder forecast data/sample_weeks.csv
+```</span>
+
+<span class="hljs-code">```text
+forecast: 60 weeks read, 14 medicines flagged
+```</span></code></pre>
+  <div class="callout tip mt"><b>The text block is a promise.</b> A reader, or a test, compares it with what the screen shows.</div>
+  <aside class="notes"><p>The pharmacy forecast is a parallel example; it is not in the course files. Point at the two fenced blocks: <code>sh</code> for what you type, <code>text</code> for what you should see. The lab's clean-run tool reads exactly these two kinds of block: it runs the first and looks for the second's lines in the output.</p></aside>
+</section>
+
+<section class="slide" id="four-forms" data-lo="LO2" data-n="20" data-session="2">
+  <div class="kicker">Not everything in one file</div>
+  <h2>A README points to the other kinds of documentation</h2>
+  <div class="cols cols-4">
+    <div class="card c-teal"><h4>Tutorial</h4><p class="small mb0">Learning by doing, step by step.</p></div>
+    <div class="card c-cyan"><h4>How-to guide</h4><p class="small mb0">One task, for someone who knows the basics.</p></div>
+    <div class="card c-coral"><h4>Reference</h4><p class="small mb0">Every option and field, to look up.</p></div>
+    <div class="card c-purple"><h4>Explanation</h4><p class="small mb0">Why it works the way it does.</p></div>
+  </div>
+  <div class="callout note mt"><b>The README is a front door:</b> install, run, check, then links to the rest.</div>
+  <aside class="notes"><p>These four forms are the Diátaxis framework (diataxis.fr). A small project rarely needs all four; the point is not to cram a tutorial, a reference and an explanation into the README. For the tagger the design document is the explanation and the CLI help is the reference.</p></aside>
+</section>
+
+<section class="slide" id="design-document" data-lo="LO1 LO2" data-n="21" data-session="2">
+  <div class="kicker">Design document</div>
+  <h2>A design document is written before the code, for the person who approves it</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li><b>Summary:</b> the change and the decision asked for.</li>
+      <li><b>Problem and goals,</b> and what is out of scope.</li>
+      <li><b>The design,</b> with a diagram of what flows where.</li>
+      <li><b>Alternatives</b> and why not.</li>
+      <li><b>Risks</b> and failure cases, with what catches each.</li>
+      <li><b>Open questions,</b> reviewers and the approver.</li>
+    </ul>
+    <div class="card c-cyan"><h4>Its test</h4><p class="small mb0">Could the approver say no for a good reason after reading it? If every alternative is a straw man, they cannot.</p></div>
+  </div>
+  <aside class="notes"><p>The approver is not the author and not the reviewer: name three roles. A design document that has no alternatives is a decision already taken and dressed as a question. The participants outline one in lab 1.1 (scenario 2) and may write one in the capstone if their project needs it.</p></aside>
+</section>
+
+<section class="slide" id="decision-record" data-lo="LO2" data-n="22" data-session="2">
+  <div class="kicker">Decision record</div>
+  <h2>A decision record keeps one decision and its reasons beside the code</h2>
+  <div class="flow">
+    <div class="step c-navy"><b>Title</b>a short noun phrase</div>
+    <div class="arrow">→</div>
+    <div class="step c-teal"><b>Status</b>proposed, accepted, superseded</div>
+    <div class="arrow">→</div>
+    <div class="step c-cyan"><b>Context</b>the forces, stated neutrally</div>
+    <div class="arrow">→</div>
+    <div class="step c-coral"><b>Decision</b>in a full, active sentence</div>
+    <div class="arrow">→</div>
+    <div class="step c-purple"><b>Consequences</b>good, bad and neutral</div>
+  </div>
+  <p class="lead mt">Numbered files in <code>docs/decisions/</code> become the project's decision log.</p>
+  <aside class="notes"><p>The five headings are Michael Nygard's architecture decision record (cognitect.com blog, 2011); adr.github.io collects templates. A record is short and never rewritten: a changed decision gets a new record that supersedes the old one. The decision memo of session 3 is for a reader who decides; the record is for whoever later asks why.</p></aside>
+</section>
+
+<section class="slide" id="diagrams-as-text" data-lo="LO2" data-n="23" data-session="2">
+  <div class="kicker">Diagrams as text</div>
+  <h2>A diagram written as text is reviewed and versioned like code</h2>
+  <div class="cols cols-2">
+    <pre class="code" data-file="README.md"><code class="language-markdown"><span class="hljs-code">```mermaid
+flowchart LR
+  W[Weekly sales] --&gt; F[Forecast]
+  S[Stock levels] --&gt; F
+  F --&gt; R[Reorder list]
+  R --&gt; P[Pharmacist checks]
+```</span></code></pre>
+    <ul class="bullets">
+      <li>Mermaid and PlantUML turn short text into flowcharts and sequence diagrams.</li>
+      <li>GitHub renders Mermaid blocks in Markdown.</li>
+      <li>A change to the diagram shows in the diff, line by line.</li>
+    </ul>
+  </div>
+  <aside class="notes"><p>Parallel example, the pharmacy forecast. GitHub's documentation lists Mermaid among the diagram languages it renders (docs.github.com, "Creating diagrams"). PlantUML is the other example of the tool slot. Keep a diagram to what the reader needs: five boxes, not the whole system.</p></aside>
+</section>
+
+<section class="slide" id="clean-run" data-lo="LO2" data-n="24" data-session="2">
+  <div class="kicker">Test the README</div>
+  <h2>Follow your README on a fresh copy, exactly as written</h2>
+  <div class="flow">
+    <div class="step c-teal"><b>1 · Fresh copy</b>no settings file, no environment</div>
+    <div class="arrow">→</div>
+    <div class="step c-cyan"><b>2 · Literal</b>type only what is written</div>
+    <div class="arrow">→</div>
+    <div class="step c-coral"><b>3 · Log</b>each command, its result, each hesitation</div>
+    <div class="arrow">→</div>
+    <div class="step c-purple"><b>4 · Fix</b>the README, not the laptop</div>
+  </div>
+  <div class="callout tip mt"><b>Two testers.</b> The kit's clean-run tool types exactly what you wrote; a partner shows you where a person hesitates.</div>
+  <aside class="notes"><p>The clean-run tool in the kit runs only uv commands and file copies from the README's shell blocks, on a fresh copy, and writes a run log. A partner's log catches what a tool cannot: an ambiguous sentence, a command that works but surprises. Both logs are evidence for the outcome.</p></aside>
+</section>
+
+<section class="slide" id="check-readme" data-lo="LO2" data-n="25" data-session="2">
+  <div class="kicker">Checkpoint</div>
+  <h2>What did this README leave out?</h2>
+  <div class="quiz" data-type="single" data-lo="LO2" data-id="check-readme-q1">
+    <p class="lead">A stranger follows the forecast's README on a fresh copy. The install step works, then the run command stops with "error: settings.toml not found". The writer's laptop runs it fine.</p>
+    <div class="opts">
+      <div class="opt" data-ok data-k="A">A step that copies the example settings file</div>
+      <div class="opt" data-why="Blames the stranger's machine: the same error would appear on any fresh copy" data-k="B">A note that the stranger's laptop is misconfigured</div>
+      <div class="opt" data-why="Moves the gap elsewhere: tests come after the run and cannot create the file" data-k="C">The command that runs the tests</div>
+      <div class="opt" data-why="Fixes the symptom on one laptop instead of the document every stranger reads" data-k="D">An offer to send the writer's own settings file</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> The writer's laptop has a file a fresh copy lacks; the README must create it.</div>
+  </div>
+  <aside class="notes"><p>Answer: A. The trap is that the writer cannot see the gap on their own laptop, which is why the clean run matters. If someone picks D, ask what happens with the next ten strangers.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-1-2" data-auto="lab" data-lab="1.2" data-label="Lab 1.2" data-n="26" data-session="2">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 1.2 · 60 min</div><h2>Peer-tested README</h2><p class="lead small">Write the README of the undocumented urgency tagger, test it with a clean run, then have a partner follow it and log the run</p><a class="nb" href="../labs/D1_2_readme.html">D1_2_readme.html</a></div><ul class="checklist"><li>Explore the repository and list what a stranger would have to guess <span class="min">10 min</span></li><li>Write the install, run and check sections <span class="min">20 min</span></li><li>Add the purpose, inputs and outputs, limits and a text diagram <span class="min">10 min</span></li><li>Run the clean-run test on your README and fix what fails <span class="min">10 min</span></li><li>Swap: a partner follows your README on a clean copy and writes the run log <span class="min">10 min</span></li><li class="stretch">✱ Stretch: Start the README of your own project, the first part of the capstone</li></ul></div>
+  <aside class="notes"><p><b>AI-tutor:</b> an assistant may comment on section order, not run the project for them. The first clean run may download Python 3.11 or later: allow a minute. Typical problems: commands written from the wrong folder, a README that says "configure the tool" without the command, and a <code>text</code> block that promises output the command does not print exactly. The repository copy goes in <code>work/</code>; the supplied folder stays untouched.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-2" data-lo="LO2" data-n="27" data-session="2">
+  <div class="kicker">Lab 1.2 debrief</div>
+  <h2>Four things a stranger had to guess in the tagger's repository</h2>
+  <table class="t small">
+    <tr><th>Gap</th><th>What the stranger saw</th><th>The README line that closes it</th></tr>
+    <tr><td>Settings file</td><td><code>error: config.toml not found</code></td><td>copy <code>config.example.toml</code> to <code>config.toml</code></td></tr>
+    <tr><td>Python version</td><td>a TOML import error on an old Python</td><td>Python 3.11 or later; uv installs it</td></tr>
+    <tr><td>Stale note</td><td><code>NOTES.txt</code> names <code>tagger.py</code>, which does not exist</td><td>say the note is out of date</td></tr>
+    <tr><td>Success</td><td>output with nothing to compare</td><td><code>check: ok, 30 sample rows, 400 test rows, 2 recorded systems</code></td></tr>
+  </table>
+  <aside class="notes"><p>Show after the lab only. The reference README passed the clean run with five commands; the same README without the copy step fails on its first run command (<code>uv run solutions/check_D1_2.py</code>). Ask a pair to read their partner's run log aloud: where did the person hesitate that the tool did not?</p></aside>
+</section>
+
+<!-- Session 3 -->
+
+<section class="slide section" id="s3" data-auto="section" data-session="3" data-n="28">
+  <div class="kicker">Session 3</div>
+  <h1>The decision memo</h1>
+  <ul class="bullets outcomes"><li>State the decision and the recommendation in the first two sentences</li><li>Compare options on quality, cost and latency with numbers traced to the source</li><li>Write the conditions under which the recommendation would change</li></ul>
+  <div class="sess-no">03</div>
+</section>
+
+<section class="slide" id="memo-one-page" data-lo="LO3" data-n="29" data-session="3">
+  <div class="kicker">The decision memo</div>
+  <h2>One decision, one page, one signature</h2>
+  <div class="cols cols-3">
+    <div class="stat center"><div class="big">1</div><div class="lbl">decision, asked as a question</div></div>
+    <div class="stat center"><div class="big">450</div><div class="lbl">words at most: one page</div></div>
+    <div class="stat center"><div class="big">3</div><div class="lbl">roles named: author, reviewer, decider</div></div>
+  </div>
+  <div class="callout note mt"><b>The reader has ten minutes.</b> Everything that does not help them choose goes in an appendix or the experiment report.</div>
+  <aside class="notes"><p>The 450-word page is the course's own rule, checked by the lab's memo checker. Three roles: the person who writes it is not the person who reviews it, and neither signs it. That separation is what makes the signature mean something.</p></aside>
+</section>
+
+<section class="slide" id="memo-shape" data-lo="LO3" data-n="30" data-session="3">
+  <div class="kicker">Five parts</div>
+  <h2>Bottom line, options, trade-offs, recommendation, what would change it</h2>
+  <div class="flow">
+    <div class="step c-navy"><b>Bottom line</b>the recommendation and the request</div>
+    <div class="arrow frag" data-frag="b">→</div><div class="step c-teal frag" data-frag="b"><b>Options</b>each one, named once</div>
+    <div class="arrow frag" data-frag="c">→</div><div class="step c-cyan frag" data-frag="c"><b>Trade-offs</b>measured, with intervals</div>
+    <div class="arrow frag" data-frag="d">→</div><div class="step c-coral frag" data-frag="d"><b>Recommendation</b>argued from the reader's needs</div>
+    <div class="arrow frag" data-frag="e">→</div><div class="step c-purple frag" data-frag="e"><b>What would change it</b>conditions with numbers</div>
+  </div>
+  <aside class="notes"><p>Press once per part. The last part is the one most memos lack. It turns a recommendation into something the reader can monitor: if the volume, the price or the measured quality moves past a line, the decision comes back. The lab's rubric scores these five parts, two points each.</p></aside>
+</section>
+
+<section class="slide" id="options-honest" data-lo="LO3" data-n="31" data-session="3">
+  <div class="kicker">Options</div>
+  <h2>Keep the current way as an option, and name every option the same way throughout</h2>
+  <ul class="bullets">
+    <li><b>The status quo</b> is a real option with real costs: say what staying costs.</li>
+    <li><b>Same names, same order</b> in the options, the table and the recommendation.</li>
+    <li><b>No straw men:</b> an option nobody would pick wastes the reader's ten minutes.</li>
+    <li><b>Unmeasured options</b> go in "what would change this", not in the table.</li>
+  </ul>
+  <div class="callout warn mt"><b>What goes wrong.</b> "Method B", then "the new model", then "the ML option": the reader wonders if they are three things.</div>
+  <aside class="notes"><p>Link back to the glossary slide: option names are terms too. An unmeasured idea ("what if we combined them?") is tempting to add; put it where it belongs, as a condition or a next step, so the table holds only measured options.</p></aside>
+</section>
+
+<section class="slide" id="tradeoff-table" data-lo="LO3" data-n="32" data-session="3">
+  <div class="kicker">Trade-offs</div>
+  <h2>Put the options side by side on the measures the reader cares about</h2>
+  <table class="t">
+    <tr><th>Pharmacy reorder forecast</th><th>Method A (current)</th><th>Method B</th></tr>
+    <tr><td>Run-outs flagged in advance, of 60</td><td>41 · 0.68 (0.56 to 0.79)</td><td>52 · 0.87 (0.76 to 0.93)</td></tr>
+    <tr><td>Cost a month, one run a week</td><td>SAR 0</td><td>SAR 15.17</td></tr>
+    <tr><td>Time a run</td><td>1 minute</td><td>14 minutes</td></tr>
+  </table>
+  <p class="caption">A parallel example, synthetic, from <code>labs/_tools/slide_examples.py</code>.</p>
+  <aside class="notes"><p>Not lab data: the lab compares three urgency taggers on quality, cost and latency. Point at the interval column first: the reader's question is not only "which is higher" but "how sure". Ask: if the pharmacy needs at least 0.80 of run-outs flagged, what can we say about Method B? Its point estimate meets it, its interval reaches down to 0.76.</p></aside>
+</section>
+
+<section class="slide" id="requirement-first" data-lo="LO3" data-n="33" data-session="3">
+  <div class="kicker">Recommendation</div>
+  <h2>Argue from the reader's requirement, not from "the best score"</h2>
+  <div class="cols cols-2">
+    <div class="card c-coral"><h4>From the score</h4><p class="small mb0">"Method B is better on every quality measure, so we recommend it."</p></div>
+    <div class="card c-teal"><h4>From the requirement</h4><p class="small mb0">"The pharmacy needs 0.80 of run-outs flagged within SAR 20 a month. Only Method B is likely to meet it, and it costs SAR 15.17."</p></div>
+  </div>
+  <div class="callout tip mt"><b>Requirements first.</b> State each one with its number, then show which options meet it and how surely.</div>
+  <aside class="notes"><p>A score without a requirement invites the reader to ask "is that good enough?". The requirement comes from the reader's side (here a pharmacy lead; in the lab, the head of reception) and the memo should quote it. "Likely" is earned by the interval: say what it rests on.</p></aside>
+</section>
+
+<section class="slide" id="conditions" data-lo="LO3" data-n="34" data-session="3">
+  <div class="kicker">What would change this</div>
+  <h2>Name the lines that, once crossed, bring the decision back</h2>
+  <ul class="bullets">
+    <li><b>A measured threshold:</b> if a larger test puts Method B below 0.80, bring a new option.</li>
+    <li><b>A volume:</b> at SAR 3.50 a run, five runs a month fit the SAR 20 budget and a sixth breaks it; daily runs do not fit.</li>
+    <li><b>A price:</b> at SAR 4.62 a run, weekly runs cost SAR 20.02 a month and break it.</li>
+  </ul>
+  <div class="callout note mt"><b>Show the working.</b> Each computed number gets one line: 20 / 3.50 = 5.71 runs.</div>
+  <aside class="notes"><p>Figures from <code>labs/_tools/slide_examples.py</code>. A condition with a number can be checked next quarter by someone who did not write the memo. The memo checker accepts a computed number only if it is in the evidence or shown on a line that starts with "Working:".</p></aside>
+</section>
+
+<section class="slide" id="trace-numbers" data-lo="LO3" data-n="35" data-session="3">
+  <div class="kicker">Every claim checked</div>
+  <h2>Every number in the memo traces to the evidence or to its working</h2>
+  <div class="cols cols-2">
+    <ul class="bullets">
+      <li>Copy numbers from the evidence; never retype them from memory.</li>
+      <li>Round once, the same way everywhere.</li>
+      <li>A number you computed has its working beside it.</li>
+      <li>The reviewer checks numbers before style.</li>
+    </ul>
+    <div class="card c-cyan"><h4>The checker in the lab</h4><p class="small mb0"><code>kit/memocheck.py</code> lists every number that is in neither the comparison, the context nor a Working line.</p></div>
+  </div>
+  <aside class="notes"><p>Tomorrow morning's supervised memo is written with AI off, from a result handed out on paper, and scored on the same five-criterion rubric as lab 1.3. Say so now, so that the lab is practice for it. The supervised memo's result is different from the lab's.</p></aside>
+</section>
+
+<section class="slide" id="check-memo" data-lo="LO3" data-n="36" data-session="3">
+  <div class="kicker">Checkpoint</div>
+  <h2>Which sentence belongs in the pharmacy memo?</h2>
+  <div class="quiz" data-type="single" data-lo="LO3" data-id="check-memo-q1">
+    <p class="lead">The pharmacy needs at least 0.80 of run-outs flagged. Method B flagged 52 of 60, 0.87, with a 95% interval from 0.76 to 0.93.</p>
+    <div class="opts">
+      <div class="opt" data-why="Reads the point estimate as a guarantee: the interval reaches below the requirement" data-k="A">"Method B meets the 0.80 requirement."</div>
+      <div class="opt" data-why="Reads an interval that crosses the line as a failure, discarding the evidence that it is likely met" data-k="B">"Method B cannot be shown to meet 0.80, so we cannot recommend it."</div>
+      <div class="opt" data-why="Replaces the measurement with a hedge the reader cannot check" data-k="C">"Method B is significantly better than the current method."</div>
+      <div class="opt" data-ok data-k="D">"Likely meets 0.80; its interval reaches down to 0.76."</div>
+    </div>
+    <div class="callout tip why"><b>Why.</b> It states the point, the doubt and what the doubt rests on, so the reader can decide with open eyes.</div>
+  </div>
+  <aside class="notes"><p>Answer: D. Many pick A because the point estimate clears the line. Ask what they would say if a larger test came back at 0.78. B is the opposite error and would make every small-sample decision impossible.</p></aside>
+</section>
+
+<section class="slide lab top" id="lab-1-3" data-auto="lab" data-lab="1.3" data-label="Lab 1.3" data-n="37" data-session="3">
+  <div class="cols cols-2 mid"><div><div class="lab-tag">Lab 1.3 · 60 min</div><h2>Decision memo</h2><p class="lead small">Write a one-page memo to the operations director on which tagger the reception desk should use, from the measured comparison</p><a class="nb" href="../labs/D1_3_memo.html">D1_3_memo.html</a></div><ul class="checklist"><li>Read the context and the comparison; write the decision in one line <span class="min">8 min</span></li><li>Write the bottom line and the three options <span class="min">12 min</span></li><li>Write the trade-offs with numbers from the comparison and their intervals <span class="min">15 min</span></li><li>Write the recommendation and the conditions that would change it <span class="min">10 min</span></li><li>Run the checker; a partner scores your memo on the five-criterion rubric <span class="min">15 min</span></li><li class="stretch">✱ Stretch: Write the same choice as a decision record under five headings</li></ul></div>
+  <aside class="notes"><p><b>AI-tutor:</b> structure feedback only; the numbers and the recommendation are the participant's own, as in tomorrow's AI-off memo. Typical problems: per-1,000 costs left unconverted to a month, intervals dropped from the table, and a "what would change this" with no numbers. The pairs swap at step 5 and score with the rubric on the lab page.</p></aside>
+</section>
+
+<section class="slide" id="debrief-1-3" data-lo="LO3" data-n="38" data-session="3">
+  <div class="kicker">Lab 1.3 debrief</div>
+  <h2>Only Model L likely meets reception's 0.90, and it fits the budget</h2>
+  <table class="t small">
+    <tr><th>400 test messages, 80 urgent</th><th>Keyword rules</th><th>Model S</th><th>Model L</th></tr>
+    <tr><td>Urgent recall (95% interval)</td><td>0.66 (0.55 to 0.76)</td><td>0.82 (0.73 to 0.89)</td><td>0.94 (0.86 to 0.97)</td></tr>
+    <tr><td>A month at 9,000 messages</td><td>SAR 0</td><td>SAR 72.18</td><td>SAR 337.68</td></tr>
+    <tr><td>95% of tags within</td><td>under 0.01 s</td><td>1.24 s</td><td>5.59 s</td></tr>
+  </table>
+  <p class="caption">Synthetic case: Model S and Model L outputs are simulated and recorded; no model ran.</p>
+  <div class="callout note mt"><b>And what would change it:</b> a larger test below 0.90; 10,661 messages a month or more; tags slower than 10 s.</div>
+  <aside class="notes"><p>Show after the lab only. Figures from <code>labs/files/D1_3/comparison.csv</code> (written by <code>labs/_tools/make_case.py</code>; the model outputs are synthetic and recorded, no model ran) and the working in <code>solutions/D1_3_memo.md</code>. A memo for Model S is defensible only if it says plainly that Model S's whole interval lies below 0.90. Ask two pairs to read their bottom line aloud.</p></aside>
+</section>
+
+<section class="slide" id="wrap-up" data-n="39" data-session="3">
+  <div class="kicker">Day 1 · wrap-up</div>
+  <h2>Three things to keep</h2>
+  <div class="cols cols-3">
+    <div class="card c-teal"><h4>The reader decides</h4><p class="small mb0">One reader, one action: the document type and its first sentence follow from them.</p></div>
+    <div class="card c-coral"><h4>Test the README</h4><p class="small mb0">A fresh copy, followed literally, by a tool and by a person.</p></div>
+    <div class="card c-purple"><h4>Numbers with their doubt</h4><p class="small mb0">A count, an interval and the line that would change your mind.</p></div>
+  </div>
+  <aside class="notes"><p>Ask each participant to write one sentence: the document they will rewrite first at work, and for which reader.</p></aside>
+</section>
+
+<section class="slide dark" id="next" data-n="40" data-session="3">
+  <div class="kicker">Next</div>
+  <h2>Tomorrow: a supervised memo, then reports, cards and assistants</h2>
+  <ul class="bullets">
+    <li><b>First hour:</b> a one-page memo with AI off, from a result handed out on paper, scored on the lab 1.3 rubric.</li>
+    <li><b>Bring your project:</b> a small data or code project of your own, or keep the tagger.</li>
+    <li><b>Keep your files:</b> today's README and memo are the start of your capstone set.</li>
+  </ul>
+  <aside class="notes"><p>Remind the room that the memo is 30% of the course and needs at least 50% to pass. Devices are closed for it. Participants without their own project document the urgency tagger and use the second evaluation log in <code>labs/files/capstone/</code>.</p></aside>
+</section>
+</div>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-25T04:20:13Z","version":"2027.1.0","commit":"9351b4a"},"course":{"id":"fnd-aic-106","code":"FND-AIC-106","title":"Technical Writing for Data and AI Work","track":"foundations","lang":"en","dir":"ltr","url":"https://sdaiaacademy.github.io/fnd-aic-106/","repo":"SDAIAAcademy/fnd-aic-106","home":"../index.html"},"deck":{"id":"day1","kind":"day","day":1,"label":"Day 1","title":"Writing for a reader","prev":null,"next":"day2.html","md":"day1.md","alt":{}},"sessions":[{"n":1,"label":"Session 1","title":"Write for one reader","slide":"s1","outcomes":["Name the reader, purpose and decision behind a request for a document","Choose the document type and its required sections for a scenario","Rewrite an update so the bottom line, the request and the uncertainty come first"],"minutes":110,"lab":{"id":"1.1","title":"Bottom-line-first rewrite","minutes":60,"href":"../labs/D1_1_bluf.html"}},{"n":2,"label":"Session 2","title":"READMEs, designs and decisions","slide":"s2","outcomes":["Write install, run and check steps a stranger can follow on a clean machine","Separate a README from a design document and a decision record","Draw a pipeline as text that the repository renders"],"minutes":100,"lab":{"id":"1.2","title":"Peer-tested README","minutes":60,"href":"../labs/D1_2_readme.html"}},{"n":3,"label":"Session 3","title":"The decision memo","slide":"s3","outcomes":["State the decision and the recommendation in the first two sentences","Compare options on quality, cost and latency with numbers traced to the source","Write the conditions under which the recommendation would change"],"minutes":100,"lab":{"id":"1.3","title":"Decision memo","minutes":60,"href":"../labs/D1_3_memo.html"}}],"slides":[{"id":"title","n":1,"title":"Writing for a reader","kind":"title","session":0,"hash":"f2b38f7b","md":"#### [day1#title] Writing for a reader\n\n*SDAIA Academy · Technical Writing for Data and AI Work*\n\nDay 1: One reader, the bottom line first, and the documents a project needs before anyone else can use it\n\nData & AI Foundations Track · 2 teaching days + capstone day · 3 sessions · 3 labs · FND-AIC-106","notes":"Welcome. Introduce yourself, then ask the room one calibrating question: \"Who has followed a README that did not work, and how long did it cost you?\" The rhythm of the day: three sessions, each with a long writing lab of an hour; breaks when the room needs them (B). The case all day is Tarthuth Veterinary Clinics, a fictional chain whose two-person data team built a small Python project and never wrote its documents.","minutes":null,"lo":[]},{"id":"agenda","n":2,"title":"Writing for a reader","kind":"content","session":0,"hash":"cd3b75d3","md":"#### [day1#agenda] Writing for a reader\n\n*Today*\n\n- **Session 1 · Write for one reader**: Name the reader and the decision before choosing the document, then put the bottom line first\n- **Session 2 · READMEs, designs and decisions**: Write what a stranger needs to install, run and check a project, and keep designs and decisions as text beside the code\n- **Session 3 · The decision memo**: Turn a measured comparison into one page: options, trade-offs, a recommendation and what would change it","notes":"","minutes":null,"lo":[]},{"id":"setup-check","n":3,"title":"Clone the course, open the labs folder and run the setup check","kind":"content","session":0,"hash":"7d04de2d","md":"#### [day1#setup-check] Clone the course, open the labs folder and run the setup check\n\n*Before the first lab*\n\n- Clone the course repository, open a terminal in its `labs` folder.\n- Run `uv run kit/setup_check.py`: uv fetches Python 3.11 or later if it is missing.\n- You write every file of the day in `labs/work/`, which git ignores.\n- No account, no key, no model download: the tools read and check text on your laptop.\n\n- **What proves it works.** The last line reads `setup: ok`. Any line that starts with `missing:` names a file to fetch again.","notes":"Give the room five minutes. Typical failures: uv not installed (point to the uv installation page; one command), a corporate proxy that blocks the Python download (pair the participant with a neighbour for the first lab), and a terminal opened in the repository root instead of `labs`. Every file in the labs is synthetic and Public, so nothing here needs a classification decision.","minutes":null,"lo":[]},{"id":"s1","n":4,"title":"Write for one reader","kind":"section","session":1,"hash":"00507f42","md":"#### [day1#s1] Write for one reader\n\n*Session 1*\n\n- Name the reader, purpose and decision behind a request for a document\n- Choose the document type and its required sections for a scenario\n- Rewrite an update so the bottom line, the request and the uncertainty come first","notes":"","minutes":null,"lo":["LO1"]},{"id":"reader-first","n":5,"title":"Name the reader and their decision before you pick a document","kind":"content","session":1,"hash":"090d8711","md":"#### [day1#reader-first] Name the reader and their decision before you pick a document\n\n*Before you write*\n\n- **Who reads?** One person, by role: the operations director, a new developer, the head of reception. \"Everyone\" is nobody.\n- **What will they do?** Install, approve, choose, repeat, rely. The verb decides the document and its first line.\n- **What do they know?** You know the project too well to see its gaps: write for what the reader already knows, not for you.\n\n> **What goes wrong.** A document written for \"the stakeholders\" answers nobody's question and buries the one decision someone has to make.","notes":"Ask the room to name the last document they wrote and its one reader. Most will name two or three. The third card is what Google's Technical Writing One course calls the curse of knowledge: the writer cannot unsee what they know. Sources: developers.google.com/tech-writing/one.","minutes":null,"lo":["LO1"]},{"id":"five-documents","n":6,"title":"Five documents, five readers, five jobs","kind":"content","session":1,"hash":"eb20a194","md":"#### [day1#five-documents] Five documents, five readers, five jobs\n\n*Documents for data and AI work*\n\n| Document | Its reader | The reader then | It cannot do without |\n| --- | --- | --- | --- |\n| README | A stranger to the project | installs, runs and checks it | exact commands and what success prints |\n| Design document | An approver, before code | approves, changes or refuses | alternatives and risks |\n| Decision memo | A decision maker | signs one option | trade-offs and what would change it |\n| Experiment report | The team, now and later | repeats and compares | the setup and the uncertainty |\n| Model or system card | A user of the system | decides how far to rely on it | intended use, slices, limits |","notes":"This is the map for the whole course: each later session writes one of these. Lab 1.1 gives five requests without naming the document; participants decide which one each reader needs. A system card describes a whole system (the tagger with its queue and the people around it); a model card describes one model. Do not argue about the name in the lab: the sections matter.","minutes":null,"lo":["LO1"]},{"id":"bluf-before-after","n":7,"title":"Put what the reader must do in the first two sentences","kind":"content","session":1,"hash":"93d6c7fd","md":"#### [day1#bluf-before-after] Put what the reader must do in the first two sentences\n\n*Bottom line first*\n\n- **As sent.** \"Since the spring the pharmacy team has looked at several ways of forecasting reorders. We first tried a seasonal average, which was generally fine, then a boosted-tree model, which seems better on most weeks. ... So we would like to buy a quarter of model runs.\"\n- **Bottom line first.** \"Please approve SAR 46 for one quarter of weekly forecast runs with Method B. In 60 past weeks when a medicine ran out, it flagged 52 in advance; the current method flagged 41.\"\n\n> **Test.** If the reader stopped after the first paragraph, could they act?","notes":"This is a parallel example from the clinics' pharmacy team, not lab data; the figures come from `labs/_tools/slide_examples.py` (SAR 15.17 a month for weekly runs, so about SAR 46 a quarter). Read the left card aloud and ask when the room learnt what was being asked. Then the right one. The detail is not deleted: it moves below.","minutes":null,"lo":["LO1"]},{"id":"bluf-shape","n":8,"title":"Decision, then reasons, then detail, then next step","kind":"content","session":1,"hash":"87ac4c9a","md":"#### [day1#bluf-shape] Decision, then reasons, then detail, then next step\n\n*The shape*\n\n1. **1 · Bottom line** the request or the finding, with its size and date\n2. **2 · Why** the two or three facts it rests on\n3. **3 · Detail** method, numbers, caveats, for whoever reads on\n4. **4 · Next** what happens after the reader acts\n\n> **Headings help.** A reader who scans the headings alone should get the argument.","notes":"Press once per step. The chronological order (what we did first, then next) is the writer's order; this is the reader's order. In lab 1.1 the status update is written in the writer's order: the request is in its last paragraph.","minutes":null,"lo":["LO1"]},{"id":"glossary","n":9,"title":"One term, one meaning, in both languages","kind":"content","session":1,"hash":"679bce7c","md":"#### [day1#glossary] One term, one meaning, in both languages\n\n*Arabic and English glossaries*\n\n- A reader who meets **run-out**, **stock-out** and **shortage** wonders if they are three things.\n- Agree the term once, with its Arabic pair and the words to avoid.\n- Keep the glossary in the repository, beside the documents that use it.\n- A checker can then flag every word to avoid, in every document.\n\n| term_en | term_ar | avoid |\n| --- | --- | --- |\n| run-out | نفاد المخزون | stock-out; shortage |\n| reorder | إعادة الطلب | top-up; refill |","notes":"The pharmacy rows are a parallel example. The lab's glossary has eight rows for the tagger, with Arabic terms the course uses in its Arabic edition too. Ask an Arabic speaker in the room for a second Arabic rendering of \"run-out\" and show why the glossary has to pick one.","minutes":null,"lo":["LO1"]},{"id":"uncertainty-in-words","n":10,"title":"Say how sure you are, and on how many cases","kind":"content","session":1,"hash":"b405bde1","md":"#### [day1#uncertainty-in-words] Say how sure you are, and on how many cases\n\n*Uncertainty in plain words*\n\n- **Says nothing.** \"Method B is significantly better at catching run-outs.\"\n- **Says how sure.** \"Method B flagged 52 of 60 past run-outs (0.87). With 60 cases, the 95% interval runs from 0.76 to 0.93.\"\n\n- The count tells the reader how much evidence there is; the interval tells them how far to trust the rate.\n- On nine cases, 7 of 9 (0.78) has an interval from 0.45 to 0.94: say so, or do not report the rate.","notes":"Figures from `labs/_tools/slide_examples.py`, using the Wilson interval that the tagger's own code computes. How to compute an interval belongs to FND-AIC-103; this course is about writing it so a non-specialist reads it right. \"Significantly\" means \"statistically tested\" to some readers and \"a lot\" to others: avoid it unless you mean the first and say which test.","minutes":null,"lo":["LO1"]},{"id":"hedges","n":11,"title":"Replace a hedge with a number, a condition or \"not measured\"","kind":"content","session":1,"hash":"2bf94db8","md":"#### [day1#hedges] Replace a hedge with a number, a condition or \"not measured\"\n\n*Hedges*\n\n| Hedge | Replace with |\n| --- | --- |\n| \"quite good\", \"generally fine\" | the rate and its count: 41 of 60 |\n| \"seems better\" | the difference, and whether the intervals overlap |\n| \"should be enough\" | the condition: enough if at least 20 new cases are urgent |\n| \"no issues\" | what was checked: 60 weeks, no missing values |\n| \"probably fine for other branches\" | \"not measured on other branches\" |\n\n> **\"Not measured\" is a finding.** It tells the reader where the evidence stops.","notes":"Ask the room for the hedge they use most. The lab's checker flags a list of hedges in any sentence that has no number, as a style linter would; Vale is a real tool that does this with rules written in YAML (docs.vale.sh). The checker is a prompt to look again, not a verdict: a hedge beside a number can be honest.","minutes":null,"lo":["LO1"]},{"id":"peer-review","n":12,"title":"Review against the rubric, the text and the reader, not the writer","kind":"content","session":1,"hash":"1b7d51da","md":"#### [day1#peer-review] Review against the rubric, the text and the reader, not the writer\n\n*Rubric-based peer review*\n\n- **Score each line.** 0, 1 or 2 against criteria written before anyone wrote: no overall impression.\n- **Quote the words.** \"Paragraph 2: 'quite well'\": the writer can find it and fix it.\n- **One strength, one change.** At least one of each, so the writer knows what to keep.\n\n> **Read as the reader.** Pretend you are the operations director with two minutes, not a fellow writer with a red pen.","notes":"Peer review is 10% of the course assessment: participants are scored on the reviews they give in the labs and on the review of a partner's set they send before the follow-up. A good review quotes the text and names the criterion. Show the four-line rubric of lab 1.1 on the lab page before the lab starts.","minutes":null,"lo":["LO1"]},{"id":"check-reader","n":13,"title":"Which document does this reader need?","kind":"quiz","session":1,"hash":"50d2e5bf","md":"#### [day1#check-reader] Which document does this reader need?\n\n*Checkpoint*\n\n**Question:** The pharmacy team wants to add a second supplier feed to its forecast. Before anyone writes code, the finance manager must approve, change or refuse the plan, and wants to know what else was considered and what could go wrong.\n\n- A. A README for the forecast repository and its feed\n- B. A design document with alternatives and risks\n- C. An experiment report on the new feed\n- D. A system card for the forecast","notes":"Answer: B. If the room splits towards the decision memo idea, point out that the finance manager approves one plan rather than choosing among measured options; a memo needs measured options. If many pick A, return to the five-documents table.","minutes":null,"lo":["LO1"]},{"id":"lab-1-1","n":14,"title":"Bottom-line-first rewrite","kind":"lab","session":1,"hash":"14849456","md":"#### [day1#lab-1-1] Bottom-line-first rewrite\n\nLab 1.1 · 60 min\n\nOutline five documents for five readers, then rewrite the data team's status update bottom line first and check it\n\n[D1_1_bluf.html](https://sdaiaacademy.github.io/fnd-aic-106/labs/D1_1_bluf.html)\n\n- [ ] Read the five scenarios and name each reader's decision (8 min)\n- [ ] Outline the five documents: reader, purpose, sections (17 min)\n- [ ] Mark where the status update hides its bottom line (5 min)\n- [ ] Rewrite it bottom line first, with glossary terms and uncertainty in words (20 min)\n- [ ] Run the checker, then score a partner's rewrite with the rubric (10 min)\n- [ ] ✱ Stretch: Write the first paragraph again in Arabic with the glossary's Arabic terms","notes":"**AI-tutor:** an approved assistant may comment on outline structure; the rewrite is written by hand. Walk the room during step 2: the common miss is scenario 2, outlined as a feature description without alternatives or risks. In step 4, watch for rewrites that delete the uncertainty instead of stating it with the counts the update gives. Nothing here builds on another lab.","minutes":null,"lo":[]},{"id":"debrief-1-1","n":15,"title":"The update as sent had its request in the last paragraph and 12 findings","kind":"content","session":1,"hash":"bcbcfad2","md":"#### [day1#debrief-1-1] The update as sent had its request in the last paragraph and 12 findings\n\n*Lab 1.1 debrief*\n\n- **Request last:** six hours of reception time appeared only in the closing paragraph.\n- **Four drifts:** critical, emergency, catch rate and sensitivity, where the glossary says urgent and urgent recall.\n- **Hedges:** \"quite well\", \"significantly better\", with numbers available.\n- **Length:** 339 words, sentences of 24 words on average.\n\n- **The uncertainty, stated.** 80 urgent messages left after the clean-up: on 80 cases a recall of 0.80 has a 95% interval from 0.70 to 0.87.","notes":"Show after the lab only. Counts from `uv run solutions/check_D1_1.py` on the supplied update. Ask two participants to read their first paragraph aloud; the room says whether the director could act on it. Then compare five outlines with the reference structures (README, design document, decision memo, experiment report, model or system card).","minutes":null,"lo":["LO1"]},{"id":"s2","n":16,"title":"READMEs, designs and decisions","kind":"section","session":2,"hash":"1b3a6ab8","md":"#### [day1#s2] READMEs, designs and decisions\n\n*Session 2*\n\n- Write install, run and check steps a stranger can follow on a clean machine\n- Separate a README from a design document and a decision record\n- Draw a pipeline as text that the repository renders","notes":"","minutes":null,"lo":["LO1","LO2"]},{"id":"readme-job","n":17,"title":"A stranger installs, runs and checks the project without asking anyone","kind":"content","session":2,"hash":"e0f765ce","md":"#### [day1#readme-job] A stranger installs, runs and checks the project without asking anyone\n\n*A README's job*\n\n- **Install.** Every command as typed, from which folder, with the versions it needs and any file to create.\n- **Run.** The one command that does the project's job on supplied data, and where the output goes.\n- **Check.** The tests, and the exact line they print when all is well: \"it ran\" is not \"it works\".\n\n> **Then the rest.** What it is for and not for, where things are, its limits and its owner.","notes":"Ask: what is the first thing you look for in a repository you have never seen? Usually \"how do I run it\". A README that opens with the project's history fails the bottom-line test of session 1. The owner line matters: a stranger needs to know whom to tell when it breaks.","minutes":null,"lo":["LO2"]},{"id":"what-strangers-guess","n":18,"title":"A stranger stops at the steps the writer does without thinking","kind":"content","session":2,"hash":"8385e593","md":"#### [day1#what-strangers-guess] A stranger stops at the steps the writer does without thinking\n\n*What the writer forgets*\n\n- **The language version** the code needs, and how to get it.\n- **A file to create:** a settings file copied from an example, an empty folder.\n- **The folder** a command runs from.\n- **The real command,** when an old note names a script that no longer exists.\n- **What success looks like:** the line a working run prints.\n\n> **What goes wrong.** The writer tests the README on their own laptop, where every one of these is already true.","notes":"These are the usual gaps of any small project; the urgency tagger has several of them, and lab 1.2 finds which. Do not tell the room which ones the tagger has: the first step of the lab is to try it and list what you had to guess.","minutes":null,"lo":["LO2"]},{"id":"commands-exactly","n":19,"title":"Show the command and the line it must print","kind":"content","session":2,"hash":"0875fcfa","md":"#### [day1#commands-exactly] Show the command and the line it must print\n\n*Commands as typed*\n\n````markdown\n\u003c!-- file: README.md -->\n## Run\n\nForecast next week's reorders from the 60 sample weeks:\n\n```sh\nuv run python -m reorder forecast data/sample_weeks.csv\n```\n\n```text\nforecast: 60 weeks read, 14 medicines flagged\n```\n````\n\n> **The text block is a promise.** A reader, or a test, compares it with what the screen shows.","notes":"The pharmacy forecast is a parallel example; it is not in the course files. Point at the two fenced blocks: `sh` for what you type, `text` for what you should see. The lab's clean-run tool reads exactly these two kinds of block: it runs the first and looks for the second's lines in the output.","minutes":null,"lo":["LO2"]},{"id":"four-forms","n":20,"title":"A README points to the other kinds of documentation","kind":"content","session":2,"hash":"7f6abfa9","md":"#### [day1#four-forms] A README points to the other kinds of documentation\n\n*Not everything in one file*\n\n- **Tutorial.** Learning by doing, step by step.\n- **How-to guide.** One task, for someone who knows the basics.\n- **Reference.** Every option and field, to look up.\n- **Explanation.** Why it works the way it does.\n\n> **The README is a front door:** install, run, check, then links to the rest.","notes":"These four forms are the Diátaxis framework (diataxis.fr). A small project rarely needs all four; the point is not to cram a tutorial, a reference and an explanation into the README. For the tagger the design document is the explanation and the CLI help is the reference.","minutes":null,"lo":["LO2"]},{"id":"design-document","n":21,"title":"A design document is written before the code, for the person who approves it","kind":"content","session":2,"hash":"0f19f20c","md":"#### [day1#design-document] A design document is written before the code, for the person who approves it\n\n*Design document*\n\n- **Summary:** the change and the decision asked for.\n- **Problem and goals,** and what is out of scope.\n- **The design,** with a diagram of what flows where.\n- **Alternatives** and why not.\n- **Risks** and failure cases, with what catches each.\n- **Open questions,** reviewers and the approver.\n\n- **Its test.** Could the approver say no for a good reason after reading it? If every alternative is a straw man, they cannot.","notes":"The approver is not the author and not the reviewer: name three roles. A design document that has no alternatives is a decision already taken and dressed as a question. The participants outline one in lab 1.1 (scenario 2) and may write one in the capstone if their project needs it.","minutes":null,"lo":["LO1","LO2"]},{"id":"decision-record","n":22,"title":"A decision record keeps one decision and its reasons beside the code","kind":"content","session":2,"hash":"38ae4c89","md":"#### [day1#decision-record] A decision record keeps one decision and its reasons beside the code\n\n*Decision record*\n\n1. **Title** a short noun phrase\n2. **Status** proposed, accepted, superseded\n3. **Context** the forces, stated neutrally\n4. **Decision** in a full, active sentence\n5. **Consequences** good, bad and neutral\n\nNumbered files in `docs/decisions/` become the project's decision log.","notes":"The five headings are Michael Nygard's architecture decision record (cognitect.com blog, 2011); adr.github.io collects templates. A record is short and never rewritten: a changed decision gets a new record that supersedes the old one. The decision memo of session 3 is for a reader who decides; the record is for whoever later asks why.","minutes":null,"lo":["LO2"]},{"id":"diagrams-as-text","n":23,"title":"A diagram written as text is reviewed and versioned like code","kind":"content","session":2,"hash":"033fcb66","md":"#### [day1#diagrams-as-text] A diagram written as text is reviewed and versioned like code\n\n*Diagrams as text*\n\n````markdown\n\u003c!-- file: README.md -->\n```mermaid\nflowchart LR\n  W[Weekly sales] --> F[Forecast]\n  S[Stock levels] --> F\n  F --> R[Reorder list]\n  R --> P[Pharmacist checks]\n```\n````\n\n- Mermaid and PlantUML turn short text into flowcharts and sequence diagrams.\n- GitHub renders Mermaid blocks in Markdown.\n- A change to the diagram shows in the diff, line by line.","notes":"Parallel example, the pharmacy forecast. GitHub's documentation lists Mermaid among the diagram languages it renders (docs.github.com, \"Creating diagrams\"). PlantUML is the other example of the tool slot. Keep a diagram to what the reader needs: five boxes, not the whole system.","minutes":null,"lo":["LO2"]},{"id":"clean-run","n":24,"title":"Follow your README on a fresh copy, exactly as written","kind":"content","session":2,"hash":"0084403c","md":"#### [day1#clean-run] Follow your README on a fresh copy, exactly as written\n\n*Test the README*\n\n1. **1 · Fresh copy** no settings file, no environment\n2. **2 · Literal** type only what is written\n3. **3 · Log** each command, its result, each hesitation\n4. **4 · Fix** the README, not the laptop\n\n> **Two testers.** The kit's clean-run tool types exactly what you wrote; a partner shows you where a person hesitates.","notes":"The clean-run tool in the kit runs only uv commands and file copies from the README's shell blocks, on a fresh copy, and writes a run log. A partner's log catches what a tool cannot: an ambiguous sentence, a command that works but surprises. Both logs are evidence for the outcome.","minutes":null,"lo":["LO2"]},{"id":"check-readme","n":25,"title":"What did this README leave out?","kind":"quiz","session":2,"hash":"cf369cb8","md":"#### [day1#check-readme] What did this README leave out?\n\n*Checkpoint*\n\n**Question:** A stranger follows the forecast's README on a fresh copy. The install step works, then the run command stops with \"error: settings.toml not found\". The writer's laptop runs it fine.\n\n- A. A step that copies the example settings file\n- B. A note that the stranger's laptop is misconfigured\n- C. The command that runs the tests\n- D. An offer to send the writer's own settings file","notes":"Answer: A. The trap is that the writer cannot see the gap on their own laptop, which is why the clean run matters. If someone picks D, ask what happens with the next ten strangers.","minutes":null,"lo":["LO2"]},{"id":"lab-1-2","n":26,"title":"Peer-tested README","kind":"lab","session":2,"hash":"2c8468ae","md":"#### [day1#lab-1-2] Peer-tested README\n\nLab 1.2 · 60 min\n\nWrite the README of the undocumented urgency tagger, test it with a clean run, then have a partner follow it and log the run\n\n[D1_2_readme.html](https://sdaiaacademy.github.io/fnd-aic-106/labs/D1_2_readme.html)\n\n- [ ] Explore the repository and list what a stranger would have to guess (10 min)\n- [ ] Write the install, run and check sections (20 min)\n- [ ] Add the purpose, inputs and outputs, limits and a text diagram (10 min)\n- [ ] Run the clean-run test on your README and fix what fails (10 min)\n- [ ] Swap: a partner follows your README on a clean copy and writes the run log (10 min)\n- [ ] ✱ Stretch: Start the README of your own project, the first part of the capstone","notes":"**AI-tutor:** an assistant may comment on section order, not run the project for them. The first clean run may download Python 3.11 or later: allow a minute. Typical problems: commands written from the wrong folder, a README that says \"configure the tool\" without the command, and a `text` block that promises output the command does not print exactly. The repository copy goes in `work/`; the supplied folder stays untouched.","minutes":null,"lo":[]},{"id":"debrief-1-2","n":27,"title":"Four things a stranger had to guess in the tagger's repository","kind":"content","session":2,"hash":"953f0aeb","md":"#### [day1#debrief-1-2] Four things a stranger had to guess in the tagger's repository\n\n*Lab 1.2 debrief*\n\n| Gap | What the stranger saw | The README line that closes it |\n| --- | --- | --- |\n| Settings file | `error: config.toml not found` | copy `config.example.toml` to `config.toml` |\n| Python version | a TOML import error on an old Python | Python 3.11 or later; uv installs it |\n| Stale note | `NOTES.txt` names `tagger.py`, which does not exist | say the note is out of date |\n| Success | output with nothing to compare | `check: ok, 30 sample rows, 400 test rows, 2 recorded systems` |","notes":"Show after the lab only. The reference README passed the clean run with five commands; the same README without the copy step fails on its first run command (`uv run solutions/check_D1_2.py`). Ask a pair to read their partner's run log aloud: where did the person hesitate that the tool did not?","minutes":null,"lo":["LO2"]},{"id":"s3","n":28,"title":"The decision memo","kind":"section","session":3,"hash":"e7c02ed0","md":"#### [day1#s3] The decision memo\n\n*Session 3*\n\n- State the decision and the recommendation in the first two sentences\n- Compare options on quality, cost and latency with numbers traced to the source\n- Write the conditions under which the recommendation would change","notes":"","minutes":null,"lo":["LO3"]},{"id":"memo-one-page","n":29,"title":"One decision, one page, one signature","kind":"content","session":3,"hash":"5234075f","md":"#### [day1#memo-one-page] One decision, one page, one signature\n\n*The decision memo*\n\n- **1** decision, asked as a question\n- **450** words at most: one page\n- **3** roles named: author, reviewer, decider\n\n> **The reader has ten minutes.** Everything that does not help them choose goes in an appendix or the experiment report.","notes":"The 450-word page is the course's own rule, checked by the lab's memo checker. Three roles: the person who writes it is not the person who reviews it, and neither signs it. That separation is what makes the signature mean something.","minutes":null,"lo":["LO3"]},{"id":"memo-shape","n":30,"title":"Bottom line, options, trade-offs, recommendation, what would change it","kind":"content","session":3,"hash":"620f0526","md":"#### [day1#memo-shape] Bottom line, options, trade-offs, recommendation, what would change it\n\n*Five parts*\n\n1. **Bottom line** the recommendation and the request\n2. **Options** each one, named once\n3. **Trade-offs** measured, with intervals\n4. **Recommendation** argued from the reader's needs\n5. **What would change it** conditions with numbers","notes":"Press once per part. The last part is the one most memos lack. It turns a recommendation into something the reader can monitor: if the volume, the price or the measured quality moves past a line, the decision comes back. The lab's rubric scores these five parts, two points each.","minutes":null,"lo":["LO3"]},{"id":"options-honest","n":31,"title":"Keep the current way as an option, and name every option the same way throughout","kind":"content","session":3,"hash":"090cd19f","md":"#### [day1#options-honest] Keep the current way as an option, and name every option the same way throughout\n\n*Options*\n\n- **The status quo** is a real option with real costs: say what staying costs.\n- **Same names, same order** in the options, the table and the recommendation.\n- **No straw men:** an option nobody would pick wastes the reader's ten minutes.\n- **Unmeasured options** go in \"what would change this\", not in the table.\n\n> **What goes wrong.** \"Method B\", then \"the new model\", then \"the ML option\": the reader wonders if they are three things.","notes":"Link back to the glossary slide: option names are terms too. An unmeasured idea (\"what if we combined them?\") is tempting to add; put it where it belongs, as a condition or a next step, so the table holds only measured options.","minutes":null,"lo":["LO3"]},{"id":"tradeoff-table","n":32,"title":"Put the options side by side on the measures the reader cares about","kind":"content","session":3,"hash":"ab46ac58","md":"#### [day1#tradeoff-table] Put the options side by side on the measures the reader cares about\n\n*Trade-offs*\n\n| Pharmacy reorder forecast | Method A (current) | Method B |\n| --- | --- | --- |\n| Run-outs flagged in advance, of 60 | 41 · 0.68 (0.56 to 0.79) | 52 · 0.87 (0.76 to 0.93) |\n| Cost a month, one run a week | SAR 0 | SAR 15.17 |\n| Time a run | 1 minute | 14 minutes |\n\nA parallel example, synthetic, from `labs/_tools/slide_examples.py`.","notes":"Not lab data: the lab compares three urgency taggers on quality, cost and latency. Point at the interval column first: the reader's question is not only \"which is higher\" but \"how sure\". Ask: if the pharmacy needs at least 0.80 of run-outs flagged, what can we say about Method B? Its point estimate meets it, its interval reaches down to 0.76.","minutes":null,"lo":["LO3"]},{"id":"requirement-first","n":33,"title":"Argue from the reader's requirement, not from \"the best score\"","kind":"content","session":3,"hash":"8328c9c9","md":"#### [day1#requirement-first] Argue from the reader's requirement, not from \"the best score\"\n\n*Recommendation*\n\n- **From the score.** \"Method B is better on every quality measure, so we recommend it.\"\n- **From the requirement.** \"The pharmacy needs 0.80 of run-outs flagged within SAR 20 a month. Only Method B is likely to meet it, and it costs SAR 15.17.\"\n\n> **Requirements first.** State each one with its number, then show which options meet it and how surely.","notes":"A score without a requirement invites the reader to ask \"is that good enough?\". The requirement comes from the reader's side (here a pharmacy lead; in the lab, the head of reception) and the memo should quote it. \"Likely\" is earned by the interval: say what it rests on.","minutes":null,"lo":["LO3"]},{"id":"conditions","n":34,"title":"Name the lines that, once crossed, bring the decision back","kind":"content","session":3,"hash":"ecc1c43c","md":"#### [day1#conditions] Name the lines that, once crossed, bring the decision back\n\n*What would change this*\n\n- **A measured threshold:** if a larger test puts Method B below 0.80, bring a new option.\n- **A volume:** at SAR 3.50 a run, five runs a month fit the SAR 20 budget and a sixth breaks it; daily runs do not fit.\n- **A price:** at SAR 4.62 a run, weekly runs cost SAR 20.02 a month and break it.\n\n> **Show the working.** Each computed number gets one line: 20 / 3.50 = 5.71 runs.","notes":"Figures from `labs/_tools/slide_examples.py`. A condition with a number can be checked next quarter by someone who did not write the memo. The memo checker accepts a computed number only if it is in the evidence or shown on a line that starts with \"Working:\".","minutes":null,"lo":["LO3"]},{"id":"trace-numbers","n":35,"title":"Every number in the memo traces to the evidence or to its working","kind":"content","session":3,"hash":"30e19e79","md":"#### [day1#trace-numbers] Every number in the memo traces to the evidence or to its working\n\n*Every claim checked*\n\n- Copy numbers from the evidence; never retype them from memory.\n- Round once, the same way everywhere.\n- A number you computed has its working beside it.\n- The reviewer checks numbers before style.\n\n- **The checker in the lab.** `kit/memocheck.py` lists every number that is in neither the comparison, the context nor a Working line.","notes":"Tomorrow morning's supervised memo is written with AI off, from a result handed out on paper, and scored on the same five-criterion rubric as lab 1.3. Say so now, so that the lab is practice for it. The supervised memo's result is different from the lab's.","minutes":null,"lo":["LO3"]},{"id":"check-memo","n":36,"title":"Which sentence belongs in the pharmacy memo?","kind":"quiz","session":3,"hash":"6ee7e909","md":"#### [day1#check-memo] Which sentence belongs in the pharmacy memo?\n\n*Checkpoint*\n\n**Question:** The pharmacy needs at least 0.80 of run-outs flagged. Method B flagged 52 of 60, 0.87, with a 95% interval from 0.76 to 0.93.\n\n- A. \"Method B meets the 0.80 requirement.\"\n- B. \"Method B cannot be shown to meet 0.80, so we cannot recommend it.\"\n- C. \"Method B is significantly better than the current method.\"\n- D. \"Likely meets 0.80; its interval reaches down to 0.76.\"","notes":"Answer: D. Many pick A because the point estimate clears the line. Ask what they would say if a larger test came back at 0.78. B is the opposite error and would make every small-sample decision impossible.","minutes":null,"lo":["LO3"]},{"id":"lab-1-3","n":37,"title":"Decision memo","kind":"lab","session":3,"hash":"ab57520b","md":"#### [day1#lab-1-3] Decision memo\n\nLab 1.3 · 60 min\n\nWrite a one-page memo to the operations director on which tagger the reception desk should use, from the measured comparison\n\n[D1_3_memo.html](https://sdaiaacademy.github.io/fnd-aic-106/labs/D1_3_memo.html)\n\n- [ ] Read the context and the comparison; write the decision in one line (8 min)\n- [ ] Write the bottom line and the three options (12 min)\n- [ ] Write the trade-offs with numbers from the comparison and their intervals (15 min)\n- [ ] Write the recommendation and the conditions that would change it (10 min)\n- [ ] Run the checker; a partner scores your memo on the five-criterion rubric (15 min)\n- [ ] ✱ Stretch: Write the same choice as a decision record under five headings","notes":"**AI-tutor:** structure feedback only; the numbers and the recommendation are the participant's own, as in tomorrow's AI-off memo. Typical problems: per-1,000 costs left unconverted to a month, intervals dropped from the table, and a \"what would change this\" with no numbers. The pairs swap at step 5 and score with the rubric on the lab page.","minutes":null,"lo":[]},{"id":"debrief-1-3","n":38,"title":"Only Model L likely meets reception's 0.90, and it fits the budget","kind":"content","session":3,"hash":"755af87a","md":"#### [day1#debrief-1-3] Only Model L likely meets reception's 0.90, and it fits the budget\n\n*Lab 1.3 debrief*\n\n| 400 test messages, 80 urgent | Keyword rules | Model S | Model L |\n| --- | --- | --- | --- |\n| Urgent recall (95% interval) | 0.66 (0.55 to 0.76) | 0.82 (0.73 to 0.89) | 0.94 (0.86 to 0.97) |\n| A month at 9,000 messages | SAR 0 | SAR 72.18 | SAR 337.68 |\n| 95% of tags within | under 0.01 s | 1.24 s | 5.59 s |\n\nSynthetic case: Model S and Model L outputs are simulated and recorded; no model ran.\n\n> **And what would change it:** a larger test below 0.90; 10,661 messages a month or more; tags slower than 10 s.","notes":"Show after the lab only. Figures from `labs/files/D1_3/comparison.csv` (written by `labs/_tools/make_case.py`; the model outputs are synthetic and recorded, no model ran) and the working in `solutions/D1_3_memo.md`. A memo for Model S is defensible only if it says plainly that Model S's whole interval lies below 0.90. Ask two pairs to read their bottom line aloud.","minutes":null,"lo":["LO3"]},{"id":"wrap-up","n":39,"title":"Three things to keep","kind":"content","session":3,"hash":"170c4a79","md":"#### [day1#wrap-up] Three things to keep\n\n*Day 1 · wrap-up*\n\n- **The reader decides.** One reader, one action: the document type and its first sentence follow from them.\n- **Test the README.** A fresh copy, followed literally, by a tool and by a person.\n- **Numbers with their doubt.** A count, an interval and the line that would change your mind.","notes":"Ask each participant to write one sentence: the document they will rewrite first at work, and for which reader.","minutes":null,"lo":[]},{"id":"next","n":40,"title":"Tomorrow: a supervised memo, then reports, cards and assistants","kind":"content","session":3,"hash":"0f32c8a7","md":"#### [day1#next] Tomorrow: a supervised memo, then reports, cards and assistants\n\n*Next*\n\n- **First hour:** a one-page memo with AI off, from a result handed out on paper, scored on the lab 1.3 rubric.\n- **Bring your project:** a small data or code project of your own, or keep the tagger.\n- **Keep your files:** today's README and memo are the start of your capstone set.","notes":"Remind the room that the memo is 30% of the course and needs at least 50% to pass. Devices are closed for it. Participants without their own project document the urgency tagger and use the second evaluation log in `labs/files/capstone/`.","minutes":null,"lo":[]}],"activities":[{"id":"check-reader-q1","slide":"check-reader","type":"single","prompt":"The pharmacy team wants to add a second supplier feed to its forecast. Before anyone writes code, the finance manager must approve, change or refuse the plan, and wants to know what else was considered and what could go wrong.","options":[{"key":"A","text":"A README for the forecast repository and its feed"},{"key":"B","text":"A design document with alternatives and risks"},{"key":"C","text":"An experiment report on the new feed"},{"key":"D","text":"A system card for the forecast"}],"correct":[1],"explanation":"The reader approves a plan before code, and asks for alternatives and risks: that is the design document's job.","misconceptions":["Treats the reader as someone who will run the code; the finance manager approves before any code exists","","Reports a run that has not happened yet: there are no results to repeat or compare","Describes how far to rely on a running system; nothing is running yet"],"lo":["LO1"]},{"id":"check-readme-q1","slide":"check-readme","type":"single","prompt":"A stranger follows the forecast's README on a fresh copy. The install step works, then the run command stops with \"error: settings.toml not found\". The writer's laptop runs it fine.","options":[{"key":"A","text":"A step that copies the example settings file"},{"key":"B","text":"A note that the stranger's laptop is misconfigured"},{"key":"C","text":"The command that runs the tests"},{"key":"D","text":"An offer to send the writer's own settings file"}],"correct":[0],"explanation":"The writer's laptop has a file a fresh copy lacks; the README must create it.","misconceptions":["","Blames the stranger's machine: the same error would appear on any fresh copy","Moves the gap elsewhere: tests come after the run and cannot create the file","Fixes the symptom on one laptop instead of the document every stranger reads"],"lo":["LO2"]},{"id":"check-memo-q1","slide":"check-memo","type":"single","prompt":"The pharmacy needs at least 0.80 of run-outs flagged. Method B flagged 52 of 60, 0.87, with a 95% interval from 0.76 to 0.93.","options":[{"key":"A","text":"\"Method B meets the 0.80 requirement.\""},{"key":"B","text":"\"Method B cannot be shown to meet 0.80, so we cannot recommend it.\""},{"key":"C","text":"\"Method B is significantly better than the current method.\""},{"key":"D","text":"\"Likely meets 0.80; its interval reaches down to 0.76.\""}],"correct":[3],"explanation":"It states the point, the doubt and what the doubt rests on, so the reader can decide with open eyes.","misconceptions":["Reads the point estimate as a guarantee: the interval reaches below the requirement","Reads an interval that crosses the line as a failure, discarding the evidence that it is likely met","Replaces the measurement with a hedge the reader cannot check",""],"lo":["LO3"]}],"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":"day1.md","llms":"../llms.txt"},"tasks":[],"tools":[]},"bridge":{"allowedOrigins":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

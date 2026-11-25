@@ -1,0 +1,9 @@
+# Copy this file to config.toml before the first run.
+test_set = "data/test_set.csv"
+recorded_dir = "data/recorded"
+output_dir = "out"
+
+# Synthetic prices for the course case, in SAR per 1,000 tokens (input and output together).
+[price_sar_per_1000_tokens]
+model_s = 0.04
+model_l = 0.16

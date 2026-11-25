@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-ax="lab" data-track="foundations">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 1.2 · Peer-tested README · Technical Writing for Data and AI Work</title>
+<meta name="generator" content="SDAIA Academy engine 1.0.0">
+<link rel="icon" href="../_engine/icon.svg">
+<link rel="alternate" type="text/markdown" href="D1_2_readme.md">
+<link rel="describedby" href="../llms.txt">
+<link rel="stylesheet" href="../_engine/academy.css">
+</head>
+<body>
+<header>
+<div class="wrap">
+<div class="top"><div class="logo"></div><nav><a href="../index.html">Course page</a><a href="../slides/day1.html#lab-1-2">Back to the slides</a></nav></div>
+<span class="tag">Lab 1.2</span>
+<h1>Peer-tested README</h1>
+<p>Write the README of the undocumented urgency tagger, test it with a clean run, then have a partner follow it and log the run</p>
+<div class="meta"><span>60 minutes</span><span>Day 1</span><span>Session 2: READMEs, designs and decisions</span></div>
+</div>
+</header>
+<main class="wrap">
+<article class="lab" data-lab="1.2">
+  <div class="box goal">
+    <h3>You leave with</h3>
+    <ul>
+      <li>A README for the urgency tagger that a stranger can follow to install, run and check it on a clean machine.</li>
+      <li>Two run logs: the clean-run test's and your partner's, written while following your README by hand.</li>
+    </ul>
+  </div>
+
+  <h2>What you need</h2>
+  <div class="files">
+    <a href="files/urgency-tagger/pyproject.toml"><b>urgency-tagger/</b><span>The undocumented repository: code, synthetic data, simulated and recorded model outputs (no model runs), tests and an old notes file.</span></a>
+  </div>
+  <p><code>uv</code> and a terminal. Copy the folder <code>files/urgency-tagger</code> to <code>work/urgency-tagger</code> before you change anything in it, and write your README as <code>work/README.md</code>.</p>
+  <div class="callout note small"><b>AI in this lab: tutor.</b> An assistant may comment on the order of your sections. It cannot tell you what a stranger will trip on: only a clean run can.</div>
+
+  <h2>Steps</h2>
+
+  <div class="step">
+    <h3>1 · Explore the repository and list what a stranger would have to guess <span class="min">10 min</span></h3>
+    <p>Open every top-level file. Try to run the tagger the way <code>NOTES.txt</code> says. Write down each thing you had to work out: the Python version, the command, a file to create, what "working" looks like.</p>
+  </div>
+
+  <div class="step">
+    <h3>2 · Write the install, run and check sections <span class="min">20 min</span></h3>
+    <p>Put every command in a <code>```sh</code> block, exactly as typed, from the project folder. After a command whose output proves something, add a <code>```text</code> block with the line it must print. Say what the check commands print when all is well.</p>
+  </div>
+
+  <div class="step">
+    <h3>3 · Add the purpose, inputs and outputs, limits and a text diagram <span class="min">10 min</span></h3>
+    <p>Two sentences on what the tagger does and does not do; where the data and outputs live; one or two limits; a Mermaid flowchart of the message's path. Then check the diagram renders in a Markdown preview.</p>
+  </div>
+
+  <div class="step">
+    <h3>4 · Run the clean-run test on your README and fix what fails <span class="min">10 min</span></h3>
+    <pre class="code"><code>uv run kit/readme_run.py work/README.md</code></pre>
+    <p>It copies the project fresh, without <code>config.toml</code> or an environment, runs your commands in order, compares the promised output and writes <code>work/runlog.md</code>. It runs only <code>uv</code> commands and file copies.</p>
+  </div>
+
+  <div class="step">
+    <h3>5 · Swap: a partner follows your README on a clean copy and writes the run log <span class="min">10 min</span></h3>
+    <p>Your partner copies <code>files/urgency-tagger</code> to a new folder and follows your README by hand, writing each command, what happened and where they hesitated. Read their log; fix the README where they hesitated.</p>
+  </div>
+
+  <div class="step stretch">
+    <h3>✱ Stretch</h3>
+    <p>Start the README of your own project, the first part of the capstone, and run the same test on it with <code>--project</code>.</p>
+  </div>
+
+  <h2>Check yourself</h2>
+  <ol class="checks">
+    <li>Which step of your README did the clean run or your partner find missing?</li>
+    <li>How does a reader know the tagger works, not only that it ran?</li>
+    <li>What would you move to a design document rather than keep in the README?</li>
+  </ol>
+
+  <details class="instructor">
+    <summary>For the trainer</summary>
+    <p>Planted: <code>config.toml</code> must be copied from <code>config.example.toml</code> (the run stops with <code>error: config.toml not found</code>); Python 3.11 or later (the code reads TOML with the standard library); <code>NOTES.txt</code> names a <code>tagger.py</code> that does not exist; the command is <code>uv run python -m urgency_tagger</code>, not a script. The tests run with <code>uv run python -m unittest discover -s tests</code>; <code>check</code> must print <code>check: ok, 30 sample rows, 400 test rows, 2 recorded systems</code>.</p>
+    <p>Reference: <code>solutions/D1_2_README.md</code>. <code>uv run solutions/check_D1_2.py</code> runs it through the clean-run test and confirms that the same README without the config step fails. The first clean run downloads Python if the laptop lacks 3.11; allow a minute.</p>
+  </details>
+</article>
+<nav class="pager"><a href="D1_1_bluf.html" rel="prev">← Previous lab</a><a href="D1_3_memo.html" rel="next">Next lab →</a></nav>
+</main>
+<footer><div class="wrap">SDAIA Academy · Data &amp; AI Foundations Track · Technical Writing for Data and AI Work<br><span class="muted">Course version 2027.1.0 · engine 1.0.0 · built 2026-11-25 · commit 9351b4a</span></div></footer>
+<script type="application/json" id="academy-data">{"v":1,"engine":"1.0.0","build":{"at":"2026-11-25T04:20:13Z","version":"2027.1.0","commit":"9351b4a"},"course":{"id":"fnd-aic-106","code":"FND-AIC-106","title":"Technical Writing for Data and AI Work","track":"foundations","lang":"en","dir":"ltr","url":"https://sdaiaacademy.github.io/fnd-aic-106/","repo":"SDAIAAcademy/fnd-aic-106","home":"../index.html"},"lab":{"id":"1.2","title":"Peer-tested README","summary":"Write the README of the undocumented urgency tagger, test it with a clean run, then have a partner follow it and log the run","minutes":60,"day":1,"unit":"Day 1","session":2,"deck":"../slides/day1.html#lab-1-2","prev":"D1_1_bluf.html","next":"D1_3_memo.html","alt":{}},"ai":{"context":{"course":"../context/course.md","courseJs":"../context/course.js","day":null,"llms":"../llms.txt"},"tasks":[],"tools":[]},"features":{},"strings":{}}</script>
+<script src="../_engine/academy.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+system,test_messages,urgent_found,urgent_total,urgent_recall,urgent_recall_low,urgent_recall_high,accuracy,macro_f1,cost_sar_per_1000_messages,latency_median_s,latency_p95_s
+Keyword rules,400,53,80,0.66,0.55,0.76,0.78,0.76,0.00,0.00,0.00
+Model S,400,66,80,0.82,0.73,0.89,0.85,0.84,8.02,0.71,1.24
+Model L,400,75,80,0.94,0.86,0.97,0.94,0.93,37.52,2.41,5.59

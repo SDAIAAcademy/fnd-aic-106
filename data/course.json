@@ -1,0 +1,496 @@
+{
+  "v": 1,
+  "engine": "1.0.0",
+  "build": {
+    "at": "2026-11-25T04:20:13Z",
+    "version": "2027.1.0",
+    "commit": "9351b4a"
+  },
+  "lang": "en",
+  "dir": "ltr",
+  "langs": [
+    "en"
+  ],
+  "alt": {},
+  "course": {
+    "id": "fnd-aic-106",
+    "code": "FND-AIC-106",
+    "version": "2027.1.0",
+    "title": "Technical Writing for Data and AI Work",
+    "tagline": "Write the README, decision memo, experiment report and model card a data or AI project runs on, for a named reader, with every claim checked",
+    "description": "Participants write the documents that data and AI work runs on: a README, a design document, a decision memo, an experiment report and a model or system card. Each starts from a repository, a model comparison or an evaluation log and ends with a peer test; one draft is unassisted, another is revised with an assistant, and every claim is checked.",
+    "track": "foundations",
+    "track_name": "Data & AI Foundations Track",
+    "level": 100,
+    "badge": null,
+    "audience": "Beginners. Graduates, career changers and computing professionals preparing for Developer or Specialist courses, who can run a Python notebook but have not yet studied AI methods.",
+    "prerequisites": [
+      "Has a small data or code project, own or provided, to document"
+    ],
+    "url": "https://sdaiaacademy.github.io/fnd-aic-106/",
+    "repo": "SDAIAAcademy/fnd-aic-106",
+    "home": "../index.html",
+    "format": "workshop",
+    "format_note": "Workshop: one and a half days of writing labs and a tracked follow-up review",
+    "shape": "2 teaching days + capstone day",
+    "hours": {
+      "instruction": 3.5,
+      "lab": 5,
+      "guided_self_study": 1.5,
+      "assessment": 1,
+      "capstone": 1,
+      "total": 12
+    },
+    "unit": "day",
+    "outcomes": [
+      {
+        "id": "LO1",
+        "text": "Identify the reader, purpose and required sections of five common technical document types, given five scenarios with named readers",
+        "level": "Awareness",
+        "evidence": "an outline per scenario matching the reference structure"
+      },
+      {
+        "id": "LO2",
+        "text": "Draft a README that lets a stranger install, run and check a small project, given an undocumented repository",
+        "level": "Applied",
+        "evidence": "the README and a peer's run log on a clean environment"
+      },
+      {
+        "id": "LO3",
+        "text": "Draft a one-page decision memo with options, trade-offs, a recommendation and the conditions that would change it, given a measured comparison of two models on quality, cost and latency",
+        "level": "Applied",
+        "evidence": "a memo scored on a five-criterion rubric"
+      },
+      {
+        "id": "LO4",
+        "text": "Prepare an experiment report and a model card that state uncertainty, results by data slice and known limits, given an evaluation run log",
+        "level": "Applied",
+        "evidence": "a report and card that pass a peer checklist"
+      },
+      {
+        "id": "LO5",
+        "text": "Compare an unassisted draft with an assisted revision for accuracy, clarity and invented content, given the participant's two drafts",
+        "level": "Awareness",
+        "evidence": "a revision log of how each claim was checked"
+      }
+    ],
+    "case_study": {
+      "name": "Tarthuth Veterinary Clinics",
+      "summary": "A fictional private chain of veterinary clinics whose two-person data team built a small Python project, the request urgency tagger, that sorts owners' appointment messages in Arabic, English and mixed text into urgent, soon and routine. Every file is synthetic and generated with a fixed seed: the messages, a 400-message test set, the outputs of a keyword-rules baseline that really runs, the simulated and recorded outputs of two hosted models labelled Model S and Model L with their cost and latency, and the evaluation log. No model was called."
+    },
+    "days": [
+      {
+        "id": "day1",
+        "kind": "day",
+        "n": 1,
+        "number": 1,
+        "label": "Day 1",
+        "title": "Writing for a reader",
+        "subtitle": "One reader, the bottom line first, and the documents a project needs before anyone else can use it",
+        "shape": "3 sessions · 3 labs",
+        "deck": "../slides/day1.html",
+        "md": "../slides/day1.md",
+        "url": "https://sdaiaacademy.github.io/fnd-aic-106/slides/day1.html",
+        "sessions": [
+          {
+            "n": 1,
+            "label": "Session 1",
+            "title": "Write for one reader",
+            "summary": "Name the reader and the decision before choosing the document, then put the bottom line first",
+            "outcomes": [
+              "Name the reader, purpose and decision behind a request for a document",
+              "Choose the document type and its required sections for a scenario",
+              "Rewrite an update so the bottom line, the request and the uncertainty come first"
+            ],
+            "lo": [
+              "LO1"
+            ],
+            "minutes": 110,
+            "lab": {
+              "id": "1.1",
+              "title": "Bottom-line-first rewrite",
+              "summary": "Outline five documents for five readers, then rewrite the data team's status update bottom line first and check it",
+              "minutes": 60,
+              "href": "../labs/D1_1_bluf.html",
+              "steps": [
+                {
+                  "text": "Read the five scenarios and name each reader's decision",
+                  "minutes": 8
+                },
+                {
+                  "text": "Outline the five documents: reader, purpose, sections",
+                  "minutes": 17
+                },
+                {
+                  "text": "Mark where the status update hides its bottom line",
+                  "minutes": 5
+                },
+                {
+                  "text": "Rewrite it bottom line first, with glossary terms and uncertainty in words",
+                  "minutes": 20
+                },
+                {
+                  "text": "Run the checker, then score a partner's rewrite with the rubric",
+                  "minutes": 10
+                }
+              ],
+              "stretch": "Write the first paragraph again in Arabic with the glossary's Arabic terms"
+            }
+          },
+          {
+            "n": 2,
+            "label": "Session 2",
+            "title": "READMEs, designs and decisions",
+            "summary": "Write what a stranger needs to install, run and check a project, and keep designs and decisions as text beside the code",
+            "outcomes": [
+              "Write install, run and check steps a stranger can follow on a clean machine",
+              "Separate a README from a design document and a decision record",
+              "Draw a pipeline as text that the repository renders"
+            ],
+            "lo": [
+              "LO1",
+              "LO2"
+            ],
+            "minutes": 100,
+            "lab": {
+              "id": "1.2",
+              "title": "Peer-tested README",
+              "summary": "Write the README of the undocumented urgency tagger, test it with a clean run, then have a partner follow it and log the run",
+              "minutes": 60,
+              "href": "../labs/D1_2_readme.html",
+              "steps": [
+                {
+                  "text": "Explore the repository and list what a stranger would have to guess",
+                  "minutes": 10
+                },
+                {
+                  "text": "Write the install, run and check sections",
+                  "minutes": 20
+                },
+                {
+                  "text": "Add the purpose, inputs and outputs, limits and a text diagram",
+                  "minutes": 10
+                },
+                {
+                  "text": "Run the clean-run test on your README and fix what fails",
+                  "minutes": 10
+                },
+                {
+                  "text": "Swap: a partner follows your README on a clean copy and writes the run log",
+                  "minutes": 10
+                }
+              ],
+              "stretch": "Start the README of your own project, the first part of the capstone"
+            }
+          },
+          {
+            "n": 3,
+            "label": "Session 3",
+            "title": "The decision memo",
+            "summary": "Turn a measured comparison into one page: options, trade-offs, a recommendation and what would change it",
+            "outcomes": [
+              "State the decision and the recommendation in the first two sentences",
+              "Compare options on quality, cost and latency with numbers traced to the source",
+              "Write the conditions under which the recommendation would change"
+            ],
+            "lo": [
+              "LO3"
+            ],
+            "minutes": 100,
+            "lab": {
+              "id": "1.3",
+              "title": "Decision memo",
+              "summary": "Write a one-page memo to the operations director on which tagger the reception desk should use, from the measured comparison",
+              "minutes": 60,
+              "href": "../labs/D1_3_memo.html",
+              "steps": [
+                {
+                  "text": "Read the context and the comparison; write the decision in one line",
+                  "minutes": 8
+                },
+                {
+                  "text": "Write the bottom line and the three options",
+                  "minutes": 12
+                },
+                {
+                  "text": "Write the trade-offs with numbers from the comparison and their intervals",
+                  "minutes": 15
+                },
+                {
+                  "text": "Write the recommendation and the conditions that would change it",
+                  "minutes": 10
+                },
+                {
+                  "text": "Run the checker; a partner scores your memo on the five-criterion rubric",
+                  "minutes": 15
+                }
+              ],
+              "stretch": "Write the same choice as a decision record under five headings"
+            }
+          }
+        ]
+      },
+      {
+        "id": "day2",
+        "kind": "day",
+        "n": 2,
+        "number": 2,
+        "label": "Day 2",
+        "title": "Evidence documents and writing with assistance",
+        "subtitle": "Reports and cards that state uncertainty, slices and limits, and an assistant whose every change is checked",
+        "shape": "2 sessions · 2 labs",
+        "deck": "../slides/day2.html",
+        "md": "../slides/day2.md",
+        "url": "https://sdaiaacademy.github.io/fnd-aic-106/slides/day2.html",
+        "sessions": [
+          {
+            "n": 1,
+            "label": "Session 1",
+            "title": "Experiment reports and model cards",
+            "summary": "Report what an evaluation measured, by slice and with its uncertainty, and write the card a user of the model reads",
+            "outcomes": [
+              "Report results by data slice with the number of cases and an interval",
+              "Write known limits and out-of-scope uses a reader can act on",
+              "Check a report and a card with a peer checklist"
+            ],
+            "lo": [
+              "LO4"
+            ],
+            "minutes": 100,
+            "lab": {
+              "id": "2.1",
+              "title": "Experiment report and model card",
+              "summary": "From the evaluation log, write an experiment report for the data team lead and a model card for the head of reception, the report drafted with AI off",
+              "minutes": 60,
+              "href": "../labs/D2_1_report_card.html",
+              "steps": [
+                {
+                  "text": "Run the statistics tool on the evaluation log and read the slice table",
+                  "minutes": 10
+                },
+                {
+                  "text": "Draft the experiment report with AI off: question, setup, results, uncertainty",
+                  "minutes": 20
+                },
+                {
+                  "text": "Draft the model card for the head of reception",
+                  "minutes": 15
+                },
+                {
+                  "text": "Run the card checker and fix what it reports",
+                  "minutes": 5
+                },
+                {
+                  "text": "Swap with a partner and complete the peer checklist",
+                  "minutes": 10
+                }
+              ],
+              "stretch": "Add a text diagram of the evaluation flow to the report"
+            }
+          },
+          {
+            "n": 2,
+            "label": "Session 2",
+            "title": "Writing with an assistant",
+            "summary": "Draft without the assistant first, then check every claim an assisted revision changes, log it and disclose it",
+            "outcomes": [
+              "Spot the typical errors of an assisted revision: changed numbers, dropped limits, invented sources",
+              "Keep a revision log that says how each claim was checked",
+              "Write a disclosure line and a context file for a coding agent"
+            ],
+            "lo": [
+              "LO5"
+            ],
+            "minutes": 100,
+            "lab": {
+              "id": "2.2",
+              "title": "Unassisted draft against assisted revision",
+              "summary": "Compare your AI-off report with an assisted revision claim by claim, keep a revision log, disclose the assistance and write the repository's agent context file",
+              "minutes": 60,
+              "href": "../labs/D2_2_revision.html",
+              "steps": [
+                {
+                  "text": "Produce the assisted revision of your draft",
+                  "minutes": 5
+                },
+                {
+                  "text": "Run the claim diff",
+                  "minutes": 10
+                },
+                {
+                  "text": "Check each changed claim and log it",
+                  "minutes": 20
+                },
+                {
+                  "text": "Write the final version and its disclosure line",
+                  "minutes": 10
+                },
+                {
+                  "text": "Write the agent context file for the tagger",
+                  "minutes": 10
+                },
+                {
+                  "text": "Run the log checker and fix it",
+                  "minutes": 5
+                }
+              ],
+              "stretch": "Revise with an approved assistant on Public text only, and log it the same way"
+            }
+          }
+        ]
+      },
+      {
+        "id": "capstone",
+        "kind": "capstone",
+        "n": 3,
+        "number": null,
+        "label": "Capstone",
+        "title": "Documentation set review",
+        "subtitle": "Each participant shows the set in four minutes, then answers four minutes of questions on its claims and its history",
+        "shape": "",
+        "deck": "../slides/capstone.html",
+        "md": "../slides/capstone.md",
+        "url": "https://sdaiaacademy.github.io/fnd-aic-106/slides/capstone.html",
+        "sessions": []
+      }
+    ],
+    "capstone": {
+      "summary": "A documentation set for one project (README, decision memo, model or system card, revision log), reviewed in a follow-up",
+      "submission": "An individual task, submitted as a public GitHub repository link before the follow-up review. The repository holds the project or a link to it, the README, the decision memo, the model or system card, the revision log with its disclosure line, and the commit history that shows the drafts. Only public or synthetic material is used, and only Public text goes to any assistant.",
+      "talk_minutes": 4,
+      "qa_minutes": 4,
+      "rubric": [
+        {
+          "criterion": "The README lets a stranger install, run and check the project on a clean machine",
+          "weight": 20
+        },
+        {
+          "criterion": "The decision memo states options, trade-offs, a recommendation and the conditions that would change it",
+          "weight": 20
+        },
+        {
+          "criterion": "The card states intended use, results by slice with uncertainty, and known limits",
+          "weight": 25
+        },
+        {
+          "criterion": "The revision log shows how each assisted change was checked, with a disclosure line",
+          "weight": 20
+        },
+        {
+          "criterion": "Each document is written for its named reader: bottom line first, consistent terms, plain uncertainty",
+          "weight": 15
+        }
+      ]
+    },
+    "labs": {
+      "kind": "pages",
+      "base": "labs/"
+    },
+    "tools": [
+      {
+        "slot": "Documents and diagrams as text",
+        "examples": [
+          "Markdown in a Git repository",
+          "Mermaid",
+          "PlantUML"
+        ]
+      },
+      {
+        "slot": "Prose and style checks",
+        "examples": [
+          "Vale",
+          "a spelling and grammar checker"
+        ]
+      },
+      {
+        "slot": "Writing assistant",
+        "examples": [
+          "a locally served open-weight model",
+          "an approved general-purpose assistant"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "group": "National references",
+        "items": [
+          {
+            "title": "SDAIA, AI Ethics Principles (English)",
+            "url": "https://sdaia.gov.sa/en/SDAIA/about/Documents/ai-principles.pdf"
+          },
+          {
+            "title": "سدايا، مبادئ أخلاقيات الذكاء الاصطناعي (Arabic)",
+            "url": "https://sdaia.gov.sa/ar/SDAIA/about/Documents/ai-principles.pdf"
+          },
+          {
+            "title": "SDAIA, Generative Artificial Intelligence Guidelines for Government (English)",
+            "url": "https://sdaia.gov.sa/en/SDAIA/about/Files/GenAIGuidelinesForGovernmentENCompressed.pdf"
+          },
+          {
+            "title": "سدايا، المبادئ التوجيهية للذكاء الاصطناعي التوليدي للجهات الحكومية (Arabic)",
+            "url": "https://sdaia.gov.sa/ar/SDAIA/about/Files/GenAIGuidelinesForGovernmentARCompressed.pdf"
+          }
+        ]
+      },
+      {
+        "group": "Documents for systems and evidence",
+        "items": [
+          {
+            "title": "Mitchell et al., Model Cards for Model Reporting (2019)",
+            "url": "https://arxiv.org/abs/1810.03993"
+          },
+          {
+            "title": "Hugging Face Hub documentation: Model Cards",
+            "url": "https://huggingface.co/docs/hub/model-cards"
+          },
+          {
+            "title": "Michael Nygard, Documenting Architecture Decisions (2011)",
+            "url": "https://www.cognitect.com/blog/2011/11/15/documenting-architecture-decisions"
+          },
+          {
+            "title": "Architectural Decision Records",
+            "url": "https://adr.github.io/"
+          },
+          {
+            "title": "Diátaxis, a systematic approach to technical documentation",
+            "url": "https://diataxis.fr/"
+          },
+          {
+            "title": "AGENTS.md, a format for guiding coding agents",
+            "url": "https://agents.md/"
+          }
+        ]
+      },
+      {
+        "group": "Writing for a reader",
+        "items": [
+          {
+            "title": "Google for Developers, Technical Writing One",
+            "url": "https://developers.google.com/tech-writing/one"
+          }
+        ]
+      },
+      {
+        "group": "Tools",
+        "items": [
+          {
+            "title": "Mermaid: diagrams from text",
+            "url": "https://mermaid.js.org/intro/"
+          },
+          {
+            "title": "GitHub Docs: Creating diagrams",
+            "url": "https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams"
+          },
+          {
+            "title": "PlantUML",
+            "url": "https://plantuml.com/"
+          },
+          {
+            "title": "Vale documentation",
+            "url": "https://docs.vale.sh/"
+          }
+        ]
+      }
+    ]
+  }
+}
